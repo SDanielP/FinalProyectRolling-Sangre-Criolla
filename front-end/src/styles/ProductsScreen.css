@@ -1,0 +1,43 @@
+.navProductos{
+    display: block;
+    padding-top: 2rem;
+    background-color: blueviolet;
+}
+
+.navUsuario{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 2rem 4rem 0.5rem 4rem;
+    background-color: blueviolet;
+}
+
+/* .botonesProductos{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* padding: 2rem 5rem 2rem 5rem; */
+    /* background-color: pink; 
+} */
+
+.ordenar{
+    margin-left: 2rem;
+    min-width: 10rem;
+    max-width: 10rem;
+}
+
+/* .ordenarOptn{
+    font-size:x-small;
+} */
+
+.buscarCat{
+    margin-right: 2rem;
+    width: 10rem;
+}
+
+/*Section Productos*/
+.productos{
+    padding: 1rem 2.5rem;
+    display: flex;
+    justify-content: flex-start;
+}

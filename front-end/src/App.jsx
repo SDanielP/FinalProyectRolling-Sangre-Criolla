@@ -1,35 +1,48 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./styles/App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import NavbarMenu from "./components/general/NavbarMenu.jsx";
 
-function App() {
-  const [count, setCount] = useState(0)
+import ProductsScreen from "./pages/ProductsScreen";
+import ErrorScreen from "./pages/ErrorScreen";
+
+import { useEffect } from "react";
+import { useCategories } from "./store/useCategories.js";
+// import { useNavigate } from "react-router-dom";
+
+const App = () =>  {
+  /* ----- Estado Categorías - Zustand ----- */
+  const { setCategories } = useCategories();
+
+
+  /* ----- API ----- */
+  const getCategorias = async () => {
+    const url = "https://fakestoreapi.com"
+    const response = await fetch(`${url}/products/categories`);
+    const dataCategories = await response.json();
+
+    //***Asigno a las categorías la info de la API
+    setCategories(dataCategories);
+  };
+
+  /* ----- RENDERIZACIÓN CONSTANTE DE CATEGORÍAS ----- */
+  useEffect(() => {
+    getCategorias();
+  }, []);
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Router>
+        <NavbarMenu key={9000}/>
+        <Routes>
+          {/* <Route key={1000} path="/" element={<HomeScreen />} /> */}
+          <Route key={3000} path="products/all" element={<ProductsScreen />} />
+          <Route key={4000} path="products/:category" element={<ProductsScreen />} />
+          {/* <Route key={5000} path="products/:category/:id" element={<ProductDetail />} /> */}
+          <Route key={8000} path="*" element={<ErrorScreen />} />
+        </Routes>
+      </Router>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
