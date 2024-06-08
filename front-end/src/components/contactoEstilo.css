@@ -1,0 +1,24 @@
+.cajaContacto {
+  color: #fff;
+  padding: 1rem;
+  background-color: #733224;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.iconoContacto {
+  color: white;
+  background-color: #260e09;
+  padding: 1.3rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+svg {
+  width: 3.5;
+}
