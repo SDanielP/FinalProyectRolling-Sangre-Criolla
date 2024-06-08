@@ -2,7 +2,7 @@ import Form from 'react-bootstrap/Form';
 
 function FormuColor() {
     return ( 
-        <section className='mt-4'>
+        <section className='mt-2'>
       <h3 htmlFor='' className='fs-5'>Color</h3>
       {['radio'].map((type) => (
         <div key={`inline-${type}`} className="mb-3 flex-column align-items-start justify-content-start">

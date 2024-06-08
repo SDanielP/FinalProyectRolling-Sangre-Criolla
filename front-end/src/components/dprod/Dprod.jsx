@@ -3,13 +3,14 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import FormProd from './comp-dprod/FormProd';
 import DescEnv from './comp-dprod/DescEnv';
+import ImgP from './comp-dprod/ImgP';
 
 function DProd() {
     return (
         <Container>
           <Row xs={1} md={2}>
             <Col> 
-            <p>Columna 1</p>
+            <ImgP/>
             </Col>
         <Col className='sm-col-12'> 
           <FormProd />
@@ -21,6 +22,7 @@ function DProd() {
         </Col>
       </Row>
     </Container>
+    
   );
 }
 
