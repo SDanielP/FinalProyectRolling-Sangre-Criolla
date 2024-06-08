@@ -11,6 +11,8 @@
   },
   "devDependencies": {
     "concurrently": "^6.0.0"
+  },
+  "dependencies": {
+    "react-bootstrap": "^2.10.2"
   }
 }
-

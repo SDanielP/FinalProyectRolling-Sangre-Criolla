@@ -9,18 +9,19 @@ const PriceFilter = () => {
   const [values, setValues] = useState([0, 1000]);
   const {setMinPrice, setMaxPrice} = usePriceFilter();
 
-  
-  const handleChange = (newValues) => {
-    setValues(newValues), 
-    setMinPrice(values[0]);
-    setMaxPrice(values[1]);
-  };
-  // const debouncedPriceMin = useDebounce(setMinPrice, 1000);
-  // const debouncedPriceMax = useDebounce(setMaxPrice, 1000);
+  const debouncedMinPrice = useDebounce(values[0], 1000);
+  const debouncedMaxPrice = useDebounce(values[1], 1000);
 
-  // useEffect(() => {
-    
-  // }, [debouncedPriceMin, debouncedPriceMax]);
+  const handleChange = (newValues) => {
+    setValues(newValues);
+    setMinPrice(newValues[0]);
+    setMaxPrice(newValues[1]);
+  };
+
+  useEffect(() => {
+    setMinPrice(debouncedMinPrice);
+    setMaxPrice(debouncedMaxPrice);
+  }, [debouncedMinPrice, debouncedMaxPrice, setMinPrice, setMaxPrice]);
 
   return (
     <div

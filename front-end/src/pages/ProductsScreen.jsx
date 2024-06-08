@@ -27,24 +27,12 @@ const url = "https://fakestoreapi.com";
 
 const ProductsScreen = () => {
   /* ----- Estados - Zustand ----- */
+  const { categories } = useCategories();
   const { setProducts } = useProducts();
   const { ubication, setUbication } = useUbication();
   const { min, max } = usePriceFilter();
   const { ordenarProp } = useSortFilter();
   const { selectedCategory, setSelectedCategory } = useCategoriesFilter();
-
-  const { setCategories } = useCategories();
-
-  /* ----- API ----- */
-
-  const getCategorias = async () => {
-    const url = "https://fakestoreapi.com";
-    const response = await fetch(`${url}/products/categories`);
-    const dataCategories = await response.json();
-
-    //***Asigno a las categorías la info de la API
-    setCategories(dataCategories);
-  };
 
   //***Obtener productos
   const getProductos = useCallback(async () => {
@@ -57,9 +45,9 @@ const ProductsScreen = () => {
 
   /* ----- RENDERIZACIÓN CONSTANTE DE CATEGORÍAS y PRODUCTOS ----- */
   useEffect(() => {
-    getCategorias();
+    // getCategorias();
     getProductos();
-  }, []); //Análogo useCallback()
+  }, [categories, selectedCategory]); //Análogo useCallback()
 
   /* ----- Método manejo de botón para volver a una ruta anterior o padre ----- */
   const handleOnClick = () => {
@@ -107,47 +95,11 @@ const ProductsScreen = () => {
       <section className="productos">
         <div style={{ width: "20%", minWidth: "20%" }}>
           <h3>Filtrar por</h3>
-
           <div>
-            <div className="botonesProductos">
-              <CategoriesFilter />
-
-              <SortFilter />
-            </div>
-
+            <SortFilter />
+            <CategoriesFilter />
             <PriceFilter />
-
-            <li className="dropdown__list">
-              <a href="#" className="dropdown__link">
-                <span className="dropdown__span">Categorías</span>
-                <img
-                  src="./assets/icons/down.svg"
-                  className="dropdown__arrow"
-                />
-
-                <input type="checkbox" className="dropdown__check" />
-              </a>
-
-              <div className="dropdown__content">
-                <ul className="dropdown__sub">
-                  <li className="dropdown__li">
-                    <a href="#" className="dropdown__anchor">
-                      Categoría 1
-                    </a>
-                  </li>
-                  <li className="dropdown__li">
-                    <a href="#" className="dropdown__anchor">
-                      Categoría 2
-                    </a>
-                  </li>
-                  <li className="dropdown__li">
-                    <a href="#" className="dropdown__anchor">
-                      Categoría 3
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </li>
+            
 
             <li className="dropdown__list">
               <a href="#" className="dropdown__link">
@@ -220,7 +172,7 @@ const ProductsScreen = () => {
           {selectedCategory != "Selecciona una categoría" ? (
             <Products
               className="div-products"
-              categoria={selectedCategory.toLowerCase()}
+              categoria={selectedCategory.toString().toLowerCase()}
               ordenar={ordenarProp}
               precioMin={min}
               precioMax={max}

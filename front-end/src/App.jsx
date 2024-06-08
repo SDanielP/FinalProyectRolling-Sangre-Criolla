@@ -36,8 +36,8 @@ const App = () =>  {
         <Routes>
           {/* <Route key={1000} path="/" element={<HomeScreen />} /> */}
           <Route key={3000} path="products/all" element={<ProductsScreen />} />
-          <Route key={4000} path="products/:category" element={<ProductsScreen />} />
-          {/* <Route key={5000} path="products/:category/:id" element={<ProductDetail />} /> */}
+          <Route key={4000} path="products/:category" element={<ErrorScreen />} />
+          {/* <Route key={5000} path="products/:category/:id" element={<ProductsScreen />} /> */}
           <Route key={8000} path="*" element={<ErrorScreen />} />
         </Routes>
       </Router>

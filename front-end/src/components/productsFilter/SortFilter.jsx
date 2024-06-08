@@ -1,8 +1,8 @@
 import React from "react";
 import { useEffect } from "react";
 import { useSortFilter } from "../../store/productsFilter/useSortFilter";
-import DropdownButton from "react-bootstrap/DropdownButton";
-import Dropdown from "react-bootstrap/Dropdown";
+import Dropdown from 'react-bootstrap/Dropdown';
+import DropdownButton from 'react-bootstrap/DropdownButton';
 
 /* ----- Constantes ----- */
 //***Opciones para el botón ordenar
@@ -21,10 +21,11 @@ const SortFilter = () => {
   useEffect(() => {}, [ordenarSeleccion]);
   return (
     <>
+      <p>No funciona el dropdown en SortFilter</p>
       <DropdownButton
         className="ordenar"
         title={ordenarSeleccion}
-        id="bg-nested-dropdown"
+        id="dropdown-basic-button"
         onSelect={(opcionOrdenar) => (
           setSortSelected(ordenarOpciones[opcionOrdenar - 1].label),
           setSortProp(ordenarOpciones[opcionOrdenar - 1].value)
