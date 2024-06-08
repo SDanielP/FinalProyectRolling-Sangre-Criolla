@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-// import { useCategories } from "../../store/useCategories.js";
+import { useCategories } from "../../store/useCategories.js";
 import { useCategoriesFilter } from "../../store/productsFilter/useCategoriesFilter.js";
 import { useUbication } from "../../store/useUbication.js";
 
