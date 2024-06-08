@@ -3,7 +3,7 @@ import Slider from "react-slider";
 import { usePriceFilter } from "../../../store/productsFilter/usePriceFilter.js";
 import { useDebounce } from "@uidotdev/usehooks";
 
-import "../../../styles/components/shop/categoriesClient/PriceFilter.css";
+import "../../../styles/components/shop/productsFilter/PriceFilter.css";
 
 const PriceFilter = () => {
   const [values, setValues] = useState([0, 1000]);

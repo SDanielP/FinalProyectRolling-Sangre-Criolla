@@ -8,29 +8,32 @@ import { useUbication } from "../../../store/useUbication.js";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 
+import "../../../styles/components/shop/productsFilter/DropdownFilter.css"; // Importa los estilos personalizados
+
 const CategoriesFilter = () => {
   /* ----- Estados para los botones ----- */
   // const [ categories, setCategories ] = useState([])
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   /* ----- Estados para los botones - Zustand ----- */
   const { categories } = useCategories();
   const { selectedCategory, setSelectedCategory } = useCategoriesFilter();
   const { setUbication } = useUbication();
 
-    /* ----- API ----- */
-    // const getCategorias = async () => {
-    //   const url = "https://fakestoreapi.com"
-    //   const response = await fetch(`${url}/products/categories`);
-    //   const dataCategories = await response.json();
-  
-    //   //***Asigno a las categorías la info de la API
-    //   setCategories(dataCategories);
-    // };
-  
-    /* ----- RENDERIZACIÓN CONSTANTE DE CATEGORÍAS ----- */
-    // useEffect(() => {
-    //   getCategorias();
-    // }, []);
+  /* ----- API ----- */
+  // const getCategorias = async () => {
+  //   const url = "https://fakestoreapi.com"
+  //   const response = await fetch(`${url}/products/categories`);
+  //   const dataCategories = await response.json();
+
+  //   //***Asigno a las categorías la info de la API
+  //   setCategories(dataCategories);
+  // };
+
+  /* ----- RENDERIZACIÓN CONSTANTE DE CATEGORÍAS ----- */
+  // useEffect(() => {
+  //   getCategorias();
+  // }, []);
 
   /* ----- Uso de useNavigate() ----- */
   const navigate = useNavigate(); // Importar useNavigate()
@@ -38,20 +41,26 @@ const CategoriesFilter = () => {
   const handleCategory = (nuevaCategoria) => {
     setSelectedCategory(nuevaCategoria);
     setUbication(nuevaCategoria);
+    // setIsDropdownOpen(true); // Cierra el dropdown al seleccionar una opción
     navigate(`/products/${nuevaCategoria.toLowerCase()}`);
   };
   useEffect(() => {
     console.log(selectedCategory);
-  }, [selectedCategory]);
+  }, [selectedCategory, handleCategory]);
 
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
   return (
     <>
-      <p>No funciona el dropdown en CategoriesFilter</p>
-
       <DropdownButton
         title={selectedCategory}
         id="bg-nested-dropdown"
+        className="custom-dropdown" // Aplica la clase personalizada
         onSelect={(nuevaCategoria) => handleCategory(nuevaCategoria)}
+        show={isDropdownOpen} 
+        onToggle={toggleDropdown}
       >
         {categories.map((categoria) => (
           <Dropdown.Item
@@ -62,6 +71,7 @@ const CategoriesFilter = () => {
           </Dropdown.Item>
         ))}
       </DropdownButton>
+
 
       {/* Opción con CSS - No funciona el navigate */}
       {/* <li className="dropdown__list">

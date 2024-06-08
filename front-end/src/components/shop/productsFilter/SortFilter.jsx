@@ -21,7 +21,6 @@ const SortFilter = () => {
   useEffect(() => {}, [ordenarSeleccion]);
   return (
     <>
-      <p>No funciona el dropdown en SortFilter</p>
       <DropdownButton
         className="ordenar"
         title={ordenarSeleccion}

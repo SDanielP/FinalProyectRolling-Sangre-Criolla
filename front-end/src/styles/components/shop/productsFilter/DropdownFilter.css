@@ -1,0 +1,35 @@
+/* DropdownFilter.css */
+
+.custom-dropdown {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.custom-dropdown .dropdown-toggle {
+  width: 100%;
+  background-color: #f8f9fa; /* Color de fondo similar */
+  border: 1px solid #ddd; /* Borde similar */
+  border-radius: 0;
+  text-align: left;
+  padding: 10px 15px;
+  font-size: 16px;
+}
+
+.custom-dropdown .dropdown-menu {
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 0;
+  position: static; /* Asegura que el menú se posicione de manera estática */
+  display: block; /* Hace que el menú ocupe espacio en el flujo del documento */
+  margin-top: 0.5rem; /* Espacio entre el botón y el menú */
+}
+
+.custom-dropdown .dropdown-item {
+  font-size: 16px;
+  padding: 10px 15px;
+  color: #000; /* Color de texto similar */
+}
+
+.custom-dropdown .dropdown-item:hover {
+  background-color: #f1f1f1; /* Color de fondo al pasar el cursor */
+}

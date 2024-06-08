@@ -17,9 +17,13 @@ import PriceFilter from "../components/shop/productsFilter/PriceFilter.jsx";
 import SortFilter from "../components/shop/productsFilter/SortFilter.jsx";
 import CategoriesFilter from "../components/shop/productsFilter/CategoriesFilter.jsx";
 
+import Dropdown from "react-bootstrap/Dropdown";
+import DropdownButton from "react-bootstrap/DropdownButton";
+
 import "../styles/ProductsScreen.css";
 import "../styles/components/shop/Categories.css";
-import "../styles/DROP.css";
+import FilterPanel from "../components/shop/productsFilter/FilterPanel.jsx";
+// import "../styles/components/shop/productsFilter/DROP.css";
 
 /* ----- Constantes ----- */
 //***URL API
@@ -94,13 +98,13 @@ const ProductsScreen = () => {
 
       <section className="productos">
         <div style={{ width: "20%", minWidth: "20%" }}>
-          <h3>Filtrar por</h3>
+          <SortFilter />
+          <FilterPanel />
           <div>
-            <SortFilter />
             <CategoriesFilter />
-            <PriceFilter />
-            
+            {/* <PriceFilter /> */}
 
+            {/* 
             <li className="dropdown__list">
               <a href="#" className="dropdown__link">
                 <span className="dropdown__span">Subcategorías</span>
@@ -163,7 +167,7 @@ const ProductsScreen = () => {
                   </li>
                 </ul>
               </div>
-            </li>
+            </li>*/}
           </div>
         </div>
 
