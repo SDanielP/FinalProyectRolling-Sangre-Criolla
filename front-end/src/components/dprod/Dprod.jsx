@@ -3,7 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-function dProd() {
+function DProd() {
     return (
         <Container>
           <Row xs={1} md={2}>
@@ -22,3 +22,5 @@ function dProd() {
     </Container>
   );
 }
+
+export default DProd;
