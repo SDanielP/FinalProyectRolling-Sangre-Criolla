@@ -101,7 +101,7 @@ const ProductsScreen = () => {
           <SortFilter />
           <FilterPanel />
           <div>
-            <CategoriesFilter />
+            {/* <CategoriesFilter /> */}
             {/* <PriceFilter /> */}
 
             {/* 

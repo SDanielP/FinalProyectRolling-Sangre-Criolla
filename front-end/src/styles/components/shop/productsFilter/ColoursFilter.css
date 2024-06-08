@@ -1,0 +1,43 @@
+.card .colores {
+    /* margin-top: 40px; */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.card .colores span {
+    width: 1.1rem;
+    height: 1.1rem;
+    border-radius: 50%;
+    border-color: #000000;
+    /* background-color: #274588; */
+    /* margin-right: 20px; */
+    cursor: pointer;
+}
+
+.marron{
+    background-color: #5a4529;
+}
+
+.negro{
+    background-color: #000000;
+}
+
+.naranja{
+    background-color: #f59f27;
+}
+
+.rojo{
+    background-color: red;
+}
+
+.beige{
+    background-color: #c4995e;
+}
+
+.blanco{
+    background-color: #e2e2e2;
+}

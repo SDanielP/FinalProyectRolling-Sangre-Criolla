@@ -4,6 +4,7 @@ import { Collapse, Button, CardBody, Card } from "reactstrap";
 import "../../../styles/components/shop/productsFilter/FilterPanel.css";
 import PriceFilter from "./PriceFilter";
 import CategoriesFilter from "./CategoriesFilter";
+import ColoursFilter from "./ColoursFilter";
 
 const FilterPanel = () => {
   const [priceOpen, setPriceOpen] = useState(false);
@@ -24,7 +25,7 @@ const FilterPanel = () => {
 
       <Collapse isOpen={priceOpen}>
         <Card className="card">
-        <CategoriesFilter />
+          <CategoriesFilter />
         </Card>
       </Collapse>
       <Button
@@ -48,16 +49,11 @@ const FilterPanel = () => {
       >
         Color
       </Button>
-      
+
       <Collapse isOpen={colorOpen}>
         <Card>
           <CardBody>
-            {/* Aquí puedes agregar los colores disponibles */}
-            <ul>
-              <li>Color 1</li>
-              <li>Color 2</li>
-              <li>Color 3</li>
-            </ul>
+            <ColoursFilter />
           </CardBody>
         </Card>
       </Collapse>
