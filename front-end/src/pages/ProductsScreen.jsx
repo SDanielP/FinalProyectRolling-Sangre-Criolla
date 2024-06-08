@@ -12,13 +12,13 @@ import { useCategoriesFilter } from "../store/productsFilter/useCategoriesFilter
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHouse } from "@fortawesome/free-solid-svg-icons";
 
-import Products from "../components/Products";
-import PriceFilter from "../components/productsFilter/PriceFilter.jsx";
-import SortFilter from "../components/productsFilter/SortFilter.jsx";
-import CategoriesFilter from "../components/productsFilter/CategoriesFilter.jsx";
+import Products from "../components/shop/Products.jsx";
+import PriceFilter from "../components/shop/productsFilter/PriceFilter.jsx";
+import SortFilter from "../components/shop/productsFilter/SortFilter.jsx";
+import CategoriesFilter from "../components/shop/productsFilter/CategoriesFilter.jsx";
 
 import "../styles/ProductsScreen.css";
-import "../styles/components/Categories.css";
+import "../styles/components/shop/Categories.css";
 import "../styles/DROP.css";
 
 /* ----- Constantes ----- */

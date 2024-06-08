@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect } from "react";
-import { useSortFilter } from "../../store/productsFilter/useSortFilter";
+import { useSortFilter } from "../../../store/productsFilter/useSortFilter";
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useCategories } from "../../store/useCategories.js";
-import { useCategoriesFilter } from "../../store/productsFilter/useCategoriesFilter.js";
-import { useUbication } from "../../store/useUbication.js";
+import { useCategories } from "../../../store/useCategories.js";
+import { useCategoriesFilter } from "../../../store/productsFilter/useCategoriesFilter.js";
+import { useUbication } from "../../../store/useUbication.js";
 
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
