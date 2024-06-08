@@ -1,5 +1,7 @@
 import '../../../Styles/Dprod/Dprod.css';
 import Button from 'react-bootstrap/Button';
+import FormuSize from './FormSize';
+import FormuColor from './FormColor';
 
 function FormProd() {
     return (
@@ -10,12 +12,14 @@ function FormProd() {
         </article>
         <form className='mt-3 ms-3 me-3'>
             <section className="mt-5 mb-3 d-grid gap-2">
+                <FormuColor />
+                <FormuSize />
                 <Button variant="outline-success btn-lg col-12" size="lg">
-                Añadir al carrito
-                </Button>
-                <Button variant="outline-secondary" size="lg">
-                Comprar ahora
-                </Button>
+                    Añadir al carrito
+                    </Button>
+                    <Button variant="outline-secondary" size="lg">
+                    Comprar ahora
+                    </Button>
             </section>
         </form>
     </section>
