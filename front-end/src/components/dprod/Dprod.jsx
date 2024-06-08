@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import FormProd from './comp-dprod/FormProd';
+import DescEnv from './comp-dprod/DescEnv';
 
 function DProd() {
     return (
@@ -17,7 +17,7 @@ function DProd() {
       </Row>
       <Row>
         <Col>
-          <p>Descripción</p>
+          <DescEnv />
         </Col>
       </Row>
     </Container>
