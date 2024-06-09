@@ -1,6 +1,6 @@
 import React from "react";
 import "../../../styles/components/shop/productsFilter/ColoursFilter.css";
-import { useColoursFilter } from "../../../store/productsFilter/useColoursFilter";
+import { useColorsFilter } from "../../../store/productsFilter/useColorsFilter";
 
 /* ----- Constantes ----- */
 //***Opciones para el botón colores
@@ -14,7 +14,7 @@ const colorOptions = [
 ];
 
 const ColoursFilter = () => {
-  const { selectedColour, setSelectedColour } = useColoursFilter();
+  const { selectedColour, setSelectedColour } = useColorsFilter();
 
   return (
     <>

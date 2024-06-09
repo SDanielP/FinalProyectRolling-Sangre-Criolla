@@ -4,7 +4,7 @@ import { Collapse, Button, CardBody, Card } from "reactstrap";
 import "../../../styles/components/shop/productsFilter/FilterPanel.css";
 import PriceFilter from "./PriceFilter";
 import CategoriesFilter from "./CategoriesFilter";
-import ColoursFilter from "./ColoursFilter";
+import ColorsFilter from "./ColorsFilter";
 import SizeFilter from "./SizeFilter";
 
 const FilterPanel = () => {
@@ -41,7 +41,7 @@ const FilterPanel = () => {
       <Collapse isOpen={colorOpen}>
         <Card>
           <CardBody>
-            <ColoursFilter />
+            <ColorsFilter />
           </CardBody>
         </Card>
       </Collapse>
