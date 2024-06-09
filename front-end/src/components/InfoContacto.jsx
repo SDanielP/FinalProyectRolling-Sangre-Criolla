@@ -1,18 +1,24 @@
-import { Container, Row, Col } from 'react-bootstrap';
-import { MdLocationPin, MdEmail } from 'react-icons/md';
+import { MdLocationPin } from 'react-icons/md';
+import { RiInstagramFill } from 'react-icons/ri';
+import { FaFacebook } from 'react-icons/fa';
 import './contactoEstilo.css';
 
 function InfoContacto() {
-  const icono = <MdEmail />;
-  const texto = 'info@sangrecriolla.com';
+  // const icono = <MdEmail className="iconoContacto" />;
   return (
     <>
-      <Container className="cajaContacto">
-        <Row>
-          <div className="iconoContacto">{icono}</div>
-          <p>{texto}</p>
-        </Row>
-      </Container>
+      <div className="cajaContacto">
+        <FaFacebook className="iconoContacto" />
+        <p>Sangre Criolla</p>
+      </div>
+      <div className="cajaContacto">
+        <RiInstagramFill className="iconoContacto" />
+        <p>@sangre_criolla</p>
+      </div>
+      <div className="cajaContacto">
+        <MdLocationPin className="iconoContacto" />
+        <p>Moreno, Buenos Aires</p>
+      </div>
     </>
   );
 }
