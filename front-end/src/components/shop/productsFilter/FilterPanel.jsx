@@ -5,29 +5,19 @@ import "../../../styles/components/shop/productsFilter/FilterPanel.css";
 import PriceFilter from "./PriceFilter";
 import CategoriesFilter from "./CategoriesFilter";
 import ColoursFilter from "./ColoursFilter";
+import SizeFilter from "./SizeFilter";
 
 const FilterPanel = () => {
-  const [priceOpen, setPriceOpen] = useState(false);
   const [colorOpen, setColorOpen] = useState(false);
-  const [sizeOpen, setSizeOpen] = useState(false);
+  
 
+  const [priceOpen, setPriceOpen] = useState(false);
   return (
     <div className="filter-panel">
       <h3>Filtrar por</h3>
 
-      <Button
-        color="primary"
-        onClick={() => setPriceOpen(!priceOpen)}
-        style={{ marginBottom: "1rem" }}
-      >
-        Categoria
-      </Button>
+      <CategoriesFilter />
 
-      <Collapse isOpen={priceOpen}>
-        <Card className="card">
-          <CategoriesFilter />
-        </Card>
-      </Collapse>
       <Button
         color="primary"
         onClick={() => setPriceOpen(!priceOpen)}
@@ -58,25 +48,7 @@ const FilterPanel = () => {
         </Card>
       </Collapse>
 
-      <Button
-        color="primary"
-        onClick={() => setSizeOpen(!sizeOpen)}
-        style={{ marginBottom: "1rem" }}
-      >
-        Tamaño
-      </Button>
-      <Collapse isOpen={sizeOpen}>
-        <Card>
-          <CardBody>
-            <ul>
-              <li>Grande</li>
-              <li>Mediano</li>
-              <li>One size</li>
-              <li>Pequeño</li>
-            </ul>
-          </CardBody>
-        </Card>
-      </Collapse>
+      <SizeFilter />
     </div>
   );
 };

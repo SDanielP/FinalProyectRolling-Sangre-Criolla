@@ -23,7 +23,6 @@ const ColoursFilter = () => {
           <span
             className={colorOption.label}
             key={colorOption.id}
-            eventKey={colorOption.id}
             value={colorOption.value}
             id={colorOption.label}
             alt={colorOption.value}
