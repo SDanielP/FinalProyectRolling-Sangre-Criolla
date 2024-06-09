@@ -7,7 +7,8 @@
   ],
   "scripts": {
     "start": "concurrently \"npm run start --workspace=back-end\" \"npm run dev --workspace=front-end\"",
-    "install-all": "npm install"
+    "install-all": "npm install",
+    "dev": "nodemon ./src-db/app.js"
   },
   "devDependencies": {
     "concurrently": "^6.0.0"

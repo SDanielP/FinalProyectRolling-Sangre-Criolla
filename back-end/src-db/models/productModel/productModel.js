@@ -1,4 +1,7 @@
 const mongoose = require('mongoose');
+// const Color = require('./colorPModel');
+// const Category = require('./categoryPModel');
+// const Size = require('./sizePModel');
 
 const productSchema = new mongoose.Schema({
     name: {
@@ -11,20 +14,31 @@ const productSchema = new mongoose.Schema({
     },
     description: {
         type: String,
+        
         required: true
     },
     color: {
-       type: String,
+        type: String,
+    //    type: mongoose.Schema.Types.ObjectId,
+    //    ref: Color,
        required: true
     },
     size: {
-       type: Number,
+        type: String,
+    //    type: mongoose.Schema.Types.ObjectId,
+    //    ref: Size,
        required: true
     },
     category: {
-        type: mongoose.Schema.Types.ObjectId,
+         type: String,
+        // type: mongoose.Schema.Types.ObjectId,
+        // ref: Category,
         required: true
     },
+    // subcategory: {
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     ref: subcategory
+    // },
     stock: {
         type: Number,
         required: true,
