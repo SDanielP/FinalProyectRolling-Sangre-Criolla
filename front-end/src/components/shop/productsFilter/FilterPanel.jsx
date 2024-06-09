@@ -10,10 +10,14 @@ const FilterPanel = () => {
   
   return (
     <div className="filter-panel">
-      <h3>Filtrar por</h3>
+      <h4>Categorías</h4>
       <CategoriesFilter />
+      <h4>Filtrar por</h4>
+      <hr />
       <PriceFilter />
+      <hr />
       <ColorsFilter />
+      <hr />
       <SizeFilter />
     </div>
   );

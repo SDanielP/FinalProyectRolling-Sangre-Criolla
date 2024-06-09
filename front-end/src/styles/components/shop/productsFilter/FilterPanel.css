@@ -3,11 +3,12 @@
     /* margin-right: 2rem; */
     display: flex;
     flex-direction: column;
+    /* align-items: start; */
   }
   
-  .filter-panel h3 {
+  /* .filter-panel h3 {
     margin-bottom: 1rem;
-  }
+  } */
   
   .filter-panel .btn {
     width: fit-content;
