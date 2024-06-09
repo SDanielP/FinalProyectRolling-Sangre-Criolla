@@ -3,7 +3,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import '../style.css'; // Ajustar la ruta para importar correctamente desde src
+import '../../styles/style.css'; // Ajustar la ruta para importar correctamente desde src
 //import './Header.css'; // Si tienes un archivo CSS específico para el Header
 
 const Header = () => {
