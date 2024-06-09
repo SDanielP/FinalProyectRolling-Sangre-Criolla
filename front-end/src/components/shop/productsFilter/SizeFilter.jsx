@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Collapse, Button} from "reactstrap";
 import '../../../styles/components/shop/productsFilter/SizeFilter.css';
+// import { useSizeFilter } from "../../../store/productsFilter/useSizeFilter";
 
 const sizeOptions = [
     { id: 1, value: "xs", label: "XS" },
@@ -11,6 +12,8 @@ const sizeOptions = [
     { id: 6, value: "xxl", label: "XXL" },
   ];
 const SizeFilter = () => {
+  // const { selectedSize, setSelectedSize } = useSizeFilter();
+
     const [sizeOpen, setSizeOpen] = useState(false);
   /* ----- Uso de useNavigate() ----- */
 //   const navigate = useNavigate(); // Importar useNavigate()
@@ -30,7 +33,7 @@ const SizeFilter = () => {
       <Button
         color="primary"
         onClick={() => setSizeOpen(!sizeOpen)}
-        style={{ marginBottom: "1rem" }}
+        style={{ marginBottom: "1rem", width:"100%"}}
       >
         Tamaño
       </Button>
@@ -41,7 +44,6 @@ const SizeFilter = () => {
             key={sizeOptions.indexOf(size)}
             onClick={() => (handleSize(size))}
             style={{ cursor: "pointer" }}
-            // eventKey={size.charAt(0).toUpperCase() + size.slice(1)}
           >
               <span>{(size.label)}</span>
             

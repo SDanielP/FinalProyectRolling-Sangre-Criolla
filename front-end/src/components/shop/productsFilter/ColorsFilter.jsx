@@ -1,6 +1,7 @@
-import React from "react";
-import "../../../styles/components/shop/productsFilter/ColoursFilter.css";
-import { useColorsFilter } from "../../../store/productsFilter/useColorsFilter";
+import React, { useState, useEffect } from "react";
+import { Collapse, Button} from "reactstrap";
+import "../../../styles/components/shop/productsFilter/ColorsFilter.css";
+// import { useColorsFilter } from "../../../store/productsFilter/useColorsFilter";
 
 /* ----- Constantes ----- */
 //***Opciones para el botón colores
@@ -13,24 +14,44 @@ const colorOptions = [
   { id: 6, value: "red", label: "rojo" },
 ];
 
-const ColoursFilter = () => {
-  const { selectedColour, setSelectedColour } = useColorsFilter();
+const ColorsFilter = () => {
+  // const { selectedColor, setSelectedColor } = useColorsFilter();
+  const [colorOpen, setColorOpen] = useState(false);
+
+  const handleColor = (nuevoColor) => {
+    setColorOpen(nuevoColor);
+    // setUbication(nuevoTamanio);
+    // setIsDropdownOpen(true); // Cierra el dropdown al seleccionar una opción
+    // navigate(`/products/${nuevoTamanio.toLowerCase()}`);
+  };
+
+  useEffect(() => {
+    // console.log(selectedCategory);
+  }, [colorOpen]);
 
   return (
     <>
-      <div className="colores">
+      <Button
+        color="primary"
+        onClick={() => setColorOpen(!colorOpen)}
+        style={{ marginBottom: "1rem", width:"100%"}}
+      >
+        Color
+      </Button>
+
+      <Collapse isOpen={colorOpen} className="colores">
         {colorOptions.map((colorOption) => (
           <span
             className={colorOption.label}
             key={colorOption.id}
-            value={colorOption.value}
-            id={colorOption.label}
-            alt={colorOption.value}
+            onClick={() => (handleColor(colorOption))}
+            // value={colorOption.value}
+            // id={colorOption.label}
           ></span>
         ))}
-      </div>
+      </Collapse>
     </>
   );
 };
 
-export default ColoursFilter;
+export default ColorsFilter;

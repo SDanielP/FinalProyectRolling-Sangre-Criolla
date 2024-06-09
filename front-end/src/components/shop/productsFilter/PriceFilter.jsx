@@ -30,7 +30,7 @@ const PriceFilter = () => {
       <Button
         color="primary"
         onClick={() => setPriceOpen(!priceOpen)}
-        style={{ marginBottom: "1rem" }}
+        style={{ marginBottom: "1rem", width:"100%"}}
       >
         Precio
       </Button>
@@ -38,17 +38,13 @@ const PriceFilter = () => {
       <Collapse isOpen={priceOpen}>
         <div
           style={{
-            padding: "10px",
-            border: "1px solid #ddd",
-            borderRadius: "5px",
-            boxShadow: "0 0 0 rgba(0, 0, 0, 0.1)",
+            padding: "10px"
           }}
         >
           <Slider
-            className="slider"
+            className="slider custom-slider"
             value={values}
             onChange={handleChange}
-            // onMouseUp={console.log('mouse up')}
             min={0}
             max={1000}
           />
@@ -60,10 +56,9 @@ const PriceFilter = () => {
               justifyContent: "space-between",
             }}
           >
-            <div>
-              <span>Precio: </span>
-              <span id="minPrice">{values[0]} --- </span>
-              <span id="maxPrice">{values[1]}</span>
+            <div className="texto">
+              <span id="minPrice">${values[0]} </span>
+              <span id="maxPrice">${values[1]}</span>
             </div>
           </div>
         </div>
