@@ -44,7 +44,7 @@ const CategoriesFilter = () => {
         color="primary"
         onClick={() => setCategoryOpen(!categoryOpen)}
         // style={{ marginBottom: "1rem" }}
-        className="custom-dropdown"
+        // className="custom-dropdown"
       >
         {(selectedCategory.charAt(0).toUpperCase() + selectedCategory.slice(1))}
       </Button>

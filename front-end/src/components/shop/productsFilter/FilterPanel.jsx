@@ -11,14 +11,14 @@ const FilterPanel = () => {
   const [colorOpen, setColorOpen] = useState(false);
   
 
-  const [priceOpen, setPriceOpen] = useState(false);
+
   return (
     <div className="filter-panel">
       <h3>Filtrar por</h3>
 
       <CategoriesFilter />
-
-      <Button
+      <PriceFilter />
+      {/* <Button
         color="primary"
         onClick={() => setPriceOpen(!priceOpen)}
         style={{ marginBottom: "1rem" }}
@@ -26,11 +26,9 @@ const FilterPanel = () => {
         Precio
       </Button>
 
-      <Collapse isOpen={priceOpen}>
-        <Card className="card">
+      <Collapse isOpen={priceOpen} >
           <PriceFilter />
-        </Card>
-      </Collapse>
+      </Collapse> */}
 
       <Button
         color="primary"
