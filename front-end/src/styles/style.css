@@ -1,0 +1,684 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bokor&display=swap");
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: "Roboto", sans-serif;
+}
+
+main {
+  flex-grow: 1;
+}
+
+main .carousel {
+  width: 100%;
+  height: 60vmax;
+  overflow: hidden;
+}
+
+.carousel>img {
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.carousel-caption2 {
+  width: 100vmax;
+  height: 100vmax;
+  top: 0;
+  left: 0;
+  padding: 20% 20% 1% 20%;
+  color: #fff;
+  text-align: center;
+  background: linear-gradient(rgba(5, 7, 12, 0.3), rgba(5, 7, 12, 0.4));
+  position: absolute;
+
+}
+
+.carousel-caption2>h1 {
+  font-size: 300%;
+}
+
+.carousel-caption2>p {
+  font-size: 150%;
+}
+.texto-servicios {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding: 5% 20%;
+  background: #f6f6f6;
+  font-size: 3rem;
+}
+
+.tarjetas {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f6f6f6;
+  min-height: 50vh;
+  padding: 20px 0; /* Agregar un padding vertical para separar del borde */
+}
+
+.container {
+  width: 100%; /* Hacer que el contenedor ocupe todo el ancho disponible */
+  display: flex;
+  justify-content: center; /* Centrar horizontalmente las tarjetas */
+}
+
+.container .cards-wrapper {
+  max-width: 1200px; /* Ajustar el ancho máximo de las tarjetas */
+  width: 100%;
+  display: flex;
+  justify-content: space-around; /* Distribuir las tarjetas equitativamente */
+  flex-wrap: wrap;
+}
+
+.container .card {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  background: #d9c7c1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px; /* Aumentar el margen para separar las tarjetas */
+  box-shadow: 0 20px 50px #733224(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+/* Actualiza el CSS para las tarjetas */
+.container .card {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.container .card .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Ajusta la opacidad según tu preferencia */
+  z-index: 1;
+}
+
+.container .card .card-text {
+  position: relative;
+  padding: 30px;
+  text-align: center;
+  z-index: 2;
+}
+
+.container .card .card-text h2 {
+  font-size: 2em;
+  font-weight: 800;
+  color: #fff;
+  transition: 1s;
+}
+
+.container .card .card-text a {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 8px 15px;
+  background: #fff;
+  color: black;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* Resto de tu CSS */
+
+
+.container .card:hover {
+  opacity: 1;
+}
+
+.container .card::before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  bottom: 2px;
+  width: 50%;
+  background:#d9c7c1 (223, 6, 114, 0)(255, 255, 255, 0.2);
+  pointer-events: none;
+}
+
+.container .card .card-text {
+  padding: 30px;
+  text-align: center;
+}
+
+.container .card .card-text h2 {
+  position: absolute;
+  right: 30px;
+  font-size: 2em;
+  font-weight: 800;
+  color: #a6907c(43, 26, 152);
+  z-index: 1;
+  opacity: 0.1;
+  transition: 1s;
+}
+
+.container .card:hover .card-text h2 {
+
+  opacity: 1;
+  transform: translateY(-40px);
+}
+
+.container .card .card-text h3 {
+  position: relative;
+  font-size: 1.5em;
+  color: #73503C;
+  z-index: 2;
+  opacity: 0.5;
+  letter-spacing: 1px;
+  transition: 0.5s;
+
+}
+
+.container .card .card-text p {
+  position: relative;
+  font-size: 1em;
+  color: rgb(0, 0, 0);
+  z-index: 2;
+  opacity: 0.5;
+  font-weight: 300;
+  transition: 0.5s;
+
+}
+
+.container .card:hover .card-text h3,
+.container .card:hover .card-text p {
+  opacity: 1;
+}
+
+.container .card .card-text a {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 8px 15px;
+  background: #fff;
+  color: black;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+
+/* <!-- ***** ANIMACION DE COLOR *****--/!>*/
+.container .card span {
+  transition: 0.5;
+  opacity: 0;
+
+}
+
+.container .card:hover span {
+  opacity: 1;
+
+}
+
+.container .card span:nth-child(1) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(to right, transparent, #73503C);
+  animation: animate1 4s linear infinite;
+}
+
+@keyframes animate1 {
+  0% {
+      transform: translateX(-100%);
+  }
+
+  100% {
+      transform: translateX(100%);
+  }
+}
+
+.container .card span:nth-child(2) {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent, #73503C);
+  animation: animate2 4s linear infinite;
+  animation-delay: 2s;
+}
+
+@keyframes animate2 {
+  0% {
+      transform: translateY(-100%);
+  }
+
+  100% {
+      transform: translateY(100%);
+  }
+}
+
+.container .card span:nth-child(3) {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(to left, transparent, #73503C);
+  animation: animate3 4s linear infinite;
+}
+
+@keyframes animate3 {
+  0% {
+      transform: translateX(100%);
+  }
+
+  100% {
+      transform: translateX(-100%);
+  }
+}
+
+.container .card span:nth-child(4) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(to top, transparent, #73503C);
+  animation: animate4 4s linear infinite;
+  animation-delay: 2s;
+}
+
+@keyframes animate4 {
+  0% {
+      transform: translateY(100%);
+  }
+
+  100% {
+      transform: translateY(-100%);
+  }
+}
+/*Dispositivos pequeños*/
+@media all and (min-width: 375px) {
+  /*con esto cambio el tamaño del banner superior de publicidad*/
+  #carouselExampleSlidesOnly {
+    font-size: 0.7rem;
+  }
+  /*cambia el tamaño y el color de los iconos del nav*/
+  .iconosDelNav a {
+    color: rgb(0, 0, 0);
+    font-size: 1.8rem;
+    margin-left: 0.5rem;
+  }
+  /*cambia la fuente del logo*/
+  .fuenteLogo {
+    font-family: "Bokor", cursive;
+  }
+  /*cambia el color y el tamaño del logo*/
+  .logo {
+    text-decoration: none;
+    color: black;
+    font-size: xx-large;
+  }
+
+  /*con esto quito los bordes redondeados a los botones del navbar*/
+  .dropdown-menu {
+    border-radius: 0 !important;
+  }
+
+  .navbar-toggler {
+    border-color: transparent;
+    border-radius: 0;
+  }
+  /*con esto doy estilo al boton del formulario de ofertas*/
+  footer button {
+    border: none;
+    background-color: #73503C;
+    color: white;
+    padding: 0.8rem;
+    width: 6rem;
+  }
+  /*quita el estilo de lista*/
+  footer ul {
+    list-style: none;
+  }
+
+  .espacioLetras {
+    letter-spacing: 0.4rem;
+  }
+  /*pagina de detalles*/
+  #envioDetalles {
+    font-size: small;
+  }
+  #cuotasDetalles {
+    font-size: small;
+  }
+  #contenedor-detalles article figure {
+    width: 100%;
+  }
+
+  /*quitar borde redondeado a las cards*/
+  .card {
+    border-radius: 0;
+  }
+
+  .card img{
+    height: 28rem;
+  }
+
+  .btn{
+    border-radius: 0%;
+  }
+
+}
+
+/*Dispositivos medianos*/
+@media all and (min-width: 768px) {
+  /*con esto cambio el tamaño del banner superior de publicidad*/
+  #carouselExampleSlidesOnly {
+    font-size: 0.9rem;
+    padding: 0.5rem;
+  }
+  /*pagina de detalles*/
+  #envioDetalles {
+    font-size: medium;
+  }
+  #cuotasDetalles {
+    font-size: medium;
+  }
+  #contenedor-detalles article figure {
+    width: 100%;
+  }
+}
+
+/*Dispositivos grandes*/
+@media all and (min-width: 1200px) {
+  /*con esta clase alineo el nav*/
+  .paddingNav {
+    padding-left: 16%;
+  }
+}
+/*PARTE DE DETALLES*/
+#flechasDetalles {
+  margin-right: 20px;
+}
+#lupaDetalles {
+  margin-right: 20px;
+}
+#botonDetalles {
+  position: relative;
+  background-color: #73503C;
+  border: none;
+  font-size: 15px;
+  color: #c7c7c7;
+  padding: 7px;
+  width: 93%;
+  text-align: center;
+  transition-duration: 0.4s;
+  text-decoration: none;
+  overflow: hidden;
+  cursor: pointer;
+}
+#botonDetalles:after {
+  content: "";
+  background: #797979;
+  display: block;
+  position: absolute;
+  padding-top: 300%;
+  padding-left: 350%;
+  margin-left: -20px !important;
+  margin-top: -120%;
+  opacity: 0;
+  transition: all 2s;
+}
+#botonDetalles:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s;
+}
+#cuotasDetalles {
+  display: flex;
+}
+#envioDetalles {
+  display: flex;
+  justify-content: start;
+}
+.dropdownDetalles {
+  width: 300px;
+  margin-bottom: 1em;
+}
+.selecccion-btn {
+  height: 30px;
+  font-size: 16px;
+  padding: 0 15px;
+  border-radius: 2px;
+  background: #000000;
+  justify-content: space-between;
+  cursor: pointer;
+  align-items: center;
+  display: flex;
+}
+.selecccion-btn i {
+  font-size: 15px;
+  transition: transform 0.3s linear;
+}
+.dropdownDetalles.active .selecccion-btn i {
+  transform: rotate(-180deg);
+}
+.content {
+  display: none;
+  padding: 5px;
+  margin-top: 7px;
+  border-radius: 2px;
+  background: #ffffff;
+  position: relative;
+  width: 285px;
+  margin-left: 15px;
+}
+.dropdownDetalles.active .content {
+  display: block;
+}
+.content .opcionesDetalles {
+  margin-top: 0px;
+  max-height: 130px;
+}
+.opcionesDetalles li {
+  height: 25px;
+  font-size: 13px;
+  border-radius: 5px;
+  list-style: none;
+  cursor: pointer;
+  align-items: center;
+  color: #000000;
+}
+.opcionesDetalles li:hover {
+  background: #ffffff;
+}
+/*PARTE DE DETALLES*/
+#flechasDetalles {
+  margin-right: 20px;
+}
+#lupaDetalles {
+  margin-right: 20px;
+}
+#botonDetalles {
+  position: relative;
+  background-color: #73503C;
+  border: none;
+  font-size: 15px;
+  color: #c7c7c7;
+  padding: 7px;
+  width: 93%;
+  text-align: center;
+  transition-duration: 0.4s;
+  text-decoration: none;
+  overflow: hidden;
+  cursor: pointer;
+}
+#botonDetalles:after {
+  content: "";
+  background: #797979;
+  display: block;
+  position: absolute;
+  padding-top: 300%;
+  padding-left: 350%;
+  margin-left: -20px !important;
+  margin-top: -120%;
+  opacity: 0;
+  transition: all 2s;
+}
+#botonDetalles:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s;
+}
+#cuotasDetalles {
+  display: flex;
+}
+#envioDetalles {
+  display: flex;
+  justify-content: start;
+}
+.dropdownDetalles {
+  width: 300px;
+  margin-bottom: 1em;
+}
+.selecccion-btn {
+  height: 30px;
+  font-size: 16px;
+  padding: 0 15px;
+  border-radius: 2px;
+  background: #000000;
+  justify-content: space-between;
+  cursor: pointer;
+  align-items: center;
+  display: flex;
+}
+.selecccion-btn i {
+  font-size: 15px;
+  transition: transform 0.3s linear;
+}
+.dropdownDetalles.active .selecccion-btn i {
+  transform: rotate(-180deg);
+}
+.content {
+  display: none;
+  padding: 5px;
+  margin-top: 7px;
+  border-radius: 2px;
+  background: #ffffff;
+  position: relative;
+  width: 285px;
+  margin-left: 15px;
+}
+.dropdownDetalles.active .content {
+  display: block;
+}
+.content .opcionesDetalles {
+  margin-top: 0px;
+  max-height: 130px;
+}
+.opcionesDetalles li {
+  height: 25px;
+  font-size: 13px;
+  border-radius: 5px;
+  list-style: none;
+  cursor: pointer;
+  align-items: center;
+  color: #000000;
+}
+.opcionesDetalles li:hover {
+  background: #ffffff;
+}
+
+/* Estilos generales */
+.containerCategoria {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#contenedor-secundario-categorias-productos a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%; /* Por defecto, 1 imagen por fila en dispositivos pequeños */
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+#contenedor-secundario-categorias-productos img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Media queries para dispositivos medianos y grandes */
+@media (min-width: 768px) {
+  #contenedor-secundario-categorias-productos a {
+    width: 50%; /* 2 imágenes por fila en dispositivos medianos y grandes */
+  }
+}
+
+.container-productos {
+  padding-top: 50px; /* Espacio adicional arriba del contenedor de productos */
+}
+
+.productos-titulo {
+  text-align: center;
+  margin-bottom: 20px; /* Espacio abajo del título */
+}
+
+.productos-wrapper {
+  display: flex;
+  justify-content: space-around; /* Distribución equitativa de los productos */
+  flex-wrap: wrap;
+}
+
+.producto-card {
+  flex: 0 0 calc(25% - 30px); /* Ajuste del ancho de las tarjetas con margen */
+  margin-bottom: 30px;
+  overflow: hidden;
+}
+
+.producto-card .card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.producto-card .card-body {
+  flex-grow: 1;
+}
+
+.producto-card .card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .producto-card {
+    flex-basis: calc(50% - 30px); /* Dos tarjetas por fila en dispositivos medianos */
+  }
+}
+
+@media (max-width: 576px) {
+  .producto-card {
+    flex-basis: 100%; /* Una tarjeta por fila en dispositivos pequeños */
+  }
+}
