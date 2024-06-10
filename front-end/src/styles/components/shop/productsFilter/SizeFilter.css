@@ -36,7 +36,20 @@
     align-items: center!important;
 }
 
+.contenedor-colapsable{
+    display: block;
+}
+
 .size-options{
     color: beige!important;
     padding-left: 1rem;
+}
+
+.all-sizes{
+    font-weight: 300;
+    font-size: small;
+    padding-left: 1rem;
+    padding-top: 0.7rem;
+    display: block;
+    cursor: pointer;
 }

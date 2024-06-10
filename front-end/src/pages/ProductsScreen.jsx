@@ -15,13 +15,13 @@ import { faHouse } from "@fortawesome/free-solid-svg-icons";
 import Products from "../components/shop/Products.jsx";
 import PriceFilter from "../components/shop/productsFilter/PriceFilter.jsx";
 import SortFilter from "../components/shop/productsFilter/SortFilter.jsx";
-import CategoriesFilter from "../components/shop/productsFilter/CategoriesFilter.jsx";
+// import CategoriesFilter from "../components/shop/productsFilter/CategoriesFilter.jsx";
 
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 
 import "../styles/ProductsScreen.css";
-import "../styles/components/shop/Categories.css";
+// import "../styles/components/shop/Categories.css";
 import "../styles/components/shop/productsFilter/SortFilter.css";
 import FilterPanel from "../components/shop/productsFilter/FilterPanel.jsx";
 // import "../styles/components/shop/productsFilter/DROP.css";
