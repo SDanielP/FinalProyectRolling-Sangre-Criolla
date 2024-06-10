@@ -7,7 +7,7 @@ function ProductDetails() {
 
   useEffect(() => {
 
-    fetch(`mongodb+srv://sangre-criolla-rc:IMcBtuU6addNZWuk@clustersc.flks6ma.mongodb.net/sangre-criolla-db?retryWrites=true&w=majority&appName=ClusterSC/products/${name || id}`)
+    fetch(`localhost:5000/products/${name || id}`)
       .then(response => {
         if (!response.ok) {
           throw new Error('Error en la solicitud: ' + response.status);
