@@ -34,36 +34,36 @@ const MainBanner = () => {
           <div className="carousel-inner">
             <div className="carousel-item active" data-bs-interval="10000">
               <img
-                src="/img/portada2.jpg"
+                src="../../public/img/portada2.jpg"
                 className="d-block w-100"
                 alt="foto portada 1"
               />
               <div className="carousel-caption2">
-                <img src="/img/logosinfondo1.png" style={{ height: '70px' }} alt="logo" />
+                <img src="../../public/img/logosinfondo1.png" style={{ height: '70px' }} alt="logo" />
                 <h1>SANGRE CRIOLLA</h1>
-                <p>de Argentina, para el mundo</p>
+                <p>De Argentina, para el mundo</p>
               </div>
             </div>
             <div className="carousel-item" data-bs-interval="10000">
               <img
-                src="/img/portada1200800-1200x800.jpg"
+                src="../../public/img/portada1200800-1200x800.jpg"
                 className="d-block w-100"
                 alt="foto portada 2"
               />
               <div className="carousel-caption2">
-                <img src="/img/logosinfondo1.png" style={{ height: '70px' }} alt="logo" />
+                <img src="../../public/img/logosinfondo1.png" style={{ height: '70px' }} alt="logo" />
                 <h5>p</h5>
                 <p></p>
               </div>
             </div>
             <div className="carousel-item" data-bs-interval="10000">
               <img
-                src="/img/cauquen3-1-1200x800.jpg"
+                src="../../public/img/cauquen3-1-1200x800.jpg"
                 className="d-block w-100"
                 alt="foto clinica 3"
               />
               <div className="carousel-caption2">
-                <img src="/img/logosinfondo1.png" style={{ height: '70px' }} alt="logo" />
+                <img src="../../public/img/logosinfondo1.png" style={{ height: '70px' }} alt="logo" />
                 <h5></h5>
                 <p></p>
               </div>

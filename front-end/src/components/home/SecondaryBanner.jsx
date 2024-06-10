@@ -15,7 +15,7 @@ const SecondaryBanner = () => {
           <div className="card" style={{ backgroundImage: 'url(/img/bolsa-300x300.jpg)' }}>
             <div className="overlay"></div>
             <div className="card-text">
-              <h2>Bolsas</h2>
+              <h2>Accesorios</h2>
               <a href="#">Conocer más</a>
             </div>
           </div>

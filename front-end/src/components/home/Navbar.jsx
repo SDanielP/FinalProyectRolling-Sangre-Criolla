@@ -81,6 +81,11 @@ function Navbar() {
                 Administracion
               </a>
             </li>
+            <li className="nav-item" id="itemToHide">
+              <a className="nav-link" href="#">
+                Login
+              </a>
+            </li>
           </ul>
           <form className="d-flex" role="search">
             <input
@@ -93,6 +98,9 @@ function Navbar() {
             />
             <button className="bg-transparent ms-2" type="submit">
               <i className="bi bi-search"></i>
+            </button>
+            <button className="ms-2" type="submit">
+            <i class="fa-solid fa-cart-shopping"></i>
             </button>
           </form>
         </div>

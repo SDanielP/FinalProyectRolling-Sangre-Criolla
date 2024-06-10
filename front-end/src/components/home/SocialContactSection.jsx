@@ -33,7 +33,7 @@ const SocialContactSection = () => {
         <article className="text-center">
           <p>
             <small>
-              &COPY;Copyright Sangre Criolla | Todo campo - 2024. Todos los
+              Copyright Sangre Criolla | Todo campo - 2024. Todos los
               derechos reservados.
             </small>
           </p>
