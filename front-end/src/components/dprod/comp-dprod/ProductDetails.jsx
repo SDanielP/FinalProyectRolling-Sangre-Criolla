@@ -7,7 +7,7 @@ function ProductDetails() {
 
   useEffect(() => {
 
-    fetch(`localhost:5000/products/${name || id}`)
+    fetch(`http://localhost:5000/products/${id}`)
       .then(response => {
         if (!response.ok) {
           throw new Error('Error en la solicitud: ' + response.status);
