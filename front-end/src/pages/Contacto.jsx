@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Row, Col } from 'react-bootstrap';
 import InfoContacto from '../components/InfoContacto';
-import FormularioContacto from '../components/FormularioContacto';
+import FormularioEmailJS from '../components/FormularioEmailJS';
 
 function Contact() {
   return (
@@ -19,9 +19,7 @@ function Contact() {
             <InfoContacto />
           </Col>
           <Col sm={8}>
-            <Container>
-              <FormularioContacto />
-            </Container>
+            <FormularioEmailJS />
           </Col>
         </Row>
       </Container>
