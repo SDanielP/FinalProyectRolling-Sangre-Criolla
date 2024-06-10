@@ -24,7 +24,7 @@ const productSchema = new mongoose.Schema({
        required: true
     },
     size: {
-        type: String,
+        type: Number,
     //    type: mongoose.Schema.Types.ObjectId,
     //    ref: Size,
        required: true

@@ -13,13 +13,13 @@ router.get('/products', async (req, res) => {
     }
 })
 
-//Obt un prod por ID
+//Obt un prod por ID tiene la verificación en el archivo middleware jiji
 router.get('/products/:id', getProductById, (req, res) =>{
     res.json(res.product)
 })
 
 // obt por nombre
-router.get('/products/:name', getProductById)
+router.get('/products/name/:name', getProductById),
 
 // Crear nuevo prod
 router.post('/products', async (req, res) => {
