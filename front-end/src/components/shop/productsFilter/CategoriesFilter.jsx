@@ -4,17 +4,21 @@ import { useCategories } from "../../../store/useCategories.js";
 import { useCategoriesFilter } from "../../../store/productsFilter/useCategoriesFilter.js";
 import { useUbication } from "../../../store/useUbication.js";
 import { Collapse, Button } from "reactstrap";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
+import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
 // import Dropdown from "react-bootstrap/Dropdown";
 // import DropdownButton from "react-bootstrap/DropdownButton";
 
 import "../../../styles/components/shop/productsFilter/DropdownFilter.css"; // Importa los estilos personalizados
+import "../../../styles/components/shop/productsFilter/CategoriesFilter.css";
 
 const CategoriesFilter = () => {
   /* ----- Estados para los botones ----- */
   // const [ categories, setCategories ] = useState([])
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [categoryOpen, setCategoryOpen] = useState(false);
+  const [menCategoryOpen, setMenCategoryOpen] = useState(false);
+  const [womenCategoryOpen, setWomenCategoryOpen] = useState(false);
 
   /* ----- Estados para los botones - Zustand ----- */
   const { categories } = useCategories();
@@ -26,7 +30,7 @@ const CategoriesFilter = () => {
 
   const handleCategory = (nuevaCategoria) => {
     setSelectedCategory(nuevaCategoria);
-    setUbication(nuevaCategoria.charAt(0).toUpperCase() + nuevaCategoria.slice(1));
+    setUbication("Hombres / " + nuevaCategoria.charAt(0).toUpperCase() + nuevaCategoria.slice(1));
     // setIsDropdownOpen(true); // Cierra el dropdown al seleccionar una opción
     navigate(`/products/${nuevaCategoria.toLowerCase()}`);
   };
@@ -40,16 +44,52 @@ const CategoriesFilter = () => {
   // };
   return (
     <>
+      {/* Todos */}
       <Button
-        color="primary"
-        onClick={() => setCategoryOpen(!categoryOpen)}
+        // onClick={() => setWomenCategoryOpen(!womenCategoryOpen)}
         // style={{ marginBottom: "1rem" }}
         // className="custom-dropdown"
       >
-        {(selectedCategory.charAt(0).toUpperCase() + selectedCategory.slice(1))}
+        Todos
       </Button>
 
-      <Collapse isOpen={categoryOpen}>
+      {/* Mujeres */}
+      <Button
+        onClick={() => setWomenCategoryOpen(!womenCategoryOpen)}
+        // style={{ marginBottom: "1rem" }}
+        // className="custom-dropdown"
+      >
+        Damas
+      </Button>
+
+      {/* <Collapse isOpen={womenCategoryOpen}>
+        {categories.map((categoria) => (
+          <div
+            // className="card"
+            key={categories.indexOf(categoria)}
+            onClick={() => (handleCategory(categoria))}
+            style={{ cursor: "pointer" }}
+            // eventKey={categoria.charAt(0).toUpperCase() + categoria.slice(1)}
+          >
+              {categoria.charAt(0).toUpperCase() + categoria.slice(1)}
+            
+          </div>
+        ))}
+      </Collapse> */}
+
+      {/* Hombres */}
+      <Button
+        className="men-btn"
+        onClick={() => setMenCategoryOpen(!menCategoryOpen)}
+        // style={{ marginBottom: "1rem" }}
+        // className="custom-dropdown"
+      >
+        <span>Hombres</span>
+        { menCategoryOpen === false ? <FontAwesomeIcon icon={faAngleDown} size="xs" style={{color: "#f5f5dc",}} /> : <FontAwesomeIcon icon={faAngleUp} size="xs" style={{color: "#f5f5dc",}} />}
+        
+      </Button>
+
+      <Collapse isOpen={menCategoryOpen}>
         {categories.map((categoria) => (
           <div
             // className="card"

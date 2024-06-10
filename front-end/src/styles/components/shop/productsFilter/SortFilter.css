@@ -1,0 +1,31 @@
+.sort-btn{ 
+    /* display: flex; */
+    /* position: absolute;
+    left: -39rem; */
+    /* background: transparent;
+    background-color: transparent;*/
+    color: beige;
+} 
+
+/* .btn{
+    background-color: #f0f0f0!important;
+  } */
+.btn{
+    background: transparent!important; /* Cambia esto al color que desees */
+    /* background-color: #f0f0f0!important; */
+    border: none!important;
+  }
+/* button{
+    color: red;
+} */
+
+.ordenar{
+    margin-left: 2.5rem;
+    min-width: 10rem;
+    max-width: 10rem;
+}
+
+
+/* .ordenarOptn{
+    font-size:x-small;
+} */

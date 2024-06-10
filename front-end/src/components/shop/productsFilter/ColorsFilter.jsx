@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Collapse, Button} from "reactstrap";
 import "../../../styles/components/shop/productsFilter/ColorsFilter.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faMinus } from "@fortawesome/free-solid-svg-icons";
 // import { useColorsFilter } from "../../../store/productsFilter/useColorsFilter";
 
 /* ----- Constantes ----- */
@@ -32,11 +35,13 @@ const ColorsFilter = () => {
   return (
     <>
       <Button
-        color="primary"
+        className="color-btn"
         onClick={() => setColorOpen(!colorOpen)}
         style={{ marginBottom: "1rem", width:"100%"}}
       >
-        Color
+        <span>Color</span>
+        {colorOpen === false ? <FontAwesomeIcon icon={faPlus} size="sm" style={{color: "#f5f5dc",}} /> : <FontAwesomeIcon icon={faMinus} size="sm" style={{color: "#f5f5dc",}} /> }
+        
       </Button>
 
       <Collapse isOpen={colorOpen} className="colores">

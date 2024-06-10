@@ -1,15 +1,17 @@
 .navProductos{
     display: block;
     padding-top: 2rem;
-    background-color: blueviolet;
+    background-color: rgb(57,61,50);
+    color: beige;
 }
 
 .navUsuario{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    padding: 2rem 4rem 0.5rem 4rem;
-    background-color: blueviolet;
+    justify-content: center;
+    /* padding: 2rem 4rem 0.5rem 4rem; */
+    background: transparent;
+    /* position: relative; */
 }
 
 /* .botonesProductos{
@@ -20,15 +22,7 @@
     /* background-color: pink; 
 } */
 
-.ordenar{
-    margin-left: 2rem;
-    min-width: 10rem;
-    max-width: 10rem;
-}
 
-/* .ordenarOptn{
-    font-size:x-small;
-} */
 
 .buscarCat{
     margin-right: 2rem;
@@ -36,8 +30,14 @@
 }
 
 /*Section Productos*/
-.productos{
-    padding: 1rem 2.5rem;
+.contenedor-filtros-productos{
+    padding: 1rem 1rem;
     display: flex;
     justify-content: flex-start;
+    background-color: rgb(57,61,50);
+    /* color: beige; */
+}
+
+hr{
+  color: beige!important;  
 }

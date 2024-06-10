@@ -22,6 +22,7 @@ import DropdownButton from "react-bootstrap/DropdownButton";
 
 import "../styles/ProductsScreen.css";
 import "../styles/components/shop/Categories.css";
+import "../styles/components/shop/productsFilter/SortFilter.css";
 import FilterPanel from "../components/shop/productsFilter/FilterPanel.jsx";
 // import "../styles/components/shop/productsFilter/DROP.css";
 
@@ -55,7 +56,7 @@ const ProductsScreen = () => {
 
   /* ----- Método manejo de botón para volver a una ruta anterior o padre ----- */
   const handleOnClick = () => {
-    setSelectedCategory("Selecciona una categoría");
+    setSelectedCategory("Hombres");
     setUbication("Todos");
   };
 
@@ -76,34 +77,34 @@ const ProductsScreen = () => {
         <h1>COMPRAR TODO</h1>
 
         <div className="navUsuario">
-          <div className="ubicacion d-flex flex-start ps-5 mb-3 align-items-center">
+          <div className="ubicacion d-flex flex-start mb-3 align-items-center">
             {/* Sacar los style */}
             <NavLink to="/">
-              <FontAwesomeIcon icon={faHouse} style={{ color: "#000000" }} />
+              <FontAwesomeIcon icon={faHouse} style={{ color: "beige", paddingRight:"0.5rem"}} />
             </NavLink>
-            <span className="ps-2 ubicacionUser">
-              /{" "}
+            <span className="ubicacionUser">
+            /
               <NavLink
                 to="/products/all"
-                style={{ textDecoration: "none", color: "black" }}
+                style={{ textDecoration: "none", color: "beige", paddingRight:"0.5rem", paddingLeft:"0.5rem"}} 
                 onClick={handleOnClick}
               >
                 Productos
-              </NavLink>{" "}
-              / {ubication}
+              </NavLink>
+              / {" " + ubication + " "}
             </span>
           </div>
         </div>
+          <SortFilter />
       </nav>
 
-      <section className="productos">
-        <div style={{ width: "20%", minWidth: "20%" }}>
-          <SortFilter />
+      <section className="contenedor-filtros-productos">
+        <div
+          className="seccion-filtros"
+          style={{ width: "20%", minWidth: "20%" }}
+        >
           <FilterPanel />
           <div>
-            {/* <CategoriesFilter /> */}
-            {/* <PriceFilter /> */}
-
             {/* 
             <li className="dropdown__list">
               <a href="#" className="dropdown__link">
@@ -172,8 +173,8 @@ const ProductsScreen = () => {
         </div>
 
         {/* Lateral derecho, Productos */}
-        <div className="div-products" style={{ width: "80%" }}>
-          {selectedCategory != "Selecciona una categoría" ? (
+        <div className="seccion-productos" style={{ width: "80%" }}>
+          {selectedCategory != "Hombres" ? (
             <Products
               className="div-products"
               categoria={selectedCategory.toString().toLowerCase()}

@@ -1,0 +1,8 @@
+.men-btn{
+    color: beige!important;
+    width: 100%!important;
+    display: flex!important;
+    flex-direction: row!important;
+    justify-content: space-between!important;
+    align-items: center!important;
+}

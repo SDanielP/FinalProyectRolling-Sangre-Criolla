@@ -3,6 +3,9 @@ import Slider from "react-slider";
 import { Collapse, Button } from "reactstrap";
 import { usePriceFilter } from "../../../store/productsFilter/usePriceFilter.js";
 import { useDebounce } from "@uidotdev/usehooks";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faMinus } from "@fortawesome/free-solid-svg-icons";
 
 import "../../../styles/components/shop/productsFilter/PriceFilter.css";
 
@@ -28,11 +31,13 @@ const PriceFilter = () => {
   return (
     <>
       <Button
-        color="primary"
+        className="price-btn"
         onClick={() => setPriceOpen(!priceOpen)}
         style={{ marginBottom: "1rem", width:"100%"}}
       >
-        Precio
+        <span>Precio</span>
+        {priceOpen === false ? <FontAwesomeIcon icon={faPlus} size="sm" style={{color: "#f5f5dc",}} /> : <FontAwesomeIcon icon={faMinus} size="sm" style={{color: "#f5f5dc",}} /> }
+        
       </Button>
 
       <Collapse isOpen={priceOpen}>

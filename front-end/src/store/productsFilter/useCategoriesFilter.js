@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 
 export const useCategoriesFilter = create((set)=>({
-    selectedCategory: "Selecciona una categoría",
+    selectedCategory: "Hombres",
     setSelectedCategory: (newSelectedCategory) => set(() => ({ selectedCategory: newSelectedCategory })),
 }));
