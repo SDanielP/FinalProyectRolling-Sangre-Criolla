@@ -9,9 +9,17 @@ router.get('/products', async (req, res) => {
         const products = await Product.find();
         res.json(products);
     } catch (err) {
-        res.status(500).json({ message: err.message });
+        res.status(500).json({ message: err.message })
     }
-});
+})
+
+//Obt un prod por ID
+router.get('/products/:id', getProductById, (req, res) =>{
+    res.json(res.product)
+})
+
+// obt por nombre
+router.get('/products/:name', getProductById)
 
 // Crear nuevo prod
 router.post('/products', async (req, res) => {
