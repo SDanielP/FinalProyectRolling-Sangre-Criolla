@@ -19,7 +19,17 @@ router.get('/products/:id', getProductById, (req, res) =>{
 })
 
 // obt por nombre
-router.get('/products/name/:name', getProductById),
+router.get('/products/name/:name', async (req, res) => {
+    try {
+        const product = await Product.findOne({ name: req.params.name });
+        if (product == null) {
+            return res.status(404).json({ message: 'Producto no encontrado' });
+        }
+        res.json(product);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+}),
 
 // Crear nuevo prod
 router.post('/products', async (req, res) => {
