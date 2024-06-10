@@ -4,6 +4,7 @@ import ProductCardPrueba from "../shop/productsCard/ProductCardPrueba";
 import "../../styles/components/shop/Products.css";
 
 import contents from '../../store/content';
+// import PruebaCard from "./productsCard/PruebaCard";
 
 const Products = ({ categoria, ordenar, precioMin, precioMax }) => {
   const [productosStore, setProductosStore] = useState([]);
@@ -93,7 +94,7 @@ const Products = ({ categoria, ordenar, precioMin, precioMax }) => {
 
 
 
-      <div className='App'>
+      {/* <div className='App'>
                 {contents.map(contents => (
                     <ProductCardPrueba 
                         key={contents.id}
@@ -105,7 +106,7 @@ const Products = ({ categoria, ordenar, precioMin, precioMax }) => {
                         rating={contents.rating}
                     />
                 ))}
-      </div>
+      </div> */}
     </>
   );
 };

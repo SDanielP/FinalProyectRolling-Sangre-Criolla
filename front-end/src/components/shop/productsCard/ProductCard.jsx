@@ -4,13 +4,16 @@ import ListGroup from "react-bootstrap/ListGroup";
 import Button from "react-bootstrap/Button";
 import { useNavigate } from "react-router-dom";
 
+
+import "../../../styles/components/shop/productsCard/PruebaCard2.css";
+
 const ProductCard = ({ producto }) => {
-      /* ----- HISTORIAL ----- */
+  /* ----- HISTORIAL ----- */
   const navigate = useNavigate(); // Importar useNavigate()
-  
+
   return (
     <>
-      <Card key={producto.id} className="tarjetaProducto">
+      {/* <Card key={producto.id} className="tarjetaProducto">
         <div className="contenedorImg">
           <Card.Img
             variant="top"
@@ -37,7 +40,22 @@ const ProductCard = ({ producto }) => {
             Ver producto
           </Button>
         </Card.Body>
-      </Card>
+      </Card> */}
+
+      <div className="container">
+        <div className="card__container tarjetaProducto">
+          <article className="card__article contenedorImg">
+            <img src={producto.image} alt="image" className="card__img  imgProducto"  />
+
+            <div className="card__data">
+              {/* <h5 className="card__title">Vista rápida</h5> */}
+              <a href="#" className="card__button">
+                Vista rápida
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
     </>
   );
 };
