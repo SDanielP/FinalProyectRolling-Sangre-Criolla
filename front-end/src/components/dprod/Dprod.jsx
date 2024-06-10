@@ -8,6 +8,7 @@ import ImgP from './comp-dprod/ImgP';
 function DProd() {
     return (
         <Container>
+          
           <Row xs={1} md={2}>
             <Col> 
             <ImgP/>
