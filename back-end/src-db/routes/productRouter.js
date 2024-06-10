@@ -3,7 +3,7 @@ const router = express.Router();
 const Product = require('../models/productModel/productModel');
 const { getProductById } = require('../middlewares/productMiddleware');
 
-// Obtener todos los productos
+// Obt todos los prod
 router.get('/products', async (req, res) => {
     try {
         const products = await Product.find();
@@ -13,15 +13,16 @@ router.get('/products', async (req, res) => {
     }
 });
 
-// Crear un nuevo producto
+// Crear nuevo prod
 router.post('/products', async (req, res) => {
     const product = new Product({
         name: req.body.name,
         price: req.body.price,
         description: req.body.description,
+        color: req.body.color,
+        size: req.body.size,
         category: req.body.category,
-        stock: req.body.stock,
-        imageUrl: req.body.imageUrl
+        stock: req.body.stock
     });
 
     try {
@@ -32,12 +33,12 @@ router.post('/products', async (req, res) => {
     }
 });
 
-// Obtener un producto por ID
+// Obt prod por ID
 router.get('/products/:id', getProductById, (req, res) => {
     res.json(res.product);
 });
 
-// Actualizar un producto
+// Actualiazr prod
 router.patch('/products/:id', getProductById, async (req, res) => {
     if (req.body.name != null) {
         res.product.name = req.body.name;
@@ -69,7 +70,7 @@ router.patch('/products/:id', getProductById, async (req, res) => {
     }
 });
 
-// Eliminar un producto
+// Eliminar prod
 router.delete('/products/:id', getProductById, async (req, res) => {
     try {
         await res.product.remove();

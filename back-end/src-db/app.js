@@ -59,5 +59,3 @@ app.listen(PORT, () => {
     console.log(`Servidor escuchando en el puerto ${PORT}`);
 });
 
-return console.log("Hola")
-
