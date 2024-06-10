@@ -50,6 +50,10 @@ mongoose.connect(process.env.MONGO_DB, {
 // Ruta
 app.use('/', productRouter);
 
+app.get('/', function(req, res) {
+    res.send('Hola Mundo!');
+  });
+
 // Iniciar el servidor
 app.listen(PORT, () => {
     console.log(`Servidor escuchando en el puerto ${PORT}`);
