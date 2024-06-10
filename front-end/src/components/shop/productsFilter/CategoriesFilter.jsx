@@ -50,7 +50,7 @@ const CategoriesFilter = () => {
         // style={{ marginBottom: "1rem" }}
         // className="custom-dropdown"
       >
-        Todos
+        <span>Todos</span>
       </Button>
 
       {/* Mujeres */}
@@ -59,23 +59,8 @@ const CategoriesFilter = () => {
         // style={{ marginBottom: "1rem" }}
         // className="custom-dropdown"
       >
-        Damas
+        <span>Damas</span>
       </Button>
-
-      {/* <Collapse isOpen={womenCategoryOpen}>
-        {categories.map((categoria) => (
-          <div
-            // className="card"
-            key={categories.indexOf(categoria)}
-            onClick={() => (handleCategory(categoria))}
-            style={{ cursor: "pointer" }}
-            // eventKey={categoria.charAt(0).toUpperCase() + categoria.slice(1)}
-          >
-              {categoria.charAt(0).toUpperCase() + categoria.slice(1)}
-            
-          </div>
-        ))}
-      </Collapse> */}
 
       {/* Hombres */}
       <Button
@@ -92,7 +77,7 @@ const CategoriesFilter = () => {
       <Collapse isOpen={menCategoryOpen}>
         {categories.map((categoria) => (
           <div
-            // className="card"
+            className="men-subcategories"
             key={categories.indexOf(categoria)}
             onClick={() => (handleCategory(categoria))}
             style={{ cursor: "pointer" }}

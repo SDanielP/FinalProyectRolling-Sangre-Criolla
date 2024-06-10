@@ -42,7 +42,7 @@ const SizeFilter = () => {
         {sizeOpen === false ? <FontAwesomeIcon icon={faPlus} size="sm" style={{color: "#f5f5dc",}} /> : <FontAwesomeIcon icon={faMinus} size="sm" style={{color: "#f5f5dc",}} /> }
         
       </Button>
-      <Collapse isOpen={sizeOpen} className="tallas">
+      <Collapse isOpen={sizeOpen} className="tallas size-options">
         {sizeOptions.map((size) => (
           <div
             className="talla"

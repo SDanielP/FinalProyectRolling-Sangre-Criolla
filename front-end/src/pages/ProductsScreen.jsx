@@ -95,85 +95,19 @@ const ProductsScreen = () => {
             </span>
           </div>
         </div>
-          <SortFilter />
+          <SortFilter /> 
       </nav>
 
-      <section className="contenedor-filtros-productos">
+      <section className="contenedor-filtros-productos" style={{justifyContent: "center"}}>
         <div
           className="seccion-filtros"
-          style={{ width: "20%", minWidth: "20%" }}
+          style={{ width: "25%", minWidth: "25%", justifyItemsContent: "center", right: "0"}}
         >
           <FilterPanel />
-          <div>
-            {/* 
-            <li className="dropdown__list">
-              <a href="#" className="dropdown__link">
-                <span className="dropdown__span">Subcategorías</span>
-                <img
-                  src="./assets/icons/down.svg"
-                  className="dropdown__arrow"
-                />
-
-                <input type="checkbox" className="dropdown__check" />
-              </a>
-
-              <div className="dropdown__content">
-                <ul className="dropdown__sub">
-                  <li className="dropdown__li">
-                    <a href="#" className="dropdown__anchor">
-                      Subcategoría 1
-                    </a>
-                  </li>
-                  <li className="dropdown__li">
-                    <a href="#" className="dropdown__anchor">
-                      Subcategoría 2
-                    </a>
-                  </li>
-                  <li className="dropdown__li">
-                    <a href="#" className="dropdown__anchor">
-                      Subcategoría 3
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-
-            <li className="dropdown__list">
-              <a href="#" className="dropdown__link">
-                <span className="dropdown__span">Color</span>
-                <img
-                  src="./assets/icons/down.svg"
-                  className="dropdown__arrow"
-                />
-
-                <input type="checkbox" className="dropdown__check" />
-              </a>
-
-              <div className="dropdown__content">
-                <ul className="dropdown__sub">
-                  <li className="dropdown__li">
-                    <a href="#" className="dropdown__anchor">
-                      Color 1
-                    </a>
-                  </li>
-                  <li className="dropdown__li">
-                    <a href="#" className="dropdown__anchor">
-                      Color 2
-                    </a>
-                  </li>
-                  <li className="dropdown__li">
-                    <a href="#" className="dropdown__anchor">
-                      Color 3
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </li>*/}
-          </div>
         </div>
 
         {/* Lateral derecho, Productos */}
-        <div className="seccion-productos" style={{ width: "80%" }}>
+        <div className="seccion-productos" style={{ width: "75%" }}>
           {selectedCategory != "Hombres" ? (
             <Products
               className="div-products"

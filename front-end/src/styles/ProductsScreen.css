@@ -23,15 +23,15 @@
 } */
 
 
-
+/* 
 .buscarCat{
     margin-right: 2rem;
     width: 10rem;
-}
+} */
 
 /*Section Productos*/
 .contenedor-filtros-productos{
-    padding: 1rem 1rem;
+    padding: 1rem 1rem 1rem 2rem;
     display: flex;
     justify-content: flex-start;
     background-color: rgb(57,61,50);

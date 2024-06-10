@@ -8,7 +8,7 @@
 } */
 
 .contenedorProductos{
-    margin-left: 2rem;
+    margin-left: 1rem;
     display: flex;
     flex-direction: row;
     justify-content: start;

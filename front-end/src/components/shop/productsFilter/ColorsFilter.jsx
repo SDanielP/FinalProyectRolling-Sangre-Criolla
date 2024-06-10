@@ -44,7 +44,7 @@ const ColorsFilter = () => {
         
       </Button>
 
-      <Collapse isOpen={colorOpen} className="colores">
+      <Collapse isOpen={colorOpen} className="colores color-options">
         {colorOptions.map((colorOption) => (
           <span
             className={colorOption.label}
