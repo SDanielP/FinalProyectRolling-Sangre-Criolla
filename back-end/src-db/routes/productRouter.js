@@ -35,7 +35,7 @@ router.get('/products/name/:name', async (req, res) => {
 }),
 
 // Crear nuevo prod
-router.post('/products', calculateTotalStock, async (req, res) => {
+router.post('/products', async (req, res) => {
     try {
         const productData = {
             name: req.body.name,
@@ -46,8 +46,12 @@ router.post('/products', calculateTotalStock, async (req, res) => {
             category: req.body.category
         };
 
+        // Crea un nuevo producto en la base de datos
         const product = new Product(productData);
         const newProduct = await product.save();
+
+        calculateTotalStock(req, res, () => {});
+
         res.status(201).json(newProduct);
     } catch (err) {
         res.status(400).json({ message: err.message });
@@ -90,11 +94,12 @@ router.patch('/products/:id', getProductById, calculateTotalStock, async (req, r
 // Eliminar prod
 router.delete('/products/:id', getProductById, async (req, res) => {
     try {
-        await res.product.remove();
-        res.json({ message: 'Producto eliminado' });
-    } catch (err) {
-        res.status(500).json({ message: err.message });
+      const product = res.product;
+      await Product.findByIdAndDelete(product._id);
+      return res.json({ message: 'Producto eliminado correctamente' });
+    } catch (error) {
+      return res.status(500).json({ message: 'Error al eliminar el producto', error: error.message });
     }
-});
+  });
 
 module.exports = router;

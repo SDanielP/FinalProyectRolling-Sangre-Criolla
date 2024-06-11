@@ -36,7 +36,7 @@ const productSchema = new mongoose.Schema({
     }
 }, { timestamps: true });
 
-productSchema.pre('save', calculateTotalStock);
+// productSchema.pre('save', calculateTotalStock);
 
 const Product = mongoose.model('Product', productSchema);
 
