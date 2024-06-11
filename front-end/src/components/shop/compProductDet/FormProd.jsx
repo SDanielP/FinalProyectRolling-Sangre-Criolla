@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import FormuSize from '../compProductDet/FormS';
 import FormuColor from '../compProductDet/FormC';
 
-function FormProd() {
+function FormProd({id, category}) {
     return (
         <section className='formP container-fluid border mt-3 bg-opacity-10  p-2'>
         <article className='ms-3'>

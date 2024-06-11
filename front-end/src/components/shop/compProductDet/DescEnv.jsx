@@ -1,7 +1,7 @@
 import React from 'react';
 import Nav from 'react-bootstrap/Nav';
 
-function DescEnv() {
+function DescEnv({id, category}) {
   return (
  <section className='col-12'>
    <Nav className="nav nav-tabs d-flex justify-content-md-start  justify-content-center" id="nav-tab" role="tablist">

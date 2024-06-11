@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'react-bootstrap/Image';
 
-function ImgP() {
+function ImgP({id, category}) {
     return ( 
         <section >
          <article id="carouselExample" className="carousel slide" data-bs-ride="carousel" data-bs-theme="dark">
