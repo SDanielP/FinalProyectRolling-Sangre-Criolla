@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const sizeSchema = require('./sizePModel');
-const calculateTotalStock = require('../../middlewares/stockMiddleware');
+// const calculateTotalStock = require('../../middlewares/stockMiddleware');
 // const Color = require('./colorPModel');
 // const Category = require('./categoryPModel');
 
@@ -22,7 +22,7 @@ const productSchema = new mongoose.Schema({
         required: true
     },
     size: {
-        type: [sizeSchema],
+        type: Number,
         required: true
     },
     category: {

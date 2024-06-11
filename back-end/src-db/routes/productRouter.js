@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Product = require('../models/productModel/productModel');
 const { getProductById } = require('../middlewares/productMiddleware');
-const calculateTotalStock = require('../middlewares/stockMiddleware');
+// const calculateTotalStock = require('../middlewares/stockMiddleware');
 ;
 
 
@@ -45,13 +45,9 @@ router.post('/products', async (req, res) => {
             size: req.body.size, 
             category: req.body.category
         };
-
         // Crea un nuevo producto en la base de datos
         const product = new Product(productData);
         const newProduct = await product.save();
-
-        calculateTotalStock(req, res, () => {});
-
         res.status(201).json(newProduct);
     } catch (err) {
         res.status(400).json({ message: err.message });
@@ -60,7 +56,7 @@ router.post('/products', async (req, res) => {
 
 
 // Actualiazr prod
-router.patch('/products/:id', getProductById, calculateTotalStock, async (req, res) => {
+router.patch('/products/:id', getProductById, async (req, res) => {
     if (req.body.name != null) {    
         res.product.name = req.body.name;
     }
