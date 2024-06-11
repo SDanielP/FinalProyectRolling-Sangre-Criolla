@@ -2,6 +2,9 @@ const express = require('express');
 const router = express.Router();
 const Product = require('../models/productModel/productModel');
 const { getProductById } = require('../middlewares/productMiddleware');
+const calculateTotalStock = require('../middlewares/stockMiddleware');
+;
+
 
 // Obt todos los prod
 router.get('/products', async (req, res) => {
@@ -14,14 +17,14 @@ router.get('/products', async (req, res) => {
 })
 
 //Obt un prod por ID tiene la verificación en el archivo middleware jiji
-router.get('/products/:id', getProductById, (req, res) =>{
+router.get('/products/:id', getProductById, (req, res) => {
     res.json(res.product)
 })
 
 // obt por nombre
 router.get('/products/name/:name', async (req, res) => {
     try {
-        const product = await Product.findOne({ name: req.params.name });
+        const product = await getProductById({ name: req.params.name });
         if (product == null) {
             return res.status(404).json({ message: 'Producto no encontrado' });
         }
@@ -32,18 +35,18 @@ router.get('/products/name/:name', async (req, res) => {
 }),
 
 // Crear nuevo prod
-router.post('/products', async (req, res) => {
-    const product = new Product({
-        name: req.body.name,
-        price: req.body.price,
-        description: req.body.description,
-        color: req.body.color,
-        size: req.body.size,
-        category: req.body.category,
-        stock: req.body.stock
-    });
-
+router.post('/products', calculateTotalStock, async (req, res) => {
     try {
+        const productData = {
+            name: req.body.name,
+            price: req.body.price,
+            description: req.body.description,
+            color: req.body.color,
+            size: req.body.size, 
+            category: req.body.category
+        };
+
+        const product = new Product(productData);
         const newProduct = await product.save();
         res.status(201).json(newProduct);
     } catch (err) {
@@ -51,14 +54,10 @@ router.post('/products', async (req, res) => {
     }
 });
 
-// Obt prod por ID
-router.get('/products/:id', getProductById, (req, res) => {
-    res.json(res.product);
-});
 
 // Actualiazr prod
-router.patch('/products/:id', getProductById, async (req, res) => {
-    if (req.body.name != null) {
+router.patch('/products/:id', getProductById, calculateTotalStock, async (req, res) => {
+    if (req.body.name != null) {    
         res.product.name = req.body.name;
     }
     if (req.body.price != null) {

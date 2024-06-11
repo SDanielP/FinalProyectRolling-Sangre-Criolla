@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
+const sizeSchema = require('./sizePModel');
+const calculateTotalStock = require('../../middlewares/stockMiddleware');
 // const Color = require('./colorPModel');
 // const Category = require('./categoryPModel');
-// const Size = require('./sizePModel');
 
 const productSchema = new mongoose.Schema({
     name: {
@@ -14,37 +15,28 @@ const productSchema = new mongoose.Schema({
     },
     description: {
         type: String,
-        
         required: true
     },
     color: {
         type: String,
-    //    type: mongoose.Schema.Types.ObjectId,
-    //    ref: Color,
-       required: true
-    },
-    size: {
-        type: Number,
-    //    type: mongoose.Schema.Types.ObjectId,
-    //    ref: Size,
-       required: true
-    },
-    category: {
-         type: String,
-        // type: mongoose.Schema.Types.ObjectId,
-        // ref: Category,
         required: true
     },
-    // subcategory: {
-    //     type: mongoose.Schema.Types.ObjectId,
-    //     ref: subcategory
-    // },
+    size: {
+        type: [sizeSchema],
+        required: true
+    },
+    category: {
+        type: String,
+        required: true
+    },
     stock: {
         type: Number,
         required: true,
         default: 0
-    },
-});
+    }
+}, { timestamps: true });
+
+productSchema.pre('save', calculateTotalStock);
 
 const Product = mongoose.model('Product', productSchema);
 

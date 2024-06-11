@@ -14,4 +14,4 @@ async function getProductById(req, res, next) {
     next();
 }
 
-module.exports = { getProductById };
+module.exports = { getProductById};

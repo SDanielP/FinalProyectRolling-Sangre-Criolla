@@ -1,11 +1,15 @@
-const SizeSchema = new mongoose.Schema({
-    name: {
-        type: String,
-        required: true,
+const mongoose = require('mongoose');
+
+const sizeSchema = new mongoose.Schema({
+    size: {
+        type: Number,
+        required: true
     },
+    stock: {
+        type: Number,
+        required: true,
+        default: 0
+    }
+});
 
-})
-
-const Size = mongoose.model('Size', SizeSchema);
-
-module.exports = Size;
+module.exports = sizeSchema;
