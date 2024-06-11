@@ -1,9 +1,9 @@
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import FormProd from './comp-dprod/FormProd';
-import DescEnv from './comp-dprod/DescEnv';
-import ImgP from './comp-dprod/ImgP';
+import FormProd from '../comp-dprod/FormProd';
+import DescEnv from '../comp-dprod/DescEnv';
+import ImgP from '../comp-dprod/ImgP';
 
 function DProd() {
     return (

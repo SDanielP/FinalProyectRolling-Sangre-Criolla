@@ -50,8 +50,6 @@ const ColorsFilter = () => {
             className={colorOption.label}
             key={colorOption.id}
             onClick={() => (handleColor(colorOption))}
-            // value={colorOption.value}
-            // id={colorOption.label}
           ></span>
         ))}
       </Collapse>

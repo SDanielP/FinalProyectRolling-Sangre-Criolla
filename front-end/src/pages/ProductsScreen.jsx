@@ -1,30 +1,22 @@
 import React from "react";
+import Products from "../components/shop/Products.jsx";
+import FilterPanel from "../components/shop/FilterPanel.jsx";
+import SortFilter from "../components/shop/productsFilter/SortFilter.jsx";
+
 import { useEffect, useCallback } from "react";
 import { NavLink } from "react-router-dom";
-
 import { useProducts } from "../store/useProducts.js";
 import { useCategories } from "../store/useCategories.js";
 import { useUbication } from "../store/useUbication.js";
 import { usePriceFilter } from "../store/productsFilter/usePriceFilter.js";
 import { useSortFilter } from "../store/productsFilter/useSortFilter.js";
 import { useCategoriesFilter } from "../store/productsFilter/useCategoriesFilter.js";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHouse } from "@fortawesome/free-solid-svg-icons";
 
-import Products from "../components/shop/Products.jsx";
-import PriceFilter from "../components/shop/productsFilter/PriceFilter.jsx";
-import SortFilter from "../components/shop/productsFilter/SortFilter.jsx";
-// import CategoriesFilter from "../components/shop/productsFilter/CategoriesFilter.jsx";
-
-import Dropdown from "react-bootstrap/Dropdown";
-import DropdownButton from "react-bootstrap/DropdownButton";
 
 import "../styles/ProductsScreen.css";
-// import "../styles/components/shop/Categories.css";
 import "../styles/components/shop/productsFilter/SortFilter.css";
-import FilterPanel from "../components/shop/productsFilter/FilterPanel.jsx";
-// import "../styles/components/shop/productsFilter/DROP.css";
 
 /* ----- Constantes ----- */
 //***URL API

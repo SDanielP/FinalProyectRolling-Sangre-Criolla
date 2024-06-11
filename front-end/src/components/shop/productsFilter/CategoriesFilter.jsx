@@ -56,8 +56,6 @@ const CategoriesFilter = () => {
       {/* Mujeres */}
       <Button
         onClick={() => setWomenCategoryOpen(!womenCategoryOpen)}
-        // style={{ marginBottom: "1rem" }}
-        // className="custom-dropdown"
       >
         <span>Damas</span>
       </Button>
@@ -66,8 +64,6 @@ const CategoriesFilter = () => {
       <Button
         className="men-btn"
         onClick={() => setMenCategoryOpen(!menCategoryOpen)}
-        // style={{ marginBottom: "1rem" }}
-        // className="custom-dropdown"
       >
         <span>Hombres</span>
         { menCategoryOpen === false ? <FontAwesomeIcon icon={faAngleDown} size="xs" style={{color: "#f5f5dc",}} /> : <FontAwesomeIcon icon={faAngleUp} size="xs" style={{color: "#f5f5dc",}} />}
@@ -81,7 +77,6 @@ const CategoriesFilter = () => {
             key={categories.indexOf(categoria)}
             onClick={() => (handleCategory(categoria))}
             style={{ cursor: "pointer" }}
-            // eventKey={categoria.charAt(0).toUpperCase() + categoria.slice(1)}
           >
               {categoria.charAt(0).toUpperCase() + categoria.slice(1)}
             

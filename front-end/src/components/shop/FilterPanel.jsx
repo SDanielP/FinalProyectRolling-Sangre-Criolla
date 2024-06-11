@@ -1,10 +1,10 @@
 import React from "react";
 
-import "../../../styles/components/shop/productsFilter/FilterPanel.css";
-import PriceFilter from "./PriceFilter";
-import CategoriesFilter from "./CategoriesFilter";
-import ColorsFilter from "./ColorsFilter";
-import SizeFilter from "./SizeFilter";
+import "../../styles/components/shop/FilterPanel.css";
+import PriceFilter from "./productsFilter/PriceFilter";
+import CategoriesFilter from "./productsFilter/CategoriesFilter";
+import ColorsFilter from "./productsFilter/ColorsFilter";
+import SizeFilter from "./productsFilter/SizeFilter";
 
 const FilterPanel = () => {
   

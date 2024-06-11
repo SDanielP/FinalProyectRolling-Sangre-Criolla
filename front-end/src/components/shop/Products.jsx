@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ProductCard from "../shop/productsCard/ProductCard";
-import ProductCardPrueba from "../shop/productsCard/ProductCardPrueba";
 import "../../styles/components/shop/Products.css";
-
-import contents from '../../store/content';
-// import PruebaCard from "./productsCard/PruebaCard";
 
 const Products = ({ categoria, ordenar, precioMin, precioMax }) => {
   const [productosStore, setProductosStore] = useState([]);
@@ -91,22 +87,6 @@ const Products = ({ categoria, ordenar, precioMin, precioMax }) => {
           <p className="contenedorProductos">No se encontraron productos para esta categoría.</p>
         )}
       </div>
-
-
-
-      {/* <div className='App'>
-                {contents.map(contents => (
-                    <ProductCardPrueba 
-                        key={contents.id}
-                        image={contents.image}
-                        name={contents.name}
-                        price={contents.price}
-                        totalSales={contents.totalSales}
-                        timeLeft={contents.timeLeft}
-                        rating={contents.rating}
-                    />
-                ))}
-      </div> */}
     </>
   );
 };

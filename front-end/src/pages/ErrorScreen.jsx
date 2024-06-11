@@ -1,5 +1,5 @@
 import React from 'react'
-import DProd from '../components/dprod/Dprod'
+import DProd from '../components/shop/dprod/Dprod'
 
 const ErrorScreen = () => {
   return (
