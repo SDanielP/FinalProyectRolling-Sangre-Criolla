@@ -1,0 +1,25 @@
+.options-container {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .option-label {
+    display: flex;
+    align-items: center;
+  }
+  
+  .option-label input[type="radio"] {
+    margin-right: 2px;
+  }
+
+.formP{
+    text-align: start;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.fondo-color{
+  background-color: #a6907c;
+}
