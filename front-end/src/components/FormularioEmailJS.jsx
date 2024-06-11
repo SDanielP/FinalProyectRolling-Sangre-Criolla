@@ -11,10 +11,10 @@ const FormularioEmailJS = () => {
 
     emailjs
       .sendForm(
-        process.env.REACT_APP_VERSION_ID,
-        process.env.REACT_APP_TEMPLATE_ID,
+        import.meta.env.VITE_VERSION_ID,
+        import.meta.env.VITE_TEMPLATE_ID,
         e.target,
-        process.env.REACT_APP_PUBLIC_KEY
+        import.meta.env.VITE_PUBLIC_KEY
       )
       .then(
         () => {
