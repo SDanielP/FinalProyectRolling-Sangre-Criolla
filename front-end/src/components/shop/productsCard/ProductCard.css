@@ -1,0 +1,31 @@
+.quantity {
+    margin: 0 auto;
+    height: 3rem;
+    width: 4rem;
+    font-size: small;
+    text-align: center;
+}
+#addToCart {
+    background-color: rgb(67, 142, 192) !important;
+}
+
+/* Agrega estos estilos */
+#transition .added {
+    animation: addAnimation 2s forwards !important;
+  }
+  
+  @keyframes addAnimation {
+    0% {
+      background-color: #007bff !important; /* Color original del botón */
+      color: white;
+    }
+    50% {
+      background-color: #28a745 !important; /* Color verde para indicar "Producto Agregado" */
+      color: white;
+    }
+    100% {
+      background-color: #007bff !important; /* Volver al color original del botón */
+      color: white;
+    }
+  }
+  

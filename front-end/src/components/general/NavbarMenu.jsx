@@ -1,13 +1,25 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 // import styled from 'styled-components'
 // import BurguerButton from './BurguerButton'
 import "../../styles/components/general/NavbarMenu.css";
 import { NavLink } from "react-router-dom";
+import Cart from "../shop/carts/cart";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faX } from '@fortawesome/free-solid-svg-icons';
 
 function Navbar() {
+  const [modal, setModal] = useState(false);
+  const toggle = () => setModal(!modal);
+  const [cartProducts, setCartProducts] = useState([]); // Estado para almacenar los productos del carrito
+
+  // Función para cargar los productos del carrito desde el almacenamiento local
+  useEffect(() => {
+    const cartData = JSON.parse(localStorage.getItem("cart")) || [];
+    setCartProducts(cartData);
+  }, []);
+
+
   const [searchQuery, setSearchQuery] = useState("");
 
   const handleSearchChange = (e) => {
@@ -72,8 +84,9 @@ function Navbar() {
           </div>
 
           <div className="buscador-usuario-elemento">
-            <NavLink to="cart">Carrito de compras</NavLink>
-          </div>
+          <NavLink to="#" onClick={toggle}>Carrito de compras</NavLink>
+        </div>
+        <Cart isOpen={modal} toggle={toggle} cartProducts={cartProducts} setCartProducts={setCartProducts} />
         </div>
       </nav>
     </>
