@@ -2,8 +2,6 @@ const express = require('express');
 const router = express.Router();
 const Product = require('../models/productModel/productModel');
 const { getProductById } = require('../middlewares/productMiddleware');
-// const calculateTotalStock = require('../middlewares/stockMiddleware');
-;
 
 
 // Obt todos los prod
@@ -30,7 +28,7 @@ router.get('/products/name/:name', async (req, res) => {
         }
         res.json(product);
     } catch (err) {
-        res.status(500).json({ message: err.message });
+        res.status(500).json({ message: err.message })
     }
 }),
 
@@ -47,7 +45,7 @@ router.post('/products', async (req, res) => {
             image: req.body.image,
             stock: req.body.stock
         };
-        // Crea un nuevo producto en la base de datos
+// Crear nuevo prod
         const product = new Product(productData);
         const newProduct = await product.save();
         res.status(201).json(newProduct);
@@ -101,6 +99,6 @@ router.delete('/products/:id', getProductById, async (req, res) => {
     } catch (error) {
       return res.status(500).json({ message: 'Error al eliminar el producto', error: error.message });
     }
-  });
+  })
 
 module.exports = router;
