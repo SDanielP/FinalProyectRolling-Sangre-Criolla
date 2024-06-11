@@ -44,7 +44,8 @@ router.post('/products', async (req, res) => {
             color: req.body.color,
             size: req.body.size, 
             category: req.body.category,
-            image: req.body.image
+            image: req.body.image,
+            stock: req.body.stock
         };
         // Crea un nuevo producto en la base de datos
         const product = new Product(productData);
