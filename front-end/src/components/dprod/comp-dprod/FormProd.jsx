@@ -1,4 +1,4 @@
-import '../../../Styles/Dprod/Dprod.css';
+import '../../../styles/Dprod/Dprod.css';
 import Button from 'react-bootstrap/Button';
 import FormuSize from './FormS';
 import FormuColor from './FormC';

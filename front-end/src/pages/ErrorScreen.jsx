@@ -1,8 +1,10 @@
 import React from 'react'
+import DProd from '../components/dprod/Dprod'
 
 const ErrorScreen = () => {
   return (
-    <div>ErrorScreen</div>
+    <DProd />
+    // <div>ErrorScreen</div>
   )
 }
 

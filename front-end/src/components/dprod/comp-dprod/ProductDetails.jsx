@@ -29,7 +29,6 @@ function ProductDetails() {
       <p>Descripción: {product.description}</p>
       <p>Categoría: {product.category}</p>
       <p>Stock: {product.stock}</p>
-      {/* Otros detalles del producto */}
     </div>
   );
 }
