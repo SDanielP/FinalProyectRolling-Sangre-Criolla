@@ -1,0 +1,55 @@
+.payment-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 1em;
+    background: #D9C7C1;
+    border-radius: 5px;
+  }
+  
+  .payment-form h2 {
+    text-align: center;
+  }
+  
+  .card-types img {
+    width: 50px;
+    margin: 0 5px;
+  }
+  
+  .form-group {
+    margin-bottom: 1em;
+  }
+  
+  .form-group label {
+    margin-bottom: .5em;
+    color: #333333;
+    display: block;
+  }
+  
+  .form-group input {
+    border: 1px solid #CCCCCC;
+    padding: .5em;
+    font-size: 1em;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .error {
+    color: red;
+    font-size: .875em;
+  }
+  
+  button {
+    background: #733224;
+    color: white;
+    border: 0;
+    padding: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    width: 100%;
+    margin-bottom: 5%;
+  }
+  
+  button:hover {
+    background: #cc0000;
+  }

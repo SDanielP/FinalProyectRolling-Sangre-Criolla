@@ -59,7 +59,7 @@ function Navbar() {
         <div className="navegacion">
           <NavLink to="/">Home</NavLink>
           <NavLink to="products/all">Productos</NavLink>
-          <NavLink to="about">Sobre nosotros</NavLink>
+          <NavLink to="payments">Sobre nosotros</NavLink>
           <NavLink to="contact">Contacto</NavLink>
         </div>
 
