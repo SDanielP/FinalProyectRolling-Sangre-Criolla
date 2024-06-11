@@ -43,7 +43,8 @@ router.post('/products', async (req, res) => {
             description: req.body.description,
             color: req.body.color,
             size: req.body.size, 
-            category: req.body.category
+            category: req.body.category,
+            image: req.body.image
         };
         // Crea un nuevo producto en la base de datos
         const product = new Product(productData);
@@ -75,9 +76,12 @@ router.patch('/products/:id', getProductById, async (req, res) => {
     if (req.body.category != null) {
         res.product.category = req.body.category;
     }
+    if (req.body.image != null) {
+        res.product.image = req.body.image;
+    }
     if (req.body.stock != null) {
         res.product.stock = req.body.stock;
-    }
+    } 
 
     try {
         const updatedProduct = await res.product.save();
