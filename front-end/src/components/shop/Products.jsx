@@ -1,13 +1,18 @@
+import "../../styles/components/shop/Products.css";
 import React, { useState, useEffect } from "react";
 import ProductCard from "../shop/productsCard/ProductCard";
-import "../../styles/components/shop/Products.css";
+
+
+/* ----- Constantes ----- */
+//***URL API
+const url = "https://fakestoreapi.com";
 
 const Products = ({ categoria, ordenar, precioMin, precioMax }) => {
+  /* ----- Estados para los productos ----- */
   const [productosStore, setProductosStore] = useState([]);
 
   /* ----- API ----- */
   const getProductos = async () => {
-    const url = "https://fakestoreapi.com";
     const response = await fetch(`${url}/products`);
     const dataProductos = await response.json();
 

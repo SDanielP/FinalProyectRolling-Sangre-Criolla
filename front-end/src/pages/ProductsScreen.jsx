@@ -1,3 +1,5 @@
+import "../styles/ProductsScreen.css";
+import "../styles/components/shop/productsFilter/SortFilter.css";
 import React from "react";
 import Products from "../components/shop/Products.jsx";
 import FilterPanel from "../components/shop/FilterPanel.jsx";
@@ -15,8 +17,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHouse } from "@fortawesome/free-solid-svg-icons";
 
 
-import "../styles/ProductsScreen.css";
-import "../styles/components/shop/productsFilter/SortFilter.css";
 
 /* ----- Constantes ----- */
 //***URL API
@@ -52,7 +52,7 @@ const ProductsScreen = () => {
     setUbication("Todos");
   };
 
-  /* ----- USO DE useNavigate() ----- */
+  /* ----- Uso de useNavigate() ----- */
   // const navigate = useNavigate(); // Importar useNavigate()
 
   //Volver a la página según el cambio del URL

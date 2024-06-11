@@ -1,6 +1,5 @@
-import React from "react";
-
 import "../../styles/components/shop/FilterPanel.css";
+import React from "react";
 import PriceFilter from "./productsFilter/PriceFilter";
 import CategoriesFilter from "./productsFilter/CategoriesFilter";
 import ColorsFilter from "./productsFilter/ColorsFilter";

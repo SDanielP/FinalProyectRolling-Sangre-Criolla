@@ -1,3 +1,4 @@
+import "../../../styles/components/shop/productsFilter/CategoriesFilter.css";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCategories } from "../../../store/useCategories.js";
@@ -11,12 +12,11 @@ import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
 // import DropdownButton from "react-bootstrap/DropdownButton";
 
 // import "../../../styles/components/shop/productsFilter/DropdownFilter.css";
-import "../../../styles/components/shop/productsFilter/CategoriesFilter.css";
 
 const CategoriesFilter = () => {
   /* ----- Estados para los botones ----- */
   // const [ categories, setCategories ] = useState([])
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  // const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [menCategoryOpen, setMenCategoryOpen] = useState(false);
   const [womenCategoryOpen, setWomenCategoryOpen] = useState(false);
 

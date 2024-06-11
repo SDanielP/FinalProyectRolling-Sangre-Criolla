@@ -1,9 +1,11 @@
+import "../../../styles/components/shop/productsFilter/SortFilter.css";
 import React from "react";
-import { useEffect } from "react";
-import { useSortFilter } from "../../../store/productsFilter/useSortFilter";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
-import "../../../styles/components/shop/productsFilter/SortFilter.css";
+import { useEffect } from "react";
+import { useSortFilter } from "../../../store/productsFilter/useSortFilter";
+
+
 /* ----- Constantes ----- */
 //***Opciones para el botón ordenar
 const ordenarOpciones = [
@@ -15,16 +17,16 @@ const ordenarOpciones = [
 ];
 
 const SortFilter = () => {
-  /* ----- Estados para los botones - Zustand ----- */
+  /* ----- Estados para los botones Ordenar - Zustand ----- */
   const { ordenarSeleccion, setSortProp, setSortSelected } = useSortFilter();
 
   useEffect(() => {}, [ordenarSeleccion]);
+
   return (
     <>
       <DropdownButton
         className="ordenar sort-btn"
         title={"Ordenar por: " + ordenarSeleccion}
-        // id="dropdown-basic-button"
         onSelect={(opcionOrdenar) => (
           setSortSelected(ordenarOpciones[opcionOrdenar - 1].label),
           setSortProp(ordenarOpciones[opcionOrdenar - 1].value)

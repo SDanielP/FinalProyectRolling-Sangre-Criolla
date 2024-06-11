@@ -1,3 +1,4 @@
+import "../../../styles/components/shop/productsFilter/PriceFilter.css";
 import React, { useState, useEffect } from "react";
 import Slider from "react-slider";
 import { Collapse, Button } from "reactstrap";
@@ -7,15 +8,19 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { faMinus } from "@fortawesome/free-solid-svg-icons";
 
-import "../../../styles/components/shop/productsFilter/PriceFilter.css";
 
 const PriceFilter = () => {
+  /* ----- Estados para los botones ----- */
   const [values, setValues] = useState([0, 1000]);
-  const { setMinPrice, setMaxPrice } = usePriceFilter();
   const [priceOpen, setPriceOpen] = useState(false);
 
+    /* ----- Estado Precio - Zustand ----- */
+  const { setMinPrice, setMaxPrice } = usePriceFilter();
+
+  /* ----- Uso de useDebounce para la rapidez del filtro Precio  ----- */
   const debouncedMinPrice = useDebounce(values[0], 1000);
   const debouncedMaxPrice = useDebounce(values[1], 1000);
+
 
   const handleChange = (newValues) => {
     setValues(newValues);
