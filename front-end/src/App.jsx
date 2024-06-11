@@ -1,13 +1,13 @@
 import "./styles/App.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import NavbarMenu from "./components/general/NavbarMenu.jsx";
-
-import ProductsScreen from "./pages/ProductsScreen";
-import ErrorScreen from "./pages/ErrorScreen";
-
 import { useEffect } from "react";
-import { useCategories } from "./store/useCategories.js";
 // import { useNavigate } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useCategories } from "./store/useCategories.js";
+import NavbarMenu from "./components/general/NavbarMenu.jsx";
+import ProductsScreen from "./pages/ProductsScreen";
+import ProductDetail from "./components/shop/productDetail/ProductDetail.jsx";
+// import ErrorScreen from "./pages/ErrorScreen";
+
 
 const App = () =>  {
   /* ----- Estado Categorías - Zustand ----- */
@@ -31,15 +31,14 @@ const App = () =>  {
 
   return (
     <>
-    
       <Router>
         <NavbarMenu key={9000}/>
         <Routes>
           {/* <Route key={1000} path="/" element={<HomeScreen />} /> */}
           <Route key={3000} path="products/all" element={<ProductsScreen />} />
           <Route key={4000} path="products/:category" element={<ProductsScreen/>} />
-          {/* <Route key={5000} path="products/:category/:id" element={<ProductDetail />} /> */}
-          <Route key={8000} path="*" element={<ErrorScreen />} />
+          <Route key={5000} path="products/:category/:id" element={<ProductDetail />} />
+          {/* <Route key={8000} path="*" element={<ErrorScreen />} /> */}
         </Routes>
       </Router>
     </>

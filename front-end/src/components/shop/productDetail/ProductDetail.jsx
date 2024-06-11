@@ -1,11 +1,11 @@
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import FormProd from '../comp-dprod/FormProd';
-import DescEnv from '../comp-dprod/DescEnv';
-import ImgP from '../comp-dprod/ImgP';
+import FormProd from '../compProductDet/FormProd';
+import DescEnv from '../compProductDet/DescEnv';
+import ImgP from '../compProductDet/ImgP';
 
-function DProd() {
+function ProductDetail() {
     return (
         <Container>
           
@@ -27,4 +27,4 @@ function DProd() {
   );
 }
 
-export default DProd;
+export default ProductDetail;

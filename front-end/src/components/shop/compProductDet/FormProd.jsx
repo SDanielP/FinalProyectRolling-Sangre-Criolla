@@ -1,7 +1,7 @@
 import '../../../styles/components/shop/Dprod/Dprod.css';
 import Button from 'react-bootstrap/Button';
-import FormuSize from '../comp-dprod/FormS';
-import FormuColor from '../comp-dprod/FormC';
+import FormuSize from '../compProductDet/FormS';
+import FormuColor from '../compProductDet/FormC';
 
 function FormProd() {
     return (

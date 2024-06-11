@@ -10,7 +10,7 @@ import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
 // import Dropdown from "react-bootstrap/Dropdown";
 // import DropdownButton from "react-bootstrap/DropdownButton";
 
-import "../../../styles/components/shop/productsFilter/DropdownFilter.css"; // Importa los estilos personalizados
+// import "../../../styles/components/shop/productsFilter/DropdownFilter.css";
 import "../../../styles/components/shop/productsFilter/CategoriesFilter.css";
 
 const CategoriesFilter = () => {
