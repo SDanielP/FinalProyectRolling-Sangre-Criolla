@@ -3,13 +3,14 @@
 }
 
 .contenedorProductos{
-    margin-left: 1rem;
+    /* margin-left: 1rem; */
     display: flex;
     flex-direction: row;
     justify-content: start!important;
     align-content: start!important;
     flex-wrap: wrap;
-    gap: 0.6rem; 
+    row-gap: 1rem; 
+    column-gap: 0.2rem;
 }
 
 /*Tarjeta producto*/
@@ -30,12 +31,12 @@
 .contenedorImg{
     width: 7rem;
     padding: 0;
-    height: 7rem;
+    height: 13rem;
 }
 .imgProducto{
     /* width: "10rem"; */
     max-width: 100%;
-    height: 7rem;
+    height: 10rem;
     object-fit: contain;
 }
 
@@ -51,15 +52,9 @@
     margin-bottom: 0;
 }
 
-.textoProd{
-    font-size: 0.5rem;
-}
+
 
 .tituloProd{
     font-size: 1rem !important;
 }
-
-.card-body{
-    margin: 0 !important;
-    padding: 0 !important;
-} */
+*/
