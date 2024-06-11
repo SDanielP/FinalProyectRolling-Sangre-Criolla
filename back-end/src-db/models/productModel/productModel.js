@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const sizeSchema = require('./sizePModel');
+// const sizeSchema = require('./sizePModel');
 // const calculateTotalStock = require('../../middlewares/stockMiddleware');
 // const Color = require('./colorPModel');
 // const Category = require('./categoryPModel');
