@@ -32,6 +32,7 @@ const FormularioEmailJS = () => {
   return (
     <>
       <Form ref={form} onSubmit={sendEmail}>
+        {/* Nombre y Correo */}
         <Row>
           <Col sm={6}>
             <Form.Group>
@@ -56,6 +57,7 @@ const FormularioEmailJS = () => {
             </Form.Group>
           </Col>
         </Row>
+        {/* Asunto del correo */}
         <Row>
           <Col sm={12}>
             <Form.Group>
@@ -64,6 +66,7 @@ const FormularioEmailJS = () => {
             </Form.Group>
           </Col>
         </Row>
+        {/* Mensaje del correo */}
         <Row>
           <Col sm={12} className="mb-3">
             <Form.Group>
@@ -77,6 +80,7 @@ const FormularioEmailJS = () => {
             </Form.Group>
           </Col>
         </Row>
+        {/* Boton de enviar */}
         <Row>
           <Col sm={12} className="d-flex justify-content-center">
             <Button
