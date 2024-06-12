@@ -1,0 +1,40 @@
+body {
+  background-color: fff;
+  color: #733224;
+}
+
+.box-about {
+  background-color: #733224;
+}
+
+.box-border {
+  border: 1px solid #733224;
+  border-radius: 0;
+  transition: box-shadow 0.5s;
+}
+
+.seccionColor .nav-link {
+  color: #260e09;
+}
+
+.seccionColor .nav-link.active {
+  background-color: #733224;
+  color: #fff;
+}
+
+.seccionColor .tab-content {
+  border: 1px solid #733224;
+  padding: 40px;
+}
+
+.tituloColor {
+  color: #733224;
+}
+
+.bi-check-circle-fill {
+  margin-right: 5px;
+}
+
+.altoImagen {
+  height: 90%;
+}
