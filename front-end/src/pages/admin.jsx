@@ -1,11 +1,57 @@
 import './admin.css'; // Asegúrate de que la ruta sea correcta
-
+import CustomModal from './components/Modal';
 import { useEffect, useState } from 'react';
 
 const Admin = () => {
-  const [sidebarHide, setSidebarHide] = useState(window.innerWidth < 768);
+  const [sidebarHide, setSidebarHide] = useState(window.innerWidth < 1024);
   const [searchFormShow, setSearchFormShow] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
+  const [mostrarAñadirProductos, setMostrarAñadirProductos] = useState(true);
+  const [mostrarAdministrarUsuarios, setMostrarAdministrarUsuarios] = useState(false);
+  const [mostrarProductos, setMostrarProductos] = useState(false);
+  const [users, setUsers] = useState([]);
+  const [cambiosRealizados, setCambiosRealizados] = useState(false);
+  const [products, setProducts] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [newProduct, setNewProduct] = useState({
+    name: '',
+    price: 0,
+    description: '',
+    color: '',
+    size: [''],
+    category: '',
+    stock: 0,
+    image: ['']
+  });
+
+  useEffect(() => {
+    fetch('http://localhost:4000/api/users')
+      .then(response => response.json())
+      .then(data => {
+        console.log("Datos recibidos de la API:", data);
+        setUsers(data.users);
+      })
+      .catch(error => {
+        console.error('Ha ocurrido un error:', error);
+      });
+  }, []);
+
+  useEffect(() => {
+    fetch('http://localhost:4000/products')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Error en la solicitud: ' + response.status);
+        }
+        return response.json();
+      })
+      .then(data => setProducts(data))
+      .catch(error => console.error('Error:', error));
+  }, []);
+
+  useEffect(() => {
+    document.body.classList.toggle('dark', darkMode);
+  }, [darkMode]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -17,25 +63,6 @@ const Admin = () => {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-
-  const handleSidebarToggle = () => {
-    setSidebarHide(!sidebarHide);
-  };
-
-  const handleSearchToggle = (e) => {
-    if (window.innerWidth < 576) {
-      e.preventDefault();
-      setSearchFormShow(!searchFormShow);
-    }
-  };
-
-  const handleDarkModeToggle = () => {
-    setDarkMode(!darkMode);
-  };
-
-  useEffect(() => {
-    document.body.classList.toggle('dark', darkMode);
-  }, [darkMode]);
 
   useEffect(() => {
     const allSideMenu = document.querySelectorAll('#sidebar .side-menu.top li a');
@@ -50,9 +77,26 @@ const Admin = () => {
     });
   }, []);
 
-  const [mostrarAñadirProductos, setMostrarAñadirProductos] = useState(true);
-  const [mostrarAdministrarUsuarios, setMostrarAdministrarUsuarios] = useState(false);
-  const [mostrarProductos, setMostrarProductos] = useState(false);
+  const handleSidebarToggle = () => {
+    if (window.innerWidth < 1024) {
+      setSidebarHide(sidebarHide);
+    }
+    setSidebarHide(!sidebarHide); // Si el ancho de la pantalla es mayor o igual a 768px, siempre oculta el sidebar
+    
+  };
+  
+  
+
+  const handleSearchToggle = (e) => {
+    if (window.innerWidth < 576) {
+      e.preventDefault();
+      setSearchFormShow(!searchFormShow);
+    }
+  };
+
+  const handleDarkModeToggle = () => {
+    setDarkMode(!darkMode);
+  };
 
   const handleMostrarAñadirProductos = () => {
     setMostrarAñadirProductos(true);
@@ -71,21 +115,6 @@ const Admin = () => {
     setMostrarAdministrarUsuarios(false);
     setMostrarProductos(true);
   };
-
-  const [users, setUsers] = useState([]);
-  const [cambiosRealizados, setCambiosRealizados] = useState(false);
-
-  useEffect(() => {
-    fetch('http://localhost:4000/api/users')
-      .then(response => response.json())
-      .then(data => {
-        console.log("Datos recibidos de la API:", data);
-        setUsers(data.users);
-      })
-      .catch(error => {
-        console.error('Ha ocurrido un error:', error);
-      });
-  }, []);
 
   const handleEstadoChange = (id, nuevoEstado) => {
     const nuevosUsuarios = users.map(usuario => {
@@ -122,66 +151,95 @@ const Admin = () => {
       });
   };
 
-  const [products, setProducts] = useState([]);
-  const [isEditing, setIsEditing] = useState(false);
-
-  useEffect(() => {
-    fetch('http://localhost:4000/products')
-      .then(response => response.json())
-      .then(data => {
-        console.log("Datos de productos recibidos de la API:", data);
-        setProducts(data.products);
-      })
-      .catch(error => {
-        console.error('Ha ocurrido un error:', error);
-      });
-  }, []);
-
-  const handleProductChange = (id, valor, campo) => {
-    const nuevosProductos = products.map(producto => {
-      if (producto._id === id) {
-        return { ...producto, [campo]: valor, modified: true };
-      }
-      return producto;
-    });
-    setProducts(nuevosProductos);
+  const handleEditClick = (product) => {
+    setSelectedProduct(product);
+    setIsModalOpen(true);
   };
 
-  const handleSubmitProductos = (event) => {
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedProduct(null);
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setNewProduct(prevState => ({
+      ...prevState,
+      [name]: value
+    }));
+  };
+
+  const handleSizeChange = (e, index) => {
+    const newSize = [...newProduct.size];
+    newSize[index] = e.target.value;
+    setNewProduct(prevState => ({
+      ...prevState,
+      size: newSize
+    }));
+  };
+
+  const handleAddSize = () => {
+    setNewProduct(prevState => ({
+      ...prevState,
+      size: [...prevState.size, '']
+    }));
+  };
+
+  const handleRemoveSize = (index) => {
+    const newSize = newProduct.size.filter((_, i) => i !== index);
+    setNewProduct(prevState => ({
+      ...prevState,
+      size: newSize
+    }));
+  };
+
+  const handleImageChange = (e, index) => {
+    const newImages = [...newProduct.image];
+    newImages[index] = e.target.value;
+    setNewProduct(prevState => ({
+      ...prevState,
+      image: newImages
+    }));
+  };
+
+  const handleAddImage = () => {
+    setNewProduct(prevState => ({
+      ...prevState,
+      image: [...prevState.image, '']
+    }));
+  };
+
+  const handleRemoveImage = (index) => {
+    const newImages = newProduct.image.filter((_, i) => i !== index);
+    setNewProduct(prevState => ({
+      ...prevState,
+      image: newImages
+    }));
+  };
+
+  const handleAddProduct = (event) => {
     event.preventDefault();
 
-    const productosModificados = products.filter(product => product.modified);
-    const promises = productosModificados.map(product => 
-      fetch(`http://localhost:4000/products/${product._id}`, {
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          name: product.name,
-          price: product.price,
-          description: product.description,
-          color: product.color,
-          size: product.size,
-          category: product.category,
-          stock: product.stock
-        })
+    fetch('http://localhost:4000/products/new', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(newProduct)
+    })
+      .then(response => response.json())
+      .then(() => {
+        alert('Producto registrado');
+      // Reiniciar la página
+      window.location.reload();
+        // Aquí puedes añadir lógica adicional, como limpiar el formulario o actualizar la lista de productos
       })
-    );
-
-    Promise.all(promises)
-      .then(responses => {
-        console.log('Cambios aplicados:', responses);
-        setIsEditing(false);
-      })
-      .catch(error => {
-        console.error('Error al aplicar los cambios:', error);
-      });
+      .catch(error => console.error('Error al agregar el producto:', error));
   };
 
-  const handleEditClick = () => {
-    setIsEditing(true);
-  };
+  if (products.length === 0) {
+    return <div>Cargando...</div>;
+  }
 
   return (
     <div className={darkMode ? 'dark' : ''}>
@@ -231,6 +289,8 @@ const Admin = () => {
               </button>
             </div>
           </form>
+          
+            <i id="changeSun" className="bx bx-sun" />
           <input hidden id="switch-mode" type="checkbox" checked={darkMode} onChange={handleDarkModeToggle} />
           <label className="switch-mode" htmlFor="switch-mode" />
         </nav>
@@ -244,28 +304,60 @@ const Admin = () => {
               </div>
               <ul className="box-info">
                 <div className="form-container">
-                  <form id="add-product-form">
+                  <form id="add-product-form" onSubmit={handleAddProduct}>
                     
                     <div className="form-group">
-                      <label htmlFor="product-image">Imagen del Producto</label>
-                      <input type="file" id="product-image" name="product-image" accept="image/*" required />
-                      <label htmlFor="product-image" className="custom-file-upload">
-                        Seleccionar archivo
-                      </label>
-                    </div>
-
-
-                    <div className="form-group">
                       <label htmlFor="product-name">Nombre del Producto</label>
-                      <input type="text" id="product-name" name="product-name" required />
+                      <input type="text" id="product-name" name="name" value={newProduct.name} onChange={handleInputChange} required />
                     </div>
                     <div className="form-group">
                       <label htmlFor="product-price">Precio</label>
-                      <input type="number" id="product-price" name="product-price" step="0.01" required />
+                      <input type="number" id="product-price" name="price" value={newProduct.price} onChange={handleInputChange} step="0.01" required />
                     </div>
                     <div className="form-group">
                       <label htmlFor="product-details">Detalle</label>
-                      <textarea id="product-details" name="product-details" rows="4" required></textarea>
+                      <textarea id="product-details" name="description" value={newProduct.description} onChange={handleInputChange} rows="4" required></textarea>
+                    </div>
+                    <div className="form-group">
+                      <label htmlFor="product-color">Color</label>
+                      <input type="text" id="product-color" name="color" value={newProduct.color} onChange={handleInputChange} required />
+                    </div>
+                    <div className="form-group">
+                      <label>Talle</label>
+                      {newProduct.size.map((size, index) => (
+                        <div key={index} className="size-input">
+                          <input
+                            type="text"
+                            value={size}
+                            onChange={(e) => handleSizeChange(e, index)}
+                          />
+                          <button type="button" onClick={() => handleRemoveSize(index)}>X</button>
+                        </div>
+                      ))}
+                      <button type="button" onClick={handleAddSize}>Agregar Tamaño</button>
+                    </div>
+                    <div className="form-group">
+                      <label htmlFor="product-category">Categoría</label>
+                      <input type="text" id="product-category" name="category" value={newProduct.category} onChange={handleInputChange} required />
+                    </div>
+                    <div className="form-group">
+                      <label htmlFor="product-stock">Stock</label>
+                      <input type="number" id="product-stock" name="stock" value={newProduct.stock} onChange={handleInputChange} required />
+                    </div>
+                    <div className="form-group">
+                      <label>Imagenes</label>
+                      {newProduct.image.map((image, index) => (
+                        <div key={index} className="image-input">
+                          <input
+                            className='addBtnImg'
+                            type="text"
+                            value={image}
+                            onChange={(e) => handleImageChange(e, index)}
+                          />
+                          <button type="button" onClick={() => handleRemoveImage(index)}>X</button>
+                        </div>
+                      ))}
+                      <button type="button" onClick={handleAddImage}>Agregar Enlace de Imagen</button>
                     </div>
                     <div className="form-group">
                       <button type="submit">Agregar Producto</button>
@@ -276,114 +368,67 @@ const Admin = () => {
             </div>
           )}
           {mostrarProductos && (
-            <div className="contenedor" id="administrarUsuarios">
-              <div className="head-title">
-                <div className="left">
-                  <h1>Productos</h1>
+            <>
+              {isModalOpen && <CustomModal data={selectedProduct} closeModal={handleCloseModal} />}
+              <div className="contenedor" id="administrarProductos">
+                <div className="head-title">
+                  <div className="left">
+                    <h1>Lista de Productos</h1>
+                  </div>
                 </div>
-              </div>
-
-              <ul className="box-info">
-                {products.length > 0 ? (
-                  <form onSubmit={handleSubmitProductos}>
-                    {products.map(product => (
-                      <div key={product._id}>
-                        <div>
-                          <label>
-                            Nombre:
-                            <input
-                              type="text"
-                              value={product.name}
-                              onChange={e => handleProductChange(product._id, e.target.value, 'name')}
-                              disabled={!isEditing}
-                            />
-                          </label>
-                        </div>
-                        <div>
-                          <label>
-                            Precio:
-                            <input
-                              type="number"
-                              value={product.price}
-                              onChange={e => handleProductChange(product._id, e.target.value, 'price')}
-                              disabled={!isEditing}
-                            />
-                          </label>
-                        </div>
-                        <div>
-                          <label>
-                            Descripción:
-                            <input
-                              type="text"
-                              value={product.description}
-                              onChange={e => handleProductChange(product._id, e.target.value, 'description')}
-                              disabled={!isEditing}
-                            />
-                          </label>
-                        </div>
-                        <div>
-                          <label>
-                            Color:
-                            <input
-                              type="text"
-                              value={product.color}
-                              onChange={e => handleProductChange(product._id, e.target.value, 'color')}
-                              disabled={!isEditing}
-                            />
-                          </label>
-                        </div>
-                        <div>
-                          <label>
-                            Tamaño:
-                            <input
-                              type="text"
-                              value={product.size}
-                              onChange={e => handleProductChange(product._id, e.target.value, 'size')}
-                              disabled={!isEditing}
-                            />
-                          </label>
-                        </div>
-                        <div>
-                          <label>
-                            Categoría:
-                            <select
-                              value={product.category}
-                              onChange={e => handleProductChange(product._id, e.target.value, 'category')}
-                              disabled={!isEditing}
-                            >
-                              <option value="Electronics">Electrónica</option>
-                              <option value="Clothing">Ropa</option>
-                              <option value="Home">Hogar</option>
-                            </select>
-                          </label>
-                        </div>
-                        <div>
-                          <label>
-                            Stock:
-                            <input
-                              type="number"
-                              value={product.stock}
-                              onChange={e => handleProductChange(product._id, e.target.value, 'stock')}
-                              disabled={!isEditing}
-                            />
-                          </label>
-                        </div>
-                      </div>
-                    ))}
-                    {isEditing ? (
-                      <button type="submit" className="btn">Guardar Cambios</button>
-                    ) : (
-                      <button type="button" className="btn" onClick={handleEditClick}>Editar Productos</button>
-                    )}
+                <ul className="box-info">
+                  <form>
+                    <table className="tabla">
+                      <thead>
+                        <tr>
+                          <th>Imagen</th>
+                          <th>Nombre</th>
+                          <th>Precio</th>
+                          <th>Descripción</th>
+                          <th>Color</th>
+                          <th>Tamaño</th>
+                          <th>Categoría</th>
+                          <th>Stock</th>
+                          <th>Accion</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {products.map(product => (
+                          <tr key={product._id}>
+                            <td>
+                              <img src={product.image[0]} alt="Imagen del producto" style={{ width: '50px', height: '50px' }} />
+                            </td>
+                            <td>{product.name}</td>
+                            <td>${product.price}</td>
+                            <td>{product.description}</td>
+                            <td>{product.color}</td>
+                            <td>
+                              <select>
+                                {product.size.map((size, index) => (
+                                  <option key={index} value={size}>
+                                    {size}
+                                  </option>
+                                ))}
+                              </select>
+                            </td>
+                            <td>{product.category}</td>
+                            <td>{product.stock}</td>
+                            <td>
+                              <button type="button" onClick={() => handleEditClick(product)}>
+                                Editar
+                              </button>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
                   </form>
-                ) : (
-                  <p>No hay productos disponibles.</p>
-                )}
-              </ul>
-            </div>
+                </ul>
+              </div>
+            </>
           )}
           {mostrarAdministrarUsuarios && (
-            <div className="contenedor" id="administrarUsuarios">
+            <div className="contenedor2" id="administrarUsuarios">
               <div className="head-title">
                 <div className="left">
                   <h1>Lista de Usuarios</h1>
@@ -392,11 +437,10 @@ const Admin = () => {
 
               <ul className="box-info">
                 <form onSubmit={handleSubmitUsuarios}>
-                  <table className="tabla">
+                  <table id='tablaRz' className="tabla">
                     <thead>
                       <tr>
                         <th>Nombre</th>
-                        <th>Rol</th>
                         <th>Correo Electrónico</th>
                         <th>Estado</th>
                       </tr>
@@ -405,7 +449,6 @@ const Admin = () => {
                       {users.map(user => (
                         <tr key={user._id}>
                           <td>{user.name}</td>
-                          <td>{user.role}</td>
                           <td>{user.email}</td>
                           <td>
                             <select
@@ -422,7 +465,7 @@ const Admin = () => {
                       ))}
                     </tbody>
                   </table>
-                  <button type="submit" disabled={!cambiosRealizados}>Aplicar Cambios</button>
+                  <button id='btnRz' type="submit" disabled={!cambiosRealizados}>Aplicar Cambios</button>
                 </form>
               </ul>
             </div>

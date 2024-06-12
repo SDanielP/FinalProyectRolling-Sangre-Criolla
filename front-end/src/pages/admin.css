@@ -58,7 +58,7 @@ body {
 	width: 280px;
 	height: 100%;
 	background: var(--light);
-	z-index: 2000;
+	z-index: 1002;
 	font-family: var(--lato);
 	transition: .3s ease;
 	overflow-x: hidden;
@@ -179,12 +179,12 @@ body {
 	position:relative;
 	width: calc(100vw - 280px);
 	top: -150px;
-	left: 280px;
+	left: 21rem;
 	transition: .3s ease;
 }
 #sidebar.hide ~ #content {
 	width: calc(100vw - 60px);
-	left: 60px;
+	left: 15rem;
 }
 
 
@@ -200,6 +200,9 @@ body {
 }
 
 
+#content nav #changeSun {
+	color: var(--dark);
+}
 #content nav {
 	height: 56px;
 	background: var(--light);
@@ -279,6 +282,11 @@ body {
 #content main {
 	margin-top: 80px;
 	}
+#añadirProductos {
+	margin-top: 230px;
+	margin-left: -280px;
+
+	}
 	
 #content main .head-title {
     font-family: var(--poppins);
@@ -290,6 +298,7 @@ body {
 	margin-bottom: 10px;
 	color: var(--dark);
   }
+
 
   
 /* #content main {
@@ -437,17 +446,30 @@ input[type="file"] {
 
 
   .contenedor {
-	width: 80%;
-	margin: 0 auto;
-	margin-top: -263px;
+	position: relative; /* Cambiar de fixed a relative */
+	width: 75vw;
+	margin-left: 2vw;
+	margin-top: 230px;
+  }
+  
+  .contenedor .head-title .left h1{
+	width: 400px;
+	margin-left: 27vw;
+	
   }
   
   .tabla {
 	width: 100%;
 	border-collapse: collapse;
 	margin-top: 20px;
-	
-	
+  }
+
+  #tablaRz {
+	width: 40vw;
+	margin: 0 auto;
+  }
+  #btnRz {
+	margin-left: 33vw;
   }
   
   .tabla th, .tabla td {
@@ -483,70 +505,254 @@ input[type="file"] {
 	border-radius: 4px;
   }
   
-
-
-
-/* @media screen and (max-width: 768px) {
+@media screen and (max-width: 576px) {
 	#sidebar {
-		width: 200px;
+		width: 220px;
+	}
+
+	#sidebar .brand .text {
+		font-size: medium;
+	}
+
+	#añadirProductos {
+		top: 200px;
+		margin-left: 18px;
+	}
+	#añadirProductos .box-info{
+		margin-left: -195px;
+		display: no;
+	}
+	#añadirProductos .form-container{
+		width: 75vw;
 	}
 
 	#content {
 		width: calc(100% - 60px);
-		left: 200px;
+		left: 220px;
 	}
 
-	#content nav .nav-link {
-		display: none;
+	#content main {
+		visibility: hidden;
+		margin-left: -180px;
 	}
+	#sidebar.hide ~  #content main {
+		visibility:visible;
+
+	}
+
+	#content main .head-title .left h1 {
+		font-size: 26px;
+		margin-left: 2rem;
+		width: 60vw;
+		font-weight: 600;
+	}
+	.contenedor {
+		width: 25px;
+		font-size: small;
+		margin-left: 2vw;
+	}
+
+	#content nav #changeSun {
+		position: absolute;
+		left: 60vw;
+	}
+
+	.tabla button {
+		width: 60px;
+	}
+
+	.box-info select{
+		font-size: 12px;
+		width: 80px;
+	}
+
+	#content nav #changeSun {
+		position: absolute;
+		left: 36vw;
+	}
+	#sidebar.hide ~ #content nav #changeSun {
+		left: 78vw;
+	}
+
+	#content nav {
+		left: 220px;
+		width: calc(100% - 220px);
+		max-width: 100vw;
+	}
+
+	#sidebar.hide ~ #content nav {
+		max-width: calc(100% - 60px);;
+	}
+
+	#content nav .switch-mode {
+		left: -214px;
+	}
+	#sidebar.hide ~  #content nav .switch-mode {
+		left: -180px;
+	}
+
+	/* ocultar tablas */
+	.tabla th:nth-child(1),
+	.tabla th:nth-child(2),
+	.tabla th:nth-child(3),
+	.tabla th:nth-child(9),
+	.tabla td:nth-child(1),
+	.tabla td:nth-child(2),
+	.tabla td:nth-child(3),
+	.tabla td:nth-child(9) {
+	  display: table-cell;
+	}
+  
+	.tabla th:nth-child(4),
+	.tabla th:nth-child(5),
+	.tabla th:nth-child(6),
+	.tabla th:nth-child(7),
+	.tabla th:nth-child(8),
+	.tabla td:nth-child(4),
+	.tabla td:nth-child(5),
+	.tabla td:nth-child(6),
+	.tabla td:nth-child(7),
+	.tabla td:nth-child(8) {
+	  display: none;
+	}	
+}
+
+
+
+@media screen and (min-width: 577px) and (max-width: 768px) {
+	#sidebar {
+		width: 220px;
+	}
+
+	#sidebar .brand .text {
+		font-size: medium;
+	}
+
+	#añadirProductos {
+		top: 200px;
+		margin-left: 1rem;
+	}
+	#añadirProductos .box-info{
+		margin-left: -195px;
+	}
+	#añadirProductos .form-container{
+		width: 75vw;
+	}
+
+	#content {
+		width: calc(100% - 60px);
+		left: 220px;
+	}
+
+	#content main {
+		visibility: hidden;
+		margin-left: -180px;
+		
+	}
+	#sidebar.hide ~  #content main {
+		visibility:visible;
+
+	}
+
+	#content main .head-title .left h1 {
+		font-size: 26px;
+		margin-left: 6rem;
+		width: 60vw;
+		font-weight: 600;
+		
+	}
+	.contenedor {
+		width: 25px;
+		font-size: small;
+		margin-left: 2vw;
+		
+	}
+	.contenedor ul{
+		margin-left: 12vw;
+		
+	}
+	.contenedor2 {
+		margin-top: -190px;
+		
+	}
+
+	
+
+	#content nav #changeSun {
+		position: absolute;
+		left: 60vw;
+	}
+
+	.tabla button {
+		width: 60px;
+	}
+
+	#tablaRz {
+		width: 60vw;
+		margin-left: 6rem;
+	}
+	#btnRz {
+		margin-left: 33vw;
+	}
+
+	.box-info select{
+		font-size: 12px;
+		width: 80px;
+	}
+
+	#content nav #changeSun {
+		position: absolute;
+		left: 36vw;
+	}
+	#sidebar.hide ~ #content nav #changeSun {
+		left: 78vw;
+	}
+
+	#content nav {
+		left: 220px;
+		width: calc(100% - 220px);
+		max-width: 100vw;
+	}
+
+	#sidebar.hide ~ #content nav {
+		max-width: calc(100% - 60px);;
+	}
+
+	#content nav .switch-mode {
+		left: -214px;
+	}
+	#sidebar.hide ~  #content nav .switch-mode {
+		left: -180px;
+	}
+
+	/* ocultar tablas */
+	.tabla th:nth-child(1),
+	.tabla th:nth-child(2),
+	.tabla th:nth-child(3),
+	.tabla th:nth-child(5),
+	.tabla th:nth-child(5),
+	.tabla th:nth-child(9),
+	.tabla td:nth-child(1),
+	.tabla td:nth-child(2),
+	.tabla td:nth-child(3),
+	.tabla td:nth-child(4),
+	.tabla td:nth-child(5),
+	.tabla td:nth-child(9) {
+	  display: table-cell;
+	}
+  
+	
+	.tabla th:nth-child(6),
+	.tabla th:nth-child(7),
+	.tabla th:nth-child(8),
+	.tabla td:nth-child(6),
+	.tabla td:nth-child(7),
+	.tabla td:nth-child(8) {
+	  display: none;
+	}	
 }
 
 
 
 
 
-
-@media screen and (max-width: 576px) {
-	#content nav form .form-input input {
-		display: none;
-	}
-
-	#content nav form .form-input button {
-		width: auto;
-		height: auto;
-		background: transparent;
-		border-radius: none;
-		color: var(--dark);
-	}
-
-	#content nav form.show .form-input input {
-		display: block;
-		width: 100%;
-	}
-	#content nav form.show .form-input button {
-		width: 36px;
-		height: 100%;
-		border-radius: 0 36px 36px 0;
-		color: var(--light);
-		background: var(--red);
-	}
-
-	#content nav form.show ~ .notification,
-	#content nav form.show ~ .profile {
-		display: none;
-	}
-
-	#content main .box-info {
-		grid-template-columns: 1fr;
-	}
-
-	#content main .table-data .head {
-		min-width: 420px;
-	}
-	#content main .table-data .order table {
-		min-width: 420px;
-	}
-	#content main .table-data .todo .todo-list {
-		min-width: 420px;
-	}
-} */
