@@ -39,9 +39,10 @@ const userRouter = require('./routes/userRouter');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Configurar CORS antes de las rutas
-app.use(cors());
+const cors = require("cors");
 
+
+app.use(cors());
 
 app.use(express.json());
 
