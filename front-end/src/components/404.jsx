@@ -3,10 +3,7 @@ import React from 'react';
 import '../assets/notFoundPage.css'; // Archivo de estilos CSS para la página 404
 
 function NotFoundPage() {
-	const navegar = useNavigate();
-    const ira = () => { 
-    navegar('/'); 
-  };
+
   return (
     <div className="not-found">
       <div className="background-overlay"></div>
@@ -35,7 +32,7 @@ function NotFoundPage() {
         </div>
         <p>Lo sentimos, la página que estás buscando no existe.</p>
         <p>Para seguir comprando:</p>
-        <button className='go-back' onClick={ira}>Click Aquí</button>
+        <button className='go-back' >Click Aquí</button>
       </div>
     </div>
   );
