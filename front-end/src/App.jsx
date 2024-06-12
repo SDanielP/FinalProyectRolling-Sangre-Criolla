@@ -18,7 +18,7 @@ function App() {
   return (
     <>
       <Router>
-      <Modal />
+      {/* <Modal /> */}
         <Routes>
           <Route path="/recuperacionContra" element={<RecuperacionContra />} />.
           <Route path="/" element={<Modal />} />
@@ -29,4 +29,4 @@ function App() {
     </>
   );
 }
-export default App
+export default App;

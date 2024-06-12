@@ -1,12 +1,21 @@
 import { NavLink } from 'react-router-dom';
 import '../styles/styleInicioSesion.css'
 import { useState } from 'react';
+// import {useRegistroOpen} from '../store/useRegistroOpen'
+import Registro from './Registro';
 
 function InicioSesion() {
+
+    /* ----- Estado para manejo de componentes ----- */
+    const [ click, setClick ] = useState(false);
+    // const [ isOpenRegistro, setOpenRegistro] = useRegistroOpen();
+    
     const [formData, setFormData] = useState({
         email: '',
         password: ''
-    });
+        });
+        
+    const [error, setError] = useState(false);
 
     // Handler para el cambio de los campos del formulario
     const handleInputChange = (e) => {
@@ -14,7 +23,11 @@ function InicioSesion() {
         setFormData({ ...formData, [name]: value });
     };
 
-    // Handler para el envío del formulario de registro
+    const handleClick = ()=>{
+        setClick(true);
+    }
+
+    // Handler para el envío del formulario de login
     const handleLoginSubmit = async (e) => {
         e.preventDefault();
 
@@ -30,11 +43,14 @@ function InicioSesion() {
             const data = await response.json();
 
             if (response.ok && data.message === "logueo exitoso") {
-                alert("Logeo exitoso");
+                setError(true)
+                alert("Logueo exitoso");
                 console.log('Usuario logueado con éxito.');
+                 
                 // Aquí puedes agregar la lógica adicional, como redireccionar al usuario a otra página.
             } else {
                 console.error('Error al ingresar el usuario:', data.message || response.statusText);
+
             }
         } catch (error) {
             console.error('Error al ingresar el usuario:', error);
@@ -48,7 +64,13 @@ function InicioSesion() {
 
             {/* --- INICIAR SESION --- */}
             <h1 className="titulo transparente">Iniciar Sesión</h1>
+
+            {/* {isOpenRegistro === false && click === true ? 
+                <Registro />
+            : 
+            } */}
             <a className="transparente">¿Eres nuevo en este sitio? Regístrate</a>
+            
             <div className="formularioInput">
 
                 {/* --- COMIENZO DE FORMULARIO --- */}
@@ -66,10 +88,10 @@ function InicioSesion() {
                     <button type='submit' className='submit transparente'>Iniciar sesión</button>
                 </form>
             </div>
-
+            {error && <p>Error al ingresar el usuario</p>}
             {/* --- BOTON DE REDIRECCION PARA RECUPERAR CONTRASEÑA --- */}
             <NavLink to="/recuperacionContra">¿Olvidaste la contraseña?</NavLink>
         </div >
     )
 }
-export default InicioSesion
+export default InicioSesion;

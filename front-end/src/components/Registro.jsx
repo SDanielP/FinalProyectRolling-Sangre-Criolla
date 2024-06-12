@@ -2,6 +2,8 @@ import { useState } from 'react';
 import '../styles/styleRegistro.css'
 
 function Registro() {
+    /* ----- Estado para manejo de componentes ----- */
+    const [ isRegistrarseOpen, setRegistrarseOpen ] = useState(false);
 
     const [formData, setFormData] = useState({
         name: '',
@@ -40,7 +42,7 @@ function Registro() {
     return (
         <div className="formulario">
             <h1 className="titulo transparente">Regístrate</h1>
-            <a className="transparente">¿Ya tienes un perfil personal? Inicia sesión</a>
+            <a className="transparente" onClick={handleOpen}>¿Ya tienes un perfil personal? Inicia sesión</a>
             <div className="formularioInput">
                 <form className="transparente" onSubmit={handleRegisterSubmit} action="">
 
@@ -70,4 +72,4 @@ function Registro() {
         </div>
     )
 }
-export default Registro
+export default Registro;

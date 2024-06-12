@@ -1,5 +1,6 @@
 import React from 'react'
 import '../styles/styleRecuperarContra.css'
+import { NavLink } from 'react-router-dom'
 export const RecuperacionContra = () => {
   return (
     <>
@@ -17,8 +18,11 @@ export const RecuperacionContra = () => {
         </div>
       </div>
 
-      <button className="buttonVolver">Volver a Home</button>
+      <NavLink to="/" >
+        <button >Volver a Home</button> 
+      </NavLink>
     </>
   )
-}
+  }
+{/* className="buttonVolver" */}
 
