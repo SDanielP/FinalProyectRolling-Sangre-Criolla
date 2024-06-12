@@ -52,6 +52,7 @@ const ColorsFilter = () => {
             onClick={() => (handleColor(colorOption))}
           ></span>
         ))}
+        <p className="all-colors">Todos los colores</p>
       </Collapse>
     </>
   );

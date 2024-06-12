@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 
 export const useSizeFilter = create((set)=>({
-    selectedSize: "",
+    selectedSize: "Todos los tamaños",
     setSelectedSize: (newSelectedSize) => set(() => ({ selectedSize: newSelectedSize })),
 }));

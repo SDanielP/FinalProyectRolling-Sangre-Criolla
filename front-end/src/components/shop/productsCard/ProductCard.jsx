@@ -1,8 +1,11 @@
 import "../../../styles/components/shop/productsCard/ProductCard.css";
+import "../../../styles/components/shop/Products.css";
 import React from "react";
 import Button from "react-bootstrap/Button";
-import { useNavigate } from "react-router-dom";
-
+import { NavLink, useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart } from "@fortawesome/free-regular-svg-icons";
+import { faBagShopping } from "@fortawesome/free-solid-svg-icons";
 
 const ProductCard = ({ producto }) => {
   /* ----- Uso del useNavigate() ----- */
@@ -10,36 +13,48 @@ const ProductCard = ({ producto }) => {
 
   return (
     <>
-      <div className="container">
+      <div className="containerCard">
         <div className="card__container tarjetaProducto">
-          <article className="card__article contenedorImg">
+          <article className="contenedorImg">
             <img
               src={producto.image}
               alt="image"
-              className="card__img  imgProducto"
+              className="card__img imgProducto"
+              onClick={() =>
+                navigate(`/products/${producto.category}/${producto.id}`)
+              }
             ></img>
 
             <div className="card__data">
-              {/* <h5 className="card__title">Vista rápida</h5> */}
-              <a href="#" className="card__button">
+              <Button
+                className="card__button"
+                onClick={() =>
+                  navigate(`/products/${producto.category}/${producto.id}`)
+                }
+              >
                 Vista rápida
-              </a>
-            </div>
-          </article>
+              </Button>
 
+              
+            </div>
+            
+          </article>
+              <FontAwesomeIcon icon={faHeart} size="lg"  className="fav-btn"/>
+              <FontAwesomeIcon icon={faBagShopping}  size="xl" className="bag-btn" />
         </div>
-          <div className="card-body">
-            <Button
-              variant="outline-dark"
-              className="btnVerProducto"
-              onClick={() =>
-                navigate(`/products/${producto.category}/${producto.id}`)
-              } // Redirigir a la página del producto
-            >
-              {producto.title}
-            </Button>
-            <p className="textoProd">${producto.price}</p>
-          </div>
+        <div className="card-body">
+          <Button
+            variant="outline-dark"
+            className="btnVerProducto"
+            onClick={() =>
+              navigate(`/products/${producto.category}/${producto.id}`)
+            } // Redirigir a la página del producto
+            style={{ height: "6rem", objectFit: "contain", fontSize: "0.9rem" }}
+          >
+            {producto.title}
+          </Button>
+          <p className="textoProd">${producto.price}</p>
+        </div>
       </div>
     </>
   );

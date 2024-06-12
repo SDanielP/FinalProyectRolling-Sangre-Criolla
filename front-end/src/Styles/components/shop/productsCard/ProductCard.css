@@ -10,9 +10,11 @@
     --hover-color: hsl(0, 0%, 61%);
     --body-color: hsl(27, 30%, 49%);
     --body-color2: hsl(27, 29%, 40%);
+    --body-color3: hsl(27, 29%, 35%);
     --container-color: hsl(0, 0%, 100%);
     --text-btn-color: hsl(0, 0%, 100%);
     --price-color: rgba(252, 184, 50, 1);
+    --fav-color: rgb(211, 62, 62);
 
     /*========== Font and typography ==========*/
     --body-font: "Poppins", sans-serif;
@@ -47,17 +49,19 @@ img {
 }
 
 /*=============== CARD ===============*/
-.container {
+.containerCard {
     min-width: 10rem !important;
-    width: 15rem !important;
-    height: 20rem;
+    width: 13rem !important;
+    height: 22rem;
+    position: relative;
 }
 
 .card__container {
-    position: relative;
     background-color: var(--container-color);
     overflow: hidden;
     transition: transform 0.3s ease;
+    position: relative;
+
 }
 
 .card__container:hover {
@@ -68,7 +72,7 @@ img {
     width: 100%;
     height: 200px;
     /* Ajusta la altura según sea necesario */
-    object-fit: cover;
+    object-fit: contain;
     /* Asegura que la imagen cubra el contenedor */
 }
 
@@ -108,27 +112,79 @@ img {
 
 .btnVerProducto {
     margin-bottom: 0;
-    color: var(--text-btn-color)!important;
+    color: var(--text-btn-color) !important;
 }
 
-.btnVerProducto:hover{
-    color: var(--hover-color)!important;
+.btnVerProducto:hover {
+    color: var(--hover-color) !important;
 }
 
-.textoProd{
+.fav-btn {
+    position: absolute;
+    bottom: 100%;
+    left: 80%;
+    /* top: 100%; */
+    right: 0;
+    margin-inline: auto;
+    opacity: 0;
+    transition: opacity 0.5s, bottom 0.5s;
+    color: #bfbfbf;
+}
+
+.bag-btn {
+    position: absolute;
+    bottom: 0%;
+    /* left: 0%; */
+    /* top: 100%; */
+    right: 82%;
+    margin-inline: auto;
+    opacity: 0;
+    transition: opacity 0.5s, bottom 0.5s;
+    color: var(--body-color);
+}
+
+.bag-btn:hover{
+    color: var(--body-color3);
+}
+
+.fav-btn:hover{
+    color: var(--fav-color);
+}
+
+.textoProd {
     font-size: 1rem;
     padding: 0;
     color: var(--price-color);
-} 
+}
 
 .card__button:hover {
-    background-color: var(--body-color2);
+    background-color: var(--body-color2) !important;
     color: var(--text-btn-color);
 }
 
 /* Hover effect for showing data */
-.card__container:hover .card__data {
+/* .card__container:hover .card__data{
     bottom: 0;
     opacity: 1;
     background-color: var(--body-color);
+} */
+
+.containerCard:hover {
+    cursor: pointer;
+    .card__data{
+        cursor: pointer;
+        bottom: 0;
+        opacity: 1;
+        background-color: var(--body-color);
+    };
+    .fav-btn {
+        cursor: pointer;
+        bottom: 86%;
+        opacity: 1;
+    }
+    .bag-btn {
+        cursor: pointer;
+        bottom: 27%;
+        opacity: 1;
+    }
 }

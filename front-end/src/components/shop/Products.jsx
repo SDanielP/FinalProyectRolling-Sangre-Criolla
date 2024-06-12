@@ -72,12 +72,12 @@ const Products = ({ categoria, ordenar, precioMin, precioMax }) => {
   //*Según la categoría, precio y el ordenamiento
 
   /* ----- USO DE VARIABLES ----- */
-  let categoriaCopia;
-  if (categoria === null) {
-    categoriaCopia = "Todos los productos";
-  } else {
-    categoriaCopia = categoria;
-  }
+  // let categoriaCopia;
+  // if (categoria === null) {
+  //   categoriaCopia = "Todos los productos";
+  // } else {
+  //   categoriaCopia = categoria;
+  // }
 
   return (
     <>
