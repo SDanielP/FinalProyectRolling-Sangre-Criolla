@@ -5,7 +5,7 @@ const { generateJwt } = require('../libs/jwt');
 const register = async (req, res) => {
 
     try {
-        const { name, email, password } = req.body;
+        const { name, email} = req.body;
 
         const salt = 10;
 
@@ -54,7 +54,7 @@ const login = async (req, res) => {
 
         if (!user) {
             console.log('usuario no encontrado');
-            return res.status(401).json({ message: 'Email o Contraseña Incorrecta' });
+            return res.status(401).json({ message: 'usuario no encontrado' });
         }
 
         const isMatch = await bcrypt.compare(password, user.password);
@@ -62,8 +62,14 @@ const login = async (req, res) => {
         if (!isMatch) {
             return res.status(401).json({ message: 'Email o Contraseña Incorrecta' });
         }
-
-        const token = generateJwt({ id: user._id, role: user.role })
+        
+        
+        if (user.isActive === "Aceptado") {
+            const token = generateJwt({ id: user._id, role: user.role });
+            res.status(201).json({ message: 'logueo exitoso', user: user, token: token });
+        } else {
+            return res.status(401).json({ message: 'Debe esperar a que el administrador lo acepte' });
+        }
 
         res.status(201).json({ message: 'logueo exitoso', user: user, token: token });
 

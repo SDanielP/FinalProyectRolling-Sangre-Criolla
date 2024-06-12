@@ -33,9 +33,15 @@ console.log('MONGO_DB:', process.env.MONGO_DB); // Verifica que la variable de e
 const express = require('express');
 const mongoose = require('mongoose');
 const productRouter = require('./routes/productRouter');
+const cors = require("cors");
+const userRouter = require('./routes/userRouter');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// Configurar CORS antes de las rutas
+app.use(cors());
+
 
 app.use(express.json());
 
@@ -46,6 +52,7 @@ mongoose.connect(process.env.MONGO_DB)
 
 // Ruta
 app.use('/', productRouter);
+app.use('/', userRouter);
 
 app.get('/', function(req, res) {
     res.send('Hola Mundo!');
