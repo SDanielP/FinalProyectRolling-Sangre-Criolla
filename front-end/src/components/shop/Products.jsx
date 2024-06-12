@@ -1,37 +1,68 @@
 import "../../styles/components/shop/Products.css";
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import ProductCard from "../shop/productsCard/ProductCard";
+import { useProducts } from "../../store/useProducts";
+// import { json } from "react-router-dom";
 
 /* ----- Constantes ----- */
 //***URL API
-const url = "https://fakestoreapi.com";
+// const url = "https://fakestoreapi.com";
 
 const Products = ({ categoria, ordenar, precioMin, precioMax }) => {
   /* ----- Estados para los productos ----- */
+  const { products, setProducts} = useProducts();
   const [productosStore, setProductosStore] = useState([]);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   /* ----- API ----- */
-  const getProductos = async () => {
-    const response = await fetch(`${url}/products`);
-    const dataProductos = await response.json();
+  const getProductos = useCallback(async () => {
+    //***Obtener productos
+    // const response = await fetch(`${url}/products`);
+    // const dataProducts = await response.json();
 
+    fetch("http://localhost:4000/products")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Error en la solicitud: " + response.status);
+        }
+        return response.json();
+      })
+      //***Asigno a los productos de Zustand la info de la API
+      .then((data) => setProducts(data))
+      .catch((error) => console.error("Error:", error));
+
+    // setLoading(true);
+    // setError(null);
+    // try {
+    //   const response = await fetch("http://localhost:4000/products");
+    //   if (!response.ok) {
+    //     throw new Error(`Error en la solicitud: ${response.status}`);
+    //   }
+    //   const data = await response.json();
+    //   // setProductosFetch(data);
+    //   setProducts(data);
+    // } catch (err) {
+    //   setError(err.message);
+    // } finally {
+    //   setLoading(false);
+    // }
+    console.log(products);
+
+    // setProductosStore(products);    
     //***Ordenar productos
-    const sortedProductos = dataProductos.sort((a, b) => {
+    const sortedProductos = products.sort((a, b) => {
       switch (ordenar) {
         case "alphabetical":
-          return a.title.localeCompare(b.title); // Alfabeticamente por el titulo (deberia ser por subcategoria o marca)
-          break;
+          return a.name.localeCompare(b.name); // Alfabeticamente por el titulo (deberia ser por subcategoria o marca)
         case "highestPrice":
           return b.price - a.price; // Precio descendente
-          break;
         case "lowestPrice":
           return a.price - b.price; // Precio ascendente
-          break;
         case "latestAdded":
           return b.id - a.id; // ID descendente (ID más alto representa nuevo producto en la página)
-          break;
         default:
-          return a.id - a.id; // Default ordenados por ID ascendentemente
+          return a.id - b.id; // Default ordenados por ID ascendentemente
       }
     });
 
@@ -62,13 +93,13 @@ const Products = ({ categoria, ordenar, precioMin, precioMax }) => {
         setProductosStore(sortedProductos); // Set all products if no filter is applied
       }
     }
-  };
+    // console.log(productosStore);
+  },[products]);
 
   /* ----- RENDERIZACIÓN CONSTANTE DE PRODUCTOS ----- */
   useEffect(() => {
     getProductos();
-  }, [categoria, ordenar, precioMin, precioMax]);
-  //*Según la categoría, precio y el ordenamiento
+  }, [categoria, ordenar, precioMin, precioMax]); // Según la categoría, precio y el ordenamiento
 
   /* ----- USO DE VARIABLES ----- */
   // let categoriaCopia;
@@ -81,9 +112,9 @@ const Products = ({ categoria, ordenar, precioMin, precioMax }) => {
   return (
     <>
       <div>
-        {productosStore.length > 0 ? (
+        {products.length > 0 ? (
           <div className="contenedorProductos">
-            {productosStore.map((producto) => (
+            {products.map((producto) => (
               <ProductCard key={producto.id} producto={producto} />
             ))}
           </div>

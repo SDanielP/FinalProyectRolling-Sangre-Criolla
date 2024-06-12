@@ -48,7 +48,7 @@ const ProductCard = ({ producto }) => {
             } // Redirigir a la página del producto
             style={{ height: "6rem", objectFit: "contain", fontSize: "0.9rem" }}
           >
-            {producto.title}
+            {producto.name}
           </Button>
           <p className="textoProd">${producto.price}</p>
         </div>

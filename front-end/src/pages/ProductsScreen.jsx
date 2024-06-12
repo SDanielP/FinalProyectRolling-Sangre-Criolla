@@ -1,6 +1,6 @@
 import "../styles/ProductsScreen.css";
 import "../styles/components/shop/productsFilter/SortFilter.css";
-import React from "react";
+import React, { useState } from "react";
 import Products from "../components/shop/Products.jsx";
 import FilterPanel from "../components/shop/FilterPanel.jsx";
 import SortFilter from "../components/shop/productsFilter/SortFilter.jsx";
@@ -18,30 +18,76 @@ import { faHouse } from "@fortawesome/free-solid-svg-icons";
 
 /* ----- Constantes ----- */
 //***URL API
-const url = "https://fakestoreapi.com";
+// const url = "https://fakestoreapi.com";
 
 const ProductsScreen = () => {
   /* ----- Estados - Zustand ----- */
   const { categories } = useCategories();
-  const { setProducts } = useProducts();
+  // const { products, setProducts } = useProducts();
   const { ubication, setUbication } = useUbication();
   const { min, max } = usePriceFilter();
   const { ordenarProp } = useSortFilter();
   const { selectedCategory, setSelectedCategory } = useCategoriesFilter();
+  // const [productosFetch, setProductosFetch] = useState([]);
+  // const [error, setError] = useState(null);
+  // const [loading, setLoading] = useState(false);
 
-  //***Obtener productos
-  const getProductos = useCallback(async () => {
-    const response = await fetch(`${url}/products`);
-    const dataProducts = await response.json();
+  // ***Obtener productos
+  // const getProductos = useCallback(async () => {
+  //   // const response = await fetch(`${url}/products`);
+  //   // const dataProducts = await response.json();
 
-    //***Asigno a los productos de Zustand la info de la API
-    setProducts(dataProducts);
-  }, []);
+  //   await fetch("http://localhost:4000/products")
+  //     .then((response) => {
+  //       if (!response.ok) {
+  //         throw new Error("Error en la solicitud: " + response.status);
+  //       }
+  //       return response.json();
+  //     })
+  //     //***Asigno a los productos de Zustand la info de la API
+  //     .then((data) => setProductosFetch(data))
+  //     .catch((error) => console.error("Error:", error));
+
+  //   // setProducts(productosFetch);
+  // }, [productosFetch]);
+  // const getProductos = useCallback(async () => {
+
+    // fetch("http://localhost:4000/products")
+    // .then((response) => {
+    //   if (!response.ok) {
+    //     throw new Error("Error en la solicitud: " + response.status);
+    //   }
+    //   return response.json();
+    // })
+    // //***Asigno a los productos de Zustand la info de la API
+    // .then((data) => setProducts(data))
+    // .catch((error) => console.error("Error:", error));
+
+
+
+    // setLoading(true);
+    // setError(null);
+    // try {
+    //   const response = await fetch("http://localhost:4000/products");
+    //   if (!response.ok) {
+    //     throw new Error(`Error en la solicitud: ${response.status}`);
+    //   }
+    //   const data = await response.json();
+    //   // setProductosFetch(data);
+    //   setProducts(data);
+    // } catch (err) {
+    //   setError(err.message);
+    // } finally {
+    //   setLoading(false);
+    // }
+    // console.log(products);
+  // }, []);
 
   /* ----- RENDERIZACIÓN CONSTANTE DE CATEGORÍAS y PRODUCTOS ----- */
   useEffect(() => {
     // getCategorias();
-    getProductos();
+    // getProductos();
+    
   }, [categories, selectedCategory]); //Análogo useCallback()
 
   /* ----- Método manejo de botón para volver a una ruta anterior o padre ----- */
@@ -114,23 +160,29 @@ const ProductsScreen = () => {
 
         {/* Lateral derecho, Productos */}
         <div className="seccion-productos" style={{ width: "75%" }}>
-          {selectedCategory != "Hombres" ? (
-            <Products
-              className="div-products"
-              categoria={selectedCategory.toString().toLowerCase()}
-              ordenar={ordenarProp}
-              precioMin={min}
-              precioMax={max}
-            />
-          ) : (
-            <Products
-              className="div-products"
-              categoria={null}
-              ordenar={ordenarProp}
-              precioMin={min}
-              precioMax={max}
-            />
-          )}
+          {/* {loading && <p>Cargando productos...</p>}
+          {error && <p>Error: {error}</p>}
+          {!loading && !error && (
+            <> */}
+              {selectedCategory !== "Hombres" ? (
+                <Products
+                  className="div-products"
+                  categoria={selectedCategory.toString().toLowerCase()}
+                  ordenar={ordenarProp}
+                  precioMin={min}
+                  precioMax={max}
+                />
+              ) : (
+                <Products
+                  className="div-products"
+                  categoria={null}
+                  ordenar={ordenarProp}
+                  precioMin={min}
+                  precioMax={max}
+                />
+              )}
+            {/* </>
+          )} */}
         </div>
       </section>
     </>

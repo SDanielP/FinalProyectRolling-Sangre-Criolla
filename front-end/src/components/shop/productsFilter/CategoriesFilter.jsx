@@ -52,7 +52,7 @@ const CategoriesFilter = () => {
   };
 
   useEffect(() => {
-    console.log(selectedCategory);
+    // console.log(selectedCategory);
   }, [selectedCategory]);
 
   // const toggleDropdown = () => {
