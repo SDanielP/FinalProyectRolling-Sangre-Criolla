@@ -5,8 +5,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useCategories } from "./store/useCategories.js";
 import NavbarMenu from "./components/general/NavbarMenu.jsx";
 import ProductsScreen from "./pages/ProductsScreen";
-import ProductDetail from "./components/shop/productDetail/ProductDetail.jsx";
 import ErrorScreen from "./pages/ErrorScreen";
+import ProdD from "./components/shop/productDetail/ProdD.jsx";
 
 /* ----- Constantes ----- */
 //***URL API
@@ -38,7 +38,7 @@ const App = () =>  {
           {/* <Route key={1000} path="/" element={<HomeScreen />} /> */}
           <Route key={3000} path="products/all" element={<ProductsScreen />} />
           <Route key={4000} path="products/:category" element={<ProductsScreen/>} />
-          <Route key={5000} path="products/d/:id" element={<ProductDetail />} />
+          <Route key={5000} path="products/d/:id" element={<ProdD />} />
           <Route key={8000} path="*" element={<ErrorScreen />} />
         </Routes>
       </Router>

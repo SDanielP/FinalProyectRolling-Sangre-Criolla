@@ -1,7 +1,7 @@
 import React from 'react';
 import Nav from 'react-bootstrap/Nav';
 
-function DescEnv({id, category}) {
+function DescEnv({description}) {
   return (
  <section className='col-12'>
    <Nav className="nav nav-tabs d-flex justify-content-md-start  justify-content-center" id="nav-tab" role="tablist">
@@ -10,11 +10,7 @@ function DescEnv({id, category}) {
    </Nav>
    <article className="tab-content bg-light" id="nav-tabContent">
      <article className="tab-pane fade show active mt-3" id="nav-desc" role="tabpanel" aria-labelledby="nav-desc-tab" tabIndex="0">
-       <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Earum odio possimus saepe soluta dignissimos nesciunt minus, est quia nisi delectus, quasi autem harum eveniet sint omnis cupiditate consequuntur? Laboriosam, quae!
-       Consequuntur minima illum expedita illo magni assumenda unde, quia odio dolore quo quisquam blanditiis non error! Expedita ad laboriosam vel quisquam repudiandae veritatis, neque asperiores, eius excepturi qui nulla corrupti.
-       Odit ipsa iste voluptates beatae rerum atque in reprehenderit repudiandae harum error necessitatibus ipsum libero, ipsam labore hic nam accusantium veritatis eum repellendus illo voluptatibus! Quis aliquid nesciunt aspernatur reprehenderit.
-       Expedita odit, iusto eveniet animi culpa, quo nisi officia excepturi, enim optio magnam suscipit possimus doloribus voluptates! Aut ullam porro nulla temporibus. Tempora alias ut, molestias soluta impedit vel commodi.
-       Nulla fugiat provident est culpa voluptatibus nobis molestiae veritatis. Nesciunt numquam cupiditate rem unde laboriosam ut nostrum labore, neque nam rerum eligendi. Beatae dolorum, fuga vero nam ea provident quis?</p>
+       <p>{description}</p>
      </article>
      <article className="tab-pane fade mt-3" id="nav-pe" role="tabpanel" aria-labelledby="nav-pe-tab" tabIndex="1">
        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum commodi ipsa nobis quibusdam autem odio. Officiis, pariatur dolore, harum voluptates soluta officia saepe minima nisi mayores atque necessitatibus velit tempore.

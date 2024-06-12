@@ -1,23 +1,20 @@
 import Form from 'react-bootstrap/Form';
 
-function FormuSize() {
+function FormSize({ sizes }) {
   return (
     <section className='col-md-3'>
-    <h3 className='fs-5'>Elegir Talle</h3>
-    <Form.Select  defaultValue="75" aria-label="Default select example">
-      <option value="75">75</option>
-      <option value="80">80</option>
-      <option disabled value="85">85</option>
-      <option value="90">90</option>
-      <option value="95">95</option>
-      <option value="100">100</option>
-      <option value="105">105</option>
-      <option value="110">110</option>
-      <option value="115">115</option>
-      <option value="120">120</option>
-    </Form.Select>
+      <h3 className='fs-5'>Elegir Talle</h3>
+      <Form.Select aria-label="Default select example">
+        {sizes && sizes.length > 0 ? (
+          sizes.map((size, index) => (
+            <option key={index} value={size}>{size}</option>
+          ))
+        ) : (
+          <option value="" disabled>No hay talles disponibles</option>
+        )}
+      </Form.Select>
     </section>
   );
 }
 
-export default FormuSize;
+export default FormSize;
