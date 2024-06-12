@@ -6,15 +6,15 @@ function App() {
   const is404 = true; 
 
   return (
-    //<div className="app">
-    //  {is404 ? (
-    //    <NotFoundPage />
-    //  ) : (
-    //    <div>
-    //      {/* Contenido de la aplicación */}
-    //    </div>
-    //  )}
-    //</div>
+    <div className="app">
+      {is404 ? (
+        <NotFoundPage />
+      ) : (
+        <div>
+          {/* Contenido de la aplicación */}
+        </div>
+      )}
+    </div>
   );
 }
 
