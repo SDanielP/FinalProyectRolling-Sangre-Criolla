@@ -1,6 +1,5 @@
-import { useNavigate } from 'react-router-dom';
 import React from 'react';
-import '../assets/notFoundPage.css'; // Archivo de estilos CSS para la página 404
+import '../styles/notFoundPage.css'; // Archivo de estilos CSS para la página 404
 
 function NotFoundPage() {
 
