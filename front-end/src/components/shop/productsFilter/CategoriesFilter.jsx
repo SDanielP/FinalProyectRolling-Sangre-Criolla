@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCategories } from "../../../store/useCategories.js";
 import { useCategoriesFilter } from "../../../store/productsFilter/useCategoriesFilter.js";
+import { useSizeFilter } from "../../../store/productsFilter/useSizeFilter.js";
+import { useColorsFilter } from "../../../store/productsFilter/useColorsFilter.js";
 import { useUbication } from "../../../store/useUbication.js";
 import { Collapse, Button } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -24,15 +26,29 @@ const CategoriesFilter = () => {
   const { categories } = useCategories();
   const { selectedCategory, setSelectedCategory } = useCategoriesFilter();
   const { setUbication } = useUbication();
+  const { setSelectedColor } = useColorsFilter();
+  const { setSelectedSize } = useSizeFilter();
 
   /* ----- Uso de useNavigate() ----- */
   const navigate = useNavigate(); // Importar useNavigate()
 
   const handleCategory = (nuevaCategoria) => {
     setSelectedCategory(nuevaCategoria);
-    setUbication("Hombres / " + nuevaCategoria.charAt(0).toUpperCase() + nuevaCategoria.slice(1));
+    setUbication(
+      "Hombres / " +
+        nuevaCategoria.charAt(0).toUpperCase() +
+        nuevaCategoria.slice(1)
+    );
     // setIsDropdownOpen(true); // Cierra el dropdown al seleccionar una opción
     navigate(`/products/${nuevaCategoria.toLowerCase()}`);
+  };
+
+  /* ----- Método manejo de botón para volver a una ruta anterior o padre ----- */
+  const handleOnClick = () => {
+    setSelectedCategory("Hombres");
+    setUbication("Todos");
+    setSelectedColor("Todos los colores");
+    setSelectedSize("Todos los tamaños");
   };
 
   useEffect(() => {
@@ -46,17 +62,15 @@ const CategoriesFilter = () => {
     <>
       {/* Todos */}
       <Button
-        // onClick={() => setWomenCategoryOpen(!womenCategoryOpen)}
-        // style={{ marginBottom: "1rem" }}
-        // className="custom-dropdown"
+      // onClick={() => setWomenCategoryOpen(!womenCategoryOpen)}
+      // style={{ marginBottom: "1rem" }}
+      // className="custom-dropdown"
       >
-        <span>Todos</span>
+        <span onClick={handleOnClick}>Todos</span>
       </Button>
 
       {/* Mujeres */}
-      <Button
-        onClick={() => setWomenCategoryOpen(!womenCategoryOpen)}
-      >
+      <Button onClick={() => setWomenCategoryOpen(!womenCategoryOpen)}>
         <span>Damas</span>
       </Button>
 
@@ -66,8 +80,19 @@ const CategoriesFilter = () => {
         onClick={() => setMenCategoryOpen(!menCategoryOpen)}
       >
         <span>Hombres</span>
-        { menCategoryOpen === false ? <FontAwesomeIcon icon={faAngleDown} size="xs" style={{color: "#f5f5dc",}} /> : <FontAwesomeIcon icon={faAngleUp} size="xs" style={{color: "#f5f5dc",}} />}
-        
+        {menCategoryOpen === false ? (
+          <FontAwesomeIcon
+            icon={faAngleDown}
+            size="xs"
+            style={{ color: "#f5f5dc" }}
+          />
+        ) : (
+          <FontAwesomeIcon
+            icon={faAngleUp}
+            size="xs"
+            style={{ color: "#f5f5dc" }}
+          />
+        )}
       </Button>
 
       <Collapse isOpen={menCategoryOpen}>
@@ -75,11 +100,10 @@ const CategoriesFilter = () => {
           <div
             className="men-subcategories"
             key={categories.indexOf(categoria)}
-            onClick={() => (handleCategory(categoria))}
+            onClick={() => handleCategory(categoria)}
             style={{ cursor: "pointer" }}
           >
-              {categoria.charAt(0).toUpperCase() + categoria.slice(1)}
-            
+            {categoria.charAt(0).toUpperCase() + categoria.slice(1)}
           </div>
         ))}
       </Collapse>
