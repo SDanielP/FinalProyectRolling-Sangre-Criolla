@@ -54,7 +54,7 @@
   background-color: #e2e2e2;
 }
 
-.all-colors{
+.all-colors {
   font-weight: 300;
   font-size: small;
   /* padding-left: 1rem; */
@@ -62,4 +62,3 @@
   display: block;
   cursor: pointer;
 }
-

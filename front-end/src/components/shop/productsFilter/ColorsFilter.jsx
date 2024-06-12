@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Collapse, Button} from "reactstrap";
+import { Collapse, Button } from "reactstrap";
 import "../../../styles/components/shop/productsFilter/ColorsFilter.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
@@ -37,11 +37,22 @@ const ColorsFilter = () => {
       <Button
         className="color-btn"
         onClick={() => setColorOpen(!colorOpen)}
-        style={{ marginBottom: "1rem", width:"100%"}}
+        style={{ marginBottom: "1rem", width: "100%" }}
       >
         <span>Color</span>
-        {colorOpen === false ? <FontAwesomeIcon icon={faPlus} size="sm" style={{color: "#f5f5dc",}} /> : <FontAwesomeIcon icon={faMinus} size="sm" style={{color: "#f5f5dc",}} /> }
-        
+        {colorOpen === false ? (
+          <FontAwesomeIcon
+            icon={faPlus}
+            size="sm"
+            style={{ color: "#f5f5dc" }}
+          />
+        ) : (
+          <FontAwesomeIcon
+            icon={faMinus}
+            size="sm"
+            style={{ color: "#f5f5dc" }}
+          />
+        )}
       </Button>
 
       <Collapse isOpen={colorOpen} className="colores color-options">
@@ -49,7 +60,7 @@ const ColorsFilter = () => {
           <span
             className={colorOption.label}
             key={colorOption.id}
-            onClick={() => (handleColor(colorOption))}
+            onClick={() => handleColor(colorOption)}
           ></span>
         ))}
         <p className="all-colors">Todos los colores</p>

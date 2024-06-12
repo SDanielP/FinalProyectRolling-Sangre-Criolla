@@ -3,8 +3,9 @@ import { useEffect } from "react";
 // import { useNavigate } from "react-router-dom";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useCategories } from "./store/useCategories.js";
-import NavbarMenu from "./components/general/NavbarMenu.jsx";
+// import NavbarMenu from "./components/general/NavbarMenu.jsx";
 import ProductsScreen from "./pages/ProductsScreen";
+import FrequentQuestions from "./pages/FrequentQuestions.jsx";
 import ErrorScreen from "./pages/ErrorScreen";
 import ProdD from "./components/shop/productDetail/ProdD.jsx";
 
@@ -33,13 +34,14 @@ const App = () =>  {
   return (
     <>
       <Router>
-        <NavbarMenu key={9000}/>
+        {/* <NavbarMenu key={9000}/> */}
         <Routes>
           {/* <Route key={1000} path="/" element={<HomeScreen />} /> */}
           <Route key={3000} path="products/all" element={<ProductsScreen />} />
           <Route key={4000} path="products/:category" element={<ProductsScreen/>} />
-          <Route key={5000} path="products/d/:id" element={<ProdD />} />
+          <Route key={5000} path="products/:category/:id" element={<ProdD />} />
           <Route key={8000} path="*" element={<ErrorScreen />} />
+          <Route key={8000} path="/frecuent-questions" element={<FrequentQuestions />} />
         </Routes>
       </Router>
     </>

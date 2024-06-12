@@ -2,7 +2,6 @@ import "../../styles/components/shop/Products.css";
 import React, { useState, useEffect } from "react";
 import ProductCard from "../shop/productsCard/ProductCard";
 
-
 /* ----- Constantes ----- */
 //***URL API
 const url = "https://fakestoreapi.com";
@@ -89,7 +88,9 @@ const Products = ({ categoria, ordenar, precioMin, precioMax }) => {
             ))}
           </div>
         ) : (
-          <p className="contenedorProductos">No se encontraron productos para esta categoría.</p>
+          <p className="contenedorProductos">
+            No se encontraron productos para esta categoría.
+          </p>
         )}
       </div>
     </>

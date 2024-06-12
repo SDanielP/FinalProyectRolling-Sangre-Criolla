@@ -1,4 +1,4 @@
-.detalle-contenedor{
+.detalle-contenedor {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -12,16 +12,16 @@
     object-fit: contain;
 } */
 
-.max-vh-60{
+.max-vh-60 {
     max-height: 60vh;
 }
 
-.max-h-100{
+.max-h-100 {
     height: 100%;
     max-height: 100%;
 }
 
-.max-vh-30{
+.max-vh-30 {
     height: 10vh;
     max-height: 10vh;
 }
@@ -35,37 +35,38 @@
     box-sizing: border-box;
 } */
 
-.max-w-100{
+.max-w-100 {
     width: 100%;
     max-width: 100%;
 }
 
-.overflow-masfotos{
+.overflow-masfotos {
     overflow-x: auto !important;
     scroll-snap-type: x mandatory;
 }
 
-.fotos-scroll{
+.fotos-scroll {
     scroll-snap-align: center;
     scroll-snap-stop: always;
 }
 
 @media (min-width: 992px) {
+
     /* Estilos específicos para el breakpoint "lg" */
-    .max-vh-30{
+    .max-vh-30 {
         height: 60vh;
         max-height: 60vh;
     }
 
-    .max-h-100{
+    .max-h-100 {
         height: auto;
         max-height: none;
         width: 100%;
     }
 
-    .max-w-100{
+    .max-w-100 {
         width: auto;
         max-width: none;
         height: 100%;
     }
-  }
+}

@@ -143,11 +143,11 @@ img {
     color: var(--body-color);
 }
 
-.bag-btn:hover{
+.bag-btn:hover {
     color: var(--body-color3);
 }
 
-.fav-btn:hover{
+.fav-btn:hover {
     color: var(--fav-color);
 }
 
@@ -171,17 +171,22 @@ img {
 
 .containerCard:hover {
     cursor: pointer;
-    .card__data{
+
+    .card__data {
         cursor: pointer;
         bottom: 0;
         opacity: 1;
         background-color: var(--body-color);
-    };
+    }
+
+    ;
+
     .fav-btn {
         cursor: pointer;
         bottom: 86%;
         opacity: 1;
     }
+
     .bag-btn {
         cursor: pointer;
         bottom: 27%;

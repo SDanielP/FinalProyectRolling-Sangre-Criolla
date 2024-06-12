@@ -6,7 +6,6 @@ import ColorsFilter from "./productsFilter/ColorsFilter";
 import SizeFilter from "./productsFilter/SizeFilter";
 
 const FilterPanel = () => {
-  
   return (
     <div className="filter-panel">
       <p>Categorías</p>

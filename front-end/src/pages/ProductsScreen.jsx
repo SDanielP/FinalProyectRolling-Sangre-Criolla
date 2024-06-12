@@ -16,8 +16,6 @@ import { useCategoriesFilter } from "../store/productsFilter/useCategoriesFilter
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHouse } from "@fortawesome/free-solid-svg-icons";
 
-
-
 /* ----- Constantes ----- */
 //***URL API
 const url = "https://fakestoreapi.com";
@@ -72,13 +70,21 @@ const ProductsScreen = () => {
           <div className="ubicacion d-flex flex-start mb-3 align-items-center">
             {/* Sacar los style */}
             <NavLink to="/">
-              <FontAwesomeIcon icon={faHouse} style={{ color: "beige", paddingRight:"0.5rem"}} />
+              <FontAwesomeIcon
+                icon={faHouse}
+                style={{ color: "beige", paddingRight: "0.5rem" }}
+              />
             </NavLink>
             <span className="ubicacionUser">
-            /
+              /
               <NavLink
                 to="/products/all"
-                style={{ textDecoration: "none", color: "beige", paddingRight:"0.5rem", paddingLeft:"0.5rem"}} 
+                style={{
+                  textDecoration: "none",
+                  color: "beige",
+                  paddingRight: "0.5rem",
+                  paddingLeft: "0.5rem",
+                }}
                 onClick={handleOnClick}
               >
                 Productos
@@ -87,13 +93,21 @@ const ProductsScreen = () => {
             </span>
           </div>
         </div>
-          <SortFilter /> 
+        <SortFilter />
       </nav>
 
-      <section className="contenedor-filtros-productos" style={{justifyContent: "center"}}>
+      <section
+        className="contenedor-filtros-productos"
+        style={{ justifyContent: "center" }}
+      >
         <div
           className="seccion-filtros"
-          style={{ width: "25%", minWidth: "25%", justifyItemsContent: "center", right: "0"}}
+          style={{
+            width: "25%",
+            minWidth: "25%",
+            justifyItemsContent: "center",
+            right: "0",
+          }}
         >
           <FilterPanel />
         </div>

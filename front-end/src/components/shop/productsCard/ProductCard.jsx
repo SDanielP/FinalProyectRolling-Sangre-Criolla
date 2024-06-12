@@ -34,13 +34,10 @@ const ProductCard = ({ producto }) => {
               >
                 Vista rápida
               </Button>
-
-              
             </div>
-            
           </article>
-              <FontAwesomeIcon icon={faHeart} size="lg"  className="fav-btn"/>
-              <FontAwesomeIcon icon={faBagShopping}  size="xl" className="bag-btn" />
+          <FontAwesomeIcon icon={faHeart} size="lg" className="fav-btn" />
+          <FontAwesomeIcon icon={faBagShopping} size="xl" className="bag-btn" />
         </div>
         <div className="card-body">
           <Button

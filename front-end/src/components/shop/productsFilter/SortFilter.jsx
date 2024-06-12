@@ -5,7 +5,6 @@ import DropdownButton from "react-bootstrap/DropdownButton";
 import { useEffect } from "react";
 import { useSortFilter } from "../../../store/productsFilter/useSortFilter";
 
-
 /* ----- Constantes ----- */
 //***Opciones para el botón ordenar
 const ordenarOpciones = [

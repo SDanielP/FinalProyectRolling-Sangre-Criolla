@@ -17,7 +17,6 @@ const sizeOptions = [
   { id: 6, value: "xxl", label: "XXL" },
 ];
 
-
 const SizeFilter = () => {
   /* ----- Estados Tamaño - Zustand ----- */
   // const { selectedSize, setSelectedSize } = useSizeFilter();
@@ -27,7 +26,6 @@ const SizeFilter = () => {
 
   /* ----- Uso de useNavigate() ----- */
   //   const navigate = useNavigate(); // Importar useNavigate()
-
 
   const handleSize = (nuevoTamanio) => {
     setSizeOpen(nuevoTamanio);

@@ -1,19 +1,19 @@
-import React, { useState } from 'react';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import ImgP from '../compProductDet/ImgP';
-import ProductDetails from '../compProductDet/ProductDetails';
-import FormProd from '../compProductDet/FormProd'
-import DescEnv from '../compProductDet/DescEnv';
+import React, { useState } from "react";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import ImgP from "../compProductDet/ImgP";
+import ProductDetails from "../compProductDet/ProductDetails";
+import FormProd from "../compProductDet/FormProd";
+import DescEnv from "../compProductDet/DescEnv";
 
 function DProd() {
   const [images, setImages] = useState([]);
-  const [name, setName] = useState('');
-  const [price, setPrice] = useState('');
-  const [color, setColor] = useState('');
+  const [name, setName] = useState("");
+  const [price, setPrice] = useState("");
+  const [color, setColor] = useState("");
   const [sizes, setSizes] = useState([]);
-  const [description, setDescription] = useState('');
+  const [description, setDescription] = useState("");
 
   const handleImagesLoad = (images) => {
     setImages(images);
@@ -35,22 +35,22 @@ function DProd() {
 
   return (
     <Container>
-       <Row xs={1} md={2}>
-        <Col > 
+      <Row xs={1} md={2}>
+        <Col>
           <ImgP images={images} />
         </Col>
-        <Col className='sm-col-12'> 
+        <Col className="sm-col-12">
           <FormProd name={name} price={price} color={color} sizes={sizes} />
         </Col>
       </Row>
       <Row>
         <Col>
-          <DescEnv description={description}/>
+          <DescEnv description={description} />
         </Col>
       </Row>
-      <ProductDetails 
-        onImagesLoad={handleImagesLoad} 
-        onNamePriceLoad={handleNamePriceLoad} 
+      <ProductDetails
+        onImagesLoad={handleImagesLoad}
+        onNamePriceLoad={handleNamePriceLoad}
         onSizesLoad={handleSizesLoad}
         onDescriptionLoad={handleDescriptionLoad}
       />

@@ -1,14 +1,14 @@
 /*Navbar*/
-body{
+body {
   width: 100%;
   /* position: fixed; */
   /* z-index: 1; */
 }
 
 /*------------------------ INFO PROMOCIONES ---------------------*/
-.info-prom{
+.info-prom {
   padding: 1rem 3rem;
-  
+
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -18,30 +18,30 @@ body{
   border-bottom: 1px solid #cecece;
   border-top: 1px solid #cecece;
 
-  font-size:smaller;
+  font-size: smaller;
 }
 
-.texto-prom{
+.texto-prom {
   margin: 0;
 }
 
-.x{
+.x {
   text-align: center;
   padding: 0rem 0rem;
   margin: 0;
 }
 
-.x:hover{
+.x:hover {
   cursor: pointer;
 }
 
 /*------------------------ BARRA NAVEGACION Y ELEMENTOS ---------------------*/
 .contenedor {
-    padding: 2.3rem 3rem;
-    background-color: white;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  padding: 2.3rem 3rem;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .contenedor div a {
@@ -52,38 +52,40 @@ body{
 }
 
 .contenedor>.navegacion>a {
-    margin-right: 1rem;
+  margin-right: 1rem;
 }
 
 .contenedor div a:hover {
   color: #535bf2;
 }
 
-.buscador-usuario{
+.buscador-usuario {
   display: flex;
   flex-direction: row;
 }
 
 
-.buscador-usuario-elemento{
+.buscador-usuario-elemento {
   margin-right: 1rem;
 }
-.buscador-usuario-elemento>a{
+
+.buscador-usuario-elemento>a {
   margin-right: 0;
 }
 
 
 /*------------------------ Logo ---------------------*/
-.contenedor>a{
+.contenedor>a {
   text-decoration: none;
 }
-.contenedor>a>h2 {
-    color: #333;
-    font-weight: 400;
 
-    span {
-        font-weight: bold;
-    }
+.contenedor>a>h2 {
+  color: #333;
+  font-weight: 400;
+
+  span {
+    font-weight: bold;
+  }
 }
 
 
@@ -114,8 +116,10 @@ body{
 
 /*------------------------ Iniciar sesión ---------------------*/
 .logo {
-  width: 30px; /* Ajusta el tamaño del logo según sea necesario */
-  margin-right: 10px; /* Ajusta el margen entre el logo y el texto */
+  width: 30px;
+  /* Ajusta el tamaño del logo según sea necesario */
+  margin-right: 10px;
+  /* Ajusta el margen entre el logo y el texto */
 }
 
 /*------------------------ Carrito de compras ---------------------*/

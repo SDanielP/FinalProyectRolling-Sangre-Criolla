@@ -8,19 +8,17 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { faMinus } from "@fortawesome/free-solid-svg-icons";
 
-
 const PriceFilter = () => {
   /* ----- Estados para los botones ----- */
   const [values, setValues] = useState([0, 1000]);
   const [priceOpen, setPriceOpen] = useState(false);
 
-    /* ----- Estado Precio - Zustand ----- */
+  /* ----- Estado Precio - Zustand ----- */
   const { setMinPrice, setMaxPrice } = usePriceFilter();
 
   /* ----- Uso de useDebounce para la rapidez del filtro Precio  ----- */
   const debouncedMinPrice = useDebounce(values[0], 1000);
   const debouncedMaxPrice = useDebounce(values[1], 1000);
-
 
   const handleChange = (newValues) => {
     setValues(newValues);
@@ -38,17 +36,28 @@ const PriceFilter = () => {
       <Button
         className="price-btn"
         onClick={() => setPriceOpen(!priceOpen)}
-        style={{ marginBottom: "1rem", width:"100%"}}
+        style={{ marginBottom: "1rem", width: "100%" }}
       >
         <span>Precio</span>
-        {priceOpen === false ? <FontAwesomeIcon icon={faPlus} size="sm" style={{color: "#f5f5dc",}} /> : <FontAwesomeIcon icon={faMinus} size="sm" style={{color: "#f5f5dc",}} /> }
-        
+        {priceOpen === false ? (
+          <FontAwesomeIcon
+            icon={faPlus}
+            size="sm"
+            style={{ color: "#f5f5dc" }}
+          />
+        ) : (
+          <FontAwesomeIcon
+            icon={faMinus}
+            size="sm"
+            style={{ color: "#f5f5dc" }}
+          />
+        )}
       </Button>
 
       <Collapse isOpen={priceOpen}>
         <div
           style={{
-            padding: "10px"
+            padding: "10px",
           }}
         >
           <Slider
