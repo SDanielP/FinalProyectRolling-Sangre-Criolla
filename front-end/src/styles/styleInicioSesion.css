@@ -1,7 +1,8 @@
 *{
     background-color: beige;
     margin: 0%;
-
+  width: 100%;
+  display: flex;
 }
 body{
     height: 100%;
@@ -19,6 +20,7 @@ body{
     font-size: 45px;
     display: flex;
     flex-wrap: wrap;
+    width: 100%;
 }
 .formulario{
     display: flex;
@@ -88,25 +90,27 @@ input{
   /* RESPONSIVE */
   /* Extra small devices (phones, 600px and down) */
   @media only screen and (max-width: 600px) {
-    .divisiones{
+    .formulario , input{
       width: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
+      flex-wrap: wrap;
     }
     .division1, .division2{
       width: 100%;
       padding: 0;
     }
-    .form-register{
-      width: 80vw;
-      
+    .modal{
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      flex-wrap: wrap;
+      contain: content;
     }
-    .form-register h4{
-      font-size: 25px;
-      text-align: center;
-      margin-top: 50px;
-      margin-bottom: 50px;
+    .titulo{
+      font-size: 30px;
     }
   }
   

@@ -5,6 +5,7 @@ import { useState } from 'react';
 import Registro from './Registro';
 
 function InicioSesion({toggleComponent}) {
+    
     const [formData, setFormData] = useState({
         email: '',
         password: ''
@@ -22,7 +23,6 @@ function InicioSesion({toggleComponent}) {
     // Handler para el envío del formulario de login
     const handleLoginSubmit = async (e) => {
         e.preventDefault();
-
         try {
             const response = await fetch('http://localhost:4000/api/auth/login', {
                 method: 'POST',
