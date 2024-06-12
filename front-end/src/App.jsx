@@ -4,6 +4,7 @@ import NavbarMenu from "./components/general/NavbarMenu.jsx";
 
 import ProductsScreen from "./pages/ProductsScreen";
 import ErrorScreen from "./pages/ErrorScreen";
+import PaymentForm from "./components/shop/payments/payments.jsx";
 
 import { useEffect } from "react";
 import { useCategories } from "./store/useCategories.js";
@@ -37,6 +38,7 @@ const App = () =>  {
           {/* <Route key={1000} path="/" element={<HomeScreen />} /> */}
           <Route key={3000} path="products/all" element={<ProductsScreen />} />
           <Route key={4000} path="products/:category" element={<ProductsScreen/>} />
+          <Route key={5000} path="payments" element={<PaymentForm/>} />
           {/* <Route key={5000} path="products/:category/:id" element={<ProductDetail />} /> */}
           <Route key={8000} path="*" element={<ErrorScreen />} />
         </Routes>
