@@ -1,7 +1,7 @@
-// Cart.jsx
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Modal, ModalHeader, ModalBody, ModalFooter, Button, ListGroup, ListGroupItem, Input } from 'reactstrap';
+import { NavLink } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './cart.css';
 import useCart from './useCart';
@@ -34,9 +34,8 @@ const Cart = ({ isOpen, toggle }) => {
 
   const handleConfirmPurchase = () => {
     localStorage.setItem('compraConfirmada', JSON.stringify(cartProducts));
-    localStorage.removeItem('cart');
     alert('Compra confirmada. ¡Gracias por tu compra!');
-    updateCart([]);
+    toggle(); // Cierra el modal
   };
 
   return (
@@ -66,7 +65,9 @@ const Cart = ({ isOpen, toggle }) => {
       </ModalBody>
       <ModalFooter>
         <div>Total: ${total}</div>
-        <Button id="nextStep" color="primary" onClick={handleConfirmPurchase}>Continuar Compra</Button>
+        <NavLink to="/payments">
+          <Button id="nextStep" color="primary" onClick={handleConfirmPurchase}>Continuar Compra</Button>
+        </NavLink>
       </ModalFooter>
     </Modal>
   );

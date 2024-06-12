@@ -1,7 +1,7 @@
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import './PaymentForm.css';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const PaymentForm = () => {
   const [productos, setProductos] = useState([]);
@@ -58,6 +58,7 @@ const PaymentForm = () => {
       } catch (error) {
         console.error(error);
         alert('Pago realizado con éxito!');
+        localStorage.removeItem('cart');
         localStorage.removeItem('compraConfirmada'); // Eliminar los productos del localStorage
         setProductos([]); // Limpiar el estado de productos
         window.location.href = '/products/all'; // Redirigir a /products/all
