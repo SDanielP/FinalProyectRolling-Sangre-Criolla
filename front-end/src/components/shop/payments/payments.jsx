@@ -2,7 +2,6 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import './PaymentForm.css';
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 
 const PaymentForm = () => {
   const [productos, setProductos] = useState([]);
@@ -45,7 +44,16 @@ const PaymentForm = () => {
     }),
     onSubmit: async (values) => {
       try {
-        const response = await axios.post('/api/payment', values);
+        const response = await fetch('/api/payment', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(values),
+        });
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
         alert('Pago realizado con éxito');
       } catch (error) {
         console.error(error);
