@@ -1,10 +1,19 @@
-import React from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import './PaymentForm.css';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import './PaymentForm.css'; // Para agregar estilos similares a los de la imagen
 
 const PaymentForm = () => {
+  const [productos, setProductos] = useState([]);
+
+  useEffect(() => {
+    const storedProducts = localStorage.getItem('compraConfirmada');
+    if (storedProducts) {
+      setProductos(JSON.parse(storedProducts));
+    }
+  }, []);
+
   const formik = useFormik({
     initialValues: {
       cardNumber: '',
@@ -40,7 +49,10 @@ const PaymentForm = () => {
         alert('Pago realizado con éxito');
       } catch (error) {
         console.error(error);
-        alert('Pago realizado con éxito');
+        alert('Pago realizado con éxito!');
+        localStorage.removeItem('compraConfirmada'); // Eliminar los productos del localStorage
+        setProductos([]); // Limpiar el estado de productos
+        window.location.href = '/products/all'; // Redirigir a /products/all
       }
     },
   });
@@ -49,10 +61,10 @@ const PaymentForm = () => {
     <form onSubmit={formik.handleSubmit} className="payment-form">
       <h2>Ingresar con Tarjeta de Crédito/Débito</h2>
       <div className="card-types">
-        <img src="visa.png" alt="Visa"/>
-        <img src="mastercard.png" alt="MasterCard"/>
-        <img src="visa-electron.png" alt="Visa Electron"/>
-        <img src="amex.png" alt="American Express"/>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" alt="Visa" />
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png" alt="MasterCard" />
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Visa_Electron.svg/1200px-Visa_Electron.svg.png" alt="Visa Electron" />
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/American_Express_logo_%282018%29.svg/1200px-American_Express_logo_%282018%29.svg.png" alt="American Express" />
       </div>
 
       <div className="form-group">
@@ -175,8 +187,17 @@ const PaymentForm = () => {
         ) : null}
       </div>
 
+      <h3>Productos</h3>
+      <ul>
+        {productos.map((producto, index) => (
+          <li key={index}>
+            Nombre: {producto.name} - Cantidad: {producto.quantity} - Precio: {producto.price}
+          </li>
+        ))}
+      </ul>
+
       <button type="submit">PAGAR</button>
-      <button onClick="index.js">CANCELAR</button>
+      <button type="button" onClick={() => window.location.href = '/products/all'}>CANCELAR</button>
     </form>
   );
 };
