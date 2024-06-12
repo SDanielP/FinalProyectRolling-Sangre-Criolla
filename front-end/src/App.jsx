@@ -8,6 +8,7 @@ import ProductsScreen from "./pages/ProductsScreen";
 import FrequentQuestions from "./pages/FrequentQuestions.jsx";
 import ErrorScreen from "./pages/ErrorScreen";
 import ProdD from "./components/shop/productDetail/ProdD.jsx";
+// import ImgP from "./components/shop/compProductDet/ImgP.jsx";
 
 /* ----- Constantes ----- */
 //***URL API
@@ -40,6 +41,7 @@ const App = () =>  {
           <Route key={3000} path="products/all" element={<ProductsScreen />} />
           <Route key={4000} path="products/:category" element={<ProductsScreen/>} />
           <Route key={5000} path="products/:category/:id" element={<ProdD />} />
+          {/* <Route key={5000} path="products/:category/:id/modal" element={<ImgP />} /> */}
           <Route key={8000} path="*" element={<ErrorScreen />} />
           <Route key={8000} path="/frecuent-questions" element={<FrequentQuestions />} />
         </Routes>
