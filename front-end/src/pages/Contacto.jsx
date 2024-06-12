@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Row, Col } from 'react-bootstrap';
 import InfoContacto from '../components/InfoContacto';
 import FormularioEmailJS from '../components/FormularioEmailJS';
+import '../components/contactoEstilo.css';
 
 function Contact() {
   return (
@@ -13,12 +14,12 @@ function Contact() {
           </Col>
         </Row>
       </Container>
-      <Container>
+      <Container className="bordeFormulario">
         <Row>
-          <Col sm={4}>
+          <Col sm={5}>
             <InfoContacto />
           </Col>
-          <Col sm={8}>
+          <Col sm={7} className="centrarFormulario">
             <FormularioEmailJS />
           </Col>
         </Row>

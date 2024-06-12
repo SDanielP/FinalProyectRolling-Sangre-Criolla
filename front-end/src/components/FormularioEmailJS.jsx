@@ -69,14 +69,14 @@ const FormularioEmailJS = () => {
                 as="textarea"
                 rows={3}
                 name="message"
-                placeholder="Escriba su Mensaje por favor"
+                placeholder="Escriba su Mensaje, por favor"
               ></Form.Control>
             </Form.Group>
           </Col>
         </Row>
         <Row>
           <Col sm={12} className="d-flex justify-content-center">
-            <Button type="submit" variant="secondary" value="Enviar">
+            <Button type="submit" value="Enviar" className="colorBoton">
               Enviar
               <i className="bi bi-send btn" />
             </Button>
