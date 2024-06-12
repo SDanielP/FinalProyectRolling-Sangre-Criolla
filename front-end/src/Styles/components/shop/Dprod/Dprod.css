@@ -23,3 +23,9 @@
 .fondo-color{
   background-color: #a6907c;
 }
+
+body.modal-open {
+  position: fixed;
+  width: 100%;
+}
+

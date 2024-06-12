@@ -4,8 +4,8 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import ImgP from '../compProductDet/ImgP';
 import ProductDetails from '../compProductDet/ProductDetails';
-import DescEnv from '../compProductDet/ProductDetails';
 import FormProd from '../compProductDet/FormProd'
+import DescEnv from '../compProductDet/DescEnv';
 
 function DProd() {
   const [images, setImages] = useState([]);
