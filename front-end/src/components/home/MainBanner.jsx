@@ -52,8 +52,8 @@ const MainBanner = () => {
               />
               <div className="carousel-caption2">
                 <img src="../../public/img/logosinfondo1.png" style={{ height: '70px' }} alt="logo" />
-                <h5>p</h5>
-                <p></p>
+                <h1>FABRICA DE CINTURONES</h1>
+                <p>Haciendo magia para cualquier detalle.</p>
               </div>
             </div>
             <div className="carousel-item" data-bs-interval="10000">
@@ -64,8 +64,7 @@ const MainBanner = () => {
               />
               <div className="carousel-caption2">
                 <img src="../../public/img/logosinfondo1.png" style={{ height: '70px' }} alt="logo" />
-                <h5></h5>
-                <p></p>
+                <h1>Porque la belleza está en los detalles.</h1>
               </div>
             </div>
           </div>

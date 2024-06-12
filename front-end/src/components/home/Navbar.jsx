@@ -1,4 +1,7 @@
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css'; // Asegúrate de que esto esté importado
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 
 function Navbar() {
   return (
@@ -78,7 +81,7 @@ function Navbar() {
             </li>
             <li className="nav-item" id="itemToHide">
               <a className="nav-link" href="#">
-                Administracion
+                Administración
               </a>
             </li>
             <li className="nav-item" id="itemToHide">
@@ -90,7 +93,7 @@ function Navbar() {
           <form className="d-flex" role="search">
             <input
               id="filtro"
-              className="me-2"
+              className="form-control me-2"
               type="search"
               placeholder="Buscar"
               aria-label="Search"
@@ -99,8 +102,8 @@ function Navbar() {
             <button className="bg-transparent ms-2" type="submit">
               <i className="bi bi-search"></i>
             </button>
-            <button className="ms-2" type="submit">
-            <i class="fa-solid fa-cart-shopping"></i>
+            <button className="ms-2 bg-transparent" type="button">
+              <FontAwesomeIcon icon={faCartShopping} style={{ color: "#000000" }} />
             </button>
           </form>
         </div>
