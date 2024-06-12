@@ -682,3 +682,130 @@ main .carousel {
     flex-basis: 100%; /* Una tarjeta por fila en dispositivos pequeños */
   }
 }
+-----------------------------
+.extras1 {
+  background-color: #f6f6f6;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.extras1 img {
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
+}
+
+.extras1 h1, .extras1 p {
+  text-align: center;
+}
+
+.extras-contenido {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.extras-contenido-texto {
+  margin-left: 20px;
+  text-align: center;
+}
+
+.extras2 {
+  background-color: #733224;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.extras2 p, .extras2 h2, .extras2 h1 {
+  color: white;
+  text-align: center;
+}
+
+.extras2-contenido {
+  border: 3px solid white;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.extras2-horario {
+  border-top: 3px solid white;
+  padding-top: 10px;
+  text-align: center;
+}
+
+
+/* Media query para dispositivos móviles */
+
+@media (max-width: 767px) {
+  .solicitar-turnos-texto {
+      padding: 0;
+  }
+
+  .extras2-contenido {
+      font-size: 10px;
+
+  }
+  .carousel-caption2 {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 0 3rem;
+      margin: 0;
+      font-size: 0.75rem;
+      width: 100%;
+      height: 100%;
+  }
+
+  .ubicacion{
+      display: none;
+  }
+
+  .texto-servicios{
+      font-size: 5px;
+      margin-top: 90px;
+  }
+
+  .extras, .extras-contenido {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      text-align: center;
+      height: 100%;
+      width: 100%;
+      flex-wrap: nowrap;
+      margin: 0;
+  }
+
+  .extras-contenido-texto {
+      height: 100%;
+      width: 100%;
+  }
+
+  .extras1 {
+      height: 100%;
+      width: 100%;
+  }
+
+  .extras2 {
+      padding-top: 3rem;
+      position: static;
+  }
+}
