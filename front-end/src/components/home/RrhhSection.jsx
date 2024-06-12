@@ -26,7 +26,7 @@ const RrhhSection = () => {
                   required
                 />
               </div>
-              <div className="d-flex align-items-center mb-3">
+              <div className="d-flex align-items-start mb-3 justify-content-start">
                 <label htmlFor="check" className="me-2">¿Quieres recibir ofertas?</label>
                 <input type="checkbox" id="check" />
               </div>
