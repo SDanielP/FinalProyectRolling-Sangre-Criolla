@@ -1,4 +1,4 @@
-import './contactoEstilo.css';
+import '../styles/contactoEstilo.css';
 import 'bootstrap-icons/font//bootstrap-icons.css';
 import { Container } from 'react-bootstrap';
 

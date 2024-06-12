@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Col, Row, Image } from 'react-bootstrap';
 import InfoNosotros from '../components/InfoNosotros';
-import '../components/nosotrosEstilo.css';
+import '../styles/nosotrosEstilo.css';
 
 function Nosotros() {
   return (

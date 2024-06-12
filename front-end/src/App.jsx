@@ -1,7 +1,7 @@
 import Contacto from './pages/Contacto';
 import Nosotros from './pages/Nosotros';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import './App.css';
+import './styles/App.css';
 // import { Navbar } from 'react-bootstrap';
 
 function App() {

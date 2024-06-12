@@ -2,7 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Row, Col } from 'react-bootstrap';
 import InfoContacto from '../components/InfoContacto';
 import FormularioEmailJS from '../components/FormularioEmailJS';
-import '../components/contactoEstilo.css';
+import '../styles/contactoEstilo.css';
 
 function Contact() {
   return (
