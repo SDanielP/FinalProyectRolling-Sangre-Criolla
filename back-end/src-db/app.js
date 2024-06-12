@@ -4,10 +4,13 @@ const dotenv = require('dotenv');
 const userRouter = require('./routes/userRouter');
 const connectDB = require('./config/db');
 const authRouter = require('./routes/authRouter');
+const cors = require("cors");
 
 dotenv.config();
 
 const app = express();
+
+app.use(cors());
 
 app.use(morgan('combined'));
 
