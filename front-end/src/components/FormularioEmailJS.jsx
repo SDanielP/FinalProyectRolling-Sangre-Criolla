@@ -1,7 +1,8 @@
-import { Row, Col, Form, Button } from 'react-bootstrap';
-import React, { useRef } from 'react';
-import emailjs from '@emailjs/browser';
+import React, { useRef, useState } from 'react';
 import 'bootstrap-icons/font//bootstrap-icons.css';
+import { Row, Col, Form, Button } from 'react-bootstrap';
+import emailjs from '@emailjs/browser';
+import ModalContacto from './ModalContacto';
 
 const FormularioEmailJS = () => {
   const form = useRef();
@@ -25,6 +26,8 @@ const FormularioEmailJS = () => {
         }
       );
   };
+
+  const [show, setShow] = useState(false);
 
   return (
     <>
@@ -57,7 +60,7 @@ const FormularioEmailJS = () => {
           <Col sm={12}>
             <Form.Group>
               <Form.Label></Form.Label>
-              <Form.Control type="text" placeholder="Asunto" required></Form.Control>
+              <Form.Control type="text" name="subject" placeholder="Asunto" required></Form.Control>
             </Form.Group>
           </Col>
         </Row>
@@ -76,10 +79,16 @@ const FormularioEmailJS = () => {
         </Row>
         <Row>
           <Col sm={12} className="d-flex justify-content-center">
-            <Button type="submit" value="Enviar" className="colorBoton">
+            <Button
+              type="submit"
+              value="Enviar"
+              className="colorBoton"
+              onClick={() => setShow(true)}
+            >
               Enviar
               <i className="bi bi-send btn" />
             </Button>
+            {show && <ModalContacto show={show} onHide={() => setShow(false)} />}
           </Col>
         </Row>
       </Form>

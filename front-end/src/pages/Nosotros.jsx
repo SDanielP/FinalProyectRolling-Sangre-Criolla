@@ -3,7 +3,7 @@ import { Container, Col, Row, Image } from 'react-bootstrap';
 import InfoNosotros from '../components/InfoNosotros';
 import '../components/nosotrosEstilo.css';
 
-function Nosotros1() {
+function Nosotros() {
   return (
     <Container>
       <Row>
@@ -23,4 +23,4 @@ function Nosotros1() {
     </Container>
   );
 }
-export default Nosotros1;
+export default Nosotros;

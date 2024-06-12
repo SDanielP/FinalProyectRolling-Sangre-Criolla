@@ -36,5 +36,7 @@ body {
 }
 
 .altoImagen {
-  height: 90%;
+  max-height: 90%;
+  display: block;
+  object-fit: cover;
 }
