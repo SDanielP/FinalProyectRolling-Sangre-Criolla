@@ -12,17 +12,11 @@ function Modal1() {
         >
             <Modal.Dialog>
                 <Modal.Header closeButton>
-
                 </Modal.Header>
                 <Modal.Body>
-                    <InicioSesion/>
+                    <InicioSesion />
                     {/* <Registro /> */}
                 </Modal.Body>
-
-                {/* <Modal.Footer>
-                    <Button variant="secondary">Close</Button>
-                    <Button variant="primary">Save changes</Button>
-                </Modal.Footer> */}
             </Modal.Dialog>
         </div>
             
@@ -30,32 +24,3 @@ function Modal1() {
 
 }
 export default Modal1
-
-
-// import Formulario from '../components/Formulario';
-
-// function StaticExample() {
-//     const titulo = ['Iniciar Sesion'];
-//     return (
-//         <div
-//             className="modal show"
-//             style={{ display: 'block', position: 'initial' }}
-//         >
-//             <Modal.Dialog>
-//                 <Modal.Header closeButton>
-//                     <Modal.Title>Modal title</Modal.Title>
-//                 </Modal.Header>
-//                 <Modal.Body>
-//                     <Formulario/>
-//                 </Modal.Body>
-
-//                 <Modal.Footer>
-//                     <Button variant="secondary">Close</Button>
-//                     <Button variant="primary">Save changes</Button>
-//                 </Modal.Footer>
-//             </Modal.Dialog>
-//         </div>
-//     );
-// }
-
-// export default StaticExample;
