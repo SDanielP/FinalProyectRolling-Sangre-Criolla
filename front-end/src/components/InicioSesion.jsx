@@ -4,12 +4,7 @@ import { useState } from 'react';
 // import {useRegistroOpen} from '../store/useRegistroOpen'
 import Registro from './Registro';
 
-function InicioSesion() {
-
-    /* ----- Estado para manejo de componentes ----- */
-    const [ click, setClick ] = useState(false);
-    // const [ isOpenRegistro, setOpenRegistro] = useRegistroOpen();
-    
+function InicioSesion({toggleComponent}) {
     const [formData, setFormData] = useState({
         email: '',
         password: ''
@@ -23,9 +18,6 @@ function InicioSesion() {
         setFormData({ ...formData, [name]: value });
     };
 
-    const handleClick = ()=>{
-        setClick(true);
-    }
 
     // Handler para el envío del formulario de login
     const handleLoginSubmit = async (e) => {
@@ -65,11 +57,7 @@ function InicioSesion() {
             {/* --- INICIAR SESION --- */}
             <h1 className="titulo transparente">Iniciar Sesión</h1>
 
-            {/* {isOpenRegistro === false && click === true ? 
-                <Registro />
-            : 
-            } */}
-            <a className="transparente">¿Eres nuevo en este sitio? Regístrate</a>
+            <a className="transparente btnChange" onClick={toggleComponent}>¿Eres nuevo en este sitio? Regístrate</a>
             
             <div className="formularioInput">
 

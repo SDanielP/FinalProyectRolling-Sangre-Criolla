@@ -59,6 +59,9 @@ input{
     
 }
 
+.btnChange{
+  cursor: pointer;
+}
 
 
 /*----- PALETA DE COLORES ----- */
