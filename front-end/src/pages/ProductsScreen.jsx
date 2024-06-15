@@ -1,13 +1,13 @@
 import "../styles/ProductsScreen.css";
 import "../styles/components/shop/productsFilter/SortFilter.css";
-import React, { useState } from "react";
+import React from "react";
 import Products from "../components/shop/Products.jsx";
 import FilterPanel from "../components/shop/FilterPanel.jsx";
 import SortFilter from "../components/shop/productsFilter/SortFilter.jsx";
+import NavbarMenu from "../components/general/NavbarMenu.jsx";
 
-import { useEffect, useCallback } from "react";
+import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import { useProducts } from "../store/useProducts.js";
 import { useCategories } from "../store/useCategories.js";
 import { useUbication } from "../store/useUbication.js";
 import { usePriceFilter } from "../store/productsFilter/usePriceFilter.js";
@@ -15,10 +15,6 @@ import { useSortFilter } from "../store/productsFilter/useSortFilter.js";
 import { useCategoriesFilter } from "../store/productsFilter/useCategoriesFilter.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHouse } from "@fortawesome/free-solid-svg-icons";
-
-/* ----- Constantes ----- */
-//***URL API
-// const url = "https://fakestoreapi.com";
 
 const ProductsScreen = () => {
   /* ----- Estados - Zustand ----- */
@@ -28,66 +24,10 @@ const ProductsScreen = () => {
   const { min, max } = usePriceFilter();
   const { ordenarProp } = useSortFilter();
   const { selectedCategory, setSelectedCategory } = useCategoriesFilter();
-  // const [productosFetch, setProductosFetch] = useState([]);
-  // const [error, setError] = useState(null);
-  // const [loading, setLoading] = useState(false);
 
-  // ***Obtener productos
-  // const getProductos = useCallback(async () => {
-  //   // const response = await fetch(`${url}/products`);
-  //   // const dataProducts = await response.json();
-
-  //   await fetch("http://localhost:4000/products")
-  //     .then((response) => {
-  //       if (!response.ok) {
-  //         throw new Error("Error en la solicitud: " + response.status);
-  //       }
-  //       return response.json();
-  //     })
-  //     //***Asigno a los productos de Zustand la info de la API
-  //     .then((data) => setProductosFetch(data))
-  //     .catch((error) => console.error("Error:", error));
-
-  //   // setProducts(productosFetch);
-  // }, [productosFetch]);
-  // const getProductos = useCallback(async () => {
-
-    // fetch("http://localhost:4000/products")
-    // .then((response) => {
-    //   if (!response.ok) {
-    //     throw new Error("Error en la solicitud: " + response.status);
-    //   }
-    //   return response.json();
-    // })
-    // //***Asigno a los productos de Zustand la info de la API
-    // .then((data) => setProducts(data))
-    // .catch((error) => console.error("Error:", error));
-
-
-
-    // setLoading(true);
-    // setError(null);
-    // try {
-    //   const response = await fetch("http://localhost:4000/products");
-    //   if (!response.ok) {
-    //     throw new Error(`Error en la solicitud: ${response.status}`);
-    //   }
-    //   const data = await response.json();
-    //   // setProductosFetch(data);
-    //   setProducts(data);
-    // } catch (err) {
-    //   setError(err.message);
-    // } finally {
-    //   setLoading(false);
-    // }
-    // console.log(products);
-  // }, []);
 
   /* ----- RENDERIZACIÓN CONSTANTE DE CATEGORÍAS y PRODUCTOS ----- */
   useEffect(() => {
-    // getCategorias();
-    // getProductos();
-    
   }, [categories, selectedCategory]); //Análogo useCallback()
 
   /* ----- Método manejo de botón para volver a una ruta anterior o padre ----- */
@@ -109,6 +49,7 @@ const ProductsScreen = () => {
 
   return (
     <>
+      <NavbarMenu />
       <nav className="navProductos">
         <h1>COMPRAR TODO</h1>
 

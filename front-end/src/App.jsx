@@ -5,11 +5,12 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useCategories } from "./store/useCategories.js";
 // import NavbarMenu from "./components/general/NavbarMenu.jsx";
 import ProductsScreen from "./pages/ProductsScreen";
-import Home from "./Home.jsx";
+import Home from "./pages/Home.jsx";
 import FrequentQuestions from "./pages/FrequentQuestions.jsx";
-import ErrorScreen from "./pages/ErrorScreen";
 import ProdD from "./components/shop/productDetail/ProdD.jsx";
-import NotFoundPage from "./components/404.jsx";
+import ErrorScreen from "./pages/ErrorScreen.jsx";
+import Nosotros from "./pages/Nosotros.jsx";
+// import Contacto from "./pages/Contacto.jsx";
 // import ImgP from "./components/shop/compProductDet/ImgP.jsx";
 
 /* ----- Constantes ----- */
@@ -41,11 +42,13 @@ const App = () =>  {
         <Routes>
           <Route key={1000} path="/" element={<Home />} />
           <Route key={3000} path="products/all" element={<ProductsScreen />} />
-          <Route key={4000} path="products/:category" element={<ProductsScreen/>} />
+          <Route key={4000} path="products/:category" element={<ProductsScreen />} />
           <Route key={5000} path="products/:category/:id" element={<ProdD />} />
           {/* <Route key={5000} path="products/:category/:id/modal" element={<ImgP />} /> */}
-          <Route key={8000} path="*" element={<NotFoundPage/>} />
-          <Route key={8000} path="/frecuent-questions" element={<FrequentQuestions />} />
+          <Route key={7000} path="/about-us" element={<Nosotros />} />
+          {/* <Route key={8000} path="/contact-us" element={<Contacto />} /> */}
+          <Route key={9000} path="*" element={<ErrorScreen />} />
+          <Route key={10000} path="/frequent-questions" element={<FrequentQuestions />} />
         </Routes>
       </Router>
     </>

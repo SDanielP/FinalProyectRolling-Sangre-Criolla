@@ -1,12 +1,13 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, Row, Col } from 'react-bootstrap';
-import InfoContacto from '../components/InfoContacto';
-import FormularioEmailJS from '../components/FormularioEmailJS';
-import '../styles/contactoEstilo.css';
+import "../styles/Contacto.css";
+import { Container, Row, Col } from "react-bootstrap";
+import NavbarMenu from "../components/general/NavbarMenu";
+import InfoContacto from "../components/InfoContacto";
+import FormularioEmailJS from "../components/FormularioEmailJS";
 
 function Contact() {
   return (
     <>
+      <NavbarMenu />
       <Container>
         <Row className="mb-3 justify-content-center">
           <Col sm={8}>
