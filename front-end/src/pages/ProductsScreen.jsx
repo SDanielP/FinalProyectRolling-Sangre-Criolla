@@ -8,7 +8,7 @@ import NavbarMenu from "../components/general/NavbarMenu.jsx";
 
 import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import { useCategories } from "../store/useCategories.js";
+import { useCategoriesM } from "../store/useCategoriesM.js";
 import { useUbication } from "../store/useUbication.js";
 import { usePriceFilter } from "../store/productsFilter/usePriceFilter.js";
 import { useSortFilter } from "../store/productsFilter/useSortFilter.js";
@@ -18,7 +18,7 @@ import { faHouse } from "@fortawesome/free-solid-svg-icons";
 
 const ProductsScreen = () => {
   /* ----- Estados - Zustand ----- */
-  const { categories } = useCategories();
+  const { categoriesM } = useCategoriesM();
   // const { products, setProducts } = useProducts();
   const { ubication, setUbication } = useUbication();
   const { min, max } = usePriceFilter();
@@ -28,7 +28,7 @@ const ProductsScreen = () => {
 
   /* ----- RENDERIZACIÓN CONSTANTE DE CATEGORÍAS y PRODUCTOS ----- */
   useEffect(() => {
-  }, [categories, selectedCategory]); //Análogo useCallback()
+  }, [categoriesM, selectedCategory]); //Análogo useCallback()
 
   /* ----- Método manejo de botón para volver a una ruta anterior o padre ----- */
   const handleOnClick = () => {

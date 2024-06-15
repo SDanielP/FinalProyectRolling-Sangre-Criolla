@@ -2,7 +2,8 @@ import "./styles/App.css";
 import { useEffect } from "react";
 // import { useNavigate } from "react-router-dom";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useCategories } from "./store/useCategories.js";
+import { useCategoriesM } from "./store/useCategoriesM.js";
+import { useCategoriesW } from "./store/useCategoriesW.js";
 // import NavbarMenu from "./components/general/NavbarMenu.jsx";
 import ProductsScreen from "./pages/ProductsScreen";
 import Home from "./pages/Home.jsx";
@@ -15,19 +16,36 @@ import Nosotros from "./pages/Nosotros.jsx";
 
 /* ----- Constantes ----- */
 //***URL API
-const url = "https://fakestoreapi.com"
+// const url = "https://fakestoreapi.com"
+//***Categorías Hombres
+const categoríasHOpciones = [
+  { id: 1, value: "clásicos", label: "Clásicos" },
+  { id: 2, value: "bordados", label: "Bordados" },
+  { id: 3, value: "tachas", label: "Tachas" },
+  { id: 4, value: "originales", label: "Originales" }
+];
+
+//***Categorías Mujeres
+const categoríasMOpciones = [
+  { id: 1, value: "clásicos", label: "Clásicos" },
+  { id: 2, value: "tachas", label: "Tachas" }
+];
 
 const App = () =>  {
   /* ----- Estado Categorías - Zustand ----- */
-  const { setCategories } = useCategories();
+  const { setCategoriesM } = useCategoriesM();
+  const { setCategoriesW } = useCategoriesW();
 
   /* ----- API ----- */
   const getCategorias = async () => {
-    const response = await fetch(`${url}/products/categories`);
-    const dataCategories = await response.json();
+    // const response = await fetch(`${url}/products/categories`);
+    // const dataCategories = await response.json();
 
-    //***Asigno a las categorías la info de la API
-    setCategories(dataCategories);
+    // //***Asigno a las categorías la info de la API
+    // setCategories(dataCategories);
+
+    setCategoriesM(categoríasHOpciones);
+    setCategoriesW(categoríasMOpciones);
   };
 
   /* ----- RENDERIZACIÓN CONSTANTE DE CATEGORÍAS ----- */

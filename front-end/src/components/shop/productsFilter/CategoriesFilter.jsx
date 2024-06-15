@@ -1,7 +1,8 @@
 import "../../../styles/components/shop/productsFilter/CategoriesFilter.css";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useCategories } from "../../../store/useCategories.js";
+import { useCategoriesM } from "../../../store/useCategoriesM.js";
+import { useCategoriesW } from "../../../store/useCategoriesW.js";
 import { useCategoriesFilter } from "../../../store/productsFilter/useCategoriesFilter.js";
 import { useSizeFilter } from "../../../store/productsFilter/useSizeFilter.js";
 import { useColorsFilter } from "../../../store/productsFilter/useColorsFilter.js";
@@ -23,7 +24,8 @@ const CategoriesFilter = () => {
   const [womenCategoryOpen, setWomenCategoryOpen] = useState(false);
 
   /* ----- Estados para los botones - Zustand ----- */
-  const { categories } = useCategories();
+  const { categoriesM } = useCategoriesM();
+  const { categoriesW } = useCategoriesW();
   const { selectedCategory, setSelectedCategory } = useCategoriesFilter();
   const { setUbication } = useUbication();
   const { setSelectedColor } = useColorsFilter();
@@ -70,9 +72,38 @@ const CategoriesFilter = () => {
       </Button>
 
       {/* Mujeres */}
-      <Button onClick={() => setWomenCategoryOpen(!womenCategoryOpen)}>
-        <span>Damas</span>
+      <Button
+        className="women-btn"
+        onClick={() => setWomenCategoryOpen(!womenCategoryOpen)}
+      >
+        <span>Mujeres</span>
+        {womenCategoryOpen === false ? (
+          <FontAwesomeIcon
+            icon={faAngleDown}
+            size="xs"
+            style={{ color: "#f5f5dc" }}
+          />
+        ) : (
+          <FontAwesomeIcon
+            icon={faAngleUp}
+            size="xs"
+            style={{ color: "#f5f5dc" }}
+          />
+        )}
       </Button>
+
+      <Collapse isOpen={womenCategoryOpen}>
+        {categoriesW.map((categoria) => (
+          <div
+            className="women-subcategories"
+            key={categoriesW.indexOf(categoria)}
+            onClick={() => handleCategory(categoria)}
+            style={{ cursor: "pointer" }}
+          >
+            {categoria.label}
+          </div>
+        ))}
+      </Collapse>
 
       {/* Hombres */}
       <Button
@@ -96,14 +127,15 @@ const CategoriesFilter = () => {
       </Button>
 
       <Collapse isOpen={menCategoryOpen}>
-        {categories.map((categoria) => (
+        {categoriesM.map((categoria) => (
           <div
-            className="men-subcategories"
-            key={categories.indexOf(categoria)}
+            className="women-subcategories"
+            key={categoriesM.indexOf(categoria)}
             onClick={() => handleCategory(categoria)}
             style={{ cursor: "pointer" }}
           >
-            {categoria.charAt(0).toUpperCase() + categoria.slice(1)}
+            {/* {categoria.charAt(0).toUpperCase() + categoria.slice(1)} */}
+            {categoria.label}
           </div>
         ))}
       </Collapse>
