@@ -101,4 +101,25 @@ router.delete('/products/:id', getProductById, async (req, res) => {
     }
   })
 
+// Crear un nuevo producto
+router.post('/products/new', async (req, res) => {
+    try {
+        const { name, price, description, color, size, category, image, stock } = req.body;
+        const newProduct = new Product({
+            name,
+            price,
+            description,
+            color,
+            size,
+            category,
+            image,
+            stock
+        });
+        const savedProduct = await newProduct.save();
+        res.status(201).json(savedProduct);
+    } catch (err) {
+        res.status(400).json({ message: err.message });
+    }
+});
+
 module.exports = router;
