@@ -11,7 +11,7 @@ import { faMinus } from "@fortawesome/free-solid-svg-icons";
 
 const PriceFilter = () => {
   /* ----- Estados para los botones ----- */
-  const [values, setValues] = useState([0, 30000]);
+  const [values, setValues] = useState([10000, 30000]);
   const [priceOpen, setPriceOpen] = useState(false);
 
   /* ----- Estado Precio - Zustand ----- */
@@ -65,7 +65,7 @@ const PriceFilter = () => {
             className="slider custom-slider"
             value={values}
             onChange={handleChange}
-            min={0}
+            min={10000}
             max={30000}
           />
 
