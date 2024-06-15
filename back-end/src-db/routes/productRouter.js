@@ -42,6 +42,7 @@ router.post('/products', async (req, res) => {
             color: req.body.color,
             size: req.body.size, 
             category: req.body.category,
+            subcategory: req.body.subcategory,
             image: req.body.image,
             stock: req.body.stock
         };
@@ -50,7 +51,7 @@ router.post('/products', async (req, res) => {
         const newProduct = await product.save();
         res.status(201).json(newProduct);
     } catch (err) {
-        res.status(400).json({ message: err.message });
+        res.status(400).json({ message: "producto no creado" + err.message });
     }
 });
 
@@ -74,6 +75,9 @@ router.patch('/products/:id', getProductById, async (req, res) => {
     }
     if (req.body.category != null) {
         res.product.category = req.body.category;
+    }
+    if (req.body.subcategory != null) {
+        res.product.subcategory = req.body.category;
     }
     if (req.body.image != null) {
         res.product.image = req.body.image;
@@ -102,24 +106,6 @@ router.delete('/products/:id', getProductById, async (req, res) => {
   })
 
 // Crear un nuevo producto
-router.post('/products/new', async (req, res) => {
-    try {
-        const { name, price, description, color, size, category, image, stock } = req.body;
-        const newProduct = new Product({
-            name,
-            price,
-            description,
-            color,
-            size,
-            category,
-            image,
-            stock
-        });
-        const savedProduct = await newProduct.save();
-        res.status(201).json(savedProduct);
-    } catch (err) {
-        res.status(400).json({ message: err.message });
-    }
-});
+
 
 module.exports = router;
