@@ -4,9 +4,8 @@ const userSchema = new mongoose.Schema({
     name: String,
     email: String,
     password: { type: String },
-    isActive: { type: String, default: "Pendiente" },
+    isActive: { type: String, default: 'Pendiente' },
     role: { type: String, default: 'USER' },
-    pets: [{ type: mongoose.Schema.Types.ObjectId, ref: "Pet"}]
 });
 
 const User = mongoose.model('User', userSchema);

@@ -1,16 +1,6 @@
 {
-  "name": "sangre-criolla",
-  "private": true,
-  "workspaces": [
-    "front-end",
-    "back-end"
-  ],
-  "scripts": {
-    "start": "concurrently \"npm run start --workspace=back-end\" \"npm run dev --workspace=front-end\"",
-    "install-all": "npm install"
-  },
-  "devDependencies": {
-    "concurrently": "^6.0.0"
+  "dependencies": {
+    "cors": "^2.8.5",
+    "mongoose": "^8.4.1"
   }
 }
-

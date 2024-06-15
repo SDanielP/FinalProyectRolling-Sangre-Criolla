@@ -5,7 +5,7 @@ const { generateJwt } = require('../libs/jwt');
 const register = async (req, res) => {
 
     try {
-        const { name, email, password } = req.body;
+        const { name, email} = req.body;
 
         const salt = 10;
 
@@ -41,10 +41,10 @@ const login = async (req, res) => {
         }
 
         if (email.length > 20) {
-            return res.status(404).json({ message: "EMAIL INVALIDO" });
+            return res.status(404).json ({ message: "EMAIL INVALIDO"});
         }
         if (password.length > 20) {
-            return res.status(404).json({ message: "PASSWORD INVALIDO" });
+            return res.status(404).json ({ message: "PASSWORD INVALIDO"});
         }
 
 
@@ -54,7 +54,7 @@ const login = async (req, res) => {
 
         if (!user) {
             console.log('usuario no encontrado');
-            return res.status(401).json({ message: 'Email o Contraseña Incorrecta' });
+            return res.status(401).json({ message: 'usuario no encontrado' });
         }
 
         const isMatch = await bcrypt.compare(password, user.password);
@@ -62,8 +62,14 @@ const login = async (req, res) => {
         if (!isMatch) {
             return res.status(401).json({ message: 'Email o Contraseña Incorrecta' });
         }
-
-        const token = generateJwt({ id: user._id, role: user.role })
+        
+        
+        if (user.isActive === "Aceptado") {
+            const token = generateJwt({ id: user._id, role: user.role });
+            res.status(201).json({ message: 'logueo exitoso', user: user, token: token });
+        } else {
+            return res.status(401).json({ message: 'Debe esperar a que el administrador lo acepte' });
+        }
 
         res.status(201).json({ message: 'logueo exitoso', user: user, token: token });
 
@@ -74,42 +80,9 @@ const login = async (req, res) => {
     }
 
 }
-const recuperarContra = async (req, res) => {
-
-    try {
-        console.log(req.body.formData.email)
-        
-        const { email } = req.body.formData;
-        
-        if (!email) {
-            return res.status(404).json({ message: 'NO ENVIASTE EL EMAIL o PASSWORD, para la recuperacion es requerido' });
-        }
-        
-        if (email.length > 20) {
-            return res.status(404).json({ message: "EMAIL INVALIDO" });
-        }
-
-        //const user = await User.findOne({ email: email})
-        const user = await User.findOne({ email });
-
-        if (!user) {
-            console.log('usuario no encontrado');
-            return res.status(401).json({ message: 'usuario no encontrado' });
-        }
-       
-        res.status(201).json({ message: 'Email de recuperación enviado con éxito.', user: user });
-
-    } catch (error) {
-
-        res.status(500).json({ message: 'Error en encontrar usuario registrado.' });
-
-    }
-
-}
 
 
 module.exports = {
     register,
-    login,
-    recuperarContra
+    login
 }
