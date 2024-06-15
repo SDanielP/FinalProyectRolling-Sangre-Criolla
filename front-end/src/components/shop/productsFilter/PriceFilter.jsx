@@ -8,9 +8,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { faMinus } from "@fortawesome/free-solid-svg-icons";
 
+
 const PriceFilter = () => {
   /* ----- Estados para los botones ----- */
-  const [values, setValues] = useState([0, 1000]);
+  const [values, setValues] = useState([0, 30000]);
   const [priceOpen, setPriceOpen] = useState(false);
 
   /* ----- Estado Precio - Zustand ----- */
@@ -65,7 +66,7 @@ const PriceFilter = () => {
             value={values}
             onChange={handleChange}
             min={0}
-            max={1000}
+            max={30000}
           />
 
           <div
