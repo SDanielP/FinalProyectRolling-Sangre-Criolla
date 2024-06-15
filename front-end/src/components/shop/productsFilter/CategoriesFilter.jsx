@@ -1,8 +1,7 @@
 import "../../../styles/components/shop/productsFilter/CategoriesFilter.css";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useCategoriesM } from "../../../store/useCategoriesM.js";
-import { useCategoriesW } from "../../../store/useCategoriesW.js";
+import { useCategories } from "../../../store/useCategories.js";
 import { useCategoriesFilter } from "../../../store/productsFilter/useCategoriesFilter.js";
 import { useSizeFilter } from "../../../store/productsFilter/useSizeFilter.js";
 import { useColorsFilter } from "../../../store/productsFilter/useColorsFilter.js";
@@ -24,8 +23,7 @@ const CategoriesFilter = () => {
   const [womenCategoryOpen, setWomenCategoryOpen] = useState(false);
 
   /* ----- Estados para los botones - Zustand ----- */
-  const { categoriesM } = useCategoriesM();
-  const { categoriesW } = useCategoriesW();
+  const { categoriesM, categoriesW } = useCategories();
   const { selectedCategory, setSelectedCategory } = useCategoriesFilter();
   const { setUbication } = useUbication();
   const { setSelectedColor } = useColorsFilter();

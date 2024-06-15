@@ -2,8 +2,7 @@ import "./styles/App.css";
 import { useEffect } from "react";
 // import { useNavigate } from "react-router-dom";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useCategoriesM } from "./store/useCategoriesM.js";
-import { useCategoriesW } from "./store/useCategoriesW.js";
+import { useCategories } from "./store/useCategories.js";
 // import NavbarMenu from "./components/general/NavbarMenu.jsx";
 import ProductsScreen from "./pages/ProductsScreen";
 import Home from "./pages/Home.jsx";
@@ -33,8 +32,7 @@ const categoríasMOpciones = [
 
 const App = () =>  {
   /* ----- Estado Categorías - Zustand ----- */
-  const { setCategoriesM } = useCategoriesM();
-  const { setCategoriesW } = useCategoriesW();
+  const { setCategoriesM, setCategoriesW } = useCategories();
 
   /* ----- API ----- */
   const getCategorias = async () => {
