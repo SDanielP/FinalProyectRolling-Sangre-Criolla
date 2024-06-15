@@ -7,7 +7,7 @@ import { useCategories } from "./store/useCategories.js";
 import ProductsScreen from "./pages/ProductsScreen";
 import Home from "./pages/Home.jsx";
 import FrequentQuestions from "./pages/FrequentQuestions.jsx";
-import ProdD from "./components/shop/productDetail/ProdD.jsx";
+import ProductDetail from "./components/shop/productDetail/ProductDetail.jsx";
 import ErrorScreen from "./pages/ErrorScreen.jsx";
 import Nosotros from "./pages/Nosotros.jsx";
 // import Contacto from "./pages/Contacto.jsx";
@@ -42,8 +42,9 @@ const App = () =>  {
         <Routes>
           <Route key={1000} path="/" element={<Home />} />
           <Route key={3000} path="products/all" element={<ProductsScreen />} />
-          <Route key={4000} path="products/:category" element={<ProductsScreen />} />
-          <Route key={5000} path="products/:category/:id" element={<ProdD />} />
+          {/* <Route key={4000} path="products/:category" element={<ProductsScreen />} /> */}
+          {/* <Route key={5000} path="products/:category/:id" element={<ProdD />} /> */}
+          <Route key={5000} path="products/:category/:id" element={<ProductDetail />} />
           {/* <Route key={5000} path="products/:category/:id/modal" element={<ImgP />} /> */}
           <Route key={7000} path="/about-us" element={<Nosotros />} />
           {/* <Route key={8000} path="/contact-us" element={<Contacto />} /> */}
@@ -56,24 +57,3 @@ const App = () =>  {
 }
 
 export default App;
-
-// import './App.css'
-// import 'bootstrap/dist/css/bootstrap.min.css';
-// import DProd from './components/dprod/Dprod'
-// import 'bootstrap/dist/js/bootstrap.bundle.min';
-// // import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-// // import ProductDetails from './components/ProductDetails';
-
-// function App() {
-//   return (
-//     // <Router>
-//     //   <Switch>
-//     //     <Route path="/" exact component={DProd} />
-//     //     <Route path="/product/:name" component={ProductDetails} />
-//     //     <Route path="/product/:id" component={ProductDetails} />
-//     //   </Switch>
-//     // </Router>
-//     <DProd />
-//   );
-// }
-

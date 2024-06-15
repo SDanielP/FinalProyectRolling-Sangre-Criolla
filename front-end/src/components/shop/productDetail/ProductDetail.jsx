@@ -3,7 +3,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import ImgP from "../compProductDet/ImgP";
-import ProductDetails from "../compProductDet/ProductDetails";
+import ProductDetails from "../compProductDet/ProductDetailsAuxiliar";
 import FormProd from "../compProductDet/FormProd";
 import DescEnv from "../compProductDet/DescEnv";
 

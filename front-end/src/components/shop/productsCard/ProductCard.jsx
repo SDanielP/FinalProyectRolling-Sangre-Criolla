@@ -2,7 +2,7 @@ import "../../../styles/components/shop/productsCard/ProductCard.css";
 import "../../../styles/components/shop/Products.css";
 import React from "react";
 import Button from "react-bootstrap/Button";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { faBagShopping } from "@fortawesome/free-solid-svg-icons";
@@ -13,7 +13,7 @@ const ProductCard = ({ producto }) => {
 
   return (
     <>
-      <div className="containerCard">
+      <div className="containerCard" key={producto}>
         <div className="card__container tarjetaProducto">
           <article className="contenedorImg">
             <img
@@ -21,7 +21,7 @@ const ProductCard = ({ producto }) => {
               alt="image"
               className="card__img imgProducto"
               onClick={() =>
-                navigate(`/products/${producto.category}/${producto.id}`)
+                (navigate(`/products/${producto.category}/${producto._id}`))
               }
             ></img>
 
@@ -29,7 +29,7 @@ const ProductCard = ({ producto }) => {
               <Button
                 className="card__button"
                 onClick={() =>
-                  navigate(`/products/${producto.category}/${producto.id}`)
+                  navigate(`/products/${producto.category}/${producto._id}`)
                 }
               >
                 Vista rápida
@@ -44,7 +44,7 @@ const ProductCard = ({ producto }) => {
             variant="outline-dark"
             className="btnVerProducto"
             onClick={() =>
-              navigate(`/products/${producto.category}/${producto.id}`)
+              navigate(`/products/${producto.category}/${producto._id}`)
             } // Redirigir a la página del producto
             style={{ height: "6rem", objectFit: "contain", fontSize: "0.9rem" }}
           >

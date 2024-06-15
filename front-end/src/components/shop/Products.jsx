@@ -113,7 +113,7 @@ const Products = ({ categoria, ordenar, precioMin, precioMax }) => {
     <>
       <div>
         {products.length > 0 ? (
-          <div className="contenedorProductos">
+          <div className="contenedorProductos" key={1}>
             {products.map((producto) => (
               <ProductCard key={producto.id} producto={producto} />
             ))}
