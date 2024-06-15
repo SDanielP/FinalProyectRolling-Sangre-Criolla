@@ -8,4 +8,6 @@ authRouter.post('/register', authController.register);
 
 authRouter.post('/login', authController.login);
 
+authRouter.post('/recuperarContra', authController.recuperarContra);
+
 module.exports = authRouter ;

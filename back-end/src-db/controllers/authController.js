@@ -41,10 +41,10 @@ const login = async (req, res) => {
         }
 
         if (email.length > 20) {
-            return res.status(404).json ({ message: "EMAIL INVALIDO"});
+            return res.status(404).json({ message: "EMAIL INVALIDO" });
         }
         if (password.length > 20) {
-            return res.status(404).json ({ message: "PASSWORD INVALIDO"});
+            return res.status(404).json({ message: "PASSWORD INVALIDO" });
         }
 
 
@@ -74,9 +74,42 @@ const login = async (req, res) => {
     }
 
 }
+const recuperarContra = async (req, res) => {
+
+    try {
+        console.log(req.body.formData.email)
+        
+        const { email } = req.body.formData;
+        
+        if (!email) {
+            return res.status(404).json({ message: 'NO ENVIASTE EL EMAIL o PASSWORD, para la recuperacion es requerido' });
+        }
+        
+        if (email.length > 20) {
+            return res.status(404).json({ message: "EMAIL INVALIDO" });
+        }
+
+        //const user = await User.findOne({ email: email})
+        const user = await User.findOne({ email });
+
+        if (!user) {
+            console.log('usuario no encontrado');
+            return res.status(401).json({ message: 'usuario no encontrado' });
+        }
+       
+        res.status(201).json({ message: 'Email de recuperación enviado con éxito.', user: user });
+
+    } catch (error) {
+
+        res.status(500).json({ message: 'Error en encontrar usuario registrado.' });
+
+    }
+
+}
 
 
 module.exports = {
     register,
-    login
+    login,
+    recuperarContra
 }
