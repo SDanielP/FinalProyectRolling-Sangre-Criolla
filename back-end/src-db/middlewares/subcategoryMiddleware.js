@@ -1,4 +1,4 @@
-const WSubcategory = require('../models/productModel/productModel');
+const WSubcategory = require('../models/subcategoriesModel/w-subcategoryModel');
 
 async function getWSubcategoryById(req, res, next) {
     let subcategory;
