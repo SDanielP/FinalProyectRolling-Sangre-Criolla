@@ -595,11 +595,11 @@ input[type="file"] {
 	.tabla th:nth-child(1),
 	.tabla th:nth-child(2),
 	.tabla th:nth-child(3),
-	.tabla th:nth-child(9),
+	.tabla th:nth-child(10),
 	.tabla td:nth-child(1),
 	.tabla td:nth-child(2),
 	.tabla td:nth-child(3),
-	.tabla td:nth-child(9) {
+	.tabla td:nth-child(10) {
 	  display: table-cell;
 	}
   
@@ -608,11 +608,13 @@ input[type="file"] {
 	.tabla th:nth-child(6),
 	.tabla th:nth-child(7),
 	.tabla th:nth-child(8),
+	.tabla th:nth-child(9),
 	.tabla td:nth-child(4),
 	.tabla td:nth-child(5),
 	.tabla td:nth-child(6),
 	.tabla td:nth-child(7),
-	.tabla td:nth-child(8) {
+	.tabla td:nth-child(8),
+	.tabla td:nth-child(9) {
 	  display: none;
 	}	
 }
@@ -729,15 +731,15 @@ input[type="file"] {
 	.tabla th:nth-child(1),
 	.tabla th:nth-child(2),
 	.tabla th:nth-child(3),
+	.tabla th:nth-child(4),
 	.tabla th:nth-child(5),
-	.tabla th:nth-child(5),
-	.tabla th:nth-child(9),
+	.tabla th:nth-child(10),
 	.tabla td:nth-child(1),
 	.tabla td:nth-child(2),
 	.tabla td:nth-child(3),
 	.tabla td:nth-child(4),
 	.tabla td:nth-child(5),
-	.tabla td:nth-child(9) {
+	.tabla td:nth-child(10) {
 	  display: table-cell;
 	}
   
@@ -745,9 +747,11 @@ input[type="file"] {
 	.tabla th:nth-child(6),
 	.tabla th:nth-child(7),
 	.tabla th:nth-child(8),
+	.tabla th:nth-child(9),
 	.tabla td:nth-child(6),
 	.tabla td:nth-child(7),
-	.tabla td:nth-child(8) {
+	.tabla td:nth-child(8),
+	.tabla td:nth-child(9) {
 	  display: none;
 	}	
 }

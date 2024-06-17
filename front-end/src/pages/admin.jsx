@@ -21,6 +21,7 @@ const Admin = () => {
     color: '',
     size: [''],
     category: '',
+    subcategory: '',
     stock: 0,
     image: ['']
   });
@@ -220,7 +221,7 @@ const Admin = () => {
   const handleAddProduct = (event) => {
     event.preventDefault();
 
-    fetch('http://localhost:4000/products/new', {
+    fetch('http://localhost:4000/products', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -341,6 +342,10 @@ const Admin = () => {
                       <input type="text" id="product-category" name="category" value={newProduct.category} onChange={handleInputChange} required />
                     </div>
                     <div className="form-group">
+                      <label htmlFor="product-subcategory">Sub Categoría</label>
+                      <input type="text" id="product-subcategory" name="subcategory" value={newProduct.subcategory} onChange={handleInputChange} required />
+                    </div>
+                    <div className="form-group">
                       <label htmlFor="product-stock">Stock</label>
                       <input type="number" id="product-stock" name="stock" value={newProduct.stock} onChange={handleInputChange} required />
                     </div>
@@ -388,6 +393,7 @@ const Admin = () => {
                           <th>Color</th>
                           <th>Tamaño</th>
                           <th>Categoría</th>
+                          <th>Sub Categoría</th>
                           <th>Stock</th>
                           <th>Accion</th>
                         </tr>
@@ -412,6 +418,7 @@ const Admin = () => {
                               </select>
                             </td>
                             <td>{product.category}</td>
+                            <td>{product.subcategory}</td>
                             <td>{product.stock}</td>
                             <td>
                               <button type="button" onClick={() => handleEditClick(product)}>
