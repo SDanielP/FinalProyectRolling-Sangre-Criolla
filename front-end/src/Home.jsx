@@ -21,12 +21,12 @@ function Home() {
         <SecondaryBanner />
         <ProductSection />
         <CatalogSection />
-        <Footer />
+        
         <div style={{display: "flex",justifyContent:"start"}}>
         <RrhhSection />
-        <SocialContactSection />
+        
         </div>
-        <Header />
+        <Footer />
       </main>
     </div>
   );

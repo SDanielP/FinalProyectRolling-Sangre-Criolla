@@ -20,8 +20,7 @@ function Navbar() {
         </button>
         <a className="logo fuenteLogo" href="#">
           <img
-            src="/img/perfil-negro-1v2-100x100.jpg"
-            alt="2 modelos"
+            src="../../public/img/logosinfondo1.png" style={{ height: '70px' }} alt="logo"
             className="w-100 img-fluid"
           />
         </a>

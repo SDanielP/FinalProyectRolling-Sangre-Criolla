@@ -3,6 +3,8 @@ import { useEffect } from "react";
 // import { useNavigate } from "react-router-dom";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useCategories } from "./store/useCategories.js";
+import HomeScreen from './Home.jsx';
+
 // import NavbarMenu from "./components/general/NavbarMenu.jsx";
 import ProductsScreen from "./pages/ProductsScreen";
 import FrequentQuestions from "./pages/FrequentQuestions.jsx";
@@ -37,7 +39,7 @@ const App = () =>  {
       <Router>
         {/* <NavbarMenu key={9000}/> */}
         <Routes>
-          {/* <Route key={1000} path="/" element={<HomeScreen />} /> */}
+          <Route key={1000} path="/" element={<HomeScreen />} />
           <Route key={3000} path="products/all" element={<ProductsScreen />} />
           <Route key={4000} path="products/:category" element={<ProductsScreen/>} />
           <Route key={5000} path="products/:category/:id" element={<ProdD />} />

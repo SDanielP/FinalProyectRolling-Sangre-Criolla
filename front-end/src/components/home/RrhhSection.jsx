@@ -2,26 +2,26 @@ import React from 'react';
 
 const RrhhSection = () => {
   return (
-    <footer className="container">
+    <footer className="container-fluid bg-white">
       {/* Section con contactos y formulario */}
       <section className="p-4 row">
         <article className="col-12 col-md-4">
           <form className="ps-0 ps-lg-5">
             <fieldset>
-              <legend>
+              
                 <img
-                  src="./img/perfil-negro-1v2-100x100.jpg"
-                  alt="2 modelos"
-                  className="w-10 img-fluid"
+                  src="./img/logosinfondo.png"
+                  alt="logo sin el fondo"
+                  className="w-25 img-fluid"
                 />
-              </legend>
-              <div className="mb-2">
+              
+              <div className="mb-2 text-start">
                 <label htmlFor="floatingInput" className="mb-1">Ingrese su email</label>
                 <input
                   type="email"
-                  className="w-100"
+                  className="w-100 rounded"
                   id="floatingInput"
-                  placeholder="name@example.com"
+                  placeholder="  name@example.com"
                   maxLength="30"
                   required
                 />
@@ -74,11 +74,12 @@ const RrhhSection = () => {
         <article className="col-12 col-md-4">
           <ul className="ps-0 ps-lg-5 p-0 m-0">
             <li className="mb-1">
+            <h5 className="m-0">Preguntas Frecuentes:</h5>
               <a
                 href="./pages/error404.html"
                 className="text-decoration-none text-black"
               >
-                Como comprar
+                ● Como comprar
               </a>
             </li>
             <li className="mb-1">
@@ -86,7 +87,7 @@ const RrhhSection = () => {
                 href="./pages/error404.html"
                 className="text-decoration-none text-black"
               >
-                Cambios & devoluciones
+                ● Cambios & devoluciones
               </a>
             </li>
             <li className="mb-1">
@@ -94,7 +95,7 @@ const RrhhSection = () => {
                 href="./pages/error404.html"
                 className="text-decoration-none text-black"
               >
-                Envíos
+                ● Envíos
               </a>
             </li>
             <li className="mb-1">
@@ -102,7 +103,7 @@ const RrhhSection = () => {
                 href="./pages/error404.html"
                 className="text-decoration-none text-black"
               >
-                Pagos
+                ● Pagos
               </a>
             </li>
             <li className="mb-1">
@@ -110,7 +111,7 @@ const RrhhSection = () => {
                 href="./pages/error404.html"
                 className="text-decoration-none text-black"
               >
-                Preguntas frecuentes
+                ● Preguntas frecuentes
               </a>
             </li>
           </ul>
