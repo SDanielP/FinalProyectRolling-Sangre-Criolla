@@ -83,7 +83,7 @@ const CustomModal = ({ data, closeModal, refreshProducts }) => {
   };
 
   return (
-    <div className="custom-modal">
+    <div className="custom-modal-admin">
       <div className="modal-content">
         <div className="modal-header">
           <h2>Editar Producto</h2>
@@ -107,7 +107,7 @@ const CustomModal = ({ data, closeModal, refreshProducts }) => {
               <button type="button" onClick={addImage}>Agregar Enlace de Imagen</button>
             </div>
             <div className="item-details">
-              <div className="form-group">
+              <div className="form-group-modal-admin">
                 <label htmlFor="name">Nombre</label>
                 <input
                   type="text"
@@ -116,7 +116,7 @@ const CustomModal = ({ data, closeModal, refreshProducts }) => {
                   onChange={(e) => setName(e.target.value)}
                 />
               </div>
-              <div className="form-group">
+              <div className="form-group-modal-admin">
                 <label htmlFor="price">Precio</label>
                 <input
                   type="number"
@@ -125,7 +125,7 @@ const CustomModal = ({ data, closeModal, refreshProducts }) => {
                   onChange={(e) => setPrice(e.target.value)}
                 />
               </div>
-              <div className="form-group">
+              <div className="form-group-modal-admin">
                 <label htmlFor="description">Descripción</label>
                 <textarea
                   id="description"
@@ -134,7 +134,7 @@ const CustomModal = ({ data, closeModal, refreshProducts }) => {
                   onChange={(e) => setDescription(e.target.value)}
                 />
               </div>
-              <div className="form-group">
+              <div className="form-group-modal-admin">
                 <label htmlFor="color">Color</label>
                 <input
                   type="text"
@@ -143,7 +143,7 @@ const CustomModal = ({ data, closeModal, refreshProducts }) => {
                   onChange={(e) => setColor(e.target.value)}
                 />
               </div>
-              <div className="form-group">
+              <div className="form-group-modal-admin">
                 <label>Talle</label>
                 {selectedSize.map((size, index) => (
                   <div key={index} className="size-input">
@@ -157,7 +157,7 @@ const CustomModal = ({ data, closeModal, refreshProducts }) => {
                 ))}
                 <button type="button" onClick={addSize}>Agregar Tamaño</button>
               </div>
-              <div className="form-group">
+              <div className="form-group-modal-admin">
                 <label htmlFor="category">Categoría</label>
                 <input
                   type="text"
@@ -166,7 +166,7 @@ const CustomModal = ({ data, closeModal, refreshProducts }) => {
                   onChange={(e) => setCategory(e.target.value)}
                 />
               </div>
-              <div className="form-group">
+              <div className="form-group-modal-admin">
                 <label htmlFor="stock">Stock</label>
                 <input
                   type="number"

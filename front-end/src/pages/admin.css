@@ -288,11 +288,11 @@ body {
 
 	}
 	
-#content main .head-title {
+#content main .head-title-admin {
     font-family: var(--poppins);
 	text-align: center;
   }
-  #content main .head-title .left h1 {
+  #content main .head-title-admin .left h1 {
 	font-size: 36px;
 	font-weight: 600;
 	margin-bottom: 10px;
@@ -310,7 +310,7 @@ body {
 	box-sizing: border-box;
   }
   
-  #content main .head-title {
+  #content main .head-title-admin {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -318,34 +318,34 @@ body {
 	flex-wrap: wrap;
   }
   
-  #content main .head-title .left h1 {
+  #content main .head-title-admin .left h1 {
 	font-size: 36px;
 	font-weight: 600;
 	margin-bottom: 10px;
 	color: var(--dark);
   }
   
-  #content main .head-title .left .breadcrumb {
+  #content main .head-title-admin .left .breadcrumb {
 	display: flex;
 	align-items: center;
 	grid-gap: 16px;
   }
   
-  #content main .head-title .left .breadcrumb li {
+  #content main .head-title-admin .left .breadcrumb li {
 	color: var(--dark);
   }
   
-  #content main .head-title .left .breadcrumb li a {
+  #content main .head-title-admin .left .breadcrumb li a {
 	color: var(--dark-grey);
 	pointer-events: none;
   }
   
-  #content main .head-title .left .breadcrumb li a.active {
+  #content main .head-title-admin .left .breadcrumb li a.active {
 	color: var(--blue);
 	pointer-events: unset;
   }
   
-  #content main .head-title .btn-download {
+  #content main .head-title-admin .btn-download {
 	height: 36px;
 	padding: 0 16px;
 	border-radius: 36px;
@@ -387,35 +387,35 @@ input[type="file"] {
 
 
 
-  .form-container {
+  .form-container-admin {
 	background: var(--light);
 	padding: 20px;
 	border-radius: 10px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-	width: 30%; /* Ocupa el ancho completo del contenedor padre */
+	width: 30%; /* Ocupa el ancho completo del conteiner-admin padre */
 	max-width: 100%; /* Asegúrate de que no se restrinja el ancho */
 	margin: 0 auto; /* Centra el formulario horizontalmente si es necesario */
 	
 }
   
-  .form-container h2 {
+  .form-container-admin h2 {
 	margin-bottom: 20px;
 	color: var(--dark);
   }
   
-  .form-container .form-group {
+  .form-container-admin .form-group-admin {
 	margin-bottom: 15px;
 	
   }
   
-  .form-container .form-group label {
+  .form-container-admin .form-group-admin label {
 	display: block;
 	margin-bottom: 5px;
 	color: var(--dark);
   }
   
-  .form-container .form-group input,
-  .form-container .form-group textarea {
+  .form-container-admin .form-group-admin input,
+  .form-container-admin .form-group-admin textarea {
 	width: 100%;
 	padding: 10px;
 	border: 1px solid var(--blue);
@@ -424,10 +424,10 @@ input[type="file"] {
 	color: var(--dark);
   }
   
-  .form-container .form-group input[type="file"] {
+  .form-container-admin .form-group-admin input[type="file"] {
 	padding: 5px;
   }
-  .form-container .form-group button {
+  .form-container-admin .form-group-admin button {
 	background: var(--blue);
 	color: var(--light);
 	padding: 10px 15px;
@@ -438,21 +438,21 @@ input[type="file"] {
 	color: var(--dark);
   }
   
-  .form-container .form-group button:hover {
+  .form-container-admin .form-group-admin button:hover {
 	background: var(--red);
 	color: white;
 	transition: .5s ease;
   }
 
 
-  .contenedor {
+  .conteiner-admin {
 	position: relative; /* Cambiar de fixed a relative */
 	width: 75vw;
 	margin-left: 2vw;
 	margin-top: 230px;
   }
   
-  .contenedor .head-title .left h1{
+  .conteiner-admin .head-title-admin .left h1{
 	width: 400px;
 	margin-left: 27vw;
 	
@@ -499,7 +499,7 @@ input[type="file"] {
 	background-color: var(--dark-grey);
 	color: var(--blue);
   }
-  .selectEstado {
+  .selectStateUser {
 	width: 100px;
 	padding: 6px;
 	border-radius: 4px;
@@ -522,7 +522,7 @@ input[type="file"] {
 		margin-left: -195px;
 		display: no;
 	}
-	#añadirProductos .form-container{
+	#añadirProductos .form-container-admin{
 		width: 75vw;
 	}
 
@@ -540,13 +540,13 @@ input[type="file"] {
 
 	}
 
-	#content main .head-title .left h1 {
+	#content main .head-title-admin .left h1 {
 		font-size: 26px;
 		margin-left: 2rem;
 		width: 60vw;
 		font-weight: 600;
 	}
-	.contenedor {
+	.conteiner-admin {
 		width: 25px;
 		font-size: small;
 		margin-left: 2vw;
@@ -637,7 +637,7 @@ input[type="file"] {
 	#añadirProductos .box-info{
 		margin-left: -195px;
 	}
-	#añadirProductos .form-container{
+	#añadirProductos .form-container-admin{
 		width: 75vw;
 	}
 
@@ -656,24 +656,24 @@ input[type="file"] {
 
 	}
 
-	#content main .head-title .left h1 {
+	#content main .head-title-admin .left h1 {
 		font-size: 26px;
 		margin-left: 6rem;
 		width: 60vw;
 		font-weight: 600;
 		
 	}
-	.contenedor {
+	.conteiner-admin {
 		width: 25px;
 		font-size: small;
 		margin-left: 2vw;
 		
 	}
-	.contenedor ul{
+	.conteiner-admin ul{
 		margin-left: 12vw;
 		
 	}
-	.contenedor2 {
+	.conteiner-2-admin {
 		margin-top: -190px;
 		
 	}

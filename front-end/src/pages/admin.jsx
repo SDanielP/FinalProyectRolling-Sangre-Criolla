@@ -1,5 +1,5 @@
 import './admin.css'; // Asegúrate de que la ruta sea correcta
-import CustomModal from './components/Modal';
+import CustomModal from './components/modalAdmin';
 import { useEffect, useState } from 'react';
 
 const Admin = () => {
@@ -298,32 +298,32 @@ const Admin = () => {
         <main>
           {mostrarAñadirProductos && (
             <div id="añadirProductos">
-              <div className="head-title">
+              <div className="head-title-admin">
                 <div className="left">
                   <h1>Añadir Productos</h1>
                 </div>
               </div>
               <ul className="box-info">
-                <div className="form-container">
+                <div className="form-container-admin">
                   <form id="add-product-form" onSubmit={handleAddProduct}>
                     
-                    <div className="form-group">
+                    <div className="form-group-admin">
                       <label htmlFor="product-name">Nombre del Producto</label>
                       <input type="text" id="product-name" name="name" value={newProduct.name} onChange={handleInputChange} required />
                     </div>
-                    <div className="form-group">
+                    <div className="form-group-admin">
                       <label htmlFor="product-price">Precio</label>
                       <input type="number" id="product-price" name="price" value={newProduct.price} onChange={handleInputChange} step="0.01" required />
                     </div>
-                    <div className="form-group">
+                    <div className="form-group-admin">
                       <label htmlFor="product-details">Detalle</label>
                       <textarea id="product-details" name="description" value={newProduct.description} onChange={handleInputChange} rows="4" required></textarea>
                     </div>
-                    <div className="form-group">
+                    <div className="form-group-admin">
                       <label htmlFor="product-color">Color</label>
                       <input type="text" id="product-color" name="color" value={newProduct.color} onChange={handleInputChange} required />
                     </div>
-                    <div className="form-group">
+                    <div className="form-group-admin">
                       <label>Talle</label>
                       {newProduct.size.map((size, index) => (
                         <div key={index} className="size-input">
@@ -337,19 +337,19 @@ const Admin = () => {
                       ))}
                       <button type="button" onClick={handleAddSize}>Agregar Tamaño</button>
                     </div>
-                    <div className="form-group">
+                    <div className="form-group-admin">
                       <label htmlFor="product-category">Categoría</label>
                       <input type="text" id="product-category" name="category" value={newProduct.category} onChange={handleInputChange} required />
                     </div>
-                    <div className="form-group">
+                    <div className="form-group-admin">
                       <label htmlFor="product-subcategory">Sub Categoría</label>
                       <input type="text" id="product-subcategory" name="subcategory" value={newProduct.subcategory} onChange={handleInputChange} required />
                     </div>
-                    <div className="form-group">
+                    <div className="form-group-admin">
                       <label htmlFor="product-stock">Stock</label>
                       <input type="number" id="product-stock" name="stock" value={newProduct.stock} onChange={handleInputChange} required />
                     </div>
-                    <div className="form-group">
+                    <div className="form-group-admin">
                       <label>Imagenes</label>
                       {newProduct.image.map((image, index) => (
                         <div key={index} className="image-input">
@@ -364,7 +364,7 @@ const Admin = () => {
                       ))}
                       <button type="button" onClick={handleAddImage}>Agregar Enlace de Imagen</button>
                     </div>
-                    <div className="form-group">
+                    <div className="form-group-admin">
                       <button type="submit">Agregar Producto</button>
                     </div>
                   </form>
@@ -375,8 +375,8 @@ const Admin = () => {
           {mostrarProductos && (
             <>
               {isModalOpen && <CustomModal data={selectedProduct} closeModal={handleCloseModal} />}
-              <div className="contenedor" id="administrarProductos">
-                <div className="head-title">
+              <div className="conteiner-admin" id="administrarProductos">
+                <div className="head-title-admin">
                   <div className="left">
                     <h1>Lista de Productos</h1>
                   </div>
@@ -435,8 +435,8 @@ const Admin = () => {
             </>
           )}
           {mostrarAdministrarUsuarios && (
-            <div className="contenedor2" id="administrarUsuarios">
-              <div className="head-title">
+            <div className="conteiner-2-admin" id="administrarUsuarios">
+              <div className="head-title-admin">
                 <div className="left">
                   <h1>Lista de Usuarios</h1>
                 </div>
@@ -461,7 +461,7 @@ const Admin = () => {
                             <select
                               value={user.isActive}
                               onChange={e => handleEstadoChange(user._id, e.target.value)}
-                              className="selectEstado"
+                              className="selectStateUser"
                             >
                               <option value="Pendiente">Pendiente</option>
                               <option value="Aceptado">Aceptado</option>

@@ -1,4 +1,4 @@
-.custom-modal {
+.custom-modal-admin {
     position: fixed;
     top: 0;
     left: 0;
@@ -59,18 +59,18 @@
     margin-bottom: 10px;
   }
   
-  .item-details .form-group {
+  .item-details .form-group-modal-admin {
     margin-bottom: 15px;
     width: 400px; /* Asegurar que los inputs ocupen el 100% del contenedor */
   }
   
-  .item-details .form-group label {
+  .item-details .form-group-modal-admin label {
     display: block;
     margin-bottom: 5px;
   }
   
-  .item-details .form-group input,
-  .item-details .form-group textarea {
+  .item-details .form-group-modal-admin input,
+  .item-details .form-group-modal-admin textarea {
     width: 100%;
     padding: 8px;
     box-sizing: border-box;
@@ -123,7 +123,7 @@
   }
   
   @media screen and (max-width: 576px) {
-    .item-details .form-group {
+    .item-details .form-group-modal-admin {
       margin-bottom: 15px;
       width: 300px; /* Asegurar que los inputs ocupen el 100% del contenedor */
     }
