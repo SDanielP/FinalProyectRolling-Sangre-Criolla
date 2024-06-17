@@ -13,6 +13,13 @@ const PaymentForm = () => {
     }
   }, []);
 
+  const [total, setTotal] = useState(0);
+
+  useEffect(() => {
+    const productosTotal = productos.reduce((acc, product) => acc + product.quantity * product.price, 0);
+    setTotal(parseFloat(productosTotal.toFixed(2)));
+  }, [productos]);
+
   const formik = useFormik({
     initialValues: {
       cardNumber: '',
@@ -196,14 +203,28 @@ const PaymentForm = () => {
         ) : null}
       </div>
 
+      <div className="product-details">
       <h3>Productos</h3>
-      <ul>
-        {productos.map((producto, index) => (
-          <li key={index}>
-            Nombre: {producto.name} - Cantidad: {producto.quantity} - Precio: {producto.price}
-          </li>
-        ))}
-      </ul>
+      <table>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Ud</th>
+            <th>Precio</th>
+          </tr>
+        </thead>
+        <tbody>
+          {productos.map((producto, index) => (
+            <tr key={index}>
+              <td>{producto.name}</td>
+              <td>{producto.quantity}</td>
+              <td>{producto.price}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <h2>Total: ${total}</h2>
+    </div>
 
       <button type="submit">PAGAR</button>
       <button type="button" onClick={() => window.location.href = '/products/all'}>CANCELAR</button>

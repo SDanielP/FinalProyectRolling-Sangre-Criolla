@@ -53,3 +53,59 @@
   button:hover {
     background: #cc0000;
   }
+
+  /* formulario  */
+  .product-details {
+  width: 100%;
+  max-width: 600px;
+  background: #D9C7C1;
+  padding: 1em;
+  border-radius: 5px;
+}
+
+.product-details table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1em;
+}
+
+.product-details th, .product-details td {
+  border: 1px solid #CCC;
+  padding: 0.5em;
+  text-align: left;
+}
+
+.product-details th {
+  background: #733224 !important;
+  color: white;
+}
+
+
+
+.product-details {
+  width: 100%;
+  max-width: 600px;
+  background: #F8F8F8;
+  padding: 1em;
+  border-radius: 5px;
+}
+
+.product-details table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1em;
+}
+
+.product-details th, .product-details td {
+  border: 1px solid #CCC;
+  padding: 0.5em;
+  text-align: left;
+}
+
+.product-details th {
+  background: #E8E8E8;
+}
+
+.product-details h2 {
+  margin-top: 10px;
+}

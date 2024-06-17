@@ -12,7 +12,7 @@ const Cart = ({ isOpen, toggle }) => {
 
   useEffect(() => {
     const cartTotal = cartProducts.reduce((acc, product) => acc + product.quantity * product.price, 0);
-    setTotal(cartTotal);
+    setTotal(parseFloat(cartTotal.toFixed(2)));
   }, [cartProducts]);
 
   const handleQuantityChange = (index, newQuantity) => {
