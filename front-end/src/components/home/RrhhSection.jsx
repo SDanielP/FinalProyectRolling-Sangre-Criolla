@@ -8,29 +8,11 @@ const RrhhSection = () => {
         <article className="col-12 col-md-4">
           <form className="ps-0 ps-lg-5">
             <fieldset>
-              
                 <img
-                  src="./img/logosinfondo.png"
+                  src="./img/logosinfondonegro.png"
                   alt="logo sin el fondo"
-                  className="w-25 img-fluid"
+                  className="w-50 img-fluid"
                 />
-              
-              <div className="mb-2 text-start">
-                <label htmlFor="floatingInput" className="mb-1">Ingrese su email</label>
-                <input
-                  type="email"
-                  className="w-100 rounded"
-                  id="floatingInput"
-                  placeholder="  name@example.com"
-                  maxLength="30"
-                  required
-                />
-              </div>
-              <div className="d-flex align-items-start mb-3 justify-content-start">
-                <label htmlFor="check" className="me-2">¿Quieres recibir ofertas?</label>
-                <input type="checkbox" id="check" />
-              </div>
-              <button type="submit">Enviar</button>
             </fieldset>
           </form>
         </article>

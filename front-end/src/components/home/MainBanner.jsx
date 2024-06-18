@@ -39,7 +39,7 @@ const MainBanner = () => {
                 alt="foto portada 1"
               />
               <div className="carousel-caption2">
-                <img src="../../public/img/logosinfondo1.png" style={{ height: '70px' }} alt="logo" />
+                
                 <h1>SANGRE CRIOLLA</h1>
                 <p>De Argentina, para el mundo</p>
               </div>
@@ -51,7 +51,7 @@ const MainBanner = () => {
                 alt="foto portada 2"
               />
               <div className="carousel-caption2">
-                <img src="../../public/img/logosinfondo1.png" style={{ height: '70px' }} alt="logo" />
+                
                 <h1>FABRICA DE CINTURONES</h1>
                 <p>Haciendo magia para cualquier detalle.</p>
               </div>
@@ -63,7 +63,7 @@ const MainBanner = () => {
                 alt="foto clinica 3"
               />
               <div className="carousel-caption2">
-                <img src="../../public/img/logosinfondo1.png" style={{ height: '70px' }} alt="logo" />
+               
                 <h1>Porque la belleza está en los detalles.</h1>
               </div>
             </div>
