@@ -4,7 +4,7 @@ import NavbarMenu from "./components/general/NavbarMenu.jsx";
 
 import ProductsScreen from "./pages/ProductsScreen";
 import ErrorScreen from "./pages/ErrorScreen";
-import PaymentForm from "./components/shop/payments/payments.jsx";
+import PaymentForm from "./pages/payments.jsx";
 
 import { useEffect } from "react";
 import { useCategories } from "./store/useCategories.js";

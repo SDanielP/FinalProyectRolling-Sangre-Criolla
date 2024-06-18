@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Modal, ModalHeader, ModalBody, ModalFooter, Button, ListGroup, ListGroupItem, Input } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './cart.css';
+import '../../../styles/components/shop/carts/cart.css';
 import useCart from './useCart';
 
 const Cart = ({ isOpen, toggle }) => {

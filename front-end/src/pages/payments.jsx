@@ -1,6 +1,6 @@
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import './PaymentForm.css';
+import '../styles/PaymentForm.css';
 import { useEffect, useState } from 'react';
 
 const PaymentForm = () => {
