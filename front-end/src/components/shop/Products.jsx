@@ -1,110 +1,305 @@
-import React, { useState, useEffect } from "react";
-import ProductCard from "../shop/productsCard/ProductCard";
-import ProductCardPrueba from "../shop/productsCard/ProductCardPrueba";
 import "../../styles/components/shop/Products.css";
+import React, { useEffect, useState, useCallback } from "react";
+import ProductCard from "../shop/productsCard/ProductCard";
+import { useProducts } from "../../store/useProducts";
+// import { json } from "react-router-dom";
 
-import contents from '../../store/content';
+// /* ----- Constantes ----- */
+// //***URL API
+// // const url = "https://fakestoreapi.com";
 
-const Products = ({ categoria, ordenar, precioMin, precioMax }) => {
+// const Products = ({ categoria, subcategoria, ordenar, precioMin, precioMax }) => {
+//   /* ----- Estados para los productos ----- */
+//   const { products, setProducts} = useProducts();
+//   const [productosStore, setProductosStore] = useState([]);
+//   const [error, setError] = useState(null);
+//   const [loading, setLoading] = useState(false);
+
+//   /* ----- API ----- */
+//   // const getProductos = useCallback(async () => {
+//   //   //***Obtener productos
+//   //   // const response = await fetch(`${url}/products`);
+//   //   // const dataProducts = await response.json();
+
+//   //   fetch("http://localhost:4000/products")
+//   //     .then((response) => {
+//   //       if (!response.ok) {
+//   //         throw new Error("Error en la solicitud: " + response.status);
+//   //       }
+//   //       return response.json();
+//   //     })
+//   //     //***Asigno a los productos de Zustand la info de la API
+//   //     .then((data) => setProducts(data))
+//   //     .catch((error) => console.error("Error:", error));
+
+//   //   console.log(products);
+
+//   //   // setProductosStore(products);    
+//   //   //***Ordenar productos
+//   //   const sortedProductos = products.sort((a, b) => {
+//   //     switch (ordenar) {
+//   //       case "alphabetical":
+//   //         return a.name.localeCompare(b.name); // Alfabeticamente por el titulo (deberia ser por subcategoria o marca)
+//   //       case "highestPrice":
+//   //         return b.price - a.price; // Precio descendente
+//   //       case "lowestPrice":
+//   //         return a.price - b.price; // Precio ascendente
+//   //       case "latestAdded":
+//   //         return b.id - a.id; // ID descendente (ID más alto representa nuevo producto en la página)
+//   //       default:
+//   //         return a.id - b.id; // Default ordenados por ID ascendentemente
+//   //     }
+//   //   });
+
+//   //   //***Asigno a productos los elementos según los elementos filtrados según la categoría y ordenados
+//   //   if (categoria) {
+//   //     const productosFiltradosCategoria = sortedProductos.filter(
+//   //       (producto) => producto.category === categoria
+//   //     );
+//   //     // Apply price filtering within the category-filtered subset
+//   //     if (precioMin || precioMax) {
+//   //       const productosFiltradosPrecio = productosFiltradosCategoria.filter(
+//   //         (producto) =>
+//   //           producto.price >= precioMin && producto.price <= precioMax
+//   //       );
+//   //       setProductosStore(productosFiltradosPrecio);
+//   //     } else {
+//   //       setProductosStore(productosFiltradosCategoria);
+//   //     }
+//   //   } else {
+//   //     // Apply price filtering to all products if no category is selected
+//   //     if (precioMin || precioMax) {
+//   //       const productosFiltradosPrecio = sortedProductos.filter(
+//   //         (producto) =>
+//   //           producto.price >= precioMin && producto.price <= precioMax
+//   //       );
+//   //       setProductosStore(productosFiltradosPrecio);
+//   //     } else {
+//   //       setProductosStore(sortedProductos); // Set all products if no filter is applied
+//   //     }
+//   //   }
+//   //   console.log("productosstore"+productosStore);
+//   // },[products]);
+
+//   /* ----- RENDERIZACIÓN CONSTANTE DE PRODUCTOS ----- */
+//   // useEffect(() => {
+//   //   getProductos();
+//   // }, [categoria, ordenar, precioMin, precioMax]); // Según la categoría, precio y el ordenamiento
+
+//     /* ----- RENDERIZACIÓN CONSTANTE DE PRODUCTOS - LLAMADA A LA API ----- */
+//   const getProductos = useCallback(async () => {
+//     setLoading(true);
+//     try {
+//       const response = await fetch("http://localhost:4000/products");
+//       if (!response.ok) {
+//         throw new Error("Error en la solicitud: " + response.status);
+//       }
+//       const data = await response.json();
+//       setProducts(data);
+//       setLoading(false);
+//     } catch (error) {
+//       console.error("Error:", error);
+//       setError(error);
+//       setLoading(false);
+//     }
+//   }, [setProducts]);
+
+
+//     /* ----- RENDERIZACIÓN CONSTANTE DE PRODUCTOS ----- */
+//   useEffect(() => {
+//     getProductos();
+//   }, [getProductos]);
+
+
+//     /* ----- RENDERIZACIÓN CONSTANTE DE PRODUCTOS FILTRADOS ----- */
+//   useEffect(() => {
+//     const filterAndSortProducts = () => {
+//       let filteredProducts = [...products];
+
+//       // Aplicar filtrado por categoría
+//       if (categoria) {
+//         filteredProducts = filteredProducts.filter(
+//           (producto) => producto.category === categoria
+//         );
+//       }
+
+//       // Aplicar filtrado por precio
+//       if (precioMin != null || precioMax != null) {
+//         filteredProducts = filteredProducts.filter(
+//           (producto) =>
+//             (precioMin == null || producto.price >= precioMin) &&
+//             (precioMax == null || producto.price <= precioMax)
+//         );
+//       }
+
+//       // Ordenar productos
+//       filteredProducts.sort((a, b) => {
+//         switch (ordenar) {
+//           case "alphabetical":
+//             return a.name.localeCompare(b.name);
+//           case "highestPrice":
+//             return b.price - a.price;
+//           case "lowestPrice":
+//             return a.price - b.price;
+//           case "latestAdded":
+//             return b._id - a._id;
+//           default:
+//             return a._id - b._id;
+//         }
+//       });
+
+//       setProductosStore(filteredProducts);
+//       console.log(productosStore)
+//     };
+
+//     filterAndSortProducts();
+//   }, [products, categoria, ordenar, precioMin, precioMax]);
+
+//   if (loading) {
+//     return <p>Loading...</p>;
+//   }
+
+//   if (error) {
+//     return <p>Error: {error.message}</p>;
+//   }
+
+
+
+//   return (
+//     <>
+//       <div>
+//         {productosStore.length > 0 ? (
+//           <div className="contenedorProductos" key={1}>
+//             {productosStore.map((producto) => (
+//               <ProductCard key={producto._id} producto={producto} />
+//             ))}
+//           </div>
+//         ) : (
+//           <p className="contenedorProductos">
+//             No se encontraron productos para esta categoría.
+//           </p>
+//         )}
+//       </div>
+//     </>
+//   );
+// };
+
+// export default Products;
+
+
+
+const Products = ({ categoria, subcategoria, ordenar, precioMin, precioMax, tamano, color }) => {
+  const { products, setProducts } = useProducts();
   const [productosStore, setProductosStore] = useState([]);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
-  /* ----- API ----- */
-  const getProductos = async () => {
-    const url = "https://fakestoreapi.com";
-    const response = await fetch(`${url}/products`);
-    const dataProductos = await response.json();
-
-    //***Ordenar productos
-    const sortedProductos = dataProductos.sort((a, b) => {
-      switch (ordenar) {
-        case "alphabetical":
-          return a.title.localeCompare(b.title); // Alfabeticamente por el titulo (deberia ser por subcategoria o marca)
-          break;
-        case "highestPrice":
-          return b.price - a.price; // Precio descendente
-          break;
-        case "lowestPrice":
-          return a.price - b.price; // Precio ascendente
-          break;
-        case "latestAdded":
-          return b.id - a.id; // ID descendente (ID más alto representa nuevo producto en la página)
-          break;
-        default:
-          return a.id - a.id; // Default ordenados por ID ascendentemente
+  const getProductos = useCallback(async () => {
+    setLoading(true);
+    try {
+      const response = await fetch("http://localhost:4000/products");
+      if (!response.ok) {
+        throw new Error("Error en la solicitud: " + response.status);
       }
-    });
-
-    //***Asigno a productos los elementos según los elementos filtrados según la categoría y ordenados
-    if (categoria) {
-      const productosFiltradosCategoria = sortedProductos.filter(
-        (producto) => producto.category === categoria
-      );
-      // Apply price filtering within the category-filtered subset
-      if (precioMin || precioMax) {
-        const productosFiltradosPrecio = productosFiltradosCategoria.filter(
-          (producto) =>
-            producto.price >= precioMin && producto.price <= precioMax
-        );
-        setProductosStore(productosFiltradosPrecio);
-      } else {
-        setProductosStore(productosFiltradosCategoria);
-      }
-    } else {
-      // Apply price filtering to all products if no category is selected
-      if (precioMin || precioMax) {
-        const productosFiltradosPrecio = sortedProductos.filter(
-          (producto) =>
-            producto.price >= precioMin && producto.price <= precioMax
-        );
-        setProductosStore(productosFiltradosPrecio);
-      } else {
-        setProductosStore(sortedProductos); // Set all products if no filter is applied
-      }
+      const data = await response.json();
+      setProducts(data);
+      setLoading(false);
+    } catch (error) {
+      console.error("Error:", error);
+      setError(error);
+      setLoading(false);
     }
-  };
+  }, [setProducts]);
 
-  /* ----- RENDERIZACIÓN CONSTANTE DE PRODUCTOS ----- */
   useEffect(() => {
     getProductos();
-  }, [categoria, ordenar, precioMin, precioMax]);
-  //*Según la categoría, precio y el ordenamiento
+  }, [getProductos]);
 
-  /* ----- USO DE VARIABLES ----- */
-  let categoriaCopia;
-  if (categoria === null) {
-    categoriaCopia = "Todos los productos";
-  } else {
-    categoriaCopia = categoria;
+  useEffect(() => {
+    const filterAndSortProducts = () => {
+      let filteredProducts = [...products];
+
+      // Filtrado por categoría
+      if (categoria) {
+        filteredProducts = filteredProducts.filter(
+          (producto) => producto.category === categoria
+        );
+      }
+
+      // Filtrado por subcategoría
+      if (subcategoria) {
+        filteredProducts = filteredProducts.filter(
+          (producto) => producto.subcategory === subcategoria
+        );
+      }
+
+      // Filtrado por precio
+      if (precioMin != null || precioMax != null) {
+        filteredProducts = filteredProducts.filter(
+          (producto) =>
+            (precioMin == null || producto.price >= precioMin) &&
+            (precioMax == null || producto.price <= precioMax)
+        );
+      }
+
+      // Filtrado por tamaño
+      if (tamano) {
+        filteredProducts = filteredProducts.filter(
+          (producto) => producto.size && producto.size.includes(tamano)
+        );
+      }
+
+      // Filtrado por color
+      if (color) {
+        filteredProducts = filteredProducts.filter(
+          (producto) => producto.color && producto.color.includes(color)
+        );
+      }
+
+      // Ordenar productos
+      filteredProducts.sort((a, b) => {
+        switch (ordenar) {
+          case "alphabetical":
+            return a.name.localeCompare(b.name);
+          case "highestPrice":
+            return b.price - a.price;
+          case "lowestPrice":
+            return a.price - b.price;
+          case "latestAdded":
+            return b._id - a._id;
+          default:
+            return a._id - b._id;
+        }
+      });
+
+      setProductosStore(filteredProducts);
+    };
+
+    filterAndSortProducts();
+  }, [products, categoria, subcategoria, ordenar, precioMin, precioMax, tamano, color]);
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>Error: {error.message}</p>;
   }
 
   return (
     <>
       <div>
         {productosStore.length > 0 ? (
-          <div className="contenedorProductos">
+          <div className="contenedorProductos" key={1}>
             {productosStore.map((producto) => (
-              <ProductCard key={producto.id} producto={producto} />
+              <ProductCard key={producto._id} producto={producto} />
             ))}
           </div>
         ) : (
-          <p className="contenedorProductos">No se encontraron productos para esta categoría.</p>
+          <p className="contenedorProductos">
+            No se encontraron productos para esta categoría.
+          </p>
         )}
-      </div>
-
-
-
-      <div className='App'>
-                {contents.map(contents => (
-                    <ProductCardPrueba 
-                        key={contents.id}
-                        image={contents.image}
-                        name={contents.name}
-                        price={contents.price}
-                        totalSales={contents.totalSales}
-                        timeLeft={contents.timeLeft}
-                        rating={contents.rating}
-                    />
-                ))}
       </div>
     </>
   );

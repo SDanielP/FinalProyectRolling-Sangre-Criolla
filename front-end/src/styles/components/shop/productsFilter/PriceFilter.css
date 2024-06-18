@@ -1,5 +1,4 @@
-
-.texto{
+.texto {
   width: 100%;
   padding-top: 0.5rem;
   display: flex;
@@ -8,6 +7,7 @@
   color: beige;
   font-size: small;
 }
+
 .slider {
   height: 2.5px;
   width: 100%;
@@ -32,14 +32,14 @@
 
 /* Styles for the slider active state */
 /* .slider .thumb.active { */
-  /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); */
+/* box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); */
 /* } */
 
-.price-btn{
-  color: beige!important;
-  width: 100%!important;
-  display: flex!important;
-  flex-direction: row!important;
-  justify-content: space-between!important;
-  align-items: center!important;
+.price-btn {
+  color: beige !important;
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-between !important;
+  align-items: center !important;
 }

@@ -1,12 +1,9 @@
-import { useState, useEffect } from "react";
-// import styled from 'styled-components'
-// import BurguerButton from './BurguerButton'
-import "../../styles/components/general/NavbarMenu.css";
+import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { NavLink } from "react-router-dom";
+import logo from '../../assets/img/homeIMG/perfil-negro-1v2-100x100.jpg';
 import Cart from "../shop/carts/cart";
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faX } from '@fortawesome/free-solid-svg-icons';
 
 function Navbar() {
   const [modal, setModal] = useState(false);
@@ -18,78 +15,95 @@ function Navbar() {
     const cartData = JSON.parse(localStorage.getItem("cart")) || [];
     setCartProducts(cartData);
   }, []);
-
-
-  const [searchQuery, setSearchQuery] = useState("");
-
-  const handleSearchChange = (e) => {
-    setSearchQuery(e.target.value);
-  };
-
-  const handleSearchSubmit = (e) => {
-    e.preventDefault();
-    // Aquí puedes agregar la lógica para manejar la búsqueda
-    console.log("Realizar búsqueda:", searchQuery);
-  };
-
-  const [showPromoText, setShowPromoText] = useState(true); // State to control visibility
   
-  const handleRemovePromo = () => {
-    setShowPromoText(false); // Update state to hide section
-  };
-
-
   return (
-    <>
-      {showPromoText && ( // Conditionally render section based on state
-        <section className="info-prom">
-          <p className="texto-prom">Texto informativo para promociones</p>
-          <FontAwesomeIcon icon={faX} size="sm" onClick={handleRemovePromo} className="x"/>  
-          
-        </section>
-      )}
-
-      <nav className="contenedor">
-        <NavLink to="/">
-          <h2 className="logo-sitio">
-          Sangre Criolla
-          </h2>
+    <nav className="navbar navbar-expand-lg">
+      <div className="container justify-content-between">
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <NavLink to="/" className="logo fuenteLogo">
+          <img
+            src={logo}
+            alt="2 modelos"
+            className="w-100 img-fluid"
+          />
         </NavLink>
-
-        <div className="navegacion">
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="products/all">Productos</NavLink>
-          <NavLink to="aboutUs">Sobre nosotros</NavLink>
-          <NavLink to="contact">Contacto</NavLink>
-        </div>
-
-        <div className="buscador-usuario">
-          <div className="buscador-usuario-elemento">
-            <form onSubmit={handleSearchSubmit} className="search-form">
-              <input
-                type="text"
-                value={searchQuery}
-                onChange={handleSearchChange}
-                placeholder="Buscar..."
-                className="search-input"
-              />
-              <button type="submit" className="search-button">
-                Buscar
-              </button>
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0 flex-grow-1 justify-content-center paddingNav">
+            <li className="nav-item">
+              <NavLink to="/" className="nav-link active" aria-current="page">
+                Inicio
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                to="/products/all"
+                className="nav-link"
+                aria-current="page"
+              >
+                Comprar todo
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink to="/about-us" className="nav-link" aria-current="page">
+                Nosotros
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                to="/products/all"
+                className="nav-link"
+                aria-current="page"
+              >
+                Contacto
+              </NavLink>
+            </li>
+            <li className="nav-item" id="itemToHide">
+              <NavLink to="/" className="nav-link" aria-current="page">
+                Administracion
+              </NavLink>
+            </li>
+            <li className="nav-item" id="itemToHide">
+              <NavLink to="/" className="nav-link" aria-current="page">
+                Iniciar sesión
+              </NavLink>
+            </li>
+          </ul>
+          <form className="d-flex" role="search">
+            <input
+              id="filtro"
+              className="form-control me-2"
+              type="search"
+              placeholder="Buscar"
+              aria-label="Search"
+              maxLength="30"
+            />
+            <button className="bg-transparent ms-2" type="submit">
+              <i className="bi bi-search"></i>
+            </button>
             </form>
-          </div>
+            <NavLink to="#" onClick={toggle}>
+              <button className="ms-2 bg-transparent" type="button">
+                <FontAwesomeIcon
+                 icon={faCartShopping}
+                 style={{ color: "#000000" }}
+                />
+              </button>
 
-          <div className="buscador-usuario-elemento">
-            <NavLink to="login">Iniciar sesión</NavLink>
-          </div>
-
-          <div className="buscador-usuario-elemento">
-          <NavLink to="#" onClick={toggle}>Carrito de compras</NavLink>
+             </NavLink>
+             <Cart isOpen={modal} toggle={toggle} cartProducts={cartProducts} setCartProducts={setCartProducts} />
         </div>
-        <Cart isOpen={modal} toggle={toggle} cartProducts={cartProducts} setCartProducts={setCartProducts} />
-        </div>
-      </nav>
-    </>
+      </div>
+    </nav>
   );
 }
 

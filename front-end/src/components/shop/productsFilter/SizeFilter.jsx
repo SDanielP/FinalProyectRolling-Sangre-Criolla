@@ -1,11 +1,13 @@
+import "../../../styles/components/shop/productsFilter/SizeFilter.css";
 import React, { useState, useEffect } from "react";
 import { Collapse, Button } from "reactstrap";
-import "../../../styles/components/shop/productsFilter/SizeFilter.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { faMinus } from "@fortawesome/free-solid-svg-icons";
 // import { useSizeFilter } from "../../../store/productsFilter/useSizeFilter";
 
+/* ----- Constantes ----- */
+//***Opciones para el botón tamaño
 const sizeOptions = [
   { id: 1, value: "xs", label: "XS" },
   { id: 2, value: "s", label: "S" },
@@ -14,10 +16,14 @@ const sizeOptions = [
   { id: 5, value: "xl", label: "XL" },
   { id: 6, value: "xxl", label: "XXL" },
 ];
+
 const SizeFilter = () => {
+  /* ----- Estados Tamaño - Zustand ----- */
   // const { selectedSize, setSelectedSize } = useSizeFilter();
 
+  /* ----- Estados para los botones ----- */
   const [sizeOpen, setSizeOpen] = useState(false);
+
   /* ----- Uso de useNavigate() ----- */
   //   const navigate = useNavigate(); // Importar useNavigate()
 

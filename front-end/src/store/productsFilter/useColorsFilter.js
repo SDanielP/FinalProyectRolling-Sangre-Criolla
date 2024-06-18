@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 
 export const useColorsFilter = create((set)=>({
-    selectedColor: "Selecciona una categoría",
+    selectedColor: "Todos los colores",
     setSelectedColor: (newSelectedColor) => set(() => ({ selectedColor: newSelectedColor })),
 }));

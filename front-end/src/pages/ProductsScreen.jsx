@@ -1,66 +1,43 @@
+import "../styles/ProductsScreen.css";
+import "../styles/components/shop/productsFilter/SortFilter.css";
 import React from "react";
-import { useEffect, useCallback } from "react";
-import { NavLink } from "react-router-dom";
+import Products from "../components/shop/Products.jsx";
+import FilterPanel from "../components/shop/FilterPanel.jsx";
+import SortFilter from "../components/shop/productsFilter/SortFilter.jsx";
+import NavbarMenu from "../components/general/NavbarMenu.jsx";
 
-import { useProducts } from "../store/useProducts.js";
+import { useEffect } from "react";
+import { NavLink } from "react-router-dom";
 import { useCategories } from "../store/useCategories.js";
 import { useUbication } from "../store/useUbication.js";
 import { usePriceFilter } from "../store/productsFilter/usePriceFilter.js";
 import { useSortFilter } from "../store/productsFilter/useSortFilter.js";
 import { useCategoriesFilter } from "../store/productsFilter/useCategoriesFilter.js";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHouse } from "@fortawesome/free-solid-svg-icons";
 
-import Products from "../components/shop/Products.jsx";
-import PriceFilter from "../components/shop/productsFilter/PriceFilter.jsx";
-import SortFilter from "../components/shop/productsFilter/SortFilter.jsx";
-// import CategoriesFilter from "../components/shop/productsFilter/CategoriesFilter.jsx";
-
-import Dropdown from "react-bootstrap/Dropdown";
-import DropdownButton from "react-bootstrap/DropdownButton";
-
-import "../styles/ProductsScreen.css";
-// import "../styles/components/shop/Categories.css";
-import "../styles/components/shop/productsFilter/SortFilter.css";
-import FilterPanel from "../components/shop/productsFilter/FilterPanel.jsx";
-// import "../styles/components/shop/productsFilter/DROP.css";
-
-/* ----- Constantes ----- */
-//***URL API
-const url = "https://fakestoreapi.com";
-
 const ProductsScreen = () => {
   /* ----- Estados - Zustand ----- */
-  const { categories } = useCategories();
-  const { setProducts } = useProducts();
+  const { categoriesM, categoriesW } = useCategories();
+  // const { products, setProducts } = useProducts();
   const { ubication, setUbication } = useUbication();
   const { min, max } = usePriceFilter();
   const { ordenarProp } = useSortFilter();
   const { selectedCategory, setSelectedCategory } = useCategoriesFilter();
+  const { selectedSubcategory, setSelectedSubcategory } = useCategoriesFilter();
 
-  //***Obtener productos
-  const getProductos = useCallback(async () => {
-    const response = await fetch(`${url}/products`);
-    const dataProducts = await response.json();
-
-    //***Asigno a los productos de Zustand la info de la API
-    setProducts(dataProducts);
-  }, []);
 
   /* ----- RENDERIZACIÓN CONSTANTE DE CATEGORÍAS y PRODUCTOS ----- */
   useEffect(() => {
-    // getCategorias();
-    getProductos();
-  }, [categories, selectedCategory]); //Análogo useCallback()
+  }, [categoriesM, categoriesW, selectedCategory, selectedSubcategory]); //Análogo useCallback()
 
   /* ----- Método manejo de botón para volver a una ruta anterior o padre ----- */
   const handleOnClick = () => {
-    setSelectedCategory("Hombres");
+    setSelectedCategory("");
     setUbication("Todos");
   };
 
-  /* ----- USO DE useNavigate() ----- */
+  /* ----- Uso de useNavigate() ----- */
   // const navigate = useNavigate(); // Importar useNavigate()
 
   //Volver a la página según el cambio del URL
@@ -73,6 +50,7 @@ const ProductsScreen = () => {
 
   return (
     <>
+      <NavbarMenu />
       <nav className="navProductos">
         <h1>COMPRAR TODO</h1>
 
@@ -80,13 +58,21 @@ const ProductsScreen = () => {
           <div className="ubicacion d-flex flex-start mb-3 align-items-center">
             {/* Sacar los style */}
             <NavLink to="/">
-              <FontAwesomeIcon icon={faHouse} style={{ color: "beige", paddingRight:"0.5rem"}} />
+              <FontAwesomeIcon
+                icon={faHouse}
+                style={{ color: "beige", paddingRight: "0.5rem" }}
+              />
             </NavLink>
             <span className="ubicacionUser">
-            /
+              /
               <NavLink
                 to="/products/all"
-                style={{ textDecoration: "none", color: "beige", paddingRight:"0.5rem", paddingLeft:"0.5rem"}} 
+                style={{
+                  textDecoration: "none",
+                  color: "beige",
+                  paddingRight: "0.5rem",
+                  paddingLeft: "0.5rem",
+                }}
                 onClick={handleOnClick}
               >
                 Productos
@@ -95,36 +81,52 @@ const ProductsScreen = () => {
             </span>
           </div>
         </div>
-          <SortFilter /> 
+        <SortFilter />
       </nav>
 
-      <section className="contenedor-filtros-productos" style={{justifyContent: "center"}}>
+      <section
+        className="contenedor-filtros-productos"
+        style={{ justifyContent: "center" }}
+      >
         <div
           className="seccion-filtros"
-          style={{ width: "25%", minWidth: "25%", justifyItemsContent: "center", right: "0"}}
+          style={{
+            width: "25%",
+            minWidth: "25%",
+            justifyItemsContent: "center",
+            right: "0",
+          }}
         >
           <FilterPanel />
         </div>
 
         {/* Lateral derecho, Productos */}
         <div className="seccion-productos" style={{ width: "75%" }}>
-          {selectedCategory != "Hombres" ? (
-            <Products
-              className="div-products"
-              categoria={selectedCategory.toString().toLowerCase()}
-              ordenar={ordenarProp}
-              precioMin={min}
-              precioMax={max}
-            />
-          ) : (
-            <Products
-              className="div-products"
-              categoria={null}
-              ordenar={ordenarProp}
-              precioMin={min}
-              precioMax={max}
-            />
-          )}
+          {/* {loading && <p>Cargando productos...</p>}
+          {error && <p>Error: {error}</p>}
+          {!loading && !error && (
+            <> */}
+              {selectedSubcategory !== "" ? (
+                <Products
+                  className="div-products"
+                  categoria={selectedCategory.toString().toLowerCase()}
+                  subcategoria={selectedSubCategory.toString().toLowerCase()}
+                  ordenar={ordenarProp}
+                  precioMin={min}
+                  precioMax={max}
+                />
+              ) : (
+                <Products
+                  className="div-products"
+                  categoria={selectedCategory.toString().toLowerCase()}
+                  subcategoria={null}
+                  ordenar={ordenarProp}
+                  precioMin={min}
+                  precioMax={max}
+                />
+              )}
+            {/* </>
+          )} */}
         </div>
       </section>
     </>
@@ -132,3 +134,110 @@ const ProductsScreen = () => {
 };
 
 export default ProductsScreen;
+
+
+// import "../styles/ProductsScreen.css";
+// import "../styles/components/shop/productsFilter/SortFilter.css";
+// import React from "react";
+// import Products from "../components/shop/Products.jsx";
+// import FilterPanel from "../components/shop/FilterPanel.jsx";
+// import SortFilter from "../components/shop/productsFilter/SortFilter.jsx";
+// import NavbarMenu from "../components/general/NavbarMenu.jsx";
+// import { useEffect } from "react";
+// import { NavLink } from "react-router-dom";
+// import { useCategories } from "../store/useCategories.js";
+// import { useUbication } from "../store/useUbication.js";
+// import { usePriceFilter } from "../store/productsFilter/usePriceFilter.js";
+// import { useSortFilter } from "../store/productsFilter/useSortFilter.js";
+// import { useCategoriesFilter } from "../store/productsFilter/useCategoriesFilter.js";
+// import { useSizeFilter } from "../store/productsFilter/useSizeFilter.js";
+// import { useColorsFilter } from "../store/productsFilter/useColorsFilter.js";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faHouse } from "@fortawesome/free-solid-svg-icons";
+
+// const ProductsScreen = () => {
+//   const { categoriesM, categoriesW } = useCategories();
+//   const { ubication, setUbication } = useUbication();
+//   const { min, max } = usePriceFilter();
+//   const { ordenarProp } = useSortFilter();
+//   const { selectedCategory, setSelectedCategory } = useCategoriesFilter();
+//   const { selectedSubcategory, setSelectedSubcategory } = useCategoriesFilter();
+//   const { selectedSize } = useSizeFilter();
+//   const { selectedColor } = useColorsFilter();
+
+//   useEffect(() => {}, [categoriesM, categoriesW, selectedCategory, selectedSubcategory]);
+
+//   const handleOnClick = () => {
+//     setSelectedCategory("");
+//     setUbication("Todos");
+//   };
+
+//   return (
+//     <>
+//       <NavbarMenu />
+//       <nav className="navProductos">
+//         <h1>COMPRAR TODO</h1>
+//         <div className="navUsuario">
+//           <div className="ubicacion d-flex flex-start mb-3 align-items-center">
+//             <NavLink to="/">
+//               <FontAwesomeIcon
+//                 icon={faHouse}
+//                 style={{ color: "beige", paddingRight: "0.5rem" }}
+//               />
+//             </NavLink>
+//             <span className="ubicacionUser">
+//               /
+//               <NavLink
+//                 to="/products/all"
+//                 style={{
+//                   textDecoration: "none",
+//                   color: "beige",
+//                   paddingRight: "0.5rem",
+//                   paddingLeft: "0.5rem",
+//                 }}
+//                 onClick={handleOnClick}
+//               >
+//                 Productos
+//               </NavLink>
+//               / {" " + ubication + " "}
+//             </span>
+//           </div>
+//         </div>
+//         <SortFilter />
+//       </nav>
+
+//       <section
+//         className="contenedor-filtros-productos"
+//         style={{ justifyContent: "center" }}
+//       >
+//         <div
+//           className="seccion-filtros"
+//           style={{
+//             width: "25%",
+//             minWidth: "25%",
+//             justifyItemsContent: "center",
+//             right: "0",
+//           }}
+//         >
+//           <FilterPanel />
+//         </div>
+
+//         <div className="seccion-productos" style={{ width: "75%" }}>
+//           <Products
+//             className="div-products"
+//             categoria={selectedCategory.toString().toLowerCase()}
+//             subcategoria={selectedSubcategory ? selectedSubcategory.toString().toLowerCase() : null}
+//             ordenar={ordenarProp}
+//             precioMin={min}
+//             precioMax={max}
+//             tamano={selectedSize}
+//             color={selectedColor}
+//           />
+//         </div>
+//       </section>
+//     </>
+//   );
+// };
+
+// export default ProductsScreen;
+

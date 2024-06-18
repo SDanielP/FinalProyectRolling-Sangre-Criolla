@@ -1,11 +1,11 @@
-.navProductos{
+.navProductos {
     display: block;
     padding-top: 2rem;
-    background-color: rgb(57,61,50);
+    background-color: rgb(57, 61, 50);
     color: beige;
 }
 
-.navUsuario{
+.navUsuario {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -14,30 +14,16 @@
     /* position: relative; */
 }
 
-/* .botonesProductos{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    /* padding: 2rem 5rem 2rem 5rem; */
-    /* background-color: pink; 
-} */
-
-
-/* 
-.buscarCat{
-    margin-right: 2rem;
-    width: 10rem;
-} */
 
 /*Section Productos*/
-.contenedor-filtros-productos{
+.contenedor-filtros-productos {
     padding: 1rem 1rem 1rem 2rem;
     display: flex;
     justify-content: flex-start;
-    background-color: rgb(57,61,50);
+    background-color: rgb(57, 61, 50);
     /* color: beige; */
 }
 
-hr{
-  color: beige!important;  
+hr {
+    color: beige !important;
 }

@@ -27,25 +27,25 @@
     /* transform: translateY(-20px); */
 }
 
-.size-btn{
-    color: beige!important;
-    width: 100%!important;
-    display: flex!important;
-    flex-direction: row!important;
-    justify-content: space-between!important;
-    align-items: center!important;
+.size-btn {
+    color: beige !important;
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
 }
 
-.contenedor-colapsable{
+.contenedor-colapsable {
     display: block;
 }
 
-.size-options{
-    color: beige!important;
+.size-options {
+    color: beige !important;
     padding-left: 1rem;
 }
 
-.all-sizes{
+.all-sizes {
     font-weight: 300;
     font-size: small;
     padding-left: 1rem;
