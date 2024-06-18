@@ -3,8 +3,19 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { NavLink } from "react-router-dom";
 import logo from '../../assets/img/homeIMG/perfil-negro-1v2-100x100.jpg';
+import Cart from "../shop/carts/cart";
 
 function Navbar() {
+  const [modal, setModal] = useState(false);
+  const toggle = () => setModal(!modal);
+  const [cartProducts, setCartProducts] = useState([]); // Estado para almacenar los productos del carrito
+
+  // Función para cargar los productos del carrito desde el almacenamiento local
+  useEffect(() => {
+    const cartData = JSON.parse(localStorage.getItem("cart")) || [];
+    setCartProducts(cartData);
+  }, []);
+  
   return (
     <nav className="navbar navbar-expand-lg">
       <div className="container justify-content-between">
@@ -79,13 +90,17 @@ function Navbar() {
             <button className="bg-transparent ms-2" type="submit">
               <i className="bi bi-search"></i>
             </button>
-            <button className="ms-2 bg-transparent" type="button">
-              <FontAwesomeIcon
-                icon={faCartShopping}
-                style={{ color: "#000000" }}
-              />
-            </button>
-          </form>
+            </form>
+            <NavLink to="#" onClick={toggle}>
+              <button className="ms-2 bg-transparent" type="button">
+                <FontAwesomeIcon
+                 icon={faCartShopping}
+                 style={{ color: "#000000" }}
+                />
+              </button>
+
+             </NavLink>
+             <Cart isOpen={modal} toggle={toggle} cartProducts={cartProducts} setCartProducts={setCartProducts} />
         </div>
       </div>
     </nav>

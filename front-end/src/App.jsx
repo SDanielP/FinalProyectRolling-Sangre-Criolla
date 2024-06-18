@@ -10,6 +10,7 @@ import FrequentQuestions from "./pages/FrequentQuestions.jsx";
 import ProductDetail from "./components/shop/productDetail/ProductDetail.jsx";
 import ErrorScreen from "./pages/ErrorScreen.jsx";
 import Nosotros from "./pages/Nosotros.jsx";
+import PaymentForm from "./pages/payments.jsx";
 // import Contacto from "./pages/Contacto.jsx";
 // import ImgP from "./components/shop/compProductDet/ImgP.jsx";
 
@@ -61,6 +62,7 @@ const App = () =>  {
           {/* <Route key={4000} path="products/:category" element={<ProductsScreen />} /> */}
           {/* <Route key={5000} path="products/:category/:id" element={<ProdD />} /> */}
           <Route key={5000} path="products/:category/:id" element={<ProductDetail />} />
+           <Route key={6000} path="payments" element={<PaymentForm/>} />
           {/* <Route key={5000} path="products/:category/:id/modal" element={<ImgP />} /> */}
           <Route key={7000} path="/about-us" element={<Nosotros />} />
           {/* <Route key={8000} path="/contact-us" element={<Contacto />} /> */}
