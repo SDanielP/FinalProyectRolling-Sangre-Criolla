@@ -6,8 +6,9 @@ function ProductDetails({
   onNamePriceLoad,
   onSizesLoad,
   onDescriptionLoad,
+  onIdLoad
 }) {
-  const { id } = useParams(); // Obtener el nombre o el ID del producto de los parámetros de la URL
+  const id  = "66685a1d2f40ca5c72083d66"; // Obtener el ID del producto de los parámetros de la URL
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
@@ -24,9 +25,11 @@ function ProductDetails({
         onNamePriceLoad(data.name, data.price, data.color);
         onSizesLoad(data.size);
         onDescriptionLoad(data.description);
+        onIdLoad(data._id);
       })
       .catch((error) => console.error("Error:", error));
-  }, []);
+  },
+  [id, onImagesLoad, onNamePriceLoad, onSizesLoad, onDescriptionLoad, onIdLoad]);
 
   if (!product) {
     return <div>Cargando...</div>;
@@ -34,5 +37,6 @@ function ProductDetails({
 
   return null;
 }
+
 
 export default ProductDetails;
