@@ -6,6 +6,7 @@ import ImgP from "../compProductDet/ImgP";
 import ProductDetails from "../compProductDet/ProductDetailsAuxiliar";
 import FormProd from "../compProductDet/FormProd";
 import DescEnv from "../compProductDet/DescEnv";
+import NavbarMenu from "../../general/NavbarMenu";
 
 function DProd() {
   const [product, setProduct] = useState({
@@ -31,6 +32,8 @@ function DProd() {
   };
 
   return (
+    <>
+    <NavbarMenu />
     <Container>
       <Row xs={1} md={2}>
         <Col>
@@ -53,6 +56,7 @@ function DProd() {
       </Row>
       <ProductDetails onProductLoad={handleProductLoad} />
     </Container>
+    </>
   );
 }
 

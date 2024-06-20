@@ -34,38 +34,39 @@ const ProductCard = ({ producto }) => {
     }
   };
 
-  /* ----- Mensajes durante hover en botones Carrito y Fav -----*/
-  const tooltipAddToCart = (props) => (
-    <Tooltip id="tooltip" {...props} className="hoverBag">
-      Añadir al carrito
-    </Tooltip>
-  );
+    /* ----- Mensajes durante hover en botones Carrito y Fav -----*/
+    const tooltipAddToCart = (props) => (
+      <Tooltip id="tooltip" {...props} className="hoverBag">
+        Añadir al carrito
+      </Tooltip>
+    );
 
-  const tooltipAddToFavs = (props) => (
-    <Tooltip id="tooltip" {...props} className="hoverHeart">
-      Añadir a la lista de favoritos
-    </Tooltip>
-  );
+    const tooltipAddToFavs = (props) => (
+      <Tooltip id="tooltip" {...props} className="hoverHeart">
+        Añadir a la lista de favoritos
+      </Tooltip>
+    );
 
-  /* ----- Estados para botones de Agregar al Carrito y Favoritos dento de cada card*/
-  const [mostrarOpciones, setMostrarOpciones] = useState(false);
+    /* ----- Estados para botones de Agregar al Carrito y Favoritos dento de cada card*/
+    const [mostrarOpciones, setMostrarOpciones] = useState(false);
 
-  const mostrarOpcionesCarrito = () => {
-    setMostrarOpciones(!mostrarOpciones);
-  };
+    const mostrarOpcionesCarrito = () => {
+      setMostrarOpciones(!mostrarOpciones);
+    };
 
-  /* ----- Funcionalidad AGREGAR AL CARRITO de Silvio ----- */
+    /* ----- Funcionalidad AGREGAR AL CARRITO de Silvio ----- */
 
-  const [quantities, setQuantities] = useState({ [producto.id]: 1 });
-  const [cartProducts, updateCart] = useCart();
+    const [quantities, setQuantities] = useState({ [producto.id]: 1 });
+    const [cartProducts, updateCart] = useCart();
 
-  const [buttonText, setButtonText] = useState('Añadir al Carrito');
-  // const [buttonClass, setButtonClass] = useState('');
+    const [buttonText, setButtonText] = useState('Añadir al Carrito');
+    // const [buttonClass, setButtonClass] = useState('');
 
-  const handleQuantityChange = (e) => {
-    const { id, value } = e.target;
-    setQuantities({ ...quantities, [id]: value });
-  };
+    const handleQuantityChange = (e) => {
+      const { id, value } = e.target;
+      setQuantities({ ...quantities, [id]: value });
+    };
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -105,9 +106,8 @@ const ProductCard = ({ producto }) => {
   };
 
   return (
-    <>
+    <div>
       <div className="containerCard" key={producto._id}>
-      <div className="containerCard" key={producto}>
         {/* --- Imagen producto y botones (carrito, favorito y vista rapida/añadir al carrito) ---*/}
         <div className="card__container tarjetaProducto">
 
@@ -195,57 +195,8 @@ const ProductCard = ({ producto }) => {
           <p className="textoProd">${producto.price}</p>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
 export default ProductCard;
-
-/* ----- Return de Silvio ----- */
-// return (
-//   <>
-// <Card key={producto.id} className="tarjetaProducto">
-//       <div className="contenedorImg">
-//         <Card.Img variant="top" src={producto.image} className="imgProducto" />
-//       </div>
-//       <Card.Body className="card-body">
-//         <Card.Title className="tituloProd">{producto.title}</Card.Title>
-//       </Card.Body>
-//       <ListGroup className="list-group-flush">
-//         <ListGroup.Item className="textoProd">
-//           ${producto.price}
-//         </ListGroup.Item>
-//       </ListGroup>
-//       <Card.Body className="card-body">
-//         <Button
-//           variant="outline-dark"
-//           className="btnVerProducto"
-//           onClick={() => navigate(`/products/${producto.category}/${producto.id}`)}
-//         >
-//           Ver producto
-//         </Button>
-
-
-//         <div id='transition'>
-//           <Form onSubmit={handleSubmit}>
-//             <FormGroup className="quantity">
-//               <Input
-//                 id={producto.id}
-//                 type="number"
-//                 placeholder="Cantidad"
-//                 value={quantities[producto.id]}
-//                 onChange={handleQuantityChange}
-//               />
-//             </FormGroup>
-//             <Button id="addToCart" color="primary" type="submit" className={buttonClass}>
-//               {buttonText}
-//             </Button>
-//           </Form>
-//         </div>
-
-//         </Card.Body>
-//     </Card>
-//   );
-// };
-
-// export default ProductCard;

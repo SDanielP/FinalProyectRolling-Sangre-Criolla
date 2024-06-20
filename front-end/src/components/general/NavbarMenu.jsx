@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import logo from '../../assets/img/homeIMG/perfil-negro-1v2-100x100.jpg';
 import Cart from "../shop/carts/cart";
 
@@ -91,7 +91,7 @@ function Navbar() {
               <i className="bi bi-search"></i>
             </button>
             </form>
-            <NavLink to="#" onClick={toggle}>
+            <Link to="#" onClick={toggle}>
               <button className="ms-2 bg-transparent" type="button">
                 <FontAwesomeIcon
                  icon={faCartShopping}
@@ -99,7 +99,7 @@ function Navbar() {
                 />
               </button>
 
-             </NavLink>
+             </Link>
              <Cart isOpen={modal} toggle={toggle} cartProducts={cartProducts} setCartProducts={setCartProducts} />
         </div>
       </div>
