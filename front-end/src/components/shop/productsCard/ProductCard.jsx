@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { faBagShopping } from "@fortawesome/free-solid-svg-icons";
+import fetchProductById from "../compProductDet/fetchProductById";
 
 /* ----- Importaciones de Silvio ----- */
 // ProductCard.jsx
@@ -19,8 +20,16 @@ import { faBagShopping } from "@fortawesome/free-solid-svg-icons";
 // import useCart from '../carts/useCart';
 
 const ProductCard = ({ producto }) => {
-  /* ----- Uso del useNavigate() ----- */
-  const navigate = useNavigate(); // Importar useNavigate()
+  const navigate = useNavigate();
+
+  const handleQuickView = async () => {
+    try {
+      const productData = await fetchProductById(producto._id);
+      navigate(`/products/${producto._id}`, { state: { product: productData } });
+    } catch (error) {
+      console.error("Error al cargar el producto:", error);
+    }
+  };
 
   /* ----- Funcionalidad AGREGAR AL CARRITO de Silvio ----- */
 
@@ -75,24 +84,20 @@ const ProductCard = ({ producto }) => {
 
   return (
     <>
-      <div className="containerCard" key={producto}>
+      <div className="containerCard" key={producto._id}>
         <div className="card__container tarjetaProducto">
           <article className="contenedorImg">
             <img
               src={producto.image}
               alt="image"
               className="card__img imgProducto"
-              onClick={() =>
-                (navigate(`/products/${producto.category}/${producto._id}`))
-              }
+              onClick={handleQuickView}
             ></img>
 
             <div className="card__data">
               <Button
                 className="card__button"
-                onClick={() =>
-                  navigate(`/products/${producto.category}/${producto._id}`)
-                }
+                onClick={handleQuickView}
               >
                 Vista rápida
               </Button>
@@ -105,9 +110,7 @@ const ProductCard = ({ producto }) => {
           <Button
             variant="outline-dark"
             className="btnVerProducto"
-            onClick={() =>
-              navigate(`/products/${producto.category}/${producto._id}`)
-            } // Redirigir a la página del producto
+            onClick={handleQuickView} // Redirigir a la página del producto
             style={{ height: "6rem", objectFit: "contain", fontSize: "0.9rem" }}
           >
             {producto.name}

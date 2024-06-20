@@ -53,16 +53,15 @@ const App = () =>  {
   }, []);
 
   return (
-    <>
-    <DProd />
-      <Router>
+    
+    <Router>
         {/* <NavbarMenu key={9000}/> */}
         <Routes>
           <Route key={1000} path="/" element={<Home />} />
           <Route key={3000} path="products/all" element={<ProductsScreen />} />
           {/* <Route key={4000} path="products/:category" element={<ProductsScreen />} /> */}
           {/* <Route key={5000} path="products/:category/:id" element={<ProdD />} /> */}
-          <Route key={5000} path="products/d/:id" element={< DProd />} />
+          <Route key={5000} path="products/:id" element={< DProd />} />
            <Route key={6000} path="payments" element={<PaymentForm/>} />
           {/* <Route key={5000} path="products/:category/:id/modal" element={<ImgP />} /> */}
           <Route key={7000} path="/about-us" element={<Nosotros />} />
@@ -71,7 +70,6 @@ const App = () =>  {
           <Route key={10000} path="/frequent-questions" element={<FrequentQuestions />} />
         </Routes>
       </Router>
-    </>
   );
 }
 

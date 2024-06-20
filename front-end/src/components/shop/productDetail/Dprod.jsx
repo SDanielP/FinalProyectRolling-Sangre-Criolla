@@ -51,13 +51,7 @@ function DProd() {
           <DescEnv description={product.description} />
         </Col>
       </Row>
-      <ProductDetails
-        onImagesLoad={(images) => setProduct((prevState) => ({ ...prevState, images }))}
-        onNamePriceLoad={(name, price, color) => setProduct((prevState) => ({ ...prevState, name, price, color }))}
-        onSizesLoad={(sizes) => setProduct((prevState) => ({ ...prevState, sizes }))}
-        onDescriptionLoad={(description) => setProduct((prevState) => ({ ...prevState, description }))}
-        onIdLoad={(id) => setProduct((prevState) => ({ ...prevState, id }))}
-      />
+      <ProductDetails onProductLoad={handleProductLoad} />
     </Container>
   );
 }
