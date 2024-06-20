@@ -22,16 +22,16 @@ const categoríasHOpciones = [
   { id: 1, value: "clásicos", label: "Clásicos" },
   { id: 2, value: "bordados", label: "Bordados" },
   { id: 3, value: "tachas", label: "Tachas" },
-  { id: 4, value: "originales", label: "Originales" }
+  { id: 4, value: "originales", label: "Originales" },
 ];
 
 //***Categorías Mujeres
 const categoríasMOpciones = [
   { id: 1, value: "clásicos", label: "Clásicos" },
-  { id: 2, value: "tachas", label: "Tachas" }
+  { id: 2, value: "tachas", label: "Tachas" },
 ];
 
-const App = () =>  {
+const App = () => {
   /* ----- Estado Categorías - Zustand ----- */
   const { setCategoriesM, setCategoriesW } = useCategories();
 
@@ -54,16 +54,14 @@ const App = () =>  {
 
   return (
     <>
-    <DProd />
       <Router>
         {/* <NavbarMenu key={9000}/> */}
         <Routes>
           <Route key={1000} path="/" element={<Home />} />
           <Route key={3000} path="products/all" element={<ProductsScreen />} />
           {/* <Route key={4000} path="products/:category" element={<ProductsScreen />} /> */}
-          {/* <Route key={5000} path="products/:category/:id" element={<ProdD />} /> */}
-          <Route key={5000} path="products/d/:id" element={< DProd />} />
-           <Route key={6000} path="payments" element={<PaymentForm/>} />
+          <Route key={5000} path="products/:category/:id" element={<DProd />} />
+          <Route key={6000} path="payments" element={<PaymentForm />} />
           {/* <Route key={5000} path="products/:category/:id/modal" element={<ImgP />} /> */}
           <Route key={7000} path="/about-us" element={<Nosotros />} />
           {/* <Route key={8000} path="/contact-us" element={<Contacto />} /> */}
@@ -73,6 +71,6 @@ const App = () =>  {
       </Router>
     </>
   );
-}
+};
 
 export default App;
