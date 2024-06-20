@@ -1,11 +1,14 @@
 import "../../../styles/components/shop/productsCard/ProductCard.css";
 import "../../../styles/components/shop/Products.css";
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { faBagShopping } from "@fortawesome/free-solid-svg-icons";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Tooltip from "react-bootstrap/Tooltip";
+import Popover from "react-bootstrap/Popover";
 import fetchProductById from "../compProductDet/fetchProductById";
 
 /* ----- Importaciones de Silvio ----- */
@@ -15,9 +18,9 @@ import fetchProductById from "../compProductDet/fetchProductById";
 // import ListGroup from 'react-bootstrap/ListGroup';
 // import Button from 'react-bootstrap/Button';
 // import { useNavigate } from 'react-router-dom';
-// import { Form, FormGroup, Input } from 'reactstrap';
+import { Form, FormGroup, Input } from 'reactstrap';
 // import './ProductCard.css';
-// import useCart from '../carts/useCart';
+import useCart from '../carts/useCart';
 
 const ProductCard = ({ producto }) => {
   const navigate = useNavigate();
@@ -31,61 +34,84 @@ const ProductCard = ({ producto }) => {
     }
   };
 
+  /* ----- Mensajes durante hover en botones Carrito y Fav -----*/
+  const tooltipAddToCart = (props) => (
+    <Tooltip id="tooltip" {...props} className="hoverBag">
+      Añadir al carrito
+    </Tooltip>
+  );
+
+  const tooltipAddToFavs = (props) => (
+    <Tooltip id="tooltip" {...props} className="hoverHeart">
+      Añadir a la lista de favoritos
+    </Tooltip>
+  );
+
+  /* ----- Estados para botones de Agregar al Carrito y Favoritos dento de cada card*/
+  const [mostrarOpciones, setMostrarOpciones] = useState(false);
+
+  const mostrarOpcionesCarrito = () => {
+    setMostrarOpciones(!mostrarOpciones);
+  };
+
   /* ----- Funcionalidad AGREGAR AL CARRITO de Silvio ----- */
 
-  // const [quantities, setQuantities] = useState({ [producto.id]: 1 });
-  // const [cartProducts, updateCart] = useCart();
+  const [quantities, setQuantities] = useState({ [producto.id]: 1 });
+  const [cartProducts, updateCart] = useCart();
 
-  // const [buttonText, setButtonText] = useState('Añadir al Carrito');
+  const [buttonText, setButtonText] = useState('Añadir al Carrito');
   // const [buttonClass, setButtonClass] = useState('');
 
-  // const handleQuantityChange = (e) => {
-  //   const { id, value } = e.target;
-  //   setQuantities({ ...quantities, [id]: value });
-  // };
+  const handleQuantityChange = (e) => {
+    const { id, value } = e.target;
+    setQuantities({ ...quantities, [id]: value });
+  };
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-  //   const updatedCart = [...cartProducts];
+    const updatedCart = [...cartProducts];
 
-  //   for (const [id, quantity] of Object.entries(quantities)) {
-  //     if (parseInt(quantity) > 0) {
-  //       const existingProductIndex = updatedCart.findIndex((product) => product.id === id);
-  //       if (existingProductIndex !== -1) {
-  //         updatedCart[existingProductIndex].quantity = parseInt(quantity);
-  //       } else {
-  //         const newProduct = {
-  //           id,
-  //           name: producto.title,
-  //           quantity: parseInt(quantity),
-  //           price: producto.price
-  //         };
-  //         updatedCart.push(newProduct);
-  //       }
-  //     }
-  //   }
+    for (const [id, quantity] of Object.entries(quantities)) {
+      if (parseInt(quantity) > 0) {
+        const existingProductIndex = updatedCart.findIndex((product) => product.id === id);
+        if (existingProductIndex !== -1) {
+          updatedCart[existingProductIndex].quantity = parseInt(quantity);
+        } else {
+          const newProduct = {
+            id,
+            name: producto.name,
+            quantity: parseInt(quantity),
+            price: producto.price
+          };
+          updatedCart.push(newProduct);
+        }
+      }
+    }
 
-  //   // Cambiar el texto del botón y agregar la clase de animación
-  //   setButtonText('Producto Agregado');
-  //   setButtonClass('added');
+    // Cambiar el texto del botón y agregar la clase de animación
+    setButtonText('Producto añadido');
+    // setButtonClass('added');
 
-  //   // Restablecer el texto y la clase del botón después de 2 segundos
-  //   setTimeout(() => {
-  //     setButtonText('Añadir al Carrito');
-  //     setButtonClass('');
-  //   }, 2000);
+    // Restablecer el texto y la clase del botón después de 2 segundos
+    setTimeout(() => {
+      setButtonText('Añadir al Carrito');
+      // setButtonClass('');
+    }, 2000);
 
-  //   updateCart(updatedCart);
-  //   // alert('Productos añadidos al carrito');
-  //   setQuantities({ [producto.id]: 1 });
-  // };
-
+    updateCart(updatedCart);
+    // alert('Productos añadidos al carrito');
+    setQuantities({ [producto._id]: 1 });
+  };
 
   return (
     <>
       <div className="containerCard" key={producto._id}>
+      <div className="containerCard" key={producto}>
+        {/* --- Imagen producto y botones (carrito, favorito y vista rapida/añadir al carrito) ---*/}
         <div className="card__container tarjetaProducto">
+
+          {/* --- Imagen producto ---*/}
           <article className="contenedorImg">
             <img
               src={producto.image}
@@ -94,18 +120,69 @@ const ProductCard = ({ producto }) => {
               onClick={handleQuickView}
             ></img>
 
-            <div className="card__data">
-              <Button
-                className="card__button"
-                onClick={handleQuickView}
-              >
-                Vista rápida
-              </Button>
-            </div>
+            {/* --- Botones (vista rapida/añadir al carrito) --- */}
+            {mostrarOpciones === false ? (
+              <div className="card__data">
+                <Button
+                  className="card__button__vistaRapida"
+                  onClick={handleQuickView}
+                >
+                  Vista rápida
+                </Button>
+              </div>
+            ) : (
+              <div className="card__data">
+                <div id="transition">
+                  <Form onSubmit={handleSubmit} className="formCart">
+                    <FormGroup className="quantity">
+                      <Input
+                        id={producto._id}
+                        type="number"
+                        placeholder="Cantidad"
+                        value={quantities[producto._id]}
+                        onChange={handleQuantityChange}
+                      />
+                    </FormGroup>
+                    
+
+                     <Button
+                       id="addToCart"
+                       color="primary"
+                       type="submit"
+                       className="card__button__añadirCarrito"
+                     >
+                       {buttonText}
+                     </Button> 
+                    
+                  </Form>
+                </div>
+              </div>
+            )}
           </article>
-          <FontAwesomeIcon icon={faHeart} size="lg" className="fav-btn" />
-          <FontAwesomeIcon icon={faBagShopping} size="xl" className="bag-btn" />
+
+          {/* --- Botones (carrito, favorito) --- */}
+          <OverlayTrigger
+            placement="bottom"
+            overlay={tooltipAddToFavs}
+          >
+            <FontAwesomeIcon icon={faHeart} size="lg" className="fav-btn" />
+          </OverlayTrigger>
+
+          <OverlayTrigger
+            key={producto._id}
+            placement="top"
+            overlay={tooltipAddToCart}
+          >
+            <FontAwesomeIcon
+              icon={faBagShopping}
+              size="xl"
+              className="bag-btn"
+              onClick={mostrarOpcionesCarrito}
+            />
+          </OverlayTrigger>
         </div>
+
+        {/* --- Nombre del producto y precio --- */}
         <div className="card-body">
           <Button
             variant="outline-dark"
@@ -123,7 +200,6 @@ const ProductCard = ({ producto }) => {
 };
 
 export default ProductCard;
-
 
 /* ----- Return de Silvio ----- */
 // return (
@@ -148,6 +224,8 @@ export default ProductCard;
 //         >
 //           Ver producto
 //         </Button>
+
+
 //         <div id='transition'>
 //           <Form onSubmit={handleSubmit}>
 //             <FormGroup className="quantity">

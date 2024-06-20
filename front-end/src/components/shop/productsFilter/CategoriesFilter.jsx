@@ -1,5 +1,6 @@
 import "../../../styles/components/shop/productsFilter/CategoriesFilter.css";
 import React, { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useCategories } from "../../../store/useCategories.js";
 import { useCategoriesFilter } from "../../../store/productsFilter/useCategoriesFilter.js";
@@ -45,7 +46,7 @@ const CategoriesFilter = () => {
 
   /* ----- Método manejo de botón para volver a una ruta anterior o padre ----- */
   const handleOnClick = () => {
-    setSelectedCategory("Hombres");
+    setSelectedCategory("");
     setUbication("Todos");
     setSelectedColor("Todos los colores");
     setSelectedSize("Todos los tamaños");
@@ -61,17 +62,13 @@ const CategoriesFilter = () => {
   return (
     <>
       {/* Todos */}
-      <Button
-      // onClick={() => setWomenCategoryOpen(!womenCategoryOpen)}
-      // style={{ marginBottom: "1rem" }}
-      // className="custom-dropdown"
-      >
-        <span onClick={handleOnClick}>Todos</span>
-      </Button>
+      
+         <NavLink to="/products/all" onClick={handleOnClick} className="category-btn"><Button>Todos</Button></NavLink>
+     
 
       {/* Mujeres */}
       <Button
-        className="women-btn"
+        className="category-btn"
         onClick={() => setWomenCategoryOpen(!womenCategoryOpen)}
       >
         <span>Mujeres</span>
@@ -105,7 +102,7 @@ const CategoriesFilter = () => {
 
       {/* Hombres */}
       <Button
-        className="men-btn"
+        className="category-btn"
         onClick={() => setMenCategoryOpen(!menCategoryOpen)}
       >
         <span>Hombres</span>

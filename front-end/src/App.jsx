@@ -22,16 +22,16 @@ const categoríasHOpciones = [
   { id: 1, value: "clásicos", label: "Clásicos" },
   { id: 2, value: "bordados", label: "Bordados" },
   { id: 3, value: "tachas", label: "Tachas" },
-  { id: 4, value: "originales", label: "Originales" }
+  { id: 4, value: "originales", label: "Originales" },
 ];
 
 //***Categorías Mujeres
 const categoríasMOpciones = [
   { id: 1, value: "clásicos", label: "Clásicos" },
-  { id: 2, value: "tachas", label: "Tachas" }
+  { id: 2, value: "tachas", label: "Tachas" },
 ];
 
-const App = () =>  {
+const App = () => {
   /* ----- Estado Categorías - Zustand ----- */
   const { setCategoriesM, setCategoriesW } = useCategories();
 
@@ -71,6 +71,6 @@ const App = () =>  {
         </Routes>
       </Router>
   );
-}
+};
 
 export default App;

@@ -95,7 +95,7 @@ img {
 }
 
 
-.card__button {
+.card__button__vistaRapida {
     height: 100%;
     width: 100%;
     text-decoration: none;
@@ -107,6 +107,21 @@ img {
     display: inline-block;
     margin-top: 0;
     padding: 0;
+    transition: background-color 0.5s ease, color 0.5s ease-in-out;
+}
+
+.card__button__añadirCarrito {
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+    font-size: var(--small-font-size);
+    font-weight: 500;
+    text-align: center;
+    align-content: center;
+    color: var(--text-btn-color);
+    /* display: inline-block; */
+    /* margin-top: 0; */
+    margin: 0.2rem 0rem;
     transition: background-color 0.5s ease, color 0.5s ease-in-out;
 }
 
@@ -192,4 +207,62 @@ img {
         bottom: 27%;
         opacity: 1;
     }
+}
+
+
+
+.hoverHeart {
+    width: 5rem;
+}
+
+.hoverBag {
+    width: 4rem;
+}
+
+
+
+/*carrito silvio*/
+.quantity {
+    margin: 0;
+    height: 3rem;
+    width: 4rem;
+    font-size: small;
+    text-align: start;
+    background: transparent;
+}
+
+/* #addToCart {
+    background-color: rgb(67, 142, 192) !important;
+} */
+
+/* Agrega estos estilos */
+/* #transition .added {
+    animation: addAnimation 2s forwards !important;
+}
+
+@keyframes addAnimation {
+    0% {
+        background-color: #007bff !important;
+        /* Color original del botón 
+        color: white;
+    }
+
+    50% {
+        background-color: #28a745 !important;
+        /* Color verde para indicar "Producto Agregado" 
+        color: white;
+    }
+
+    100% {
+        background-color: #007bff !important;
+        /* Volver al color original del botón 
+        color: white;
+    }
+} */
+
+.formCart{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    margin: 0.3rem 0.5rem;
 }
