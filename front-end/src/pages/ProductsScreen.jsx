@@ -110,7 +110,7 @@ const ProductsScreen = () => {
                 <Products
                   className="div-products"
                   categoria={selectedCategory.toString().toLowerCase()}
-                  subcategoria={selectedSubCategory.toString().toLowerCase()}
+                  subcategoria={selectedSubcategory.toString().toLowerCase()}
                   ordenar={ordenarProp}
                   precioMin={min}
                   precioMax={max}

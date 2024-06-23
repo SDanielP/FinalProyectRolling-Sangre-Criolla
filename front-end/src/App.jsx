@@ -80,7 +80,8 @@ const App = () => {
         <Routes>
           <Route key={1000} path="/" element={<Home />} />
           <Route key={3000} path="products/all" element={<ProductsScreen />} />
-          {/* <Route key={4000} path="products/:category" element={<ProductsScreen />} /> */}
+          <Route key={4000} path="products/:category" element={<ProductsScreen />} />
+          <Route key={4000} path="products/:category/:subcategory" element={<ProductsScreen />} />
           {/* <Route key={5000} path="products/:category/:id" element={<ProdD />} /> */}
           <Route key={5000} path="/products/:id" element={< DProd />} />
            <Route key={6000} path="/payments" element={<PaymentForm/>} />
