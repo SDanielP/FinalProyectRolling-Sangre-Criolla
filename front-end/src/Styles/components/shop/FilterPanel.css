@@ -1,0 +1,33 @@
+.filter-panel {
+  width: 80%;
+  /* margin-right: 2rem; */
+  display: flex;
+  flex-direction: column;
+  /* align-items: start; */
+  text-align: start;
+  padding-left: 2.5rem;
+}
+
+/* .filter-panel h3 {
+    margin-bottom: 1rem;
+  } */
+
+.filter-panel .btn {
+  width: fit-content;
+  text-align: left;
+}
+
+.filter-panel .card {
+  margin-bottom: 1rem;
+}
+
+.filter-btn {
+  background: transparent;
+}
+
+p {
+  color: beige;
+  font-weight: 500;
+  padding-top: 1.5rem;
+  margin-bottom: 0 !important;
+}

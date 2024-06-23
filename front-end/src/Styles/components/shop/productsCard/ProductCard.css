@@ -1,0 +1,268 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+    /*========== Colors ==========*/
+    /* --first-color: hsl(82, 60%, 28%); */
+    --title-color: hsl(0, 0%, 15%);
+    --text-color: hsl(0, 0%, 35%);
+    --hover-color: hsl(0, 0%, 61%);
+    --body-color: hsl(27, 30%, 49%);
+    --body-color2: hsl(27, 29%, 40%);
+    --body-color3: hsl(27, 29%, 35%);
+    --container-color: hsl(0, 0%, 100%);
+    --text-btn-color: hsl(0, 0%, 100%);
+    --price-color: rgba(252, 184, 50, 1);
+    --fav-color: rgb(211, 62, 62);
+
+    /*========== Font and typography ==========*/
+    --body-font: "Poppins", sans-serif;
+    --h2-font-size: 1rem;
+    --small-font-size: 0.75rem;
+}
+
+/*========== Responsive typography ==========*/
+@media screen and (min-width: 1120px) {
+    :root {
+        --h2-font-size: 1.25rem;
+        --small-font-size: 0.813rem;
+    }
+}
+
+/*=============== BASE ===============*/
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: var(--body-font);
+    background-color: var(--body-color);
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/*=============== CARD ===============*/
+.containerCard {
+    min-width: 10rem !important;
+    width: 13rem !important;
+    height: 22rem;
+    position: relative;
+}
+
+.card__container {
+    background-color: var(--container-color);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    position: relative;
+
+}
+
+.card__container:hover {
+    cursor: pointer;
+}
+
+.card__img {
+    width: 100%;
+    height: 200px;
+    /* Ajusta la altura según sea necesario */
+    object-fit: contain;
+    /* Asegura que la imagen cubra el contenedor */
+}
+
+.card__data {
+    /* padding: 1rem; */
+    height: 3rem;
+    background-color: var(--container-color);
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    right: 0;
+    margin-inline: auto;
+    opacity: 0;
+    transition: opacity 0.5s, bottom 0.5s;
+}
+
+.card-body {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+
+.card__button__vistaRapida {
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+    font-size: var(--small-font-size);
+    font-weight: 500;
+    text-align: center;
+    align-content: center;
+    color: var(--text-btn-color);
+    display: inline-block;
+    margin-top: 0;
+    padding: 0;
+    transition: background-color 0.5s ease, color 0.5s ease-in-out;
+}
+
+.card__button__añadirCarrito {
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+    font-size: var(--small-font-size);
+    font-weight: 500;
+    text-align: center;
+    align-content: center;
+    color: var(--text-btn-color);
+    /* display: inline-block; */
+    /* margin-top: 0; */
+    margin: 0.2rem 0rem;
+    transition: background-color 0.5s ease, color 0.5s ease-in-out;
+}
+
+.btnVerProducto {
+    margin-bottom: 0;
+    color: var(--text-btn-color) !important;
+}
+
+.btnVerProducto:hover {
+    color: var(--hover-color) !important;
+}
+
+.fav-btn {
+    position: absolute;
+    bottom: 100%;
+    left: 80%;
+    /* top: 100%; */
+    right: 0;
+    margin-inline: auto;
+    opacity: 0;
+    transition: opacity 0.5s, bottom 0.5s;
+    color: #bfbfbf;
+}
+
+.bag-btn {
+    position: absolute;
+    bottom: 0%;
+    /* left: 0%; */
+    /* top: 100%; */
+    right: 82%;
+    margin-inline: auto;
+    opacity: 0;
+    transition: opacity 0.5s, bottom 0.5s;
+    color: var(--body-color);
+}
+
+.bag-btn:hover {
+    color: var(--body-color3);
+}
+
+.fav-btn:hover {
+    color: var(--fav-color);
+}
+
+.textoProd {
+    font-size: 1rem;
+    padding: 0;
+    color: var(--price-color);
+}
+
+.card__button:hover {
+    background-color: var(--body-color2) !important;
+    color: var(--text-btn-color);
+}
+
+/* Hover effect for showing data */
+/* .card__container:hover .card__data{
+    bottom: 0;
+    opacity: 1;
+    background-color: var(--body-color);
+} */
+
+.containerCard:hover {
+    cursor: pointer;
+
+    .card__data {
+        cursor: pointer;
+        bottom: 0;
+        opacity: 1;
+        background-color: var(--body-color);
+    }
+
+    ;
+
+    .fav-btn {
+        cursor: pointer;
+        bottom: 86%;
+        opacity: 1;
+    }
+
+    .bag-btn {
+        cursor: pointer;
+        bottom: 27%;
+        opacity: 1;
+    }
+}
+
+
+
+.hoverHeart {
+    width: 5rem;
+}
+
+.hoverBag {
+    width: 4rem;
+}
+
+
+
+/*carrito silvio*/
+.quantity {
+    margin: 0;
+    height: 3rem;
+    width: 4rem;
+    font-size: small;
+    text-align: start;
+    background: transparent;
+}
+
+/* #addToCart {
+    background-color: rgb(67, 142, 192) !important;
+} */
+
+/* Agrega estos estilos */
+/* #transition .added {
+    animation: addAnimation 2s forwards !important;
+}
+
+@keyframes addAnimation {
+    0% {
+        background-color: #007bff !important;
+        /* Color original del botón 
+        color: white;
+    }
+
+    50% {
+        background-color: #28a745 !important;
+        /* Color verde para indicar "Producto Agregado" 
+        color: white;
+    }
+
+    100% {
+        background-color: #007bff !important;
+        /* Volver al color original del botón 
+        color: white;
+    }
+} */
+
+.formCart{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    margin: 0.3rem 0.5rem;
+}
