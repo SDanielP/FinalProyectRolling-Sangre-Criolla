@@ -8,7 +8,7 @@ import NavbarMenu from "../components/general/NavbarMenu.jsx";
 
 import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import { useCategories } from "../store/useCategories.js";
+import { useSubcategories } from "../store/useSubcategories.js";
 import { useUbication } from "../store/useUbication.js";
 import { usePriceFilter } from "../store/productsFilter/usePriceFilter.js";
 import { useSortFilter } from "../store/productsFilter/useSortFilter.js";
@@ -18,7 +18,7 @@ import { faHouse } from "@fortawesome/free-solid-svg-icons";
 
 const ProductsScreen = () => {
   /* ----- Estados - Zustand ----- */
-  const { categoriesM, categoriesW } = useCategories();
+  const { subcategories } = useSubcategories();
   // const { products, setProducts } = useProducts();
   const { ubication, setUbication } = useUbication();
   const { min, max } = usePriceFilter();
@@ -29,7 +29,7 @@ const ProductsScreen = () => {
 
   /* ----- RENDERIZACIÓN CONSTANTE DE CATEGORÍAS y PRODUCTOS ----- */
   useEffect(() => {
-  }, [categoriesM, categoriesW, selectedCategory, selectedSubcategory]); //Análogo useCallback()
+  }, [ subcategories, selectedCategory, selectedSubcategory]); //Análogo useCallback()
 
   /* ----- Método manejo de botón para volver a una ruta anterior o padre ----- */
   const handleOnClick = () => {
@@ -110,7 +110,7 @@ const ProductsScreen = () => {
                 <Products
                   className="div-products"
                   categoria={selectedCategory.toString().toLowerCase()}
-                  subcategoria={selectedSubCategory.toString().toLowerCase()}
+                  subcategoria={selectedSubcategory.toString().toLowerCase()}
                   ordenar={ordenarProp}
                   precioMin={min}
                   precioMax={max}

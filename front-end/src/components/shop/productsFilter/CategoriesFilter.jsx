@@ -2,7 +2,7 @@ import "../../../styles/components/shop/productsFilter/CategoriesFilter.css";
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { useCategories } from "../../../store/useCategories.js";
+import { useSubcategories } from "../../../store/useSubcategories.js";
 import { useCategoriesFilter } from "../../../store/productsFilter/useCategoriesFilter.js";
 import { useSizeFilter } from "../../../store/productsFilter/useSizeFilter.js";
 import { useColorsFilter } from "../../../store/productsFilter/useColorsFilter.js";
@@ -11,10 +11,6 @@ import { Collapse, Button } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
-// import Dropdown from "react-bootstrap/Dropdown";
-// import DropdownButton from "react-bootstrap/DropdownButton";
-
-// import "../../../styles/components/shop/productsFilter/DropdownFilter.css";
 
 const CategoriesFilter = () => {
   /* ----- Estados para los botones ----- */
@@ -24,8 +20,8 @@ const CategoriesFilter = () => {
   const [womenCategoryOpen, setWomenCategoryOpen] = useState(false);
 
   /* ----- Estados para los botones - Zustand ----- */
-  const { categoriesM, categoriesW } = useCategories();
-  const { selectedCategory, setSelectedCategory } = useCategoriesFilter();
+  const { subcategories } = useSubcategories();
+  const { selectedCategory, setSelectedCategory, selectedSubcategory, setSelectedSubcategory } = useCategoriesFilter();
   const { setUbication } = useUbication();
   const { setSelectedColor } = useColorsFilter();
   const { setSelectedSize } = useSizeFilter();
@@ -33,43 +29,73 @@ const CategoriesFilter = () => {
   /* ----- Uso de useNavigate() ----- */
   const navigate = useNavigate(); // Importar useNavigate()
 
-  const handleCategory = (nuevaCategoria) => {
-    setSelectedCategory(nuevaCategoria);
-    setUbication(
-      "Hombres / " +
-        nuevaCategoria.charAt(0).toUpperCase() +
-        nuevaCategoria.slice(1)
-    );
-    // setIsDropdownOpen(true); // Cierra el dropdown al seleccionar una opción
-    navigate(`/products/${nuevaCategoria.toLowerCase()}`);
-  };
-
-  /* ----- Método manejo de botón para volver a una ruta anterior o padre ----- */
-  const handleOnClick = () => {
+  /* ----- Método manejo de botón para volver a todos los productos ----- */
+  const handleOnClickTodos = () => {
     setSelectedCategory("");
+    setSelectedSubcategory("");
     setUbication("Todos");
     setSelectedColor("Todos los colores");
     setSelectedSize("Todos los tamaños");
+    setWomenCategoryOpen(false);
+    setMenCategoryOpen(false);
+    navigate("/products/all");
   };
 
-  useEffect(() => {
-    // console.log(selectedCategory);
-  }, [selectedCategory]);
-
-  // const toggleDropdown = () => {
-  //   setIsDropdownOpen(!isDropdownOpen);
+  /* ----- Método manejo de botón para ver los productos de hombres y mujeres ----- */
+  // const handleOnClickHombres = () => {
+  //   setSelectedCategory("Hombres");
+  //   setUbication(`${selectedCategory}`);
+  //   navigate(`/products/${selectedCategory.toLowerCase()}`);
   // };
+
+  // const handleOnClickMujeres = () => {
+  //   setSelectedCategory("Mujeres");
+  //   setUbication(`${selectedCategory}`);
+  //   navigate(`/products/${selectedCategory.toLowerCase()}`);
+  // };
+
+  /* ----- Método manejo de botón para ver las subcategorías ----- */
+  const handleSubcategoryHombres = (nuevaCategoria) => {
+    setSelectedCategory("Hombres");
+    setSelectedSubcategory(nuevaCategoria);
+    setUbication(`${selectedCategory} / ${nuevaCategoria.subcategory}`);
+    navigate(`/products/${selectedCategory.toLowerCase()}/${nuevaCategoria.value}`);
+  };
+
+  const handleSubcategoryMujeres = (nuevaCategoria) => {
+    setSelectedCategory("Mujeres");
+    setSelectedSubcategory(nuevaCategoria);
+    setUbication(`${selectedCategory} / ${nuevaCategoria.subcategory}`);
+    navigate(`/products/${selectedCategory.toLowerCase()}/${nuevaCategoria.value}`);
+  };
+
+
+  useEffect(() => {
+  }, [selectedCategory, selectedSubcategory]);
+
   return (
     <>
       {/* Todos */}
-      
-         <NavLink to="/products/all" onClick={handleOnClick} className="category-btn"><Button>Todos</Button></NavLink>
-     
+
+      <NavLink
+        to="/products/all"
+        onClick={handleOnClickTodos}
+        className="category-btn"
+      >
+        <Button>Todos</Button>
+      </NavLink>
 
       {/* Mujeres */}
       <Button
         className="category-btn"
-        onClick={() => setWomenCategoryOpen(!womenCategoryOpen)}
+        onClick={() => {
+          if (!womenCategoryOpen) {
+            setSelectedCategory("Mujeres");
+            setUbication("Mujeres");
+            navigate(`/products/mujeres`);
+          }
+          setWomenCategoryOpen(!womenCategoryOpen);
+        }}
       >
         <span>Mujeres</span>
         {womenCategoryOpen === false ? (
@@ -88,22 +114,33 @@ const CategoriesFilter = () => {
       </Button>
 
       <Collapse isOpen={womenCategoryOpen}>
-        {categoriesW.map((categoria) => (
-          <div
-            className="women-subcategories"
-            key={categoriesW.indexOf(categoria)}
-            onClick={() => handleCategory(categoria)}
-            style={{ cursor: "pointer" }}
-          >
-            {categoria.label}
-          </div>
-        ))}
+        {subcategories.map(
+          (subcategoria, index) =>
+            subcategoria.subcategory !== "Bordados" &&
+            subcategoria.subcategory !== "Originales" && (
+              <div
+                className="women-subcategories"
+                key={index}
+                onClick={() => handleSubcategoryMujeres(subcategoria)}
+                style={{ cursor: "pointer" }}
+              >
+                {subcategoria.subcategory}
+              </div>
+            )
+        )}
       </Collapse>
 
       {/* Hombres */}
       <Button
         className="category-btn"
-        onClick={() => setMenCategoryOpen(!menCategoryOpen)}
+        onClick={() => {
+          if (!menCategoryOpen) {
+            setSelectedCategory("Hombres");
+            setUbication("Hombres");
+            navigate(`/products/hombres`);
+          }
+          setMenCategoryOpen(!menCategoryOpen);
+        }}
       >
         <span>Hombres</span>
         {menCategoryOpen === false ? (
@@ -122,20 +159,19 @@ const CategoriesFilter = () => {
       </Button>
 
       <Collapse isOpen={menCategoryOpen}>
-        {categoriesM.map((categoria) => (
+        {subcategories.map((subcategoria) => (
           <div
-            className="women-subcategories"
-            key={categoriesM.indexOf(categoria)}
-            onClick={() => handleCategory(categoria)}
+            className="men-subcategories"
+            key={subcategories.indexOf(subcategoria)}
+            onClick={() => handleSubcategoryHombres(subcategoria)}
             style={{ cursor: "pointer" }}
           >
             {/* {categoria.charAt(0).toUpperCase() + categoria.slice(1)} */}
-            {categoria.label}
+            {subcategoria.subcategory}
           </div>
         ))}
       </Collapse>
     </>
   );
 };
-
 export default CategoriesFilter;

@@ -279,11 +279,11 @@ const Products = ({ categoria, subcategoria, ordenar, precioMin, precioMax, tama
   }, [products, categoria, subcategoria, ordenar, precioMin, precioMax, tamano, color]);
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <p>Cargando...</p>;
   }
 
   if (error) {
-    return <p>Error: {error.message}</p>;
+    return <p>Error al cargar: {error.message}</p>;
   }
 
   return (
