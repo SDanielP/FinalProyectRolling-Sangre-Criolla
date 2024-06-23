@@ -55,6 +55,7 @@ const Cart = ({ isOpen, toggle }) => {
                   step={1}
                 />
               </div>
+              <div>Talle: {product.size}</div>
               <div>Precio: ${product.price}</div>
               <div>
                 <Button id="btnCart" color="danger" onClick={() => handleDeleteProduct(index)}>Eliminar</Button>

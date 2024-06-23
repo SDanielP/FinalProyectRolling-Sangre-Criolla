@@ -6,6 +6,7 @@ import ImgP from "../compProductDet/ImgP";
 import ProductDetails from "../compProductDet/ProductDetailsAuxiliar";
 import FormProd from "../compProductDet/FormProd";
 import DescEnv from "../compProductDet/DescEnv";
+import NavbarMenu from "../../general/NavbarMenu";
 
 function DProd() {
   const [product, setProduct] = useState({
@@ -31,6 +32,8 @@ function DProd() {
   };
 
   return (
+    <>
+    <NavbarMenu />
     <Container>
       <Row xs={1} md={2}>
         <Col>
@@ -51,14 +54,9 @@ function DProd() {
           <DescEnv description={product.description} />
         </Col>
       </Row>
-      <ProductDetails
-        onImagesLoad={(images) => setProduct((prevState) => ({ ...prevState, images }))}
-        onNamePriceLoad={(name, price, color) => setProduct((prevState) => ({ ...prevState, name, price, color }))}
-        onSizesLoad={(sizes) => setProduct((prevState) => ({ ...prevState, sizes }))}
-        onDescriptionLoad={(description) => setProduct((prevState) => ({ ...prevState, description }))}
-        onIdLoad={(id) => setProduct((prevState) => ({ ...prevState, id }))}
-      />
+      <ProductDetails onProductLoad={handleProductLoad} />
     </Container>
+    </>
   );
 }
 

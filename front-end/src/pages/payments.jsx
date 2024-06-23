@@ -2,6 +2,7 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import '../styles/PaymentForm.css';
 import { useEffect, useState } from 'react';
+import NavbarMenu from "../components/general/NavbarMenu"
 
 const PaymentForm = () => {
   const [productos, setProductos] = useState([]);
@@ -74,6 +75,8 @@ const PaymentForm = () => {
   });
 
   return (
+    <>
+    <NavbarMenu />
     <form onSubmit={formik.handleSubmit} className="payment-form">
       <h2>Ingresar con Tarjeta de Crédito/Débito</h2>
       <div className="card-types">
@@ -229,6 +232,7 @@ const PaymentForm = () => {
       <button type="submit">PAGAR</button>
       <button type="button" onClick={() => window.location.href = '/products/all'}>CANCELAR</button>
     </form>
+    </>
   );
 };
 
