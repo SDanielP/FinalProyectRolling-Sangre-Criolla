@@ -1,0 +1,50 @@
+#root{
+    border-radius: 30px !important;
+    padding: 2%;
+}
+.modal{
+    width: 100% !important;
+    height: 100% !important;
+    padding: 0%;
+    margin: 0%;
+    
+    display: flex !important;
+    flex-wrap: wrap !important;
+    border-radius: 30px !important;
+}
+body{
+    background-color: #A6907C !important; 
+    padding: 0%;
+    margin: 0%;
+}
+.modal-dialog , .modal-body{
+    margin: 0% !important;
+    padding: 10px;
+    border: none !important;
+}
+.modal-header{
+    border: none !important;
+}
+.modal-content{
+    border: none !important;
+}
+
+/*----- PALETA DE COLORES ----- */
+.marronOscuro{
+    background-color: #73503C;
+}
+.marronClaro{
+    background-color: #D9C7C1;
+}
+.beige{
+    background-color: #A6907C;
+}
+.marronNegro{
+    background-color: #260E09;
+}
+.marronRojizo{
+    background-color: #733224;
+} 
+.transparente{
+    background: transparent;
+}
