@@ -3,6 +3,8 @@ import { useEffect, useCallback } from "react";
 // import { useNavigate } from "react-router-dom";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useSubcategories } from "./store/useSubcategories.js";
+import HomeScreen from './Home.jsx';
+
 // import NavbarMenu from "./components/general/NavbarMenu.jsx";
 import ProductsScreen from "./pages/ProductsScreen";
 import Home from "./pages/Home.jsx";

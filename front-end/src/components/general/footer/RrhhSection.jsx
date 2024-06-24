@@ -4,39 +4,17 @@ import { NavLink } from "react-router-dom";
 
 const RrhhSection = () => {
   return (
-    <footer className="container">
+    <footer className="container-fluid bg-white">
       {/* Section con contactos y formulario */}
       <section className="p-4 row">
         <article className="col-12 col-md-4">
           <form className="ps-0 ps-lg-5">
             <fieldset>
-              <legend>
                 <img
-                  src={logo}
-                  alt="logo"
-                  className="w-10 img-fluid"
+                  src="./img/logosinfondonegro.png"
+                  alt="logo sin el fondo"
+                  className="w-50 img-fluid"
                 />
-              </legend>
-              <div className="mb-2">
-                <label htmlFor="floatingInput" className="mb-1">
-                  Ingrese su email
-                </label>
-                <input
-                  type="email"
-                  className="w-100"
-                  id="floatingInput"
-                  placeholder="name@example.com"
-                  maxLength="30"
-                  required
-                />
-              </div>
-              <div className="d-flex align-items-start mb-3 justify-content-start">
-                <label htmlFor="check" className="me-2">
-                  ¿Quieres recibir ofertas?
-                </label>
-                <input type="checkbox" id="check" />
-              </div>
-              <button type="submit">Enviar</button>
             </fieldset>
           </form>
         </article>
@@ -84,7 +62,7 @@ const RrhhSection = () => {
                 to="*"
                 className="text-decoration-none text-black"
               >
-                Como comprar
+                ● Como comprar
               </NavLink>
             </li>
             <li className="mb-1">
