@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Container, Tab, Tabs } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font//bootstrap-icons.css';
-import '../../styles/Nosotros.css';
+import '../Styles/AboutUs.css';
 
 function InfoNosotros() {
   const [key, setKey] = useState('nosotros');

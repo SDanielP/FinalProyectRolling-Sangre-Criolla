@@ -1,4 +1,4 @@
-import '../styles/Contacto.css';
+import '../Styles/Contact.css';
 import { Container } from 'react-bootstrap';
 
 function InfoContacto() {

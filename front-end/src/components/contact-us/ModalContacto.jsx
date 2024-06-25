@@ -1,7 +1,8 @@
-import '../styles/Contacto.css';
+import '../Styles/Contact.css';
 import { Button, Modal } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 
+// eslint-disable-next-line react/prop-types
 function ModalContacto({ show, onHide }) {
   const navegar = useNavigate();
   const ira = () => {

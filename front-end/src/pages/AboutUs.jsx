@@ -1,7 +1,7 @@
-import "../styles/Nosotros.css";
-import { Container, Col, Row, Image } from "react-bootstrap";
-import InfoNosotros from "../components/about-us/InfoNosotros";
-import NavbarMenu from "../components/general/NavbarMenu";
+import '../Styles/AboutUs.css';
+import { Container, Col, Row, Image } from 'react-bootstrap';
+import InfoNosotros from '../components/about-us/InfoNosotros';
+import NavbarMenu from '../components/general/NavbarMenu';
 
 function Nosotros() {
   return (
