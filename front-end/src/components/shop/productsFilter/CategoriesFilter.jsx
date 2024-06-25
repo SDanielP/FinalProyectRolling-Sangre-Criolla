@@ -58,15 +58,15 @@ const CategoriesFilter = () => {
   const handleSubcategoryHombres = (nuevaCategoria) => {
     setSelectedCategory("Hombres");
     setSelectedSubcategory(nuevaCategoria);
-    setUbication(`${selectedCategory} / ${nuevaCategoria.subcategory}`);
-    navigate(`/products/${selectedCategory.toLowerCase()}/${nuevaCategoria.value}`);
+    setUbication(`Hombres / ${nuevaCategoria.subcategory}`);
+    navigate(`/products/hombres/${nuevaCategoria.value}`);
   };
 
   const handleSubcategoryMujeres = (nuevaCategoria) => {
     setSelectedCategory("Mujeres");
     setSelectedSubcategory(nuevaCategoria);
-    setUbication(`${selectedCategory} / ${nuevaCategoria.subcategory}`);
-    navigate(`/products/${selectedCategory.toLowerCase()}/${nuevaCategoria.value}`);
+    setUbication(`Mujeres / ${nuevaCategoria.subcategory}`);
+    navigate(`/products/mujeres/${nuevaCategoria.value}`);
   };
 
 
@@ -91,6 +91,7 @@ const CategoriesFilter = () => {
         onClick={() => {
           if (!womenCategoryOpen) {
             setSelectedCategory("Mujeres");
+            setSelectedSubcategory("");
             setUbication("Mujeres");
             navigate(`/products/mujeres`);
           }
@@ -136,6 +137,7 @@ const CategoriesFilter = () => {
         onClick={() => {
           if (!menCategoryOpen) {
             setSelectedCategory("Hombres");
+            setSelectedSubcategory("");
             setUbication("Hombres");
             navigate(`/products/hombres`);
           }
