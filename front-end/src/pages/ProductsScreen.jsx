@@ -15,6 +15,7 @@ import { useSortFilter } from "../store/productsFilter/useSortFilter.js";
 import { useCategoriesFilter } from "../store/productsFilter/useCategoriesFilter.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHouse } from "@fortawesome/free-solid-svg-icons";
+import Banner from "../components/home/Banner.jsx";
 
 const ProductsScreen = () => {
   /* ----- Estados - Zustand ----- */
@@ -50,6 +51,7 @@ const ProductsScreen = () => {
 
   return (
     <>
+      <Banner />
       <NavbarMenu />
       <nav className="navProductos">
         <h1>COMPRAR TODO</h1>
