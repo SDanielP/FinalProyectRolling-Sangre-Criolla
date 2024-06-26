@@ -10,28 +10,14 @@ import ProductsScreen from "./pages/ProductsScreen";
 import Home from "./pages/Home.jsx";
 import FrequentQuestions from "./pages/FrequentQuestions.jsx";
 import ErrorScreen from "./pages/ErrorScreen.jsx";
-import Nosotros from "./pages/Nosotros.jsx";
+import Nosotros from "./pages/AboutUs.jsx";
 import PaymentForm from "./pages/payments.jsx";
 import DProd from "./components/shop/productDetail/Dprod.jsx";
-// import Contacto from "./pages/Contacto.jsx";
+import RecuperacionContra from "./pages/RecuperacionContra.jsx";
+// import { RecuperacionContra} from "./pages/RecuperacionContra.jsx";
+// import Contacto from "./pages/Contact.jsx";
 // import ImgP from "./components/shop/compProductDet/ImgP.jsx";
 
-/* ----- Constantes ----- */
-//***URL API
-// const url = "https://fakestoreapi.com"
-//***Categorías Hombres
-// const categoríasHOpciones = [
-//   { id: 1, value: "clásicos", label: "Clásicos" },
-//   { id: 2, value: "bordados", label: "Bordados" },
-//   { id: 3, value: "tachas", label: "Tachas" },
-//   { id: 4, value: "originales", label: "Originales" },
-// ];
-
-//***Categorías Mujeres
-// const categoríasMOpciones = [
-//   { id: 1, value: "clásicos", label: "Clásicos" },
-//   { id: 2, value: "tachas", label: "Tachas" },
-// ];
 
 const App = () => {
   /* ----- Estado Categorías - Zustand ----- */
@@ -96,6 +82,9 @@ const App = () => {
             path="/frequent-questions"
             element={<FrequentQuestions />}
           />
+          <Route key={11000} path="/rec-contra" element={<RecuperacionContra />} />
+          {/* <Route path="/Iniciar-Sesion" element={<Modal />} /> */}
+          {/* <Route path="*" element={<Error404 />}/> */}
         </Routes>
       </Router>
   );

@@ -2,23 +2,20 @@ import React from 'react'
 import '../styles/styleRecuperarContra.css'
 import { NavLink } from 'react-router-dom'
 import { useState } from 'react'
+import Banner from '../components/home/Banner'
+import NavbarMenu from '../components/general/NavbarMenu'
 
-
-export const RecuperacionContra = () => {
-
-  
+const RecuperacionContra = () => {
   const [formData, setFormData] = useState({
     email: ''
     });
     
   const [error, setError] = useState(false);
-
   // Handler para el cambio de los campos del formulario
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
-
   const handleRecuperacionSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -49,27 +46,28 @@ export const RecuperacionContra = () => {
     }
   };
 
-
   return (
     <>
-      <div className='formulario'>
-        <div className='formularioInput'>
-          <h1 className="titulo transparente">Restablece la contraseña</h1>
-          <h3 className='texto'>Ingresa tu correo electrónico de inicio de sesión y te enviaremos un enlace para restablecer tu contraseña</h3>
+      <Banner />
+      <NavbarMenu />
+      <section className='section-recContra'>
+        <div className='div-recContra'>
+          <h1 className="titulo-recContra transparente-recContra">Restablece la contraseña</h1>
+          <h3 className='texto-recContra'>Ingresa tu correo electrónico de inicio de sesión y te enviaremos un enlace para restablecer tu contraseña</h3>
         </div>
-        <div className="formularioInput">
-          <form onSubmit={handleRecuperacionSubmit} className="transparente" action="">
-            <label htmlFor="email">Correo electrónico</label>
-            <input className="transparente" name='email' type="email" id='email' value={formData.email} onChange={handleInputChange} required />
-            <button type="submit" className='submit transparente'>Enviar</button>
+        <div className="div-recContra">
+          <form onSubmit={handleRecuperacionSubmit} className="transparente-recContra form-recContra" action="">
+            <label className='lbl-recContra' htmlFor="email">Correo electrónico</label>
+            <input className="transparente-recContra input-recContra" name='email' type="email" id='email' value={formData.email} onChange={handleInputChange} required />
+            <button type="submit-recContra" className='submit-recContra transparente-recContra'>Enviar</button>
           </form>
         </div>
-      </div>
+      </section>
       <NavLink to="/" >
-        <button className="buttonVolver">Volver a Home</button>
+        <button className="buttonVolverAHome-recContra">Volver a Home</button>
       </NavLink>
     </>
   )
 }
 
-
+export default RecuperacionContra;

@@ -10,7 +10,7 @@ import CatalogSection from './components/home/CatalogSection'; // Importar compo
 import SocialContactSection from './components/home/SocialContactSection'; // Importar componente de redes sociales y contacto
 import Footer from './components/home/Footer';
 
-function Home() {
+const Home=() => {
   return (
     <div className="App">
       <Banner />

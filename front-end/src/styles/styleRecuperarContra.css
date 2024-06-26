@@ -1,4 +1,4 @@
-*{
+/* *{
     background-color: beige;
     margin: 0%;
 
@@ -9,11 +9,11 @@ body{
     margin: 0% 0%;
     padding: 0%;
     background-color: beige;
-    /* min-width: 200px; */
+    /* min-width: 200px;
     min-height: 50vh;
 
-}
-.titulo{
+} */
+.titulo-recContra{
     color: rgb(22, 22, 20);
     text-shadow: #221f1c;
     font-size: 45px;
@@ -22,7 +22,7 @@ body{
     width: 100%;
     justify-content: center;
 }
-.formulario{
+.section-recContra{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -35,7 +35,14 @@ body{
     width: 100% !important;
     
 }
-.formularioInput{
+.form-recContra{
+    text-align: start;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap:0.5rem;
+}
+.div-recContra{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -44,14 +51,14 @@ body{
     padding: px;
     width: 100% !important;
 }
-.submit{
+.submit-recContra{
     margin-top: 15px;
 }
-.texto{
+.texto-recContra{
   font-size: 20px;
   padding-top: 2%;
 }
-.buttonVolver{
+.buttonVolverAHome-recContra{
   background: linear-gradient(140.14deg, #ec540e 15.05%, #d6361f 114.99%)
       padding-box,
     linear-gradient(142.51deg, #A6907C 8.65%, #73503c 88.82%) border-box;
@@ -75,21 +82,14 @@ body{
   opacity: 80%;
 }
 
-form{
-    text-align: start;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    gap:0.5rem;
-}
-input{
+.input-recContra{
     width: 350px;
     border: none;
     border-bottom-style: solid;
     height: 10px;
     
 }
-label{
+.lbl-recContra{
   width: 100%;
 }
 #root{
@@ -114,7 +114,7 @@ label{
 .marronRojizo{
     background-color: #733224;
 } 
-.transparente{
+.transparente-recContra{
     background: transparent;
 }
 

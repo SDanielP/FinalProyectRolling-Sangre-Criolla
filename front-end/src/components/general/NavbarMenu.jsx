@@ -5,7 +5,7 @@ import { NavLink, Link } from "react-router-dom";
 import logo from '../../assets/img/homeIMG/perfil-negro-1v2-100x100.jpg';
 import Cart from "../shop/carts/cart";
 
-function Navbar() {
+const Navbar = () => {
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
   const [cartProducts, setCartProducts] = useState([]); // Estado para almacenar los productos del carrito
@@ -73,7 +73,7 @@ function Navbar() {
               </NavLink>
             </li>
             <li className="nav-item" id="itemToHide">
-              <NavLink to="/" className="nav-link" aria-current="page">
+              <NavLink to="/rec-contra" className="nav-link" aria-current="page">
                 Iniciar sesión
               </NavLink>
             </li>
