@@ -4,6 +4,7 @@ import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { NavLink, Link } from "react-router-dom";
 import logo from '../../assets/img/homeIMG/perfil-negro-1v2-100x100.jpg';
 import Cart from "../shop/carts/cart";
+import ModalInicioSesion from '../Modal-InicioSesion';
 
 const Navbar = () => {
   const [modal, setModal] = useState(false);
@@ -15,7 +16,7 @@ const Navbar = () => {
     const cartData = JSON.parse(localStorage.getItem("cart")) || [];
     setCartProducts(cartData);
   }, []);
-  
+
   return (
     <nav className="navbar navbar-expand-lg">
       <div className="container justify-content-between">
@@ -70,7 +71,7 @@ const Navbar = () => {
             </li>
             <li className="nav-item" id="itemToHide">
               <NavLink to="/rec-contra" className="nav-link" aria-current="page">
-                Iniciar sesión
+                Recuperar Contraseña
               </NavLink>
             </li>
           </ul>
@@ -86,17 +87,19 @@ const Navbar = () => {
             <button className="bg-transparent ms-2" type="submit">
               <i className="bi bi-search"></i>
             </button>
-            </form>
-            <Link to="#" onClick={toggle}>
-              <button className="ms-2 bg-transparent" type="button">
-                <FontAwesomeIcon
-                 icon={faCartShopping}
-                 style={{ color: "#000000" }}
-                />
-              </button>
+          </form>
+          <Link to="#" onClick={toggle}>
+            <button className="ms-2 bg-transparent" type="button">
+              <FontAwesomeIcon
+                icon={faCartShopping}
+                style={{ color: "#000000" }}
+              />
+            </button>
+          </Link>
+          <Cart isOpen={modal} toggle={toggle} cartProducts={cartProducts} setCartProducts={setCartProducts} />
 
-             </Link>
-             <Cart isOpen={modal} toggle={toggle} cartProducts={cartProducts} setCartProducts={setCartProducts} />
+          {/* BOTON INICIO SESION */}
+          <ModalInicioSesion />
         </div>
       </div>
     </nav>

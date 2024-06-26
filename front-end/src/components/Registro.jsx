@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import '../styles/styleRegistro.css'
 
-function Registro({toggleComponent}) {
+const Registro = ({toggleComponent}) => {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
