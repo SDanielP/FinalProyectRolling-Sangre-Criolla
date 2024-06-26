@@ -2,10 +2,12 @@ import '../styles/AboutUs.css';
 import { Container, Col, Row, Image } from 'react-bootstrap';
 import InfoNosotros from '../components/about-us/InfoNosotros';
 import NavbarMenu from '../components/general/NavbarMenu';
+import Banner from '../components/home/Banner';
 
-function Nosotros() {
+const Nosotros = () => {
   return (
     <>
+      <Banner />
       <NavbarMenu />
       <Container>
         <Row>

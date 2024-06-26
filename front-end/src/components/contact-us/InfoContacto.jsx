@@ -1,7 +1,7 @@
-import '../Styles/Contact.css';
+import '../styles/Contact.css';
 import { Container } from 'react-bootstrap';
 
-function InfoContacto() {
+const InfoContacto = () => {
   return (
     <>
       <Container className="cajaDatos">

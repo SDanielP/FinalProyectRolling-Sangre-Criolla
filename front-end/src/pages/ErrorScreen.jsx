@@ -3,10 +3,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import React from "react";
 import NavbarMenu from "../components/general/NavbarMenu";
+import Banner from "../components/home/Banner";
 
 const NotFoundPage = () => {
   return (
     <>
+      <Banner />
       <NavbarMenu />
       <div className="not-found-ErrorScreen">
         <div className="background-overlay-ErrorScreen"></div>
