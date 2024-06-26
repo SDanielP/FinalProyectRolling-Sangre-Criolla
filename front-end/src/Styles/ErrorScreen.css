@@ -1,12 +1,17 @@
-body, html {
+/* body, html {
     margin: 0;
     padding: 0;
     width: 100%;
     height: 100%;
     font-family: Arial, sans-serif;
-  }
+  } */
   
-  .not-found {
+  .not-found-ErrorScreen {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: Arial, sans-serif;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -18,7 +23,7 @@ body, html {
     box-sizing: border-box;
   }
   
-  .background-overlay {
+  .background-overlay-ErrorScreen {
     position: absolute;
     top: 0;
     left: 0;
@@ -30,7 +35,7 @@ body, html {
     z-index: -2;
   }
   
-  .background-overlay::after {
+  .background-overlay-ErrorScreen::after {
     content: '';
     position: absolute;
     top: 0;
@@ -41,7 +46,7 @@ body, html {
     z-index: -1;
   }
   
-  .content {
+  .content-ErrorScreen {
     z-index: 1;
     max-width: 100%;
     background-color: rgba(115,50,36, 0.4);
@@ -50,45 +55,45 @@ body, html {
     box-shadow: 0px 8px 15px rgb(0, 0, 0);
   }
   
-  h1 {
+  .h1-ErrorScreen {
     font-size: 5vw;
     margin: 0.2em 0;
   }
   
-  p {
+  .p-ErrorScreen {
     font-size: 2vw;
     margin: 0.5em 0;
   }
   @media (max-width: 600px){
-    h1 {
+    .h1-ErrorScreen {
       font-size: 5vh;
       margin: 0.2em 0;
     }
     
-    p {
+    .p-ErrorScreen {
       font-size: 2vh;
       margin: 0.5em 0;
     }
-    .not-found {
+    .not-found-ErrorScreen {
       height: 80vh;
     }
 
   }/*si no van a utilizar el diseño de pagina sin navbar borrar estos dos */
   @media (max-width: 2000px){
-    .not-found {
+    .not-found-ErrorScreen {
       height: 70vh;
     }
-    h1 {
+    .h1-ErrorScreen {
       font-size: 6vh;
       margin: 0.2em 0;
     }
     
-    p {
+    .p-ErrorScreen {
       font-size: 2.5vh;
       margin: 0.5em 0;
     }
   }/*si no van a utilizar el diseño de pagina sin navbar borrar estos dos */
-  .go-back {
+  .go-back-ErrorScreen {
     padding: 1.3em 3em;
     margin: 3vh 0vh;
     font-size: 15px;
@@ -105,7 +110,7 @@ body, html {
     outline: none;
   }
   
-  .go-back:hover {
+  .go-back-ErrorScreen:hover {
     background-color: #c42323;
     box-shadow: 0px 15px 20px rgba(204, 15, 15, 0.466);
     color: #fff;
@@ -113,13 +118,13 @@ body, html {
     font-weight: bold;
   }
   
-  .go-back:active {
+  .go-back-ErrorScreen:active {
     transform: translateY(-3px);
   }
   
   /*------------------------------------------------- css rueda de hamster-------------------------------------------*/
   
-  .error-animation{
+  .error-animation-ErrorScreen{
     display: flex;
     justify-content: center;
   }

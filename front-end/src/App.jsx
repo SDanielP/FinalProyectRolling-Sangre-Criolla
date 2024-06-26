@@ -9,13 +9,12 @@ import { useSubcategories } from "./store/useSubcategories.js";
 import ProductsScreen from "./pages/ProductsScreen";
 import Home from "./pages/Home.jsx";
 import FrequentQuestions from "./pages/FrequentQuestions.jsx";
-import ErrorScreen from "./pages/ErrorScreen.jsx";
 import Nosotros from "./pages/AboutUs.jsx";
 import PaymentForm from "./pages/payments.jsx";
 import DProd from "./components/shop/productDetail/Dprod.jsx";
 import RecuperacionContra from "./pages/RecuperacionContra.jsx";
-// import { RecuperacionContra} from "./pages/RecuperacionContra.jsx";
-// import Contacto from "./pages/Contact.jsx";
+import ErrorScreen from "./pages/ErrorScreen.jsx"
+import Contact from "./pages/Contact.jsx";
 // import ImgP from "./components/shop/compProductDet/ImgP.jsx";
 
 
@@ -64,7 +63,6 @@ const App = () => {
   return (
     
     <Router>
-        {/* <NavbarMenu key={9000}/> */}
         <Routes>
           <Route key={1000} path="/" element={<Home />} />
           <Route key={3000} path="products/all" element={<ProductsScreen />} />
@@ -75,8 +73,8 @@ const App = () => {
            <Route key={6000} path="/payments" element={<PaymentForm/>} />
           {/* <Route key={5000} path="products/:category/:id/modal" element={<ImgP />} /> */}
           <Route key={7000} path="/about-us" element={<Nosotros />} />
-          {/* <Route key={8000} path="/contact-us" element={<Contacto />} /> */}
-          <Route key={9000} path="*" element={<ErrorScreen />} />
+          <Route key={8000} path="/contact-us" element={<Contacto />} />
+          <Route key={9000} path="/page-not-found" element={<ErrorScreen />} />
           <Route
             key={10000}
             path="/frequent-questions"
@@ -84,7 +82,6 @@ const App = () => {
           />
           <Route key={11000} path="/rec-contra" element={<RecuperacionContra />} />
           {/* <Route path="/Iniciar-Sesion" element={<Modal />} /> */}
-          {/* <Route path="*" element={<Error404 />}/> */}
         </Routes>
       </Router>
   );

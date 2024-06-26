@@ -4,16 +4,16 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import React from "react";
 import NavbarMenu from "../components/general/NavbarMenu";
 
-function NotFoundPage() {
+const NotFoundPage = () => {
   return (
     <>
       <NavbarMenu />
-      <div className="not-found">
-        <div className="background-overlay"></div>
-        <div className="content">
-          <h1>404 </h1>
-          <p> Página no encontrada</p>
-          <div className="error-animation">
+      <div className="not-found-ErrorScreen">
+        <div className="background-overlay-ErrorScreen"></div>
+        <div className="content-ErrorScreen">
+          <h1 className="h1-ErrorScreen">404 </h1>
+          <p className="p-ErrorScreen"> Página no encontrada</p>
+          <div className="error-animation-ErrorScreen">
             <div
               aria-label="Orange and tan hamster running in a metal wheel"
               role="img"
@@ -37,9 +37,9 @@ function NotFoundPage() {
               <div className="spoke"></div>
             </div>
           </div>
-          <p>Lo sentimos, la página que estás buscando no existe.</p>
-          <p>Para seguir comprando:</p>
-          <button className="go-back">Click Aquí</button>
+          <p className="p-ErrorScreen">Lo sentimos, la página que estás buscando no existe.</p>
+          <p className="p-ErrorScreen">Para seguir comprando:</p>
+          <button className="go-back-ErrorScreen">Click Aquí</button>
         </div>
       </div>
     </>

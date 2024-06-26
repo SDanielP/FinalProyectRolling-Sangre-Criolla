@@ -59,11 +59,7 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink
-                to="/products/all"
-                className="nav-link"
-                aria-current="page"
-              >
+              <NavLink to="/page-not-found" className="nav-link" aria-current="page">
                 Contacto
               </NavLink>
             </li>
