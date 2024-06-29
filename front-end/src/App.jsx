@@ -14,6 +14,7 @@ import PaymentForm from "./pages/payments.jsx";
 import DProd from "./components/shop/productDetail/Dprod.jsx";
 import RecuperacionContra from "./pages/RecuperacionContra.jsx";
 import ErrorScreen from "./pages/ErrorScreen.jsx"
+import SearchScreen from "./pages/SearchScreen.jsx"
 // import Contact from "./pages/Contact.jsx";
 // import ImgP from "./components/shop/compProductDet/ImgP.jsx";
 
@@ -82,6 +83,7 @@ const App = () => {
           />
           <Route key={11000} path="/rec-contra" element={<RecuperacionContra />} />
           {/* <Route path="/Iniciar-Sesion" element={<Modal />} /> */}
+          <Route key={13000} path="/search?" element={<SearchScreen />} />
         </Routes>
       </Router>
   );
