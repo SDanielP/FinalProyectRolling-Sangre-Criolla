@@ -2,47 +2,47 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
 
 /*=============== VARIABLES CSS ===============*/
-:root {
+/* :root { */
     /*========== Colors ==========*/
-    /* --first-color: hsl(82, 60%, 28%); */
-    --title-color: hsl(0, 0%, 15%);
-    --text-color: hsl(0, 0%, 35%);
-    --hover-color: hsl(0, 0%, 61%);
-    --body-color: hsl(27, 30%, 49%);
-    --body-color2: hsl(27, 29%, 40%);
-    --body-color3: hsl(27, 29%, 35%);
-    --container-color: hsl(0, 0%, 100%);
-    --text-btn-color: hsl(0, 0%, 100%);
+    /* --first-color: rgb(83, 114, 29); */
+    /* --title-color: rgb(38, 38, 38); */
+    /* --text-color: rgb(89, 89, 89);
+    --hover-color: rgb(156, 156, 156);
+    --body-color: rgb(162, 121, 87);
+    --body-color2: rgb(132, 99, 72);
+    --body-color3: rgb(115, 87, 63);
+    --container-color: rgb(255, 255, 255);
+    --text-btn-color: rgb(255, 255, 255);
     --price-color: rgba(252, 184, 50, 1);
-    --fav-color: rgb(211, 62, 62);
+    --fav-color: rgb(211, 62, 62); */
 
     /*========== Font and typography ==========*/
-    --body-font: "Poppins", sans-serif;
+    /* --body-font: "Poppins", sans-serif;
     --h2-font-size: 1rem;
-    --small-font-size: 0.75rem;
-}
+    --small-font-size: 0.75rem; */
+/* } */
 
 /*========== Responsive typography ==========*/
-@media screen and (min-width: 1120px) {
+/* @media screen and (min-width: 1120px) {
     :root {
         --h2-font-size: 1.25rem;
         --small-font-size: 0.813rem;
     }
-}
+} */
 
 /*=============== BASE ===============*/
-* {
+/* * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-}
+} */
 
-body {
-    font-family: var(--body-font);
-    background-color: var(--body-color);
-}
+/* .background-body { */
+    /* font-family: var(--body-font); */
+    /* background-color: rgb(162, 121, 87); */
+/* } */
 
-img {
+.imgProducto {
     display: block;
     max-width: 100%;
     height: auto;

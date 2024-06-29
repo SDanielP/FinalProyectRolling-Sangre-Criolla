@@ -106,7 +106,7 @@ const ProductCard = ({ producto }) => {
   };
 
   return (
-    <div>
+    <div className="background-body">
       <div className="containerCard" key={producto._id}>
         {/* --- Imagen producto y botones (carrito, favorito y vista rapida/añadir al carrito) ---*/}
         <div className="card__container tarjetaProducto">

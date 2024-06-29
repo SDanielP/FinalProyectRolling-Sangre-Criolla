@@ -26,15 +26,6 @@
     max-height: 10vh;
 }
 
-/* .contenedor-fotos-lateral{
-    display: flex;
-    flex-direction: row;
-    height: 20vh;
-    max-height: 20vh;
-    overflow-x: auto;
-    box-sizing: border-box;
-} */
-
 .max-w-100 {
     width: 100%;
     max-width: 100%;

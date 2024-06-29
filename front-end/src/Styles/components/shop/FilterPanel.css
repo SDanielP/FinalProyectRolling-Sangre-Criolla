@@ -25,9 +25,13 @@
   background: transparent;
 }
 
-p {
+.title-filter-panel{
   color: beige;
   font-weight: 500;
   padding-top: 1.5rem;
   margin-bottom: 0 !important;
+}
+
+.hr-color {
+  color: beige !important;
 }

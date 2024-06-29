@@ -82,7 +82,7 @@ const CategoriesFilter = () => {
         onClick={handleOnClickTodos}
         className="category-btn"
       >
-        <Button>Todos</Button>
+        <Button className="category-btn">Todos</Button>
       </NavLink>
 
       {/* Mujeres */}

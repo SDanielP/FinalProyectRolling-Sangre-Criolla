@@ -5,6 +5,7 @@
     flex-direction: row !important;
     justify-content: space-between !important;
     align-items: center !important;
+    text-decoration: none!important;
 }
 
 .men-subcategories,
