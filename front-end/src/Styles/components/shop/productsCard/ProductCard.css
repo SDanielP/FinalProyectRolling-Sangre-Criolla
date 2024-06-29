@@ -172,8 +172,8 @@
     color: rgba(252, 184, 50, 1);
 }
 
-.card__button:hover {
-    background-color: rgb(132, 99, 72) !important;
+.card__button__vistaRapida:hover {
+    background-color: rgb(115, 87, 63) !important;
     color: rgb(255, 255, 255);
 }
 
@@ -193,8 +193,6 @@
         opacity: 1;
         background-color: rgb(162, 121, 87);
     }
-
-    ;
 
     .fav-btn {
         cursor: pointer;
