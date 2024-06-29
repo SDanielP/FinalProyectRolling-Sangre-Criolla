@@ -12,10 +12,14 @@ import fetchProductById from "../compProductDet/fetchProductById";
 import useCart from "../carts/useCart";
 
 const ProductCard = ({ producto }) => {
+/* ----- Defino useNavigate() para navegar en el proyecto ----- */
   const navigate = useNavigate();
+
+/* ----- Estados para el carrito ----- */
   const [cartProducts, updateCart] = useCart();
   const [tooltipText, setTooltipText] = useState('Añadir al carrito');
 
+/* ----- Traer cada producto ----- */
   const handleQuickView = async () => {
     try {
       const productData = await fetchProductById(producto._id);
@@ -25,6 +29,8 @@ const ProductCard = ({ producto }) => {
     }
   };
 
+
+  /* ----- Mensajes durante hover en botones Carrito y Fav -----*/
   const tooltipAddToCart = (props) => (
     <Tooltip id="tooltip" {...props} className="hoverBag">
       {tooltipText}
@@ -37,6 +43,8 @@ const ProductCard = ({ producto }) => {
     </Tooltip>
   );
 
+
+  /* ----- Funcionalidad AGREGAR AL CARRITO ----- */
   const handleAddToCart = () => {
     const updatedCart = [...cartProducts];
     const existingProductIndex = updatedCart.findIndex((product) => product.id === producto._id);
