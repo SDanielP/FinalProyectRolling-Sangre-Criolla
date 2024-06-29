@@ -38,7 +38,7 @@ const Registro = ({toggleComponent}) => {
     };
     return (
         <div className="formulario">
-            <h1 className="titulo transparente">Regístrate</h1>
+            <h1 className="titulo-registro transparente">Regístrate</h1>
             <a className="transparente btnChange" onClick={toggleComponent}>¿Ya tienes un perfil personal? Inicia sesión</a>
             <div className="formularioInput">
                 <form className="transparente" onSubmit={handleRegisterSubmit} action="">

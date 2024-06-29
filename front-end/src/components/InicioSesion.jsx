@@ -46,7 +46,7 @@ import { useState } from 'react';
     return (
         < div className="formulario" >
             {/* --- INICIAR SESION --- */}
-            <h1 className="titulo transparente">Iniciar Sesión</h1>
+            <h1 className="titulo-iniciar-sesion transparente">Iniciar Sesión</h1>
             <a className="transparente btnChange" onClick={toggleComponent}>¿Eres nuevo en este sitio? Regístrate</a>
             <div className="formularioInput">
                 {/* --- COMIENZO DE FORMULARIO --- */}

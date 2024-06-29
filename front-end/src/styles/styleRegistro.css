@@ -1,4 +1,4 @@
-*{
+/* *{
     background-color: beige;
     margin: 0%;
     padding: 0%;
@@ -13,13 +13,15 @@ body{
     min-width: 200px;
     min-height: 50vh;
 
-}
-.titulo{
+} */
+.titulo-registro{
     color: rgb(22, 22, 20);
     text-shadow: #221f1c;
     font-size: 45px;
     display: flex;
     flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
 }
 .formulario{
     display: flex;
