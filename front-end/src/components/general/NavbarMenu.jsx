@@ -5,10 +5,11 @@ import { NavLink, Link } from "react-router-dom";
 import logo from '../../assets/img/homeIMG/perfil-negro-1v2-100x100.jpg';
 import Cart from "../shop/carts/cart";
 import ModalInicioSesion from '../Modal-InicioSesion';
+import { useCartModal } from '../../store/useCartModal';
 
 const Navbar = () => {
-  const [modal, setModal] = useState(false);
-  const toggle = () => setModal(!modal);
+  const {isOpenCartModal, setOpenCartModal} = useCartModal();
+  const toggle = () => setOpenCartModal(!isOpenCartModal);
   const [cartProducts, setCartProducts] = useState([]); // Estado para almacenar los productos del carrito
 
   // Función para cargar los productos del carrito desde el almacenamiento local
@@ -96,7 +97,7 @@ const Navbar = () => {
               />
             </button>
           </Link>
-          <Cart isOpen={modal} toggle={toggle} cartProducts={cartProducts} setCartProducts={setCartProducts} />
+          <Cart isOpen={!isOpenCartModal} toggle={toggle} cartProducts={cartProducts} setCartProducts={setCartProducts} />
 
           {/* BOTON INICIO SESION */}
           <ModalInicioSesion />

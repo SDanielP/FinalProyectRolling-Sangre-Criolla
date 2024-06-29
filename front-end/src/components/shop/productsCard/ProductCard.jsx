@@ -10,6 +10,7 @@ import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 import fetchProductById from "../compProductDet/fetchProductById";
 import useCart from "../carts/useCart";
+import { useCartModal } from "../../../store/useCartModal"
 
 const ProductCard = ({ producto }) => {
 /* ----- Defino useNavigate() para navegar en el proyecto ----- */
@@ -43,8 +44,10 @@ const ProductCard = ({ producto }) => {
     </Tooltip>
   );
 
-
+  
   /* ----- Funcionalidad AGREGAR AL CARRITO ----- */
+  const {isOpenCartModal, setOpenCartModal} = useCartModal();
+
   const handleAddToCart = () => {
     const updatedCart = [...cartProducts];
     const existingProductIndex = updatedCart.findIndex((product) => product.id === producto._id);
@@ -67,6 +70,7 @@ const ProductCard = ({ producto }) => {
     }, 2000);
 
     updateCart(updatedCart);
+    setOpenCartModal(!isOpenCartModal);
   };
 
   return (
