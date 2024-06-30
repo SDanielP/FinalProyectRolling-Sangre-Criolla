@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { Modal, ModalHeader, ModalBody, ModalFooter, Button, ListGroup, ListGroupItem, Input } from 'reactstrap';
+import { Modal, ModalHeader, ModalBody, ModalFooter, Button, ListGroup, Input } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../../styles/components/shop/carts/cart.css';
@@ -43,28 +43,42 @@ const Cart = ({ isOpen, toggle }) => {
       <ModalHeader toggle={toggle}>Productos en su Carrito</ModalHeader>
       <ModalBody>
         <ListGroup>
-          {cartProducts.map((product, index) => (
-            <ListGroupItem key={index}>
-              <div>{product.name}</div>
-              <div>
-                <Input
-                  type="number"
-                  value={product.quantity}
-                  onChange={(e) => handleQuantityChange(index, parseInt(e.target.value))}
-                  min={1}
-                  step={1}
-                />
-              </div>
-              <div>Talle: {product.size}</div>
-              <div>Precio: ${product.price}</div>
-              <div>
-                <Button id="btnCart" color="danger" onClick={() => handleDeleteProduct(index)}>Eliminar</Button>
-              </div>
-            </ListGroupItem>
-          ))}
+        <table className="table-cart">
+                <thead>
+                  <tr>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Talle</th>
+                    <th>Precio</th>
+                    <th>Acciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {cartProducts.map((product, index) => (
+                    <tr key={index}>
+                      <td>{product.name}</td>
+                      <td>
+                        <Input
+                          type="number"
+                          className="input-cart"
+                          value={product.quantity}
+                          onChange={(e) => handleQuantityChange(index, parseInt(e.target.value))}
+                          min={1}
+                          step={1}
+                        />
+                      </td>
+                      <td>{product.size}</td>
+                      <td>${product.price}</td>
+                      <td>
+                        <button className="button-cart" onClick={() => handleDeleteProduct(index)}> Eliminar </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
         </ListGroup>
       </ModalBody>
-      <ModalFooter>
+      <ModalFooter className='cartButtonContinue'>
         <div>Total: ${total}</div>
         <NavLink to="/payments">
           <Button id="nextStep" color="primary" onClick={handleConfirmPurchase}>Continuar Compra</Button>

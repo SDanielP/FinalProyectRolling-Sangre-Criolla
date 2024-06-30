@@ -69,10 +69,10 @@ const App = () => {
           />
           <Route key={11000} path="/recuperacion-contrasena" element={<RecuperacionContra />} />
           <Route key={13000} path="/search" element={<SearchScreen />} />
+          <Route key={14000} path="/admin" element={<Admin />} />
         </Routes>
       </Router>
   );
 };
 
-export default App;
 export default App;
