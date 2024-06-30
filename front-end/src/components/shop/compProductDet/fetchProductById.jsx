@@ -1,6 +1,6 @@
 const fetchProductById = async (id) => {
     try {
-      const response = await fetch(`http://localhost:4000/products/${id}`);
+      const response = await fetch(`https://sangrecriolla-back-end.onrender.com/products/${id}`);
       if (!response.ok) {
         throw new Error("Error en la solicitud: " + response.status);
       }

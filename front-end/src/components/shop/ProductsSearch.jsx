@@ -28,7 +28,7 @@ const Products = ({
   const getProductos = useCallback(async () => {
     setLoading(true);
     try {
-      const response = await fetch("http://localhost:4000/products");
+      const response = await fetch("https://sangrecriolla-back-end.onrender.com/products");
       if (!response.ok) {
         throw new Error("Error en la solicitud: " + response.status);
       }
