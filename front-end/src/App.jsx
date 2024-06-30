@@ -16,6 +16,7 @@ import RecuperacionContra from "./pages/RecuperacionContra.jsx";
 import ErrorScreen from "./pages/ErrorScreen.jsx"
 import SearchScreen from "./pages/SearchScreen.jsx"
 import ContactUs from "./pages/ContactUs.jsx";
+import Admin from "./pages/admin"
 
 const url = "https://sangrecriolla-back-end.onrender.com"
 
@@ -68,6 +69,7 @@ const App = () => {
           />
           <Route key={11000} path="/recuperacion-contrasena" element={<RecuperacionContra />} />
           <Route key={13000} path="/search" element={<SearchScreen />} />
+          <Route key={14000} path="/admin" element={<Admin />} />
         </Routes>
       </Router>
   );
