@@ -1,5 +1,5 @@
-import '../styles/admin.css'; // Asegúrate de que la ruta sea correcta
-import CustomModal from '../components/admin/modalAdmin';
+import '../styles/Admin.css'; // Asegúrate de que la ruta sea correcta
+import CustomModal from '../components/admin/modalAdmin.jsx';
 import { useEffect, useState } from 'react';
 
 const Admin = () => {
@@ -27,7 +27,7 @@ const Admin = () => {
   });
 
   useEffect(() => {
-    fetch('http://sangrecriolla-back-end.onrender.com/api/users', {
+    fetch('https://sangrecriolla-back-end.onrender.com/api/users', {
       // Aquí se especifica el modo CORS
       mode: 'cors'
     })
@@ -52,7 +52,7 @@ const Admin = () => {
   
 
   useEffect(() => {
-    fetch('http://sangrecriolla-back-end.onrender.com/products/')
+    fetch('https://sangrecriolla-back-end.onrender.com/products/')
       .then(response => {
         if (!response.ok) {
           throw new Error('Error en la solicitud: ' + response.status);
@@ -313,7 +313,7 @@ const Admin = () => {
                   <h1>Añadir Productos</h1>
                 </div>
               </div>
-              <ul className="box-info">
+              <ul className="box-info-admin">
                 <div className="form-container-admin">
                   <form id="add-product-form" onSubmit={handleAddProduct}>
                     
@@ -336,7 +336,7 @@ const Admin = () => {
                     <div className="form-group-admin">
                       <label>Talle</label>
                       {newProduct.size.map((size, index) => (
-                        <div key={index} className="size-input">
+                        <div key={index} className="size-input-admin">
                           <input
                             type="text"
                             value={size}
@@ -391,7 +391,7 @@ const Admin = () => {
                     <h1>Lista de Productos</h1>
                   </div>
                 </div>
-                <ul className="box-info">
+                <ul className="box-info-admin">
                   <form>
                     <table className="tablaAdmin">
                       <thead>
@@ -452,7 +452,7 @@ const Admin = () => {
                 </div>
               </div>
 
-              <ul className="box-info">
+              <ul className="box-info-admin">
                 <form onSubmit={handleSubmitUsuarios}>
                   <table id='tablaRz' className="tablaAdmin">
                     <thead>

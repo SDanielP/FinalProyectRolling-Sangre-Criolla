@@ -174,9 +174,6 @@
 	left: 15rem;
 }
 
-#search-button {
-	display: none;
-}
 .hidden {
     visibility: hidden;
 }
@@ -255,28 +252,28 @@
 
 #contentAdmin main {
 	margin-top: 80px;
-	}
+}
 #añadirProductos {
 	margin-top: 230px;
 	margin-left: -280px;
-
-	}
+}
+#añadirProductos .head-title-admin{
+	margin-left: 25rem;
+}
 	
 #contentAdmin main .head-title-admin {
     font-family: var(--poppins);
 	text-align: center;
-  }
-  #contentAdmin main .head-title-admin .left h1 {
+}
+#contentAdmin main .head-title-admin .left {
 	font-size: 36px;
 	font-weight: 600;
 	margin-bottom: 10px;
 	color: var(--dark);
+	margin-top: 230px;
+	margin-left: -25rem;
   }
 
-input[type="file"] {
-	display: none;
-  }
-  
   .custom-file-upload {
 	display: inline-block;
 	padding: 10px 20px;
@@ -364,10 +361,9 @@ input[type="file"] {
 	margin-top: 239px;
   }
   
-  .conteiner-admin .head-title-admin .left h1{
+  #administrarProductos .head-title-admin {
 	width: 400px;
-	margin-left: 27vw;
-	
+	margin-left: 45rem;	
   }
   
   .tablaAdmin {
@@ -378,10 +374,11 @@ input[type="file"] {
 
   #tablaRz {
 	width: 40vw;
-	margin: 0 auto;
+	margin-left: 20vw;
+	margin-top: 10vw;
   }
   #btnRz {
-	margin-left: 33vw;
+	margin-left: 5vw;
   }
   
   .tablaAdmin th, .tablaAdmin td {
@@ -399,16 +396,20 @@ input[type="file"] {
 	color: var(--dark);
   }
 
-  .box-info button{
-	background-color: var(--dark-grey);
-	color: var(--blue);
+  #administrarUsuarios .box-info-admin{
+	margin-top: -170px;
   }
-  .box-info button:hover {
-	background: var(--red);
+
+  .box-info-admin button{
+	background-color: var(--dark-grey) !important;
+	color: var(--blue) !important;
+  }
+  .box-info-admin button:hover {
+	background: var(--red) !important;
 	color: white;
 	transition: .5s ease;
   }
-  .box-info select{
+  .box-info-admin select{
 	background-color: var(--dark-grey);
 	color: var(--blue);
   }
@@ -422,7 +423,7 @@ input[type="file"] {
 	.classic {
 		background: var(--grey);
 		overflow-x: hidden;
-		width: 98vw;
+		width: 100vw;
 		height: 100vh;
 	}
 	
@@ -438,11 +439,25 @@ input[type="file"] {
 		top: 200px;
 		margin-left: 18px;
 	}
-	#añadirProductos .box-info{
+	#añadirProductos .box-info-admin{
 		margin-left: -195px;
+	}
+	#administrarProductos .head-title-admin{
+		margin-left: 25.5rem;
 	}
 	#añadirProductos .form-container-admin{
 		width: 75vw;
+	}
+
+	#administrarUsuarios {
+		margin-top: 10rem;
+	}
+	#administrarUsuarios .head-title-admin{
+		margin-left: 26rem;
+	}
+	#administrarUsuarios .box-info-admin{
+		margin-top: -1rem;
+		margin-left: -80px;
 	}
 
 	#contentAdmin {
@@ -480,7 +495,7 @@ input[type="file"] {
 		width: 60px;
 	}
 
-	.box-info select{
+	.box-info-admin select{
 		font-size: 12px;
 		width: 80px;
 	}
@@ -559,7 +574,7 @@ input[type="file"] {
 		top: 200px;
 		margin-left: 1rem;
 	}
-	#añadirProductos .box-info{
+	#añadirProductos .box-info-admin{
 		margin-left: -195px;
 	}
 	#añadirProductos .form-container-admin{
@@ -592,15 +607,24 @@ input[type="file"] {
 		width: 25px;
 		font-size: small;
 		margin-left: 2vw;
-		
 	}
+	#administrarProductos .head-title-admin{
+		margin-left: 25rem; 
+	}
+
 	.conteiner-admin ul{
 		margin-left: 12vw;
 		
 	}
-	.conteiner-2-admin {
-		margin-top: -190px;
+	#administrarUsuarios {
+		margin-top: 2rem;
 		
+	}
+	#administrarUsuarios .head-title-admin {
+		margin-left: 25rem;
+	}
+	#administrarUsuarios .box-info-admin {
+		margin-top: -4rem ;
 	}
 
 	#contentAdmin nav #changeSun {
@@ -617,10 +641,10 @@ input[type="file"] {
 		margin-left: 6rem;
 	}
 	#btnRz {
-		margin-left: 33vw;
+		margin-left: 13vw;
 	}
 
-	.box-info select{
+	.box-info-admin select{
 		font-size: 12px;
 		width: 80px;
 	}
