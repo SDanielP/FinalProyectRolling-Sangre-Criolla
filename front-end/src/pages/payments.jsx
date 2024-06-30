@@ -227,10 +227,11 @@ const PaymentForm = () => {
         </tbody>
       </table>
       <h2>Total: ${total}</h2>
-    </div>
-
-      <button type="submit">PAGAR</button>
-      <button type="button" onClick={() => window.location.href = '/products/all'}>CANCELAR</button>
+    </div >
+     <section >
+      <button className="btn-paym" type="submit">PAGAR</button>
+      <button className="btn-paym" type="button" onClick={() => window.location.href = '/products/all'}>CANCELAR</button>
+      </section>
     </form>
     </>
   );

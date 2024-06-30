@@ -124,7 +124,7 @@ function FormProd({ name, price, color, sizes, id}) {
                 value={quantities[id]}
                 onChange={handleQuantityChange}
               />
-         <Button id="addToCart" color="primary" type="submit" className={buttonClass}>
+         <Button id="addToCart" variant="outline-primary" type="submit" className={buttonClass}>
               {buttonText}
             </Button>
           <Button variant="outline-secondary" size="lg" onClick={handleBuyNow}>

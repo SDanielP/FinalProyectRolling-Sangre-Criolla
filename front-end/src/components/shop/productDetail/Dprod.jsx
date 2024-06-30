@@ -7,6 +7,7 @@ import ProductDetails from "../compProductDet/ProductDetailsAuxiliar";
 import FormProd from "../compProductDet/FormProd";
 import DescEnv from "../compProductDet/DescEnv";
 import NavbarMenu from "../../general/NavbarMenu";
+import Footer from "../../general/footer/Footer";
 
 function DProd() {
   const [product, setProduct] = useState({
@@ -56,6 +57,7 @@ function DProd() {
       </Row>
       <ProductDetails onProductLoad={handleProductLoad} />
     </Container>
+    <Footer/>
     </>
   );
 }
