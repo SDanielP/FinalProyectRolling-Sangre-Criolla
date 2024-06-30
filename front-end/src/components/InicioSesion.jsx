@@ -1,7 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import '../styles/styleInicioSesion.css'
 import { useState } from 'react';
-// import {useRegistroOpen} from '../store/useRegistroOpen'
 const url = "https://sangrecriolla-back-end.onrender.com";
 
     const InicioSesion = ({toggleComponent}) => {
@@ -34,7 +33,6 @@ const url = "https://sangrecriolla-back-end.onrender.com";
                 setError(true)
                 alert("Logueo exitoso");
                 console.log('Usuario logueado con éxito.');
-                // Aquí puedes agregar la lógica adicional, como redireccionar al usuario a otra página.
             } else {
                 console.error('Error al ingresar el usuario:', data.message || response.statusText);
             }

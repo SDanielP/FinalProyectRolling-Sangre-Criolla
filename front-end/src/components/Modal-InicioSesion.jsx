@@ -4,6 +4,7 @@ import Modal from 'react-bootstrap/Modal';
 import InicioSesion from './InicioSesion';
 import Registro from './Registro';
 import "../styles/styleModal.css"
+
 const ModalInicioSesion = () => {
   const [show, setShow] = useState(false);
 
@@ -17,7 +18,7 @@ const ModalInicioSesion = () => {
   };
   return (
     <>
-      <button variant="dark" onClick={handleShow}>
+      <button className='button' variant="dark" onClick={handleShow} >
         Iniciar Sesión
       </button>
 
@@ -32,10 +33,6 @@ const ModalInicioSesion = () => {
           )}
         </Modal.Body>
         <Modal.Footer className='modal-footer'>
-          {/* <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary">Understood</Button> */}
         </Modal.Footer>
       </Modal>
     </>

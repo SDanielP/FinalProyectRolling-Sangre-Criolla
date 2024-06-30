@@ -12,6 +12,7 @@
     align-items: center;
     flex-direction: row;
 }
+
 /*----- PALETA DE COLORES ----- */
 .marronOscuro{
     background-color: #73503C;
@@ -28,6 +29,6 @@
 .marronRojizo{
     background-color: #733224;
 } 
-.transparente{
+.transparente-modal{
     background: transparent;
 }
