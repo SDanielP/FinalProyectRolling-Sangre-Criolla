@@ -1,0 +1,50 @@
+#nextStep {
+  background-color: #007bff !important; 
+}
+
+#btnCart {
+  color: #007bff !important; 
+  z-index: 10000;
+}
+
+.shopping-cart-modal .modal-content {
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.9);
+  max-height: 80vh;
+  width: 20vw;
+  margin-right: 15px;
+  position: fixed;
+  right: 0;
+  top: 15px; 
+  transform: translateX(0%);
+  overflow-y: auto;
+  font-size: small;
+}
+
+.shopping-cart-modal .modal-header,
+.shopping-cart-modal .modal-footer {
+  border-bottom: none;
+  border-top: none;
+}
+
+.list-group-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.buscador-usuario-elemento {
+  margin: 20px;
+}
+
+@media (max-width: 768px) {
+  .shopping-cart-modal .modal-content {
+    width: 90vw; /* Ancho del 90% en dispositivos pequeños */
+    left: 50%;
+    transform: translateX(-50%);
+    max-height: 90vh; /* Máxima altura del 90% de la altura de la ventana */
+    /* top: 50%; */
+    overflow-y: auto;
+    font-size: small;
+  }
+}

@@ -1,0 +1,65 @@
+/* Contenedor Vertical */
+.cajaDatos {
+  background-color: #a6907c;
+  padding: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+/* Tarjetas Individuales */
+.cajaContacto {
+  color: #fff;
+  padding: 1.5rem;
+  margin: 10px;
+  background-color: #73503c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.3rem;
+  border-radius: 8px;
+  width: 100%;
+}
+
+.iconoContacto {
+  color: white;
+  background-color: #260e09;
+  padding: 1.3rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.bordeFormulario {
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+  background-color: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.centrarFormulario {
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.colorBoton {
+  border: 1px solid #260e09;
+  background-color: #73503c;
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+.colorBoton:hover {
+  border: 1px solid #260e09;
+  background-color: #a6907c !important;
+  color: #000000;
+}
+
+.headerColor {
+  background-color: #73503c;
+  color: #fff;
+}
