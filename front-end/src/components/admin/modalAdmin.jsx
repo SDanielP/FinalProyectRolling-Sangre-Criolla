@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './ModalStyle.css';
+import '../../styles/components/ModalStyle.css';
 
 
 const CustomModal = ({ data, closeModal, refreshProducts }) => {
@@ -24,7 +24,7 @@ const CustomModal = ({ data, closeModal, refreshProducts }) => {
       image: images,
     };
 
-    fetch(`http://localhost:4000/products/${data._id}`, {
+    fetch(`http://sangrecriolla-back-end.onrender.com/products/${data._id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -41,7 +41,7 @@ const CustomModal = ({ data, closeModal, refreshProducts }) => {
   const handleDelete = () => {
     const confirmDelete = window.confirm('¿Estás seguro de que quieres eliminar este producto?');
     if (confirmDelete) {
-      fetch(`http://localhost:4000/products/${data._id}`, {
+      fetch(`http://sangrecriolla-back-end.onrender.com/products/${data._id}`, {
         method: 'DELETE',
       })
         .then(response => response.json())

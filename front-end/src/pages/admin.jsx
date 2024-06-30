@@ -1,5 +1,5 @@
-import './admin.css'; // Asegúrate de que la ruta sea correcta
-import CustomModal from './components/modalAdmin';
+import '../styles/admin.css'; // Asegúrate de que la ruta sea correcta
+import CustomModal from '../components/admin/modalAdmin';
 import { useEffect, useState } from 'react';
 
 const Admin = () => {
@@ -27,19 +27,32 @@ const Admin = () => {
   });
 
   useEffect(() => {
-    fetch('http://localhost:4000/api/users')
-      .then(response => response.json())
+    fetch('http://sangrecriolla-back-end.onrender.com/api/users', {
+      // Aquí se especifica el modo CORS
+      mode: 'cors'
+    })
+      .then(response => {
+        // Verificar si la respuesta es exitosa
+        if (!response.ok) {
+          throw new Error('Error en la red');
+        }
+        return response.json();
+      })
       .then(data => {
+        // Mostrar los datos recibidos en la consola
         console.log("Datos recibidos de la API:", data);
+        // Actualizar el estado con los usuarios obtenidos
         setUsers(data.users);
       })
       .catch(error => {
+        // Manejo de errores
         console.error('Ha ocurrido un error:', error);
       });
   }, []);
+  
 
   useEffect(() => {
-    fetch('http://localhost:4000/products')
+    fetch('http://sangrecriolla-back-end.onrender.com/products/')
       .then(response => {
         if (!response.ok) {
           throw new Error('Error en la solicitud: ' + response.status);
@@ -66,7 +79,7 @@ const Admin = () => {
   }, []);
 
   useEffect(() => {
-    const allSideMenu = document.querySelectorAll('#sidebar .side-menu.top li a');
+    const allSideMenu = document.querySelectorAll('#sidebarAdmin .side-menu.top li a');
     allSideMenu.forEach(item => {
       const li = item.parentElement;
       item.addEventListener('click', () => {
@@ -133,7 +146,7 @@ const Admin = () => {
 
     const usuariosModificados = users.filter(user => user.modified);
     const promises = usuariosModificados.map(user => 
-      fetch(`http://localhost:4000/api/users/${user._id}`, {
+      fetch(`http://sangrecriolla-back-end.onrender.com/api/users/${user._id}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json'
@@ -221,7 +234,7 @@ const Admin = () => {
   const handleAddProduct = (event) => {
     event.preventDefault();
 
-    fetch('http://localhost:4000/products', {
+    fetch('http://sangrecriolla-back-end.onrender.com/products', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -238,13 +251,10 @@ const Admin = () => {
       .catch(error => console.error('Error al agregar el producto:', error));
   };
 
-  if (products.length === 0) {
-    return <div>Cargando...</div>;
-  }
 
   return (
-    <div className={darkMode ? 'dark' : ''}>
-      <section id="sidebar" className={sidebarHide ? 'hide' : ''}>
+    <div id='adminPage' className={darkMode ? 'dark' : 'classic'}>
+      <section id="sidebarAdmin" className={sidebarHide ? 'hide' : ''}>
         <a className="brand" href="#">
           <i className="bx bx-user-plus" />
           <span className="text">ADMINISTRADOR</span>
@@ -278,7 +288,7 @@ const Admin = () => {
           </li>
         </ul>
       </section>
-      <section id="content">
+      <section id="contentAdmin">
         <nav className='navBar'>
           <i className="bx bx-menu" onClick={handleSidebarToggle} />
           <a className="nav-link hidden" href="#">Categorias</a>
@@ -383,7 +393,7 @@ const Admin = () => {
                 </div>
                 <ul className="box-info">
                   <form>
-                    <table className="tabla">
+                    <table className="tablaAdmin">
                       <thead>
                         <tr>
                           <th>Imagen</th>
@@ -444,7 +454,7 @@ const Admin = () => {
 
               <ul className="box-info">
                 <form onSubmit={handleSubmitUsuarios}>
-                  <table id='tablaRz' className="tabla">
+                  <table id='tablaRz' className="tablaAdmin">
                     <thead>
                       <tr>
                         <th>Nombre</th>

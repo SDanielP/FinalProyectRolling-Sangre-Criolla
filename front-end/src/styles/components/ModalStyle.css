@@ -18,10 +18,10 @@
     border-radius: 8px;
     max-width: 600px;
     width: 100%;
-    max-height: 90vh; /* Limitar la altura máxima para permitir scroll interno */
-    overflow-y: auto; /* Agregar scroll interno si el contenido es muy grande */
+    max-height: 90vh;
+    overflow-y: auto;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin: 20px; /* Añadir margen para evitar el recorte en los bordes */
+    margin: 20px;
   }
   
   .modal-header {
@@ -61,7 +61,7 @@
   
   .item-details .form-group-modal-admin {
     margin-bottom: 15px;
-    width: 400px; /* Asegurar que los inputs ocupen el 100% del contenedor */
+    width: 400px; 
   }
   
   .item-details .form-group-modal-admin label {
@@ -125,6 +125,6 @@
   @media screen and (max-width: 576px) {
     .item-details .form-group-modal-admin {
       margin-bottom: 15px;
-      width: 300px; /* Asegurar que los inputs ocupen el 100% del contenedor */
+      width: 300px;
     }
   }
