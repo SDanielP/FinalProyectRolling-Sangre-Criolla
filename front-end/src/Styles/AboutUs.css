@@ -1,8 +1,3 @@
-body {
-  background-color: fff;
-  color: #733224;
-}
-
 .box-about {
   background-color: #733224;
 }
@@ -22,6 +17,18 @@ body {
   color: #fff;
 }
 
+.seccionColor .nav-link:hover {
+  background-color: #fff;
+  border: 1px solid #733224;
+  color: #260e09;
+}
+
+.seccionColor .nav-link.active:hover {
+  background-color: #733224;
+  border: 1px solid #733224;
+  color: #fff;
+}
+
 .seccionColor .tab-content {
   border: 1px solid #733224;
   padding: 40px;
@@ -29,6 +36,10 @@ body {
 
 .tituloColor {
   color: #733224;
+}
+
+.tituloNosotros {
+  width: 100%;
 }
 
 .bi-check-circle-fill {

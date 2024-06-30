@@ -8,8 +8,8 @@ const InfoNosotros = () => {
   const [key, setKey] = useState('nosotros');
 
   return (
-    <Container>
-      <h3 className="fs-2 mbr-4 fw-bolder tituloColor">
+    <Container fluid="md">
+      <h3 className="fs-2 mbr-4 fw-bolder tituloColor tituloNosotros">
         SANGRE CRIOLLA, DE ARGENTINA PARA TODO EL MUNDO…
       </h3>
       <Tabs
@@ -30,7 +30,7 @@ const InfoNosotros = () => {
           </p>
           <Container className="py-3">
             <p className="fst-italic fs-5 fw-semibold">
-              <i className="bi bi-check-circle-fill " />
+              <i className="bi bi-check-circle-fill" />
               Calidad excepcional que nos distingue.
             </p>
             <p className="fst-italic fs-5 fw-semibold">
@@ -75,6 +75,6 @@ const InfoNosotros = () => {
       </Tabs>
     </Container>
   );
-}
+};
 
 export default InfoNosotros;
