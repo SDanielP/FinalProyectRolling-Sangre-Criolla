@@ -1,30 +1,28 @@
 import '../styles/ContactUs.css';
 import { Container, Row, Col } from 'react-bootstrap';
 import NavbarMenu from '../components/general/NavbarMenu';
+import Banner from '../components/home/Banner';
 import InfoContacto from '../components/contact-us/InfoContacto';
 import FormularioEmailJS from '../components/contact-us/FormularioEmailJS';
 const Contact = () => {
   return (
     <>
+      <Banner />
       <NavbarMenu />
-      <Container>
-        <Row className="mb-3 justify-content-center">
-          <Col sm={8}>
-            <h2>Contactanos</h2>
-          </Col>
-        </Row>
-      </Container>
-      <Container className="bordeFormulario">
-        <Row>
-          <Col sm={5}>
-            <InfoContacto />
-          </Col>
-          <Col sm={7} className="centrarFormulario">
-            <FormularioEmailJS />
-          </Col>
-        </Row>
+      <Container fluid="md">
+        <h2 className="tituloFormulario fs-2 mb-4">CONTACTANOS</h2>
+        <Container>
+          <Row className="bordeFormulario">
+            <Col sm={5}>
+              <InfoContacto />
+            </Col>
+            <Col sm={7} className="centrarFormulario">
+              <FormularioEmailJS />
+            </Col>
+          </Row>
+        </Container>
       </Container>
     </>
   );
-}
+};
 export default Contact;
