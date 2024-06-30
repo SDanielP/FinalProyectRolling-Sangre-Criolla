@@ -3,8 +3,7 @@ import '../styles/styleInicioSesion.css'
 import { useState } from 'react';
 // import {useRegistroOpen} from '../store/useRegistroOpen'
 
-// const InicioSesion = ({toggleComponent}) => {
-    const InicioSesion = () => {
+    const InicioSesion = ({toggleComponent}) => {
     
     const [formData, setFormData] = useState({
         email: '',
@@ -44,21 +43,21 @@ import { useState } from 'react';
     };
 
     return (
-        < div className="formulario" >
+        < div className="componente-iniciarSesion" >
             {/* --- INICIAR SESION --- */}
-            <h1 className="titulo-iniciar-sesion transparente">Iniciar Sesión</h1>
-            <a className="transparente btnChange" onClick={toggleComponent}>¿Eres nuevo en este sitio? Regístrate</a>
-            <div className="formularioInput">
+            <h1 className="titulo-iniciarSesion transparente">Iniciar Sesión</h1>
+            <a className="transparente-iniciarSesion btnChange" onClick={toggleComponent}>¿Eres nuevo en este sitio? Regístrate</a>
+            <div className="formularioInput-iniciarSesion">
                 {/* --- COMIENZO DE FORMULARIO --- */}
-                <form className="transparente" onSubmit={handleLoginSubmit} action="">
+                <form className="formulario-iniciarSesion transparente-iniciarSesion" onSubmit={handleLoginSubmit} action="">
                     {/* --- INPUT DE EMAIL --- */}
                     <label htmlFor="email">Correo electrónico</label>
-                    <input className="transparente" type="email" id='email' name="email" value={formData.email} onChange={handleInputChange} required autoComplete="off" />
+                    <input className="input-iniciarSesion transparente-iniciarSesion" type="email" id='email' name="email" value={formData.email} onChange={handleInputChange} required autoComplete="off" />
                     {/* --- INPUT DE CONTRASEÑA --- */}
                     <label htmlFor="contraseña">Contraseña</label>
-                    <input className="transparente" type="password" id='password' name="password" required autoComplete="off" value={formData.password} onChange={handleInputChange} />
+                    <input className="input-iniciarSesion transparente-iniciarSesion" type="password" id='password' name="password" required autoComplete="off" value={formData.password} onChange={handleInputChange} />
                     {/* --- BOTON SUBMIT --- */}
-                    <button type='submit' className='submit transparente'>Iniciar sesión</button>
+                    <button type='submit' className='submit-iniciarSesion transparente-iniciarSesion'>Iniciar sesión</button>
                 </form>
             </div>
             {error && <p>Error al ingresar el usuario</p>}

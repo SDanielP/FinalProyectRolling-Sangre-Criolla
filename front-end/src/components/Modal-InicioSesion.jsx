@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-// import InicioSesion from './InicioSesion';
+import InicioSesion from './InicioSesion';
+import Registro from './Registro';
 
 const ModalInicioSesion = () => {
   const [show, setShow] = useState(false);
@@ -11,9 +12,9 @@ const ModalInicioSesion = () => {
 
   const [mostrarInicio, setMostrarInicio] = useState(true);
 
-//   const toggleComponent = () => {
-//     setMostrarInicio(!mostrarInicio);
-//   };
+  const toggleComponent = () => {
+    setMostrarInicio(!mostrarInicio);
+  };
   return (
     <>
       <button variant="dark" onClick={handleShow}>
@@ -25,11 +26,11 @@ const ModalInicioSesion = () => {
         </Modal.Header>
         <Modal.Body>
             {/* <InicioSesion /> */}
-        {/* {mostrarInicio ? (
+        {mostrarInicio ? (
             <InicioSesion toggleComponent={toggleComponent} />
           ) : (
             <Registro toggleComponent={toggleComponent} />
-          )} */}
+          )}
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
