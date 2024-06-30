@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import '../styles/styleRegistro.css'
 
+const url = "https://sangrecriolla-back-end.onrender.com";
+
 const Registro = ({toggleComponent}) => {
     const [formData, setFormData] = useState({
         name: '',
@@ -19,7 +21,7 @@ const Registro = ({toggleComponent}) => {
         e.preventDefault();
         
         try {
-            const response = await fetch('https://sangrecriolla-back-end.onrender.com/api/auth/register', {
+            const response = await fetch(`https://sangrecriolla-back-end.onrender.com/api/auth/register`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

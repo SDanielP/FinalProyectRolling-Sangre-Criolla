@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom';
 import '../styles/styleInicioSesion.css'
 import { useState } from 'react';
 // import {useRegistroOpen} from '../store/useRegistroOpen'
+const url = "https://sangrecriolla-back-end.onrender.com";
 
     const InicioSesion = ({toggleComponent}) => {
     
@@ -21,7 +22,7 @@ import { useState } from 'react';
     const handleLoginSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('https://sangrecriolla-back-end.onrender.com/api/auth/login', {
+            const response = await fetch("https://sangrecriolla-back-end.onrender.com/api/auth/login", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

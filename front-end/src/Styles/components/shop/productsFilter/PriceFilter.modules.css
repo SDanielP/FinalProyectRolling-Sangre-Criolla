@@ -36,8 +36,8 @@
 /* } */
 
 .price-btn {
-  color: beige !important;
-  width: 100% !important;
+  color: beige;
+  width: 100%;
   display: flex !important;
   flex-direction: row !important;
   justify-content: space-between !important;

@@ -1,4 +1,4 @@
-import '../styles/Contact.css';
+import '../../styles/ContactUs.css';
 import { Container } from 'react-bootstrap';
 
 const InfoContacto = () => {

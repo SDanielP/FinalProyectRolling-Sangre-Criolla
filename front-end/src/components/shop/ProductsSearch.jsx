@@ -9,6 +9,8 @@ const categoriesOptions = [
   { id: 1, value: "mujeres", label: "Mujeres" },
   { id: 2, value: "hombres", label: "Hombres" },
 ];
+//***URL API
+const url = "https://sangrecriolla-back-end.onrender.com";
 
 const Products = ({
   categoria,
@@ -28,7 +30,7 @@ const Products = ({
   const getProductos = useCallback(async () => {
     setLoading(true);
     try {
-      const response = await fetch("https://sangrecriolla-back-end.onrender.com/products");
+      const response = await fetch(`https://sangrecriolla-back-end.onrender.com/products`);
       if (!response.ok) {
         throw new Error("Error en la solicitud: " + response.status);
       }

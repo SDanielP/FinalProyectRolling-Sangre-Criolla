@@ -1,4 +1,4 @@
-import "../../../styles/components/shop/productsFilter/SortFilter.css";
+import "../../../styles/components/shop/productsFilter/SortFilter.modules.css";
 import React from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";

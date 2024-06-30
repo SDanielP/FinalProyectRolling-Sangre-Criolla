@@ -1,9 +1,8 @@
-import '../styles/Contact.css';
+import '../styles/ContactUs.css';
 import { Container, Row, Col } from 'react-bootstrap';
 import NavbarMenu from '../components/general/NavbarMenu';
 import InfoContacto from '../components/contact-us/InfoContacto';
 import FormularioEmailJS from '../components/contact-us/FormularioEmailJS';
-
 const Contact = () => {
   return (
     <>

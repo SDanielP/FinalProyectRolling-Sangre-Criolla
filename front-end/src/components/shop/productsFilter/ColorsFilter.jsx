@@ -58,9 +58,11 @@ const ColorsFilter = () => {
       <Collapse isOpen={colorOpen} className="colores color-options">
         {colorOptions.map((colorOption) => (
           <span
-            className={colorOption.label}
+            className="colores-span"
+            id={colorOption.label}
             key={colorOption.id}
             onClick={() => handleColor(colorOption)}
+
           ></span>
         ))}
         <p className="all-colors">Todos los colores</p>

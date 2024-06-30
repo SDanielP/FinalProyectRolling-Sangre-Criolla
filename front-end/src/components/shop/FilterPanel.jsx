@@ -1,4 +1,4 @@
-import "../../styles/components/shop/FilterPanel.css";
+import "../../styles/components/shop/FilterPanel.modules.css";
 import React from "react";
 import PriceFilter from "./productsFilter/PriceFilter";
 import CategoriesFilter from "./productsFilter/CategoriesFilter";
@@ -10,14 +10,14 @@ const FilterPanel = () => {
     <div className="filter-panel">
       <p className="title-filter-panel">Categorías</p>
       <hr className="hr-color"/>
-      <CategoriesFilter />
+      <CategoriesFilter className="filter-panel-btn"/>
       <p className="title-filter-panel">Filtrar por</p>
       <hr className="hr-color"/>
-      <PriceFilter />
+      <PriceFilter className="filter-panel-btn"/>
       <hr className="hr-color"/>
-      <ColorsFilter />
+      <ColorsFilter className="filter-panel-btn"/>
       <hr className="hr-color"/>
-      <SizeFilter />
+      <SizeFilter className="filter-panel-btn"/>
     </div>
   );
 };

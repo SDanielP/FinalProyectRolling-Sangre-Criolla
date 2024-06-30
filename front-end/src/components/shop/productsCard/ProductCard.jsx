@@ -8,27 +8,27 @@ import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { faBagShopping } from "@fortawesome/free-solid-svg-icons";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
-import fetchProductById from "../compProductDet/fetchProductById";
+// import fetchProductById from "../compProductDet/fetchProductById";
 import useCart from "../carts/useCart";
 import { useCartModal } from "../../../store/useCartModal"
 
 const ProductCard = ({ producto }) => {
-/* ----- Defino useNavigate() para navegar en el proyecto ----- */
-  const navigate = useNavigate();
+   /* ----- Uso del useNavigate() ----- */
+   const navigate = useNavigate(); // Importar useNavigate()
 
 /* ----- Estados para el carrito ----- */
   const [cartProducts, updateCart] = useCart();
   const [tooltipText, setTooltipText] = useState('Añadir al carrito');
 
 /* ----- Traer cada producto ----- */
-  const handleQuickView = async () => {
-    try {
-      const productData = await fetchProductById(producto._id);
-      navigate(`/products/${producto._id}`, { state: { product: productData } });
-    } catch (error) {
-      console.error("Error al cargar el producto:", error);
-    }
-  };
+  // const handleQuickView = async () => {
+  //   try {
+  //     const productData = await fetchProductById(producto.category, producto.subcategory, producto._id);
+  //     navigate(`/products/${producto._id}`, { state: { product: productData } });
+  //   } catch (error) {
+  //     console.error("Error al cargar el producto:", error);
+  //   }
+  // };
 
 
   /* ----- Mensajes durante hover en botones Carrito y Fav -----*/
@@ -82,12 +82,14 @@ const ProductCard = ({ producto }) => {
               src={producto.image}
               alt="image"
               className="card__img imgProducto"
-              onClick={handleQuickView}
+              onClick={() =>
+                (navigate(`/products/${producto.category}/${producto.subcategory}/${producto._id}`))
+              }
             ></img>
             <div className="card__data">
               <Button
                 className="card__button__vistaRapida"
-                onClick={handleQuickView}
+                // onClick={handleQuickView} //REDIRIGIR AL MODAL - FALTA HACER
               >
                 Vista rápida
               </Button>
@@ -119,7 +121,9 @@ const ProductCard = ({ producto }) => {
           <Button
             variant="outline-dark"
             className="btnVerProducto"
-            onClick={handleQuickView}
+            onClick={() =>
+              (navigate(`/products/${producto.category}/${producto.subcategory}/${producto._id}`))
+            }
             style={{ height: "6rem", objectFit: "contain", fontSize: "0.9rem" }}
           >
             {producto.name}

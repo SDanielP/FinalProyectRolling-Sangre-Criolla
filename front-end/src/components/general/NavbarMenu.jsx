@@ -77,18 +77,13 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink to="/page-not-found" className="nav-link" aria-current="page">
+              <NavLink to="/contact-us" className="nav-link" aria-current="page">
                 Contacto
               </NavLink>
             </li>
             <li className="nav-item" id="itemToHide">
               <NavLink to="/" className="nav-link" aria-current="page">
                 Administracion
-              </NavLink>
-            </li>
-            <li className="nav-item" id="itemToHide">
-              <NavLink to="/rec-contra" className="nav-link" aria-current="page">
-                Recuperar Contraseña
               </NavLink>
             </li>
           </ul>

@@ -28,8 +28,8 @@
 }
 
 .size-btn {
-    color: beige !important;
-    width: 100% !important;
+    color: beige;
+    width: 100% ;
     display: flex !important;
     flex-direction: row !important;
     justify-content: space-between !important;
@@ -41,7 +41,7 @@
 }
 
 .size-options {
-    color: beige !important;
+    color: beige;
     padding-left: 1rem;
 }
 
@@ -52,4 +52,5 @@
     padding-top: 0.7rem;
     display: block;
     cursor: pointer;
+    color: beige;
 }

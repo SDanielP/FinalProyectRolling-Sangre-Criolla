@@ -1,4 +1,4 @@
-import "../../../styles/components/shop/productsFilter/SizeFilter.css";
+import "../../../styles/components/shop/productsFilter/SizeFilter.modules.css";
 import React, { useState, useEffect } from "react";
 import { Collapse, Button } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

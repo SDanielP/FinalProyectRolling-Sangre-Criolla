@@ -1,5 +1,5 @@
 import "../styles/ProductsScreen.css";
-import "../styles/components/shop/productsFilter/SortFilter.css";
+import "../styles/components/shop/productsFilter/SortFilter.modules.css";
 import React from "react";
 import Products from "../components/shop/Products.jsx";
 import FilterPanel from "../components/shop/FilterPanel.jsx";

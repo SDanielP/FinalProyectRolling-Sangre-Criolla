@@ -12,7 +12,7 @@
     margin-bottom: 1rem;
   } */
 
-.filter-panel .btn {
+.filter-panel-btn {
   width: fit-content;
   text-align: left;
 }

@@ -1,4 +1,4 @@
-import "../../../styles/components/shop/productsFilter/PriceFilter.css";
+import "../../../styles/components/shop/productsFilter/PriceFilter.modules.css";
 import React, { useState, useEffect } from "react";
 import Slider from "react-slider";
 import { Collapse, Button } from "reactstrap";

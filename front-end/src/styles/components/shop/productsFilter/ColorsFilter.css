@@ -8,7 +8,7 @@
   align-items: center;
 }
 
-.colores span {
+.colores-span {
   width: 1.1rem;
   height: 1.1rem;
   border-radius: 50%;
@@ -30,27 +30,27 @@
   padding-left: 1rem;
 }
 
-.marron {
+#marron {
   background-color: #5a4529;
 }
 
-.negro {
+#negro {
   background-color: #000000;
 }
 
-.naranja {
+#naranja {
   background-color: #f59f27;
 }
 
-.rojo {
+#rojo {
   background-color: red;
 }
 
-.beige {
+#beige {
   background-color: #c4995e;
 }
 
-.blanco {
+#blanco {
   background-color: #e2e2e2;
 }
 
