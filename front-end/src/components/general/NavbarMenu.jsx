@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { NavLink, Link } from "react-router-dom";
@@ -11,12 +12,27 @@ const Navbar = () => {
   const {isOpenCartModal, setOpenCartModal} = useCartModal();
   const toggle = () => setOpenCartModal(!isOpenCartModal);
   const [cartProducts, setCartProducts] = useState([]); // Estado para almacenar los productos del carrito
+  const [searchTerm, setSearchTerm] = useState(""); // Estado para almacenar el término de búsqueda
+
+    /* ----- Uso de useNavigate() ----- */
+    const navigate = useNavigate(); // Importar useNavigate()
 
   // Función para cargar los productos del carrito desde el almacenamiento local
   useEffect(() => {
     const cartData = JSON.parse(localStorage.getItem("cart")) || [];
     setCartProducts(cartData);
   }, []);
+
+  // Función para manejar el cambio en el campo de búsqueda
+  const handleSearchChange = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
+  // Función para manejar el envío del formulario de búsqueda
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    navigate(`/search?query=${searchTerm}`);
+  };
 
   return (
     <nav className="navbar navbar-expand-lg">
@@ -76,7 +92,7 @@ const Navbar = () => {
               </NavLink>
             </li>
           </ul>
-          <form className="d-flex" role="search">
+          <form className="d-flex" role="search" onSubmit={handleSearchSubmit}>
             <input
               id="filtro"
               className="form-control me-2"
@@ -84,6 +100,8 @@ const Navbar = () => {
               placeholder="Buscar"
               aria-label="Search"
               maxLength="30"
+              value={searchTerm}
+              onChange={handleSearchChange}
             />
             <button className="bg-transparent ms-2" type="submit">
               <i className="bi bi-search"></i>

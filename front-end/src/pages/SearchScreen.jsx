@@ -1,13 +1,13 @@
 import "../styles/ProductsScreen.css";
 import "../styles/components/shop/productsFilter/SortFilter.css";
 import React from "react";
-import Products from "../components/shop/Products.jsx";
+import ProductsSearch from "../components/shop/ProductsSearch.jsx";
 import FilterPanel from "../components/shop/FilterPanel.jsx";
 import SortFilter from "../components/shop/productsFilter/SortFilter.jsx";
 import NavbarMenu from "../components/general/NavbarMenu.jsx";
 
 import { useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { useSubcategories } from "../store/useSubcategories.js";
 import { useUbication } from "../store/useUbication.js";
 import { usePriceFilter } from "../store/productsFilter/usePriceFilter.js";
@@ -17,7 +17,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHouse } from "@fortawesome/free-solid-svg-icons";
 import Banner from "../components/home/Banner.jsx";
 
-const ProductsScreen = () => {
+const useQuery = () => {
+  return new URLSearchParams(useLocation().search);
+};
+
+const SearchScreen = () => {
+  let query = useQuery();
+  let searchTerm = query.get("query");
+
+
   /* ----- Estados - Zustand ----- */
   const { subcategories } = useSubcategories();
   // const { products, setProducts } = useProducts();
@@ -29,8 +37,7 @@ const ProductsScreen = () => {
 
 
   /* ----- RENDERIZACIÓN CONSTANTE DE CATEGORÍAS y PRODUCTOS ----- */
-  useEffect(() => {
-  }, [ subcategories, selectedCategory, selectedSubcategory]); //Análogo useCallback()
+  useEffect(() => {}, [subcategories, selectedCategory, selectedSubcategory]); //Análogo useCallback()
 
   /* ----- Método manejo de botón para volver a una ruta anterior o padre ----- */
   const handleOnClick = () => {
@@ -79,7 +86,7 @@ const ProductsScreen = () => {
               >
                 Productos
               </NavLink>
-              / {" Resultado de la búsqueda para \" \""}
+              / {' Resultado de la búsqueda para "' + searchTerm + '"'}
             </span>
           </div>
         </div>
@@ -103,36 +110,26 @@ const ProductsScreen = () => {
         </div>
 
         {/* Lateral derecho, Productos */}
-        <div className="seccion-productos" style={{ width: "75%" }}>
           {/* {loading && <p>Cargando productos...</p>}
           {error && <p>Error: {error}</p>}
           {!loading && !error && (
             <> */}
-              {selectedSubcategory !== "" ? (
-                <Products
-                  className="div-products"
-                  categoria={selectedCategory.toString().toLowerCase()}
-                  subcategoria={selectedSubcategory.subcategory.toLowerCase()}
-                  ordenar={ordenarProp}
-                  precioMin={min}
-                  precioMax={max}
-                />
-              ) : (
-                <Products
-                  className="div-products"
-                  categoria={selectedCategory.toString().toLowerCase()}
-                  subcategoria={null}
-                  ordenar={ordenarProp}
-                  precioMin={min}
-                  precioMax={max}
-                />
-              )}
-            {/* </>
-          )} */}
+          <div className="seccion-productos" style={{ width: "75%" }}>
+          <ProductsSearch
+            searchTerm={searchTerm}
+            categoria={selectedCategory.toString()}
+            subcategoria={selectedSubcategory.subcategory}
+            ordenar={ordenarProp}
+            precioMin={min}
+            precioMax={max}
+          />
         </div>
+          {/* </>
+          )} */}
+        
       </section>
     </>
   );
 };
 
-export default ProductsScreen;
+export default SearchScreen;

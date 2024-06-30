@@ -83,7 +83,7 @@ const App = () => {
           />
           <Route key={11000} path="/rec-contra" element={<RecuperacionContra />} />
           {/* <Route path="/Iniciar-Sesion" element={<Modal />} /> */}
-          <Route key={13000} path="/search?" element={<SearchScreen />} />
+          <Route key={13000} path="/search" element={<SearchScreen />} />
         </Routes>
       </Router>
   );

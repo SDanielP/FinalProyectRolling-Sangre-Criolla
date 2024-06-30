@@ -1,6 +1,6 @@
 import "../../styles/components/shop/Products.css";
 import React, { useEffect, useState, useCallback } from "react";
-import ProductCard from "../shop/productsCard/ProductCard";
+import ProductCard from "./productsCard/ProductCard";
 import { useProducts } from "../../store/useProducts";
 
 /* ----- Constantes ----- */
@@ -18,6 +18,7 @@ const Products = ({
   precioMax,
   tamano,
   color,
+  searchTerm,
 }) => {
   const { products, setProducts } = useProducts();
   const [productosStore, setProductosStore] = useState([]);
@@ -52,14 +53,16 @@ const Products = ({
       // Filtrado por categoría
       if (categoria) {
         filteredProducts = filteredProducts.filter(
-          (producto) => producto.category === categoria
+          (producto) =>
+            producto.categoria.toLowerCase() === categoria.toLowerCase()
         );
       }
 
       // Filtrado por subcategoría
       if (subcategoria) {
         filteredProducts = filteredProducts.filter(
-          (producto) => producto.subcategory === subcategoria
+          (producto) =>
+            producto.subcategoria.toLowerCase() === subcategoria.toLowerCase()
         );
       }
 
@@ -67,8 +70,8 @@ const Products = ({
       if (precioMin != null || precioMax != null) {
         filteredProducts = filteredProducts.filter(
           (producto) =>
-            (precioMin == null || producto.price >= precioMin) &&
-            (precioMax == null || producto.price <= precioMax)
+            (precioMin == null || producto.precio >= precioMin) &&
+            (precioMax == null || producto.precio <= precioMax)
         );
       }
 
@@ -86,19 +89,26 @@ const Products = ({
         );
       }
 
+      // Filtrado por término de búsqueda
+      if (searchTerm) {
+        filteredProducts = filteredProducts.filter((producto) =>
+          producto.name.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+      }
+
       // Ordenar productos
       filteredProducts.sort((a, b) => {
         switch (ordenar) {
           case "alphabetical":
-            return a.name.localeCompare(b.name);
+            return a.nombre.localeCompare(b.nombre);
           case "highestPrice":
-            return b.price - a.price;
+            return b.precio - a.precio;
           case "lowestPrice":
-            return a.price - b.price;
+            return a.precio - b.precio;
           case "latestAdded":
-            return b.createdAt - a.createdAt;
+            return new Date(b.createdAt) - new Date(a.createdAt);
           default:
-            return b.createdAt - a.createdAt;
+            return new Date(b.createdAt) - new Date(a.createdAt);
         }
       });
 
@@ -106,8 +116,6 @@ const Products = ({
     };
 
     filterAndSortProducts();
-    console.log(categoria);
-    console.log(subcategoria);
   }, [
     products,
     categoria,
@@ -115,8 +123,7 @@ const Products = ({
     ordenar,
     precioMin,
     precioMax,
-    tamano,
-    color,
+    searchTerm,
   ]);
 
   if (loading) {
@@ -145,8 +152,6 @@ const Products = ({
 };
 
 export default Products;
-
-
 
 // import { json } from "react-router-dom";
 
