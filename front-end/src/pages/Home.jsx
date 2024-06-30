@@ -9,6 +9,7 @@ import RrhhSection from "../components/general/footer/RrhhSection";
 import CatalogSection from "../components/home/CatalogSection"; // Importar componente de catálogo
 import SocialContactSection from "../components/general/footer/SocialContactSection"; // Importar componente de redes sociales y contacto
 import Footer from "../components/general/footer/Footer";
+import "../styles/Home.css"
 
 function Home() {
   return (

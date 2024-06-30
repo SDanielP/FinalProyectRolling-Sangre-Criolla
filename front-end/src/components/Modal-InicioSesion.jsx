@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import InicioSesion from './InicioSesion';
 import Registro from './Registro';
-
+import "../styles/styleModal.css"
 const ModalInicioSesion = () => {
   const [show, setShow] = useState(false);
 
@@ -21,22 +21,21 @@ const ModalInicioSesion = () => {
         Iniciar Sesión
       </button>
 
-      <Modal show={show} onHide={handleClose} backdrop="static" keyboard={false}>
-        <Modal.Header closeButton>
+      <Modal className='' show={show} onHide={handleClose} backdrop="static" keyboard={false}>
+        <Modal.Header className='modal-InicioYRegistro' closeButton>
         </Modal.Header>
-        <Modal.Body>
-            {/* <InicioSesion /> */}
+        <Modal.Body className='modal-body modal-InicioYRegistro'>
         {mostrarInicio ? (
             <InicioSesion toggleComponent={toggleComponent} />
           ) : (
             <Registro toggleComponent={toggleComponent} />
           )}
         </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+        <Modal.Footer className='modal-footer'>
+          {/* <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary">Understood</Button>
+          <Button variant="primary">Understood</Button> */}
         </Modal.Footer>
       </Modal>
     </>

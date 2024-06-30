@@ -66,7 +66,7 @@ const App = () => {
             path="/frequent-questions"
             element={<FrequentQuestions />}
           />
-          <Route key={11000} path="/rec-contra" element={<RecuperacionContra />} />
+          <Route key={11000} path="/recuperacion-contrasena" element={<RecuperacionContra />} />
           {/* <Route path="/Iniciar-Sesion" element={<Modal />} /> */}
           <Route key={13000} path="/search" element={<SearchScreen />} />
         </Routes>

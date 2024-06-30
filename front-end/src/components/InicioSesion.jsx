@@ -47,7 +47,7 @@ const url = "https://sangrecriolla-back-end.onrender.com";
         < div className="componente-iniciarSesion" >
             {/* --- INICIAR SESION --- */}
             <h1 className="titulo-iniciarSesion transparente">Iniciar Sesión</h1>
-            <a className="transparente-iniciarSesion btnChange" onClick={toggleComponent}>¿Eres nuevo en este sitio? Regístrate</a>
+            <a className="transparente-iniciarSesion btnChange-inicarSesion" onClick={toggleComponent}>¿Eres nuevo en este sitio? Regístrate</a>
             <div className="formularioInput-iniciarSesion">
                 {/* --- COMIENZO DE FORMULARIO --- */}
                 <form className="formulario-iniciarSesion transparente-iniciarSesion" onSubmit={handleLoginSubmit} action="">
@@ -55,15 +55,15 @@ const url = "https://sangrecriolla-back-end.onrender.com";
                     <label htmlFor="email">Correo electrónico</label>
                     <input className="input-iniciarSesion transparente-iniciarSesion" type="email" id='email' name="email" value={formData.email} onChange={handleInputChange} required autoComplete="off" />
                     {/* --- INPUT DE CONTRASEÑA --- */}
-                    <label htmlFor="contraseña">Contraseña</label>
+                    <label htmlFor="password">Contraseña</label>
                     <input className="input-iniciarSesion transparente-iniciarSesion" type="password" id='password' name="password" required autoComplete="off" value={formData.password} onChange={handleInputChange} />
                     {/* --- BOTON SUBMIT --- */}
-                    <button type='submit' className='submit-iniciarSesion transparente-iniciarSesion'>Iniciar sesión</button>
+                    <button type='submit' className='submit-iniciarSesion '>Iniciar sesión</button>
                 </form>
             </div>
             {error && <p>Error al ingresar el usuario</p>}
             {/* --- BOTON DE REDIRECCION PARA RECUPERAR CONTRASEÑA --- */}
-            <NavLink to="/recuperacionContra">¿Olvidaste la contraseña?</NavLink>
+            <NavLink to="/recuperacion-contrasena">¿Olvidaste la contraseña?</NavLink>
         </div >
     )
 }
