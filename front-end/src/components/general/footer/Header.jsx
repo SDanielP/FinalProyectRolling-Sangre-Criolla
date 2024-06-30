@@ -1,4 +1,4 @@
-import "../../../styles/Home.css"; // Ajustar la ruta para importar correctamente desde src
+// import "../../../styles/Home.css"; // Ajustar la ruta para importar correctamente desde src
 import React from "react";
 //import './Header.css'; // Si tienes un archivo CSS específico para el Header
 
