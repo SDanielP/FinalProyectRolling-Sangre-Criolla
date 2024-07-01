@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import '../../styles/components/ModalStyle.css';
+import '../../styles/components/modalAdmin/ModalAdminStyle.css';
 
 
 const CustomModal = ({ data, closeModal, refreshProducts }) => {
@@ -24,7 +24,7 @@ const CustomModal = ({ data, closeModal, refreshProducts }) => {
       image: images,
     };
 
-    fetch(`http://sangrecriolla-back-end.onrender.com/products/${data._id}`, {
+    fetch(`https://sangrecriolla-back-end.onrender.com/products/${data._id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -41,7 +41,7 @@ const CustomModal = ({ data, closeModal, refreshProducts }) => {
   const handleDelete = () => {
     const confirmDelete = window.confirm('¿Estás seguro de que quieres eliminar este producto?');
     if (confirmDelete) {
-      fetch(`http://sangrecriolla-back-end.onrender.com/products/${data._id}`, {
+      fetch(`https://sangrecriolla-back-end.onrender.com/products/${data._id}`, {
         method: 'DELETE',
       })
         .then(response => response.json())
@@ -84,14 +84,14 @@ const CustomModal = ({ data, closeModal, refreshProducts }) => {
 
   return (
     <div className="custom-modal-admin">
-      <div className="modal-content">
-        <div className="modal-header">
+      <div className="modal-content-admin">
+        <div className="modal-header-admin">
           <h2>Editar Producto</h2>
           <span className="close" onClick={closeModal}>&times;</span>
         </div>
-        <div className="modal-body">
-          <div className="item-info">
-            <div className="item-image">
+        <div className="modal-body-admin">
+          <div className="item-info-admin">
+            <div className="item-image-admin">
               {images.map((image, index) => (
                 <div key={index} className="image-input">
                   <img src={image} alt="Item" />
@@ -106,7 +106,7 @@ const CustomModal = ({ data, closeModal, refreshProducts }) => {
               ))}
               <button type="button" onClick={addImage}>Agregar Enlace de Imagen</button>
             </div>
-            <div className="item-details">
+            <div className="item-details-admin">
               <div className="form-group-modal-admin">
                 <label htmlFor="name">Nombre</label>
                 <input
@@ -146,7 +146,7 @@ const CustomModal = ({ data, closeModal, refreshProducts }) => {
               <div className="form-group-modal-admin">
                 <label>Talle</label>
                 {selectedSize.map((size, index) => (
-                  <div key={index} className="size-input">
+                  <div key={index} className="size-input-admin">
                     <input
                       type="text"
                       value={size}
@@ -178,7 +178,7 @@ const CustomModal = ({ data, closeModal, refreshProducts }) => {
             </div>
           </div>
         </div>
-        <div className="modal-footer">
+        <div className="modal-footer-admin">
           <button type="button" onClick={closeModal}>Cerrar</button>
           <button type="button" onClick={handleDelete}>Borrar</button>
           <button type="button" onClick={handleSave}>Guardar</button>

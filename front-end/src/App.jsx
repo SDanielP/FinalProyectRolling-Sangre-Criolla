@@ -16,7 +16,7 @@ import RecuperacionContra from "./pages/RecuperacionContra.jsx";
 import ErrorScreen from "./pages/ErrorScreen.jsx"
 import SearchScreen from "./pages/SearchScreen.jsx"
 import ContactUs from "./pages/ContactUs.jsx";
-import Admin from "./pages/admin"
+import Admin from "./pages/admin.jsx";
 
 const url = "https://sangrecriolla-back-end.onrender.com"
 
