@@ -1,4 +1,4 @@
-import '../styles/Admin.css'; // Asegúrate de que la ruta sea correcta
+import '../styles/admin.css'; // Asegúrate de que la ruta sea correcta
 import CustomModal from '../components/admin/modalAdmin.jsx';
 import { useEffect, useState } from 'react';
 
