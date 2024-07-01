@@ -99,7 +99,9 @@ const Admin = () => {
     
   };
   
-  
+  const handleLogout = (e) => {
+    window.location.href = '/';
+  };
 
   const handleSearchToggle = (e) => {
     if (window.innerWidth < 576) {
@@ -281,7 +283,7 @@ const Admin = () => {
         </ul>
         <ul className="side-menu">
           <li>
-            <a className="logout" href="#">
+            <a className="logout" onClick={handleLogout} href="#">
               <i className="bx bxs-log-out-circle" />
               <span className="text">Cerrar Sesion</span>
             </a>
