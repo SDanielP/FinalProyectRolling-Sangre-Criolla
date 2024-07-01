@@ -36,7 +36,6 @@ const App = () => {
 
       //***Asigno a las subcategorías la info de la API
       setSubcategories(data);
-      console.log(data)
 
     } catch (error) {
       console.error("Error:", error);
