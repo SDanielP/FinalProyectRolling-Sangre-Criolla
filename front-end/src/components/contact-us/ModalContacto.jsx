@@ -1,6 +1,6 @@
-import '../../styles/ContactUs.css';
 import { Button, Modal } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import '../../styles/ContactUs.css';
 
 const ModalContacto = ({ show, onHide }) => {
   const navegar = useNavigate();
@@ -22,6 +22,6 @@ const ModalContacto = ({ show, onHide }) => {
       </Modal.Footer>
     </Modal>
   );
-}
+};
 
 export default ModalContacto;
