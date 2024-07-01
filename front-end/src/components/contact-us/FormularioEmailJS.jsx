@@ -1,8 +1,8 @@
-import React, { useRef, useState } from "react";
-import { Row, Col, Form, Button } from "react-bootstrap";
-// import emailjs from '@emailjs/browser';
-// import emailjs from "@emailjs/browser";
-import ModalContacto from "./ModalContacto";
+import React, { useRef, useState } from 'react';
+import { Row, Col, Form, Button } from 'react-bootstrap';
+import emailjs from '@emailjs/browser';
+import ModalContacto from './ModalContacto';
+import '../../styles/ContactUs.css';
 
 const FormularioEmailJS = () => {
   const form = useRef();
@@ -19,10 +19,10 @@ const FormularioEmailJS = () => {
       )
       .then(
         () => {
-          console.log("¡Correo enviado!");
+          console.log('¡Correo enviado!');
         },
         (error) => {
-          console.log("Error al enviar...", error.text);
+          console.log('Error al enviar...', error.text);
         }
       );
   };
@@ -62,12 +62,7 @@ const FormularioEmailJS = () => {
           <Col sm={12}>
             <Form.Group>
               <Form.Label></Form.Label>
-              <Form.Control
-                type="text"
-                name="subject"
-                placeholder="Asunto"
-                required
-              ></Form.Control>
+              <Form.Control type="text" name="subject" placeholder="Asunto" required></Form.Control>
             </Form.Group>
           </Col>
         </Row>
@@ -97,9 +92,7 @@ const FormularioEmailJS = () => {
               Enviar
               <i className="bi bi-send btn" />
             </Button>
-            {show && (
-              <ModalContacto show={show} onHide={() => setShow(false)} />
-            )}
+            {show && <ModalContacto show={show} onHide={() => setShow(false)} />}
           </Col>
         </Row>
       </Form>
