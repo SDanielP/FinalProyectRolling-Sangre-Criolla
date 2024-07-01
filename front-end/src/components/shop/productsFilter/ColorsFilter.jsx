@@ -4,10 +4,7 @@ import "../../../styles/components/shop/productsFilter/ColorsFilter.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { faMinus } from "@fortawesome/free-solid-svg-icons";
-// import { useColorsFilter } from "../../../store/productsFilter/useColorsFilter";
 
-/* ----- Constantes ----- */
-//***Opciones para el botón colores
 const colorOptions = [
   { id: 1, value: "black", label: "negro" },
   { id: 2, value: "brown", label: "marron" },
@@ -18,18 +15,13 @@ const colorOptions = [
 ];
 
 const ColorsFilter = () => {
-  // const { selectedColor, setSelectedColor } = useColorsFilter();
   const [colorOpen, setColorOpen] = useState(false);
 
   const handleColor = (nuevoColor) => {
     setColorOpen(nuevoColor);
-    // setUbication(nuevoTamanio);
-    // setIsDropdownOpen(true); // Cierra el dropdown al seleccionar una opción
-    // navigate(`/products/${nuevoTamanio.toLowerCase()}`);
   };
 
   useEffect(() => {
-    // console.log(selectedCategory);
   }, [colorOpen]);
 
   return (

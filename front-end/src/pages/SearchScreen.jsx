@@ -25,36 +25,19 @@ const SearchScreen = () => {
   let query = useQuery();
   let searchTerm = query.get("query");
 
-
-  /* ----- Estados - Zustand ----- */
   const { subcategories } = useSubcategories();
-  // const { products, setProducts } = useProducts();
   const { ubication, setUbication } = useUbication();
   const { min, max } = usePriceFilter();
   const { ordenarProp } = useSortFilter();
   const { selectedCategory, setSelectedCategory } = useCategoriesFilter();
   const { selectedSubcategory, setSelectedSubcategory } = useCategoriesFilter();
 
+  useEffect(() => {}, [subcategories, selectedCategory, selectedSubcategory]);
 
-  /* ----- RENDERIZACIÓN CONSTANTE DE CATEGORÍAS y PRODUCTOS ----- */
-  useEffect(() => {}, [subcategories, selectedCategory, selectedSubcategory]); //Análogo useCallback()
-
-  /* ----- Método manejo de botón para volver a una ruta anterior o padre ----- */
   const handleOnClick = () => {
     setSelectedCategory("");
     setUbication("Todos");
   };
-
-  /* ----- Uso de useNavigate() ----- */
-  // const navigate = useNavigate(); // Importar useNavigate()
-
-  //Volver a la página según el cambio del URL
-  // const url = window.location.href;
-  // console.log(url);
-
-  // useEffect(() => {
-  //   navigate(`/products/${selectedCategory.toLowerCase()}`)
-  // }, []);
 
   return (
     <>
@@ -65,7 +48,6 @@ const SearchScreen = () => {
 
         <div className="navUsuario">
           <div className="ubicacion d-flex flex-start mb-3 align-items-center">
-            {/* Sacar los style */}
             <NavLink to="/">
               <FontAwesomeIcon
                 icon={faHouse}
@@ -109,12 +91,7 @@ const SearchScreen = () => {
           <FilterPanel />
         </div>
 
-        {/* Lateral derecho, Productos */}
-          {/* {loading && <p>Cargando productos...</p>}
-          {error && <p>Error: {error}</p>}
-          {!loading && !error && (
-            <> */}
-          <div className="seccion-productos" style={{ width: "75%" }}>
+        <div className="seccion-productos" style={{ width: "75%" }}>
           <ProductsSearch
             categoria={selectedCategory}
             subcategoria={selectedSubcategory.subcategory}
@@ -124,9 +101,6 @@ const SearchScreen = () => {
             searchTerm={searchTerm}
           />
         </div>
-          {/* </>
-          )} */}
-        
       </section>
     </>
   );

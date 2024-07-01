@@ -10,14 +10,11 @@ import { faMinus } from "@fortawesome/free-solid-svg-icons";
 
 
 const PriceFilter = () => {
-  /* ----- Estados para los botones ----- */
   const [values, setValues] = useState([10000, 30000]);
   const [priceOpen, setPriceOpen] = useState(false);
 
-  /* ----- Estado Precio - Zustand ----- */
   const { setMinPrice, setMaxPrice } = usePriceFilter();
 
-  /* ----- Uso de useDebounce para la rapidez del filtro Precio  ----- */
   const debouncedMinPrice = useDebounce(values[0], 1000);
   const debouncedMaxPrice = useDebounce(values[1], 1000);
 

@@ -4,10 +4,7 @@ import { Collapse, Button } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { faMinus } from "@fortawesome/free-solid-svg-icons";
-// import { useSizeFilter } from "../../../store/productsFilter/useSizeFilter";
 
-/* ----- Constantes ----- */
-//***Opciones para el botón tamaño
 const sizeOptions = [
   { id: 1, value: "xs", label: "XS" },
   { id: 2, value: "s", label: "S" },
@@ -18,24 +15,13 @@ const sizeOptions = [
 ];
 
 const SizeFilter = () => {
-  /* ----- Estados Tamaño - Zustand ----- */
-  // const { selectedSize, setSelectedSize } = useSizeFilter();
-
-  /* ----- Estados para los botones ----- */
   const [sizeOpen, setSizeOpen] = useState(false);
-
-  /* ----- Uso de useNavigate() ----- */
-  //   const navigate = useNavigate(); // Importar useNavigate()
 
   const handleSize = (nuevoTamanio) => {
     setSizeOpen(nuevoTamanio);
-    // setUbication(nuevoTamanio);
-    // setIsDropdownOpen(true); // Cierra el dropdown al seleccionar una opción
-    // navigate(`/products/${nuevoTamanio.toLowerCase()}`);
   };
 
   useEffect(() => {
-    // console.log(selectedCategory);
   }, [sizeOpen]);
   return (
     <>

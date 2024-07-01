@@ -13,23 +13,17 @@ import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
 
 const CategoriesFilter = () => {
-  /* ----- Estados para los botones ----- */
-  // const [ categories, setCategories ] = useState([])
-  // const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [menCategoryOpen, setMenCategoryOpen] = useState(false);
   const [womenCategoryOpen, setWomenCategoryOpen] = useState(false);
 
-  /* ----- Estados para los botones - Zustand ----- */
   const { subcategories } = useSubcategories();
   const { selectedCategory, setSelectedCategory, selectedSubcategory, setSelectedSubcategory } = useCategoriesFilter();
   const { setUbication } = useUbication();
   const { setSelectedColor } = useColorsFilter();
   const { setSelectedSize } = useSizeFilter();
 
-  /* ----- Uso de useNavigate() ----- */
-  const navigate = useNavigate(); // Importar useNavigate()
+  const navigate = useNavigate();
 
-  /* ----- Método manejo de botón para volver a todos los productos ----- */
   const handleOnClickTodos = () => {
     setSelectedCategory("");
     setSelectedSubcategory("");
@@ -41,20 +35,6 @@ const CategoriesFilter = () => {
     navigate("/products/all");
   };
 
-  /* ----- Método manejo de botón para ver los productos de hombres y mujeres ----- */
-  // const handleOnClickHombres = () => {
-  //   setSelectedCategory("Hombres");
-  //   setUbication(`${selectedCategory}`);
-  //   navigate(`/products/${selectedCategory.toLowerCase()}`);
-  // };
-
-  // const handleOnClickMujeres = () => {
-  //   setSelectedCategory("Mujeres");
-  //   setUbication(`${selectedCategory}`);
-  //   navigate(`/products/${selectedCategory.toLowerCase()}`);
-  // };
-
-  /* ----- Método manejo de botón para ver las subcategorías ----- */
   const handleSubcategoryHombres = (nuevaCategoria) => {
     setSelectedCategory("Hombres");
     setSelectedSubcategory(nuevaCategoria);
@@ -75,8 +55,6 @@ const CategoriesFilter = () => {
 
   return (
     <>
-      {/* Todos */}
-
       <NavLink
         to="/products/all"
         onClick={handleOnClickTodos}
@@ -85,7 +63,6 @@ const CategoriesFilter = () => {
         <Button className="category-btn">Todos</Button>
       </NavLink>
 
-      {/* Mujeres */}
       <Button
         className="category-btn"
         onClick={() => {
@@ -131,7 +108,6 @@ const CategoriesFilter = () => {
         )}
       </Collapse>
 
-      {/* Hombres */}
       <Button
         className="category-btn"
         onClick={() => {
@@ -168,7 +144,6 @@ const CategoriesFilter = () => {
             onClick={() => handleSubcategoryHombres(subcategoria)}
             style={{ cursor: "pointer" }}
           >
-            {/* {categoria.charAt(0).toUpperCase() + categoria.slice(1)} */}
             {subcategoria.subcategory}
           </div>
         ))}
