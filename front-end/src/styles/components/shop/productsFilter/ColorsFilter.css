@@ -1,0 +1,61 @@
+.colores {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.colores-span {
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.color-btn {
+  color: beige !important;
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+}
+
+.color-options {
+  color: beige !important;
+  padding-left: 1rem;
+}
+
+#marron {
+  background-color: #5a4529;
+}
+
+#negro {
+  background-color: #000000;
+}
+
+#naranja {
+  background-color: #f59f27;
+}
+
+#rojo {
+  background-color: red;
+}
+
+#beige {
+  background-color: #c4995e;
+}
+
+#blanco {
+  background-color: #e2e2e2;
+}
+
+.all-colors {
+  font-weight: 300;
+  font-size: small;
+  padding-top: 0.7rem;
+  display: block;
+  cursor: pointer;
+}

@@ -1,0 +1,15 @@
+.sort-btn {
+    color: beige;
+}
+
+.btn {
+    background: transparent !important;
+    border: none !important;
+}
+
+
+.ordenar {
+    margin-left: 2.5rem;
+    min-width: 10rem;
+    max-width: 10rem;
+}

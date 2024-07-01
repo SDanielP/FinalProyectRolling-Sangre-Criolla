@@ -1,3 +1,0 @@
-insomia
-mongoDB
-XLAws36541@

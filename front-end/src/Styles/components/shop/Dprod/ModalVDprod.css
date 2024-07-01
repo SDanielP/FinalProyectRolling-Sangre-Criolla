@@ -1,0 +1,11 @@
+.ModalBodyV .modal-body{
+    background-color:  #3c3c34 ;
+}
+
+.ModalBodyV p, .ModalBodyV h3{
+    color: white;
+}
+
+.ModalBodyV .btn{
+    background-color:  #a47c54  !important;
+}

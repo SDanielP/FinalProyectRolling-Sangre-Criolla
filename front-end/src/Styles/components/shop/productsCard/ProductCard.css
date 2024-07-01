@@ -1,0 +1,220 @@
+/*=============== GOOGLE FONTS ===============*/
+/* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap"); */
+
+/*=============== VARIABLES CSS ===============*/
+/* :root { */
+    /*========== Colors ==========*/
+    /* --first-color: rgb(83, 114, 29); */
+    /* --title-color: rgb(38, 38, 38); */
+    /* --text-color: rgb(89, 89, 89);
+    --hover-color: rgb(156, 156, 156);
+    --body-color: rgb(162, 121, 87);
+    --body-color2: rgb(132, 99, 72);
+    --body-color3: rgb(115, 87, 63);
+    --container-color: rgb(255, 255, 255);
+    --text-btn-color: rgb(255, 255, 255);
+    --price-color: rgba(252, 184, 50, 1);
+    --fav-color: rgb(211, 62, 62); */
+
+    /*========== Font and typography ==========*/
+    /* --body-font: "Poppins", sans-serif;
+    --h2-font-size: 1rem;
+    --small-font-size: 0.75rem; */
+/* } */
+
+/*========== Responsive typography ==========*/
+/* @media screen and (min-width: 1120px) {
+    :root {
+        --h2-font-size: 1.25rem;
+        --small-font-size: 0.813rem;
+    }
+} */
+
+/*=============== BASE ===============*/
+/* * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+} */
+
+/* .background-body { */
+    /* font-family: var(--body-font); */
+    /* background-color: rgb(162, 121, 87); */
+/* } */
+
+.imgProducto {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/*=============== CARD ===============*/
+.containerCard {
+    min-width: 10rem !important;
+    width: 13rem !important;
+    height: 22rem;
+    position: relative;
+}
+
+.card__container {
+    background-color: rgb(255, 255, 255);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    position: relative;
+
+}
+
+.card__container:hover {
+    cursor: pointer;
+}
+
+.card__img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+}
+
+.card__data {
+    height: 3rem;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    right: 0;
+    margin-inline: auto;
+    opacity: 0;
+    transition: opacity 0.5s, bottom 0.5s;
+}
+
+.card-body {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+
+.card__button__vistaRapida {
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+    font-weight: 500;
+    text-align: center;
+    align-content: center;
+    color: rgb(255, 255, 255);
+    display: inline-block;
+    margin-top: 0;
+    padding: 0;
+    transition: background-color 0.5s ease, color 0.5s ease-in-out;
+}
+
+.card__button__añadirCarrito {
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+    font-weight: 500;
+    text-align: center;
+    align-content: center;
+    color: rgb(255, 255, 255);
+    margin: 0.2rem 0rem;
+    transition: background-color 0.5s ease, color 0.5s ease-in-out;
+}
+
+.btnVerProducto {
+    margin-bottom: 0;
+    color: rgb(255, 255, 255) !important;
+}
+
+.btnVerProducto:hover {
+    color: rgb(156, 156, 156) !important;
+}
+
+.fav-btn {
+    position: absolute;
+    bottom: 100%;
+    left: 80%;
+    right: 0;
+    margin-inline: auto;
+    opacity: 0;
+    transition: opacity 0.5s, bottom 0.5s;
+    color: #bfbfbf;
+}
+
+.bag-btn {
+    position: absolute;
+    bottom: 0%;
+    /* left: 0%; */
+    /* top: 100%; */
+    right: 82%;
+    margin-inline: auto;
+    opacity: 0;
+    transition: opacity 0.5s, bottom 0.5s;
+    color: rgb(162, 121, 87);
+}
+
+.bag-btn:hover {
+    color: rgb(115, 87, 63);
+}
+
+.fav-btn:hover {
+    color: rgb(211, 62, 62);
+}
+
+.textoProd {
+    font-size: 1rem;
+    padding: 0;
+    color: rgba(252, 184, 50, 1);
+}
+
+.card__button__vistaRapida:hover {
+    background-color: rgb(115, 87, 63) !important;
+    color: rgb(255, 255, 255);
+}
+
+.containerCard:hover {
+    cursor: pointer;
+
+    .card__data {
+        cursor: pointer;
+        bottom: 0;
+        opacity: 1;
+        background-color: rgb(162, 121, 87);
+    }
+
+    .fav-btn {
+        cursor: pointer;
+        bottom: 86%;
+        opacity: 1;
+    }
+
+    .bag-btn {
+        cursor: pointer;
+        bottom: 27%;
+        opacity: 1;
+    }
+}
+
+.hoverHeart {
+    width: 5rem;
+}
+
+.hoverBag {
+    width: 4rem;
+}
+
+
+
+/*carrito silvio*/
+.quantity {
+    margin: 0;
+    height: 3rem;
+    width: 4rem;
+    font-size: small;
+    text-align: start;
+    background: transparent;
+}
+
+.formCart{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    margin: 0.3rem 0.5rem;
+}

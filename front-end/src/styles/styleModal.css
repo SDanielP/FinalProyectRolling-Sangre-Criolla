@@ -1,0 +1,34 @@
+
+.modal-InicioYRegistro{
+    background-color: #efefef;
+}
+.modal-body{
+    background-color: #efefef;
+}
+.modal-footer{
+    background-color: #efefef;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+/*----- PALETA DE COLORES ----- */
+.marronOscuro{
+    background-color: #73503C;
+}
+.marronClaro{
+    background-color: #D9C7C1;
+}
+.beige{
+    background-color: #A6907C;
+}
+.marronNegro{
+    background-color: #260E09;
+}
+.marronRojizo{
+    background-color: #733224;
+} 
+.transparente-modal{
+    background: transparent;
+}
