@@ -3,7 +3,6 @@ import NavbarMenu from "../components/general/NavbarMenu";
 import Banner from "../components/home/Banner";
 import MainBanner from "../components/home/MainBanner";
 import SecondaryBanner from "../components/home/SecondaryBanner";
-import ProductSection from "../components/home/ProductSection";
 import RrhhSection from "../components/general/footer/RrhhSection";
 import CatalogSection from "../components/home/CatalogSection"; 
 import Footer from "../components/general/footer/Footer";
