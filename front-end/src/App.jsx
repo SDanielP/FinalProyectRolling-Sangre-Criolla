@@ -27,7 +27,7 @@ const App = () => {
   /* ----- API ----- */
   const getSubcategories = useCallback(async () => {
     try {
-      const response = await fetch("http://localhost:4000/subcategories");
+      const response = await fetch(`${url}/subcategories`);
       if (!response.ok) {
         throw new Error("Error en la solicitud: " + response.status);
       }
