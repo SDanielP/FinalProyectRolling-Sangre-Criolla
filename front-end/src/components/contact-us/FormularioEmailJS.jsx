@@ -17,16 +17,7 @@ const FormularioEmailJS = () => {
         e.target,
         import.meta.env.VITE_PUBLIC_KEY
       )
-      .then(
-        () => {
-          console.log('¡Correo enviado!');
-          console.log('¡Correo enviado!');
-        },
-        (error) => {
-          console.log('Error al enviar...', error.text);
-          console.log('Error al enviar...', error.text);
-        }
-      );
+      .then();
   };
 
   const [show, setShow] = useState(false);
@@ -65,7 +56,6 @@ const FormularioEmailJS = () => {
             <Form.Group>
               <Form.Label></Form.Label>
               <Form.Control type="text" name="subject" placeholder="Asunto" required></Form.Control>
-              <Form.Control type="text" name="subject" placeholder="Asunto" required></Form.Control>
             </Form.Group>
           </Col>
         </Row>
@@ -95,7 +85,6 @@ const FormularioEmailJS = () => {
               Enviar
               <i className="bi bi-send btn iconoEnviar" />
             </Button>
-            {show && <ModalContacto show={show} onHide={() => setShow(false)} />}
             {show && <ModalContacto show={show} onHide={() => setShow(false)} />}
           </Col>
         </Row>
