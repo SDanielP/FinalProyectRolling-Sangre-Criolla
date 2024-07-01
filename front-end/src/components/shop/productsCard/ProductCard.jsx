@@ -8,17 +8,14 @@ import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { faBagShopping } from "@fortawesome/free-solid-svg-icons";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
-// import fetchProductById from "../compProductDet/fetchProductById";
 import useCart from "../carts/useCart";
 import { useCartModal } from "../../../store/useCartModal"
 import ModalDprod from "../compProductDet/ModalDprod";
 
 
 const ProductCard = ({ producto }) => {
-  /* ----- Uso del useNavigate() ----- */
-  const navigate = useNavigate(); // Importar useNavigate()
+  const navigate = useNavigate();
 
-  /* ----- Estados para el carrito ----- */
   const [cartProducts, updateCart] = useCart();
   const [tooltipText, setTooltipText] = useState('Añadir al carrito');
   const [isModalOpenV, setIsModalOpenV] = useState(false);
@@ -31,18 +28,6 @@ const ProductCard = ({ producto }) => {
     setIsModalOpenV(false);
   };
 
-  /* ----- Traer cada producto ----- */
-  // const handleQuickView = async () => {
-  //   try {
-  //     const productData = await fetchProductById(producto.category, producto.subcategory, producto._id);
-  //     navigate(`/products/${producto._id}`, { state: { product: productData } });
-  //   } catch (error) {
-  //     console.error("Error al cargar el producto:", error);
-  //   }
-  // };
-
-
-  /* ----- Mensajes durante hover en botones Carrito y Fav -----*/
   const tooltipAddToCart = (props) => (
     <Tooltip id="tooltip" {...props} className="hoverBag">
       {tooltipText}
@@ -55,12 +40,8 @@ const ProductCard = ({ producto }) => {
     </Tooltip>
   );
 
-
-  /* ----- Funcionalidad AGREGAR AL CARRITO ----- */
   const { isOpenCartModal, setOpenCartModal } = useCartModal();
  
-
-
   const handleAddToCart = () => {
     const updatedCart = [...cartProducts];
     const existingProductIndex = updatedCart.findIndex((product) => product.id === producto._id);
