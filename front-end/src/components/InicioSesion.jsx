@@ -33,6 +33,13 @@ const url = "https://sangrecriolla-back-end.onrender.com";
                 setError(true)
                 alert("Logueo exitoso");
                 console.log('Usuario logueado con éxito.');
+                if (data.user.role === "ADMIN") {
+                    window.location.href = '/admin'; // URL para administradores
+                } else if (data.user.role === "USER") {
+                    window.location.href = '/products/all'; // URL para usuarios normales
+                } else {
+                    console.log('Usuario logueado con éxito pero sin rol definido.');
+                }
             } else {
                 console.error('Error al ingresar el usuario:', data.message || response.statusText);
             }
