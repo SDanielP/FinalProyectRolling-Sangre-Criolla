@@ -1,11 +1,9 @@
 import "./styles/App.css";
 import { useEffect, useCallback } from "react";
-// import { useNavigate } from "react-router-dom";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useSubcategories } from "./store/useSubcategories.js";
 
 
-// import NavbarMenu from "./components/general/NavbarMenu.jsx";
 import ProductsScreen from "./pages/ProductsScreen";
 import Home from "./pages/Home.jsx";
 import FrequentQuestions from "./pages/FrequentQuestions.jsx";
@@ -22,10 +20,8 @@ import NotFoundPage from "./pages/ErrorScreen.jsx"
 const url = "https://sangrecriolla-back-end.onrender.com"
 
 const App = () => {
-  /* ----- Estado Categorías - Zustand ----- */
   const { setSubcategories } = useSubcategories();
 
-  /* ----- API ----- */
   const getSubcategories = useCallback(async () => {
     try {
       const response = await fetch(`${url}/subcategories`);
@@ -34,7 +30,6 @@ const App = () => {
       }
       const data = await response.json();
 
-      //***Asigno a las subcategorías la info de la API
       setSubcategories(data);
 
     } catch (error) {
@@ -43,7 +38,6 @@ const App = () => {
     }
   }, [setSubcategories]);
 
-  /* ----- RENDERIZACIÓN CONSTANTE DE SUBCATEGORÍAS ----- */
   useEffect(() => {
     getSubcategories();
     

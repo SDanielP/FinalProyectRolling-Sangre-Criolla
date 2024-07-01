@@ -1,4 +1,4 @@
-import "../styles/ErrorScreen.css"; // Archivo de estilos CSS para la página 404
+import "../styles/ErrorScreen.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import React from "react";

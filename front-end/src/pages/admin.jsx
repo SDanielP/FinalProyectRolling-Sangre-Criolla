@@ -28,24 +28,19 @@ const Admin = () => {
 
   useEffect(() => {
     fetch('https://sangrecriolla-back-end.onrender.com/api/users', {
-      // Aquí se especifica el modo CORS
       mode: 'cors'
     })
       .then(response => {
-        // Verificar si la respuesta es exitosa
         if (!response.ok) {
           throw new Error('Error en la red');
         }
         return response.json();
       })
       .then(data => {
-        // Mostrar los datos recibidos en la consola
         console.log("Datos recibidos de la API:", data);
-        // Actualizar el estado con los usuarios obtenidos
         setUsers(data.users);
       })
       .catch(error => {
-        // Manejo de errores
         console.error('Ha ocurrido un error:', error);
       });
   }, []);
@@ -95,7 +90,7 @@ const Admin = () => {
     if (window.innerWidth < 1024) {
       setSidebarHide(sidebarHide);
     }
-    setSidebarHide(!sidebarHide); // Si el ancho de la pantalla es mayor o igual a 768px, siempre oculta el sidebar
+    setSidebarHide(!sidebarHide);
     
   };
   
@@ -246,9 +241,7 @@ const Admin = () => {
       .then(response => response.json())
       .then(() => {
         alert('Producto registrado');
-      // Reiniciar la página
       window.location.reload();
-        // Aquí puedes añadir lógica adicional, como limpiar el formulario o actualizar la lista de productos
       })
       .catch(error => console.error('Error al agregar el producto:', error));
   };

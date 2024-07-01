@@ -31,11 +31,9 @@ const RecuperacionContra = () => {
       console.log(data);
 
       if (response.ok && data.message === "Email de recuperación enviado con éxito.") {
-        // setError(true)
         alert("Email de recuperación enviado con éxito");
         console.log('Email de recuperación enviado con éxito.');
 
-        // Aquí puedes agregar la lógica adicional, como redireccionar al usuario a otra página.
       } else {
         console.error('Error al ingresar el usuario:', data.message || response.statusText);
       }

@@ -67,9 +67,9 @@ const PaymentForm = () => {
         console.error(error);
         alert('Pago realizado con éxito!');
         localStorage.removeItem('cart');
-        localStorage.removeItem('compraConfirmada'); // Eliminar los productos del localStorage
-        setProductos([]); // Limpiar el estado de productos
-        window.location.href = '/products/all'; // Redirigir a /products/all
+        localStorage.removeItem('compraConfirmada');
+        setProductos([]); 
+        window.location.href = '/products/all'; 
       }
     },
   });

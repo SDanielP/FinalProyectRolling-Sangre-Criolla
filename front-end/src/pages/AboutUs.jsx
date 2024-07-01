@@ -12,7 +12,6 @@ const Nosotros = () => {
       <NavbarMenu />
       <Container>
         <Row>
-          {/* Imagen Seccion  */}
           <Col sm={5}>
             <Image
               src="https://images.pexels.com/photos/10206444/pexels-photo-10206444.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
@@ -20,7 +19,6 @@ const Nosotros = () => {
               className="altoImagen"
             />
           </Col>
-          {/* Seccion Tabs */}
           <Col sm={7}>
             <InfoNosotros />
           </Col>
