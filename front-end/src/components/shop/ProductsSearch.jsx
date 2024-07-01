@@ -30,7 +30,7 @@ const Products = ({
   const getProductos = useCallback(async () => {
     setLoading(true);
     try {
-      const response = await fetch(`https://sangrecriolla-back-end.onrender.com/products`);
+      const response = await fetch(`${url}/products`);
       if (!response.ok) {
         throw new Error("Error en la solicitud: " + response.status);
       }
@@ -93,8 +93,11 @@ const Products = ({
 
       // Filtrado por término de búsqueda
       if (searchTerm) {
-        filteredProducts = filteredProducts.filter((producto) =>
-          producto.name.toLowerCase().includes(searchTerm.toLowerCase())
+        filteredProducts = filteredProducts.filter((producto) =>{
+          producto.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
+          producto.category.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          producto.subcategory.toLowerCase().includes(searchTerm.toLowerCase())
+        }
         );
       }
 

@@ -75,7 +75,7 @@ const SearchScreen = () => {
             <span className="ubicacionUser">
               /
               <NavLink
-                to="/products/all"
+                to="/search"
                 style={{
                   textDecoration: "none",
                   color: "beige",
@@ -116,12 +116,12 @@ const SearchScreen = () => {
             <> */}
           <div className="seccion-productos" style={{ width: "75%" }}>
           <ProductsSearch
-            searchTerm={searchTerm}
-            categoria={selectedCategory.toString()}
+            categoria={selectedCategory}
             subcategoria={selectedSubcategory.subcategory}
             ordenar={ordenarProp}
             precioMin={min}
             precioMax={max}
+            searchTerm={searchTerm}
           />
         </div>
           {/* </>
