@@ -2,6 +2,7 @@ import '../styles/ContactUs.css';
 import { Container, Row, Col } from 'react-bootstrap';
 import NavbarMenu from '../components/general/NavbarMenu';
 import Banner from '../components/home/Banner';
+import Footer from '../components/general/footer/Footer';
 import InfoContacto from '../components/contact-us/InfoContacto';
 import FormularioEmailJS from '../components/contact-us/FormularioEmailJS';
 const Contact = () => {
@@ -22,6 +23,7 @@ const Contact = () => {
           </Row>
         </Container>
       </Container>
+      <Footer />
     </>
   );
 };

@@ -3,6 +3,7 @@ import { Container, Col, Row, Image } from 'react-bootstrap';
 import InfoNosotros from '../components/about-us/InfoNosotros';
 import NavbarMenu from '../components/general/NavbarMenu';
 import Banner from '../components/home/Banner';
+import Footer from '../components/general/footer/Footer';
 
 const Nosotros = () => {
   return (
@@ -25,7 +26,8 @@ const Nosotros = () => {
           </Col>
         </Row>
       </Container>
+      <Footer />
     </>
   );
-}
+};
 export default Nosotros;
