@@ -17,6 +17,7 @@ import ErrorScreen from "./pages/ErrorScreen.jsx"
 import SearchScreen from "./pages/SearchScreen.jsx"
 import ContactUs from "./pages/ContactUs.jsx";
 import Admin from "./pages/admin.jsx";
+import NotFoundPage from "./pages/ErrorScreen.jsx"
 
 const url = "https://sangrecriolla-back-end.onrender.com"
 
@@ -54,6 +55,7 @@ const App = () => {
     <Router>
         <Routes>
           <Route key={1000} path="/" element={<Home />} />
+          <Route key={2000} path="/error404" element={<NotFoundPage />} />
           <Route key={3000} path="products/all" element={<ProductsScreen />} />
           <Route key={4000} path="products/:category" element={<ProductsScreen />} />
           <Route key={4000} path="products/:category/:subcategory" element={<ProductsScreen />} />

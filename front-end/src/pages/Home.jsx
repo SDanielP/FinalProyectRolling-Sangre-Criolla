@@ -13,22 +13,18 @@ import "../styles/Home.css"
 
 function Home() {
   return (
-    <div className="App">
+    <div className="App-home">
       <Banner />
       <NavbarMenu />
-      <main>
+      <main className="main-home">
         <MainBanner />
         <SecondaryBanner />
         <ProductSection />
         <CatalogSection />
-
-        {/* Footer */}
         <Footer />
-        <div style={{ display: "flex", justifyContent: "start" }}>
+        <div className="ultimaParte-home">
           <RrhhSection />
-          <SocialContactSection />
         </div>
-        <Header />
       </main>
     </div>
   );

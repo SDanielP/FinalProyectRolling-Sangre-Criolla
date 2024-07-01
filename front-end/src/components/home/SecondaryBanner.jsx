@@ -6,7 +6,7 @@ import { NavLink } from "react-bootstrap";
 
 const SecondaryBanner = () => {
   return (
-    <section className="tarjetas">
+    <section className="tarjetas-home">
       <div className="container">
         <div className="cards-wrapper">
           <div

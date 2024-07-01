@@ -1,28 +1,31 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Bokor&display=swap");
 
-body {
+.App-home{
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   font-family: "Roboto", sans-serif;
 }
 
-main {
+.main-home{
   flex-grow: 1;
 }
 
-main .carousel {
+.main-home .carousel {
   width: 100%;
   overflow: hidden;
 }
 
+.ultimaParte-home{
+  display: flex;
+  justify-content: start;
+}
 .carousel>img {
   width: auto;
   height: auto;
   object-fit: contain;
 }
-
 .carousel-caption2 {
   width: 100vmax;
   height: 100vmax;
@@ -43,7 +46,7 @@ main .carousel {
 .carousel-caption2>p {
   font-size: 150%;
 }
-.texto-servicios {
+.texto-servicios-home {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -53,7 +56,7 @@ main .carousel {
   font-size: 3rem;
 }
 
-.tarjetas {
+.tarjetas-home{
   display: flex;
   justify-content: center;
   align-items: center;

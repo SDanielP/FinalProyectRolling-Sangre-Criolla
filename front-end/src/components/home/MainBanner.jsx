@@ -103,7 +103,7 @@ const MainBanner = () => {
           </button>
         </div>
       </div>
-      <div className="texto-servicios">
+      <div className="texto-servicios-home">
         <h1>
           <span style={{ color: "#73503c" }}>SANGRE </span>
           <span style={{ color: "#A6907C" }}>CRIOLLA</span>
