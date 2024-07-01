@@ -16,6 +16,7 @@ import RecuperacionContra from "./pages/RecuperacionContra.jsx";
 import ErrorScreen from "./pages/ErrorScreen.jsx"
 import SearchScreen from "./pages/SearchScreen.jsx"
 import ContactUs from "./pages/ContactUs.jsx";
+import Admin from "./pages/admin.jsx";
 
 const url = "https://sangrecriolla-back-end.onrender.com"
 
@@ -26,7 +27,7 @@ const App = () => {
   /* ----- API ----- */
   const getSubcategories = useCallback(async () => {
     try {
-      const response = await fetch("https://sangrecriolla-back-end.onrender.com/subcategories");
+      const response = await fetch(`${url}/subcategories`);
       if (!response.ok) {
         throw new Error("Error en la solicitud: " + response.status);
       }
@@ -38,7 +39,7 @@ const App = () => {
 
     } catch (error) {
       console.error("Error:", error);
-      setError(error);
+      // setError(error);
     }
   }, [setSubcategories]);
 
@@ -68,6 +69,7 @@ const App = () => {
           />
           <Route key={11000} path="/recuperacion-contrasena" element={<RecuperacionContra />} />
           <Route key={13000} path="/search" element={<SearchScreen />} />
+          <Route key={14000} path="/admin" element={<Admin />} />
         </Routes>
       </Router>
   );

@@ -7,6 +7,11 @@
   justify-content: center;
   align-items: center;
   flex: 1;
+  width: 100%;
+}
+
+.tituloFormulario {
+  color: #733224;
 }
 
 /* Tarjetas Individuales */
@@ -16,7 +21,7 @@
   margin: 10px;
   background-color: #73503c;
   display: flex;
-  align-items: center;
+
   justify-content: center;
   gap: 1.3rem;
   border-radius: 8px;
@@ -47,16 +52,25 @@
 }
 
 .colorBoton {
-  border: 1px solid #260e09;
-  background-color: #73503c;
+  background-color: #73503c !important;
+
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
   color: #fff;
   margin-bottom: 15px;
 }
 
 .colorBoton:hover {
-  border: 1px solid #260e09;
   background-color: #a6907c !important;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
   color: #000000;
+}
+
+.iconoEnviar {
+  color: #fff;
+}
+
+.iconoEnviar:hover {
+  color: #000;
 }
 
 .headerColor {

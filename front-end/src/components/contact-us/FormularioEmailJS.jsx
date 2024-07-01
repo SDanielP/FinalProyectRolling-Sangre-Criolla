@@ -20,8 +20,10 @@ const FormularioEmailJS = () => {
       .then(
         () => {
           console.log('¡Correo enviado!');
+          console.log('¡Correo enviado!');
         },
         (error) => {
+          console.log('Error al enviar...', error.text);
           console.log('Error al enviar...', error.text);
         }
       );
@@ -63,6 +65,7 @@ const FormularioEmailJS = () => {
             <Form.Group>
               <Form.Label></Form.Label>
               <Form.Control type="text" name="subject" placeholder="Asunto" required></Form.Control>
+              <Form.Control type="text" name="subject" placeholder="Asunto" required></Form.Control>
             </Form.Group>
           </Col>
         </Row>
@@ -90,8 +93,9 @@ const FormularioEmailJS = () => {
               onClick={() => setShow(true)}
             >
               Enviar
-              <i className="bi bi-send btn" />
+              <i className="bi bi-send btn iconoEnviar" />
             </Button>
+            {show && <ModalContacto show={show} onHide={() => setShow(false)} />}
             {show && <ModalContacto show={show} onHide={() => setShow(false)} />}
           </Col>
         </Row>

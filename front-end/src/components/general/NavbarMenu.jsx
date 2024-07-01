@@ -81,11 +81,6 @@ const Navbar = () => {
                 Contacto
               </NavLink>
             </li>
-            <li className="nav-item" id="itemToHide">
-              <NavLink to="/" className="nav-link" aria-current="page">
-                Administracion
-              </NavLink>
-            </li>
           </ul>
           <form className="d-flex" role="search" onSubmit={handleSearchSubmit}>
             <input

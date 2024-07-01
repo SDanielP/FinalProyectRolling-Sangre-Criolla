@@ -11,16 +11,27 @@ import Tooltip from "react-bootstrap/Tooltip";
 // import fetchProductById from "../compProductDet/fetchProductById";
 import useCart from "../carts/useCart";
 import { useCartModal } from "../../../store/useCartModal"
+import ModalDprod from "../compProductDet/ModalDprod";
+
 
 const ProductCard = ({ producto }) => {
-   /* ----- Uso del useNavigate() ----- */
-   const navigate = useNavigate(); // Importar useNavigate()
+  /* ----- Uso del useNavigate() ----- */
+  const navigate = useNavigate(); // Importar useNavigate()
 
-/* ----- Estados para el carrito ----- */
+  /* ----- Estados para el carrito ----- */
   const [cartProducts, updateCart] = useCart();
   const [tooltipText, setTooltipText] = useState('Añadir al carrito');
+  const [isModalOpenV, setIsModalOpenV] = useState(false);
 
-/* ----- Traer cada producto ----- */
+  const handleQuickViewV = () => {
+    setIsModalOpenV(true);
+  };
+
+  const handleCloseModalV = () => {
+    setIsModalOpenV(false);
+  };
+
+  /* ----- Traer cada producto ----- */
   // const handleQuickView = async () => {
   //   try {
   //     const productData = await fetchProductById(producto.category, producto.subcategory, producto._id);
@@ -44,14 +55,16 @@ const ProductCard = ({ producto }) => {
     </Tooltip>
   );
 
-  
+
   /* ----- Funcionalidad AGREGAR AL CARRITO ----- */
-  const {isOpenCartModal, setOpenCartModal} = useCartModal();
+  const { isOpenCartModal, setOpenCartModal } = useCartModal();
+ 
+
 
   const handleAddToCart = () => {
     const updatedCart = [...cartProducts];
     const existingProductIndex = updatedCart.findIndex((product) => product.id === producto._id);
-    
+
     if (existingProductIndex !== -1) {
       updatedCart[existingProductIndex].quantity += 1;
     } else {
@@ -86,13 +99,13 @@ const ProductCard = ({ producto }) => {
                 (navigate(`/products/${producto.category}/${producto.subcategory}/${producto._id}`))
               }
             ></img>
-            <div className="card__data">
+           <div className="card__data">
               <Button
-                className="card__button__vistaRapida"
-                // onClick={handleQuickView} //REDIRIGIR AL MODAL - FALTA HACER
+                onClick={handleQuickViewV}
               >
                 Vista rápida
               </Button>
+              <ModalDprod show={isModalOpenV} handleClose={handleCloseModalV} />
             </div>
           </article>
 
@@ -131,6 +144,7 @@ const ProductCard = ({ producto }) => {
           <p className="textoProd">${producto.price}</p>
         </div>
       </div>
+
     </div>
   );
 };

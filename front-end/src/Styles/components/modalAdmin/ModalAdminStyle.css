@@ -1,0 +1,130 @@
+.custom-modal-admin {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1003;
+    overflow: auto;
+  }
+  
+  .modal-content-admin {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 600px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+  }
+  
+  .modal-header-admin {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .modal-header-admin h2 {
+    margin: 0;
+  }
+  
+  .modal-header-admin .close {
+    cursor: pointer;
+    font-size: 24px;
+  }
+  
+  .modal-body-admin {
+    margin-bottom: 20px;
+  }
+  
+  .item-info-admin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .item-image-admin {
+    text-align: center;
+  }
+
+  .item-image-admin img {
+    max-width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  .item-details-admin .form-group-modal-admin {
+    margin-bottom: 15px;
+    width: 400px; 
+  }
+  
+  .item-details-admin .form-group-modal-admin label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .item-details-admin .form-group-modal-admin input,
+  .item-details-admin .form-group-modal-admin textarea {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+  }
+  
+  .size-input-admin {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+  
+  .size-input-admin input {
+    flex: 1;
+    margin-right: 5px;
+  }
+  
+  .size-input-admin button {
+    background: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .modal-footer-admin {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+  
+  .modal-footer-admin button {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .modal-footer-admin button:first-child {
+    background: #ccc;
+  }
+  
+  .modal-footer-admin button:nth-child(2) {
+    background: red;
+    color: white;
+  }
+  
+  .modal-footer-admin button:last-child {
+    background: green;
+    color: white;
+  }
+  
+  @media screen and (max-width: 576px) {
+    .item-details-admin .form-group-modal-admin {
+      margin-bottom: 15px;
+      width: 300px;
+    }
+  }
