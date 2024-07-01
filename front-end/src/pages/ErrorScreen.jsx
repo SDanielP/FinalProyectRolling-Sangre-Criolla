@@ -5,6 +5,8 @@ import React from "react";
 import NavbarMenu from "../components/general/NavbarMenu";
 import Banner from "../components/home/Banner";
 import { NavLink } from "react-router-dom";
+import Footer from "../components/general/footer/Footer";
+import RrhhSection from "../components/general/footer/RrhhSection";
 
 const NotFoundPage = () => {
   return (
@@ -43,9 +45,13 @@ const NotFoundPage = () => {
           <p className="p-ErrorScreen">Lo sentimos, la página que estás buscando no existe.</p>
           <p className="p-ErrorScreen">Para seguir comprando:</p>
           <NavLink to="/">
-          <button className="go-back-ErrorScreen">Click Aquí</button>
+            <button className="go-back-ErrorScreen">Click Aquí</button>
           </NavLink>
         </div>
+      </div>
+      <Footer />
+      <div className="ultimaParte-home">
+        <RrhhSection />
       </div>
     </>
   );
