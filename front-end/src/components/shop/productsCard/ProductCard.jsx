@@ -105,7 +105,7 @@ const ProductCard = ({ producto }) => {
               >
                 Vista rápida
               </Button>
-              <ModalDprod show={isModalOpenV} handleClose={handleCloseModalV} />
+              <ModalDprod product={producto} show={isModalOpenV} handleClose={handleCloseModalV} />
             </div>
           </article>
 
@@ -146,6 +146,7 @@ const ProductCard = ({ producto }) => {
       </div>
 
     </div>
+    
   );
 };
 

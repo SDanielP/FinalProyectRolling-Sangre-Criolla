@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import fetchProductById from "./fetchProductById";
 
 function ProductDetails({ onProductLoad }) {
-  const { id, category, subcategory } = useParams(); // Obtener el ID del producto de los parámetros de la URL
+  const { id, category, subcategory } = useParams();
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
@@ -11,16 +11,14 @@ function ProductDetails({ onProductLoad }) {
       try {
         const productData = await fetchProductById(id, category, subcategory);
         setProduct(productData);
-        onProductLoad(productData); // Pasar los datos del producto al callback
+        onProductLoad(productData); 
       } catch (error) {
         console.error("Error:", error);
       }
     };
 
     getProduct();
-  }, [id, onProductLoad]
-  [category, onProductLoad]    
-  [subcategory, onProductLoad]  
+  }, [id, category, subcategory, onProductLoad] 
 );
 
   if (!product) {

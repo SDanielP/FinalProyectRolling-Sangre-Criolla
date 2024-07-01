@@ -5,3 +5,7 @@
 .ModalBodyV p, .ModalBodyV h3{
     color: white;
 }
+
+.ModalBodyV .btn{
+    background-color:  #a47c54  !important;
+}
