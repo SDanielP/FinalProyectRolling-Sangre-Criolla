@@ -1,5 +1,5 @@
-import '../../styles/ContactUs.css';
 import { Container } from 'react-bootstrap';
+import '../../styles/ContactUs.css';
 
 const InfoContacto = () => {
   return (
@@ -20,5 +20,5 @@ const InfoContacto = () => {
       </Container>
     </>
   );
-}
+};
 export default InfoContacto;

@@ -1,8 +1,8 @@
 import React, { useRef, useState } from 'react';
 import { Row, Col, Form, Button } from 'react-bootstrap';
-// import emailjs from '@emailjs/browser';
-// import emailjs from "@emailjs/browser";
+import emailjs from '@emailjs/browser';
 import ModalContacto from './ModalContacto';
+import '../../styles/ContactUs.css';
 
 const FormularioEmailJS = () => {
   const form = useRef();
@@ -17,14 +17,7 @@ const FormularioEmailJS = () => {
         e.target,
         import.meta.env.VITE_PUBLIC_KEY
       )
-      .then(
-        () => {
-          console.log('¡Correo enviado!');
-        },
-        (error) => {
-          console.log('Error al enviar...', error.text);
-        }
-      );
+      .then();
   };
 
   const [show, setShow] = useState(false);
