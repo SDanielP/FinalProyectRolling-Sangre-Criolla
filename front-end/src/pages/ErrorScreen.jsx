@@ -4,6 +4,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import React from "react";
 import NavbarMenu from "../components/general/NavbarMenu";
 import Banner from "../components/home/Banner";
+import { NavLink } from "react-router-dom";
 
 const NotFoundPage = () => {
   return (
@@ -41,7 +42,9 @@ const NotFoundPage = () => {
           </div>
           <p className="p-ErrorScreen">Lo sentimos, la página que estás buscando no existe.</p>
           <p className="p-ErrorScreen">Para seguir comprando:</p>
+          <NavLink to="/">
           <button className="go-back-ErrorScreen">Click Aquí</button>
+          </NavLink>
         </div>
       </div>
     </>

@@ -26,9 +26,7 @@ function Home() {
         <Footer />
         <div style={{ display: "flex", justifyContent: "start" }}>
           <RrhhSection />
-          <SocialContactSection />
         </div>
-        <Header />
       </main>
     </div>
   );
