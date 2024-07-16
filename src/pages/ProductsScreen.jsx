@@ -1,12 +1,13 @@
 import "../styles/ProductsScreen.css";
 import "../styles/components/shop/productsFilter/SortFilter.modules.css";
-import React from "react";
+import React, { useState } from "react";
 import Products from "../components/shop/Products.jsx";
 import FilterPanel from "../components/shop/FilterPanel.jsx";
+import FilterPanelResponsive from "../components/shop/FilterPanelResponsive.jsx";
 import SortFilter from "../components/shop/productsFilter/SortFilter.jsx";
 import NavbarMenu from "../components/general/NavbarMenu.jsx";
-import Footer from "../components/general/footer/Footer.jsx"
-import RrhhSection from "../components/general/footer/RrhhSection.jsx"
+import Footer from "../components/general/footer/Footer.jsx";
+import RrhhSection from "../components/general/footer/RrhhSection.jsx";
 
 import { useEffect } from "react";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
@@ -29,13 +30,23 @@ const ProductsScreen = () => {
   const { ordenarProp } = useSortFilter();
   const { selectedCategory, setSelectedCategory } = useCategoriesFilter();
   const { selectedSubcategory, setSelectedSubcategory } = useCategoriesFilter();
-  
+
+  //Para manejar el responsive
+  const [isMenuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!isMenuOpen);
+  };
+
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
+
   const handleOnClick = () => {
     setSelectedCategory("");
     setSelectedSubcategory("");
     setUbication("Todos");
   };
-
   useEffect(() => {
     if (category) {
       setSelectedCategory(category);
@@ -46,7 +57,13 @@ const ProductsScreen = () => {
     } else {
       setSelectedSubcategory("");
     }
-  }, [category, subcategory, setSelectedCategory, setUbication, setSelectedSubcategory]);
+  }, [
+    category,
+    subcategory,
+    setSelectedCategory,
+    setUbication,
+    setSelectedSubcategory,
+  ]);
 
   return (
     <>
@@ -82,6 +99,13 @@ const ProductsScreen = () => {
           </div>
         </div>
         <SortFilter />
+        {/* Botón para abrir el menú */}
+        <button onClick={toggleMenu} className="filter-btn-menu">
+          Abrir Menú
+        </button>
+
+        {/* Componente del menú overlay */}
+        <FilterPanelResponsive isOpen={isMenuOpen} onClose={closeMenu} />
       </nav>
 
       <section
@@ -106,26 +130,26 @@ const ProductsScreen = () => {
           {error && <p>Error: {error}</p>}
           {!loading && !error && (
             <> */}
-              {selectedSubcategory !== "" ? (
-                <Products
-                  className="div-products"
-                  categoria={selectedCategory.toString().toLowerCase()}
-                  subcategoria={selectedSubcategory.subcategory.toLowerCase()}
-                  ordenar={ordenarProp}
-                  precioMin={min}
-                  precioMax={max}
-                />
-              ) : (
-                <Products
-                  className="div-products"
-                  categoria={selectedCategory.toString().toLowerCase()}
-                  subcategoria={null}
-                  ordenar={ordenarProp}
-                  precioMin={min}
-                  precioMax={max}
-                />
-              )}
-            {/* </>
+          {selectedSubcategory !== "" ? (
+            <Products
+              className="div-products"
+              categoria={selectedCategory.toString().toLowerCase()}
+              subcategoria={selectedSubcategory.subcategory.toLowerCase()}
+              ordenar={ordenarProp}
+              precioMin={min}
+              precioMax={max}
+            />
+          ) : (
+            <Products
+              className="div-products"
+              categoria={selectedCategory.toString().toLowerCase()}
+              subcategoria={null}
+              ordenar={ordenarProp}
+              precioMin={min}
+              precioMax={max}
+            />
+          )}
+          {/* </>
           )} */}
         </div>
       </section>

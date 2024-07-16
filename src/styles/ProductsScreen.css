@@ -12,6 +12,44 @@
     background: transparent;
 }
 
+/*Responsive filter panel*/
+.filter-btn-menu {
+    display: none;
+}
+
+.seccion-filtros {
+    display: block;
+}
+
+/* Media Queries para dispositivos móviles */
+@media (max-width: 767px) {
+    .filter-btn-menu {
+        display: block;
+        margin-left: 2.5rem;
+    }
+
+    .seccion-filtros {
+        display: none;
+    }
+}
+
+/* Media Queries para tablets */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .filter-btn-menu {
+        display: block;
+        margin-left: 3.2rem;
+    }
+
+    .seccion-filtros {
+        display: none;
+    }
+}
+
+/* Media Queries para pantallas de escritorio */
+@media (min-width: 1024px) {
+}
+
+
 
 /*Section Productos*/
 .contenedor-filtros-productos {
@@ -20,4 +58,3 @@
     justify-content: flex-start;
     background-color: rgb(57, 61, 50);
 }
-

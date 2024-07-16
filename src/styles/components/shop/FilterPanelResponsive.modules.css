@@ -1,0 +1,100 @@
+.filter-panel {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  padding-left: 2.5rem;
+}
+
+.filter-panel-btn {
+  width: fit-content;
+  text-align: left;
+}
+
+.filter-panel .card {
+  margin-bottom: 1rem;
+}
+
+.filter-btn {
+  background: transparent;
+}
+
+.title-filter-panel{
+  color: beige;
+  font-weight: 500;
+  padding-top: 1.5rem;
+  margin-bottom: 0 !important;
+}
+
+.hr-color {
+  color: beige !important;
+}
+
+/*Responsive*/
+/* MenuOverlay.css */
+.close{
+  position: inherit;
+  z-index: 1;
+  background-color: beige;
+}
+
+.menu-overlay {
+  padding-top: 4rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 25%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 1); /* Fondo semi-transparente */
+  z-index: 1000; /* Capa por encima de todo */
+  display: none; /* Por defecto oculto */
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto; /* Permitir desplazamiento vertical si el contenido es demasiado largo */
+
+}
+
+.menu-overlay.open {
+  display: flex; /* Mostrar el menú cuando está abierto */
+}
+
+.menu-content {
+  position: relative; /* Asegura que los elementos desplegados se posicionen respecto a este contenedor */
+}
+
+/* Estilo específico para los dropdowns dentro del menú */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  z-index: 1;
+}
+
+.dropdown-content.show {
+  display: block;
+}
+
+
+
+
+/*Responsive*/
+
+/* Media Queries para dispositivos móviles */
+@media (max-width: 767px) {
+ .menu-overlay{
+  width: 60%;
+ }
+}
+
+/* Media Queries para tablets */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .menu-overlay{
+    width: 40%;
+   }
+}
+
+/* Media Queries para pantallas de escritorio */
+@media (min-width: 1024px) {
+  .menu-overlay{
+    display: none;
+  }
+}

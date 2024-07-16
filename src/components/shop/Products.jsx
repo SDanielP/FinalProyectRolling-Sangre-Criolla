@@ -130,7 +130,7 @@ const Products = ({
           ))}
         </div>
       ) : (
-        <p className="contenedorProductos">
+        <p className="contenedorProductos api-msg">
           No se encontraron productos para esta categoría.
         </p>
       )}
