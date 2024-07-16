@@ -39,3 +39,37 @@
     height: 10rem;
     object-fit: cover;
 }
+
+/*Responsive*/
+
+/* Media Queries para dispositivos móviles */
+@media (max-width: 767px) {
+    .contenedorProductos {
+        display: flex;
+        flex-direction: row;
+        justify-content: center !important;
+        align-content: center !important;
+        flex-wrap: wrap;
+        row-gap: 1rem;
+        column-gap: 0.7rem;
+    }
+   }
+   
+   /* Media Queries para tablets */
+   @media (min-width: 768px) and (max-width: 1023px) {
+    .contenedorProductos {
+        display: flex;
+        flex-direction: row;
+        justify-content: center !important;
+        align-content: center !important;
+        flex-wrap: wrap;
+        row-gap: 1rem;
+        column-gap: 0.7rem;
+    }
+   }
+   
+   /* Media Queries para pantallas de escritorio */
+   @media (min-width: 1024px) {
+
+   }
+   
