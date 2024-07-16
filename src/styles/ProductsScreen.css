@@ -1,6 +1,7 @@
 .navProductos {
     display: block;
     padding-top: 2rem;
+    padding-bottom: 2rem;
     background-color: rgb(57, 61, 50);
     color: beige;
 }
@@ -25,7 +26,7 @@
 @media (max-width: 767px) {
     .filter-btn-menu {
         display: block;
-        margin-left: 2.5rem;
+        margin-left: 3.2rem;
     }
 
     .seccion-filtros {

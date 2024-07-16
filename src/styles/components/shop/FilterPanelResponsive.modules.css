@@ -55,6 +55,7 @@
 }
 
 .menu-overlay.open {
+  left: 0;
   display: flex; /* Mostrar el menú cuando está abierto */
 }
 

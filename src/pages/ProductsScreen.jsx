@@ -101,7 +101,7 @@ const ProductsScreen = () => {
         <SortFilter />
         {/* Botón para abrir el menú */}
         <button onClick={toggleMenu} className="filter-btn-menu">
-          Abrir Menú
+          Añadir filtros
         </button>
 
         {/* Componente del menú overlay */}
