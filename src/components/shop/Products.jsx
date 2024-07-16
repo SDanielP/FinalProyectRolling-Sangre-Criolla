@@ -114,11 +114,11 @@ const Products = ({
   ]);
 
   if (loading) {
-    return <p>Cargando...</p>;
+    return <p className="api-msg">Cargando...</p>;
   }
 
   if (error) {
-    return <p>Error al cargar: {error.message}</p>;
+    return <p className="api-msg">Error al cargar: {error.message}</p>;
   }
 
   return (

@@ -2,6 +2,10 @@
     width: fit-content;
 }
 
+.api-msg{
+    color: beige;
+}
+
 .contenedorProductos {
     display: flex;
     flex-direction: row;
