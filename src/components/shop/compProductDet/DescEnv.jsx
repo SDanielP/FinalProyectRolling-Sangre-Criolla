@@ -53,7 +53,7 @@ function DescEnv({ description }) {
           tabIndex="1"
         >
           <p>
-          Si no estás completamente satisfecho con tu compra, puedes devolver los cinturones en un plazo de 30 días desde la fecha de recepción para obtener un reembolso completo. Los productos deben estar en su estado original y sin usar. Para iniciar una devolución contáctanos en nuestras redes sociales, mail o número de teléfono proporcionado.
+          "Envíos procesados en 1-2 días hábiles. Entregas nacionales: envíos gratis de 5 a 15 días. Internacionales: 15 a 30 días. Rastreo disponible. Garantía de satisfacción."
             </p>
 
         </article>
