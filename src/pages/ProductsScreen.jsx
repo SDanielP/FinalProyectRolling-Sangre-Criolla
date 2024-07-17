@@ -18,6 +18,7 @@ import { useSortFilter } from "../store/productsFilter/useSortFilter.js";
 import { useCategoriesFilter } from "../store/productsFilter/useCategoriesFilter.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHouse } from "@fortawesome/free-solid-svg-icons";
+import { faFilter } from "@fortawesome/free-solid-svg-icons";
 import Banner from "../components/home/Banner.jsx";
 
 const ProductsScreen = () => {
@@ -98,11 +99,11 @@ const ProductsScreen = () => {
             </span>
           </div>
         </div>
-        <SortFilter />
+        <SortFilter className="sort-btn"/>
         {/* Botón para abrir el menú */}
-        <button onClick={toggleMenu} className="filter-btn-menu">
-          Añadir filtros
-        </button>
+        <FontAwesomeIcon icon={faFilter} size="lg" 
+          onClick={toggleMenu} className="filter-btn-menu"
+        />
 
         {/* Componente del menú overlay */}
         <FilterPanelResponsive isOpen={isMenuOpen} onClose={closeMenu} />

@@ -164,7 +164,7 @@
     color: rgba(252, 184, 50, 1);
 }
 
-.card__button__vistaRapida:hover {
+.card__data:hover {
     background-color: rgb(115, 87, 63) !important;
     color: rgb(255, 255, 255);
 }
@@ -172,7 +172,7 @@
 .containerCard:hover {
     cursor: pointer;
 
-    .card__data {
+    .card__data{
         cursor: pointer;
         bottom: 0;
         opacity: 1;
