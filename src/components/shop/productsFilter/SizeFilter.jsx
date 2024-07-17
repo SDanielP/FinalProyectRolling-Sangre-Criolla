@@ -24,7 +24,7 @@ const SizeFilter = () => {
   useEffect(() => {
   }, [sizeOpen]);
   return (
-    <>
+    <section className="sortFilter">
       <Button
         className="size-btn"
         onClick={() => setSizeOpen(!sizeOpen)}
@@ -60,7 +60,7 @@ const SizeFilter = () => {
         </div>
         <p className="all-sizes">Todos los tamaños</p>
       </Collapse>
-    </>
+    </section>
   );
 };
 

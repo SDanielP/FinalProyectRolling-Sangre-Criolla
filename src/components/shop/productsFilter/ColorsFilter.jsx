@@ -25,7 +25,7 @@ const ColorsFilter = () => {
   }, [colorOpen]);
 
   return (
-    <>
+    <section className="sortFilter">
       <Button
         className="color-btn"
         onClick={() => setColorOpen(!colorOpen)}
@@ -59,7 +59,7 @@ const ColorsFilter = () => {
         ))}
         <p className="all-colors">Todos los colores</p>
       </Collapse>
-    </>
+    </section>
   );
 };
 

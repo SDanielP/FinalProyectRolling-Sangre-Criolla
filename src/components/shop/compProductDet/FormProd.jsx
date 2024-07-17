@@ -1,36 +1,27 @@
 import React, { useState, useEffect } from "react";
 import "../../../styles/components/shop/Dprod/Dprod.css";
-import { Button, Input } from "reactstrap";
+import { Input } from "reactstrap";
 import FormSize from "./FormS";
 import useCart from "../carts/useCart";
-
+import Button from 'react-bootstrap/Button';
 
 
 function FormProd({ name, price, color, sizes, id}) {
 
-  // Constantes de Carrito
     const [quantities, setQuantities] = useState({ [id]: 1 });
-    // Nuevo estado para el tamaño seleccionado
     const [selectedSize, setSelectedSize] = useState(sizes[0] || '');
-    //fin
     const [cartProducts, updateCart] = useCart();
   
     const [buttonText, setButtonText] = useState('Añadir al Carrito');
     const [buttonClass, setButtonClass] = useState('');
   
-    // useEffect para inicializar cantidades
   useEffect(() => {
-    // Obtener datos del carrito del localStorage
     const initialCart = JSON.parse(localStorage.getItem('cart')) || [];
-    // Encontrar el producto actual en el carrito (si existe)
     const existingProduct = initialCart.find(product => product.id === id);
-    // Establecer la cantidad inicial basada en el producto encontrado o 1 si no se encuentra
     const initialQuantity = existingProduct ? existingProduct.quantity : 1;
     setQuantities({ [id]: initialQuantity });
     setSelectedSize(existingProduct ? existingProduct.size : '');
-    // Establecer tamaño inicial si existe en el carrito
   }, [id]);
-  // Fin de useEffect para inicializar cantidades
 
 
 
@@ -39,11 +30,9 @@ function FormProd({ name, price, color, sizes, id}) {
       setQuantities({ ...quantities, [id]: value });
     };
   
-    // Manejar el cambio de tamaño seleccionado
     const handleSizeChange = (size) => {
     setSelectedSize(size);
     };
-    //fin
 
     const handleSubmit = (e) => {
       e.preventDefault();
@@ -53,38 +42,32 @@ function FormProd({ name, price, color, sizes, id}) {
 
     const updatedCart = [...cartProducts];
 
-    // Verificar si el producto ya está en el carrito con el mismo tamaño
     const existingProductIndex = updatedCart.findIndex(
       (product) => product.id === id && product.size === selectedSize
     );
 
     if (existingProductIndex !== -1) {
-      // Si el producto ya existe, sumar la cantidad
       updatedCart[existingProductIndex].quantity += quantity;
     } else {
-      // Si el producto no existe, agregar un nuevo producto al carrito
       const newProduct = {
         id: id,
         name: name,
         quantity: quantity,
         price: price,
-        size: selectedSize, // Agregar el tamaño seleccionado
+        size: selectedSize,
       };
       updatedCart.push(newProduct);
     }
   
-      // Cambiar el texto del botón y agregar la clase de animación
       setButtonText('Producto Agregado');
       setButtonClass('added');
   
-      // Restablecer el texto y la clase del botón después de 2 segundos
       setTimeout(() => {
         setButtonText('Añadir al Carrito');
         setButtonClass('');
       }, 2000);
   
       updateCart(updatedCart);
-      // alert('Productos añadidos al carrito');
       setQuantities({ [id]: 1 });
     };
 
@@ -100,10 +83,7 @@ function FormProd({ name, price, color, sizes, id}) {
         size: selectedSize,
       };
   
-      // Guardar el producto en localStorage para la compra inmediata
       localStorage.setItem('compraConfirmada', JSON.stringify([product]));
-      
-      // Redireccionar a la página de pagos
       window.location.href = "/payments";
     };
 
@@ -124,12 +104,14 @@ function FormProd({ name, price, color, sizes, id}) {
                 value={quantities[id]}
                 onChange={handleQuantityChange}
               />
-         <Button id="addToCart" variant="outline-primary" type="submit" className={buttonClass}>
+              <article className="btn-Form-DP">
+         <Button id="addToCart" variant="outline-secondary"  size="lg" type="submit" className={buttonClass}>
               {buttonText}
             </Button>
-          <Button variant="outline-secondary" size="lg" onClick={handleBuyNow}>
+          <Button variant="outline-success mt-3" size="lg" onClick={handleBuyNow}>
             Comprar ahora
           </Button>
+          </article>
         </section>
       </form>
     </section>

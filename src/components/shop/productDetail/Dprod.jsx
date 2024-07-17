@@ -35,9 +35,9 @@ function DProd() {
   return (
     <>
     <NavbarMenu />
-    <Container>
+    <Container className="mb-5">
       <Row xs={1} md={2}>
-        <Col>
+        <Col className="d-flex align-items-center">
           <ImgP images={product.images} />
         </Col>
         <Col className="sm-col-12">

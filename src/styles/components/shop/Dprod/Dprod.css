@@ -24,7 +24,25 @@
   background-color: #a6907c;
 }
 
-body.modal-open {
+.body.modal-open {
   position: fixed;
   width: 100%;
 }
+.btn-Form-DP{
+  display: flex;
+  flex-direction: column;
+}
+
+.carousel-image {
+  height: 450px;
+  width: 100%;
+  object-fit: cover;
+}
+
+@media screen and (max-width: 800px) {
+
+.carousel-image{
+  height: 45vh;
+}
+};
+

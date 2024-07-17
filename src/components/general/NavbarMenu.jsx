@@ -68,7 +68,7 @@ const Navbar = () => {
                 className="nav-link"
                 aria-current="page"
               >
-                Comprar todo
+                Tienda
               </NavLink>
             </li>
             <li className="nav-item">

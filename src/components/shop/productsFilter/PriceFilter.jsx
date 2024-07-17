@@ -30,7 +30,7 @@ const PriceFilter = () => {
   }, [debouncedMinPrice, debouncedMaxPrice, setMinPrice, setMaxPrice]);
 
   return (
-    <>
+    <section className="sortFilter">
       <Button
         className="price-btn"
         onClick={() => setPriceOpen(!priceOpen)}
@@ -80,7 +80,7 @@ const PriceFilter = () => {
           </div>
         </div>
       </Collapse>
-    </>
+    </section>
   );
 };
 

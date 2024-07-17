@@ -68,7 +68,7 @@ const ProductCard = ({ producto }) => {
   };
 
   return (
-    <div className="background-body">
+    <div className="background-body sortFilter">
       <div className="containerCard" key={producto._id}>
         <div className="card__container tarjetaProducto">
           <article className="contenedorImg">

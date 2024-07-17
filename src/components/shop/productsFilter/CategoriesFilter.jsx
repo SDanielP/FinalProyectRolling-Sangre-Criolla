@@ -54,7 +54,7 @@ const CategoriesFilter = () => {
   }, [selectedCategory, selectedSubcategory]);
 
   return (
-    <>
+    <section className="sortFilter">
       <NavLink
         to="/products/all"
         onClick={handleOnClickTodos}
@@ -148,7 +148,7 @@ const CategoriesFilter = () => {
           </div>
         ))}
       </Collapse>
-    </>
+    </section>
   );
 };
 export default CategoriesFilter;

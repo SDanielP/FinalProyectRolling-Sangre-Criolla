@@ -3,14 +3,14 @@ import Nav from "react-bootstrap/Nav";
 
 function DescEnv({ description }) {
   return (
-    <section className="col-12">
+    <section className="col-12 mt-4">
       <Nav
         className="nav nav-tabs d-flex justify-content-md-start  justify-content-center"
         id="nav-tab"
         role="tablist"
       >
         <button
-          className="nav-link active nav-item"
+          className="nav-link active nav-item texto-desc-DP"
           id="nav-desc-tab"
           data-bs-toggle="tab"
           data-bs-target="#nav-desc"
@@ -53,14 +53,9 @@ function DescEnv({ description }) {
           tabIndex="1"
         >
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum
-            commodi ipsa nobis quibusdam autem odio. Officiis, pariatur dolore,
-            harum voluptates soluta officia saepe minima nisi mayores atque
-            necessitatibus velit tempore. Esse maxime nihil non porro, omnis
-            accusantium iusto ut eius, aut voluptatem exercitationem laudantium
-            nobis nostrum sunt sequi harum dolore dolor odio inventore
-            recusandae quos similique? Ut minus deleniti perferendis?
-          </p>
+          Si no estás completamente satisfecho con tu compra, puedes devolver los cinturones en un plazo de 30 días desde la fecha de recepción para obtener un reembolso completo. Los productos deben estar en su estado original y sin usar. Para iniciar una devolución contáctanos en nuestras redes sociales, mail o número de teléfono proporcionado.
+            </p>
+
         </article>
       </article>
     </section>

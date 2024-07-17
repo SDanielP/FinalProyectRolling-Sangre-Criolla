@@ -18,7 +18,7 @@ const SortFilter = () => {
   useEffect(() => {}, [ordenarSeleccion]);
 
   return (
-    <>
+    <section className="sortFilter">
       <DropdownButton
         className="ordenar sort-btn"
         title={"Ordenar por: " + ordenarSeleccion}
@@ -38,7 +38,7 @@ const SortFilter = () => {
           </Dropdown.Item>
         ))}
       </DropdownButton>
-    </>
+    </section>
   );
 };
 

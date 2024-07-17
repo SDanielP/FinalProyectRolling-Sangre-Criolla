@@ -71,7 +71,7 @@ const ProductsScreen = () => {
       <Banner />
       <NavbarMenu />
       <nav className="navProductos">
-        <h1>COMPRAR TODO</h1>
+        <h1>COMPRAR</h1>
 
         <div className="navUsuario">
           <div className="ubicacion d-flex flex-start mb-3 align-items-center">
