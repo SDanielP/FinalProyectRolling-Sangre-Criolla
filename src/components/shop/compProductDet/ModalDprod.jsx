@@ -4,9 +4,9 @@ import Modal from 'react-bootstrap/Modal';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import ImgP from './ImgP'; 
 import { useNavigate } from 'react-router-dom';
 import '../../../styles/components/shop/Dprod/ModalVDprod.css';
+import ImgP2 from './ImgP2';
 
 function ModalDprod({ show, handleClose, product }) {
   const navigate = useNavigate(); 
@@ -31,7 +31,7 @@ function ModalDprod({ show, handleClose, product }) {
           <Container>
             <Row xs={1} md={2}>
               <Col>
-                <ImgP images={product.image} />
+                <ImgP2 images={product.image} />
               </Col>
               <Col className="sm-col-12">
                 <h3 className='mt-3'>{product.name}</h3>

@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import "../../../styles/components/shop/Dprod/Dprod.css";
 
-function ImgP({ images }) {
+function ImgP2({ images }) {
   const [show, setShow] = useState(false);
   const [modalImage, setModalImage] = useState("");
 
@@ -28,7 +28,7 @@ function ImgP({ images }) {
       "https://i.imgur.com/QEG1Ddr.jpg",
     ];
     return (
-      <section className="col-12 cursor-pointer bichilin">
+      <section className="col-12 cursor-pointer bichilin2 ">
         <article
           id="carouselExample"
           className="carousel slide col-12"
@@ -103,4 +103,4 @@ function ImgP({ images }) {
   }
 }
 
-export default ImgP;
+export default ImgP2;

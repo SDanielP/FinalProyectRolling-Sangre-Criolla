@@ -33,16 +33,28 @@
   flex-direction: column;
 }
 
-.carousel-image {
+.bichilin .carousel-image {
   height: 450px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.bichilin2 .carousel-image {
+  height: 250px;
   width: 100%;
   object-fit: cover;
 }
 
 @media screen and (max-width: 800px) {
 
-.carousel-image{
+.bichilin .carousel-image{
   height: 45vh;
 }
+
+.bichilin2 .carousel-image{
+  height: 30vh
+}
 };
+
+
 
