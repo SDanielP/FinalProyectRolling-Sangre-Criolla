@@ -3,7 +3,6 @@ import NavbarMenu from "../components/general/NavbarMenu";
 import Banner from "../components/home/Banner";
 import MainBanner from "../components/home/MainBanner";
 import SecondaryBanner from "../components/home/SecondaryBanner";
-import RrhhSection from "../components/general/footer/RrhhSection";
 import CatalogSection from "../components/home/CatalogSection"; 
 import Footer from "../components/general/footer/Footer";
 import "../styles/Home.css"
@@ -18,9 +17,6 @@ function Home() {
         <SecondaryBanner />
         <CatalogSection />
         <Footer />
-        <div className="ultimaParte-home">
-          <RrhhSection />
-        </div>
       </main>
     </div>
   );

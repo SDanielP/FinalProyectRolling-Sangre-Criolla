@@ -7,7 +7,6 @@ import FilterPanelResponsive from "../components/shop/FilterPanelResponsive.jsx"
 import SortFilter from "../components/shop/productsFilter/SortFilter.jsx";
 import NavbarMenu from "../components/general/NavbarMenu.jsx";
 import Footer from "../components/general/footer/Footer.jsx";
-import RrhhSection from "../components/general/footer/RrhhSection.jsx";
 
 import { useEffect } from "react";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
@@ -56,10 +55,18 @@ const ProductsScreen = () => {
     }
     if (subcategory) {
       setSelectedSubcategory({ subcategory });
-      if(category=="hombres"){
-        setUbication(`Hombres / ${ subcategory.charAt(0).toUpperCase() + subcategory.slice(1) }`);
-      }else{
-        setUbication(`Mujeres / ${ subcategory.charAt(0).toUpperCase() + subcategory.slice(1) }`);
+      if (category == "hombres") {
+        setUbication(
+          `Hombres / ${
+            subcategory.charAt(0).toUpperCase() + subcategory.slice(1)
+          }`
+        );
+      } else {
+        setUbication(
+          `Mujeres / ${
+            subcategory.charAt(0).toUpperCase() + subcategory.slice(1)
+          }`
+        );
       }
     } else {
       setSelectedSubcategory("");
@@ -124,6 +131,7 @@ const ProductsScreen = () => {
         className="contenedor-filtros-productos"
         style={{ justifyContent: "center" }}
       >
+        {/* Lateral izquierdo, Filtros */}
         <div
           className="seccion-filtros"
           style={{
@@ -162,7 +170,6 @@ const ProductsScreen = () => {
         </div>
       </section>
       <Footer />
-      <RrhhSection />
     </>
   );
 };

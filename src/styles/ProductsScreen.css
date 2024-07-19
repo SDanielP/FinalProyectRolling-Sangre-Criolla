@@ -13,6 +13,14 @@
     background: transparent;
 }
 
+
+.contenedor-filtros-productos {
+    padding: 1rem 1rem 10rem 2rem;
+    display: flex;
+    justify-content: flex-start;
+    background-color: rgb(57, 61, 50);
+}
+
 .sort-btn{
     margin-top: 1rem;
 }
@@ -75,10 +83,4 @@
 
 
 
-/*Section Productos*/
-.contenedor-filtros-productos {
-    padding: 1rem 1rem 1rem 2rem;
-    display: flex;
-    justify-content: flex-start;
-    background-color: rgb(57, 61, 50);
-}
+

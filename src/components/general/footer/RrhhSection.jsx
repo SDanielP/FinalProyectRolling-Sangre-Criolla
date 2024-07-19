@@ -1,29 +1,32 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import profileImage from '../../../assets/img/homeIMG/perfil-negro-1v2-100x100.jpg';
+import profileImage from "../../../assets/img/homeIMG/perfil-negro-1v2-100x100.jpg";
+import "../../../styles/components/general/Footer.css";
+import SocialContactSection from "./SocialContactSection";
 
 const RrhhSection = () => {
   return (
-    <footer className="container-fluid bg-white">
+    <footer >
+
       {/* Section con contactos y formulario */}
-      <section className="p-4 row">
-        <article className="col-12 col-md-4">
+      <section className="conteiner-links-columns">
+        <article>
           <form className="ps-0 ps-lg-5">
             <fieldset>
-            <img
-                  src={profileImage}
-                  alt="logo sin el fondo"
-                  className="w-10 "
-                />
+              <img
+                src={profileImage}
+                alt="logo sin el fondo"
+                className="w-10 "
+              />
             </fieldset>
           </form>
         </article>
-        <article className="my-5 my-md-0 col-12 col-md-4">
+        <article>
           <ul className="ps-0 ps-lg-5 p-0 m-0">
             <li className="">
               <h5 className="mb-0">Ventas:</h5>
               <NavLink
-                to="/page-not-found" 
+                to="/page-not-found"
                 className="text-decoration-none text-black"
               >
                 ventas@sangrecriolla.com
@@ -32,13 +35,13 @@ const RrhhSection = () => {
             <li className="d-flex flex-column my-3">
               <h5 className="m-0">Atención al cliente:</h5>
               <NavLink
-                to="/page-not-found" 
+                to="/page-not-found"
                 className="text-decoration-none text-black"
               >
                 3810000000
               </NavLink>
               <NavLink
-                to="/page-not-found" 
+                to="/page-not-found"
                 className="text-decoration-none text-black"
               >
                 ayuda@sangrecriolla.com
@@ -47,7 +50,7 @@ const RrhhSection = () => {
             <li className="">
               <h5 className="m-0">Trabajá con nosotros:</h5>
               <NavLink
-                to="/page-not-found" 
+                to="/page-not-found"
                 className="text-decoration-none text-black"
               >
                 rrhh@sangrecriolla.com
@@ -55,27 +58,27 @@ const RrhhSection = () => {
             </li>
           </ul>
         </article>
-        <article className="col-12 col-md-4">
+        <article className="links-cliente">
           <ul className="ps-0 ps-lg-5 p-0 m-0">
             <li className="mb-1">
               <NavLink
-                to="/page-not-found" 
+                to="/page-not-found"
                 className="text-decoration-none text-black"
               >
-                ● Como comprar
+                Cómo comprar
               </NavLink>
             </li>
             <li className="mb-1">
               <NavLink
-                to="/page-not-found" 
+                to="/page-not-found"
                 className="text-decoration-none text-black"
               >
-                Cambios & devoluciones
+                Cambios y devoluciones
               </NavLink>
             </li>
             <li className="mb-1">
               <NavLink
-                to="/page-not-found" 
+                to="/page-not-found"
                 className="text-decoration-none text-black"
               >
                 Envíos
@@ -83,7 +86,7 @@ const RrhhSection = () => {
             </li>
             <li className="mb-1">
               <NavLink
-                to="/page-not-found" 
+                to="/page-not-found"
                 className="text-decoration-none text-black"
               >
                 Pagos
@@ -99,7 +102,12 @@ const RrhhSection = () => {
             </li>
           </ul>
         </article>
+        <article>
+          <SocialContactSection />
+        </article>
       </section>
+
+      <section></section>
     </footer>
   );
 };

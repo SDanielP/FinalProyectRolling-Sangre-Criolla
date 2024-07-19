@@ -5,8 +5,7 @@ import React from "react";
 import NavbarMenu from "../components/general/NavbarMenu";
 import Banner from "../components/home/Banner";
 import { NavLink } from "react-router-dom";
-import Footer from "../components/general/footer/Footer";
-import RrhhSection from "../components/general/footer/RrhhSection";
+import Footer from "../components/general/footer/Footer.jsx";
 
 const NotFoundPage = () => {
   return (
@@ -50,9 +49,6 @@ const NotFoundPage = () => {
         </div>
       </div>
       <Footer />
-      <div className="ultimaParte-home">
-        <RrhhSection />
-      </div>
     </>
   );
 }
