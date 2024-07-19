@@ -8,7 +8,7 @@ import ProductsScreen from "./pages/ProductsScreen";
 import Home from "./pages/Home.jsx";
 import FrequentQuestions from "./pages/FrequentQuestions.jsx";
 import Nosotros from "./pages/AboutUs.jsx";
-import PaymentForm from "./pages/Payments.jsx";
+import PaymentForm from "./pages/payments.jsx";
 import DProd from "./components/shop/productDetail/Dprod.jsx";
 import RecuperacionContra from "./pages/RecuperacionContra.jsx";
 import ErrorScreen from "./pages/ErrorScreen.jsx";
@@ -52,7 +52,7 @@ const App = () => {
           <Route key={4000} path="products/:category" element={<ProductsScreen />} />
           <Route key={4000} path="products/:category/:subcategory" element={<ProductsScreen />} />
           <Route key={5000} path="/products/:category/:subcategory/:id" element={< DProd />} />
-           <Route key={6000} path="/payments" element={<PaymentForm/>} />
+           <Route key={6000} path="/payments" element={<PaymentForm />} />
           <Route key={7000} path="/about-us" element={<Nosotros />} />
           <Route key={8000} path="/contact-us" element={<ContactUs />} />
           <Route key={9000} path="/page-not-found" element={<ErrorScreen />} />
