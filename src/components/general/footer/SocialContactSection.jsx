@@ -33,7 +33,7 @@ const SocialContactSection = () => {
               Defensa de las y los consumidores. Para reclamos{" "}
               <NavLink
                 // href="./pages/error404.html"
-                to="*"
+                to="/page-not-found"
                 className="text-decoration-none text-dark"
               >
                 <strong>ingrese aquí</strong>

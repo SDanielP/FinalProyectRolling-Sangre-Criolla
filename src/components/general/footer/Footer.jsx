@@ -43,7 +43,7 @@ const Footer = () => {
               height="24"
             />
           </NavLink>
-          <NavLink to="/error404" rel="noopener noreferrer">
+          <NavLink to="/page-not-found" rel="noopener noreferrer">
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/b/b7/X_logo.jpg"
               alt="X"
@@ -51,7 +51,7 @@ const Footer = () => {
               height="35"
             />
           </NavLink>
-          <NavLink to="/error404" rel="noopener noreferrer">
+          <NavLink to="/page-not-found" rel="noopener noreferrer">
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/0/08/Pinterest-logo.png"
               alt="Pinterest"

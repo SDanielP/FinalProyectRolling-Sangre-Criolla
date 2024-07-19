@@ -23,7 +23,7 @@ const RrhhSection = () => {
             <li className="">
               <h5 className="mb-0">Ventas:</h5>
               <NavLink
-                to="/error404" 
+                to="/page-not-found" 
                 className="text-decoration-none text-black"
               >
                 ventas@sangrecriolla.com
@@ -32,13 +32,13 @@ const RrhhSection = () => {
             <li className="d-flex flex-column my-3">
               <h5 className="m-0">Atención al cliente:</h5>
               <NavLink
-                to="/error404" 
+                to="/page-not-found" 
                 className="text-decoration-none text-black"
               >
                 3810000000
               </NavLink>
               <NavLink
-                to="/error404" 
+                to="/page-not-found" 
                 className="text-decoration-none text-black"
               >
                 ayuda@sangrecriolla.com
@@ -47,7 +47,7 @@ const RrhhSection = () => {
             <li className="">
               <h5 className="m-0">Trabajá con nosotros:</h5>
               <NavLink
-                to="/error404" 
+                to="/page-not-found" 
                 className="text-decoration-none text-black"
               >
                 rrhh@sangrecriolla.com
@@ -59,7 +59,7 @@ const RrhhSection = () => {
           <ul className="ps-0 ps-lg-5 p-0 m-0">
             <li className="mb-1">
               <NavLink
-                to="/error404" 
+                to="/page-not-found" 
                 className="text-decoration-none text-black"
               >
                 ● Como comprar
@@ -67,7 +67,7 @@ const RrhhSection = () => {
             </li>
             <li className="mb-1">
               <NavLink
-                to="/error404" 
+                to="/page-not-found" 
                 className="text-decoration-none text-black"
               >
                 Cambios & devoluciones
@@ -75,7 +75,7 @@ const RrhhSection = () => {
             </li>
             <li className="mb-1">
               <NavLink
-                to="/error404" 
+                to="/page-not-found" 
                 className="text-decoration-none text-black"
               >
                 Envíos
@@ -83,7 +83,7 @@ const RrhhSection = () => {
             </li>
             <li className="mb-1">
               <NavLink
-                to="/error404" 
+                to="/page-not-found" 
                 className="text-decoration-none text-black"
               >
                 Pagos

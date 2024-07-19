@@ -15,7 +15,6 @@ import ErrorScreen from "./pages/ErrorScreen.jsx";
 import SearchScreen from "./pages/SearchScreen.jsx";
 import ContactUs from "./pages/ContactUs.jsx";
 import Admin from "./pages/admin.jsx";
-import NotFoundPage from "./pages/ErrorScreen.jsx";
 
 const url = "https://sangrecriolla-back-end.onrender.com"
 
@@ -47,7 +46,8 @@ const App = () => {
     <Router>
         <Routes>
           <Route key={1000} path="/" element={<Home />} />
-          <Route key={2000} path="/error404" element={<NotFoundPage />} />
+          <Route key={2000} path="/page-not-found" element={<ErrorScreen />} />
+          <Route key={2000} path="/*" element={<ErrorScreen />} />
           <Route key={3000} path="products/all" element={<ProductsScreen />} />
           <Route key={4000} path="products/:category" element={<ProductsScreen />} />
           <Route key={4000} path="products/:category/:subcategory" element={<ProductsScreen />} />
@@ -55,15 +55,14 @@ const App = () => {
            <Route key={6000} path="/payments" element={<PaymentForm />} />
           <Route key={7000} path="/about-us" element={<Nosotros />} />
           <Route key={8000} path="/contact-us" element={<ContactUs />} />
-          <Route key={9000} path="/page-not-found" element={<ErrorScreen />} />
           <Route
-            key={10000}
+            key={9000}
             path="/frequent-questions"
             element={<FrequentQuestions />}
           />
-          <Route key={11000} path="/recuperacion-contrasena" element={<RecuperacionContra />} />
-          <Route key={13000} path="/search" element={<SearchScreen />} />
-          <Route key={14000} path="/admin" element={<Admin />} />
+          <Route key={10000} path="/recuperacion-contrasena" element={<RecuperacionContra />} />
+          <Route key={11000} path="/search" element={<SearchScreen />} />
+          <Route key={12000} path="/admin" element={<Admin />} />
         </Routes>
       </Router>
   );
