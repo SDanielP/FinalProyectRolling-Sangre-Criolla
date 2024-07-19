@@ -101,8 +101,6 @@ const Products = ({
     };
 
     filterAndSortProducts();
-    console.log(category);
-    console.log(subcategory);
   }, [
     products,
     category,
