@@ -48,6 +48,7 @@ const ProductsScreen = () => {
     setSelectedSubcategory("");
     setUbication("Todos");
   };
+
   useEffect(() => {
     if (category) {
       setSelectedCategory(category);
@@ -55,6 +56,11 @@ const ProductsScreen = () => {
     }
     if (subcategory) {
       setSelectedSubcategory({ subcategory });
+      if(category=="hombres"){
+        setUbication(`Hombres / ${ subcategory.charAt(0).toUpperCase() + subcategory.slice(1) }`);
+      }else{
+        setUbication(`Mujeres / ${ subcategory.charAt(0).toUpperCase() + subcategory.slice(1) }`);
+      }
     } else {
       setSelectedSubcategory("");
     }
@@ -99,11 +105,16 @@ const ProductsScreen = () => {
             </span>
           </div>
         </div>
-        <SortFilter className="sort-btn"/>
-        {/* Botón para abrir el menú */}
-        <FontAwesomeIcon icon={faFilter} size="lg" 
-          onClick={toggleMenu} className="filter-btn-menu"
-        />
+        <div className="filter-section">
+          <SortFilter className="sort-btn" />
+          {/* Botón para abrir el menú */}
+          <FontAwesomeIcon
+            icon={faFilter}
+            size="lg"
+            onClick={toggleMenu}
+            className="filter-btn-menu"
+          />
+        </div>
 
         {/* Componente del menú overlay */}
         <FilterPanelResponsive isOpen={isMenuOpen} onClose={closeMenu} />
@@ -134,8 +145,6 @@ const ProductsScreen = () => {
           {selectedSubcategory !== "" ? (
             <Products
               className="div-products"
-              categoria={selectedCategory.toString().toLowerCase()}
-              subcategoria={selectedSubcategory.subcategory.toLowerCase()}
               ordenar={ordenarProp}
               precioMin={min}
               precioMax={max}
@@ -143,8 +152,6 @@ const ProductsScreen = () => {
           ) : (
             <Products
               className="div-products"
-              categoria={selectedCategory.toString().toLowerCase()}
-              subcategoria={null}
               ordenar={ordenarProp}
               precioMin={min}
               precioMax={max}

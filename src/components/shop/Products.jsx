@@ -2,6 +2,8 @@ import "../../styles/components/shop/Products.css";
 import React, { useEffect, useState, useCallback } from "react";
 import ProductCard from "../shop/productsCard/ProductCard";
 import { useProducts } from "../../store/useProducts";
+import { useParams } from "react-router-dom";
+import Loader from "./apiMessages/Loader";
 
 const categoriesOptions = [
   { id: 1, value: "mujeres", label: "Mujeres" },
@@ -11,8 +13,6 @@ const categoriesOptions = [
 const url = "https://sangrecriolla-back-end.onrender.com";
 
 const Products = ({
-  categoria,
-  subcategoria,
   ordenar,
   precioMin,
   precioMax,
@@ -21,6 +21,7 @@ const Products = ({
 }) => {
   const { products, setProducts } = useProducts();
   const [productosStore, setProductosStore] = useState([]);
+  const { category, subcategory } = useParams();
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -49,15 +50,15 @@ const Products = ({
     const filterAndSortProducts = () => {
       let filteredProducts = [...products];
 
-      if (categoria) {
+      if (category) {
         filteredProducts = filteredProducts.filter(
-          (producto) => producto.category === categoria
+          (producto) => producto.category === category
         );
       }
 
-      if (subcategoria) {
+      if (subcategory) {
         filteredProducts = filteredProducts.filter(
-          (producto) => producto.subcategory === subcategoria
+          (producto) => producto.subcategory === subcategory
         );
       }
 
@@ -100,12 +101,12 @@ const Products = ({
     };
 
     filterAndSortProducts();
-    console.log(categoria);
-    console.log(subcategoria);
+    console.log(category);
+    console.log(subcategory);
   }, [
     products,
-    categoria,
-    subcategoria,
+    category,
+    subcategory,
     ordenar,
     precioMin,
     precioMax,
@@ -114,7 +115,7 @@ const Products = ({
   ]);
 
   if (loading) {
-    return <p className="api-msg">Cargando...</p>;
+    return( <Loader />);
   }
 
   if (error) {

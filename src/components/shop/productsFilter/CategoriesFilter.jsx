@@ -17,8 +17,13 @@ const CategoriesFilter = () => {
   const [womenCategoryOpen, setWomenCategoryOpen] = useState(false);
 
   const { subcategories } = useSubcategories();
-  const { selectedCategory, setSelectedCategory, selectedSubcategory, setSelectedSubcategory } = useCategoriesFilter();
-  const { setUbication } = useUbication();
+  const {
+    selectedCategory,
+    setSelectedCategory,
+    selectedSubcategory,
+    setSelectedSubcategory,
+  } = useCategoriesFilter();
+  const { ubication, setUbication } = useUbication();
   const { setSelectedColor } = useColorsFilter();
   const { setSelectedSize } = useSizeFilter();
 
@@ -38,20 +43,18 @@ const CategoriesFilter = () => {
   const handleSubcategoryHombres = (nuevaCategoria) => {
     setSelectedCategory("Hombres");
     setSelectedSubcategory(nuevaCategoria);
-    setUbication(`Hombres / ${nuevaCategoria.subcategory}`);
+    // setUbication(`Hombres / ${nuevaCategoria.subcategory}`);
     navigate(`/products/hombres/${nuevaCategoria.value}`);
   };
 
   const handleSubcategoryMujeres = (nuevaCategoria) => {
     setSelectedCategory("Mujeres");
     setSelectedSubcategory(nuevaCategoria);
-    setUbication(`Mujeres / ${nuevaCategoria.subcategory}`);
+    // setUbication(`Mujeres / ${nuevaCategoria.subcategory}`);
     navigate(`/products/mujeres/${nuevaCategoria.value}`);
   };
 
-
-  useEffect(() => {
-  }, [selectedCategory, selectedSubcategory]);
+  useEffect(() => {}, [selectedCategory, selectedSubcategory, ubication]);
 
   return (
     <section className="sortFilter">
@@ -63,19 +66,20 @@ const CategoriesFilter = () => {
         <Button className="category-btn">Todos</Button>
       </NavLink>
 
-      <Button
-        className="category-btn"
-        onClick={() => {
-          if (!womenCategoryOpen) {
-            setSelectedCategory("Mujeres");
-            setSelectedSubcategory("");
-            setUbication("Mujeres");
-            navigate(`/products/mujeres`);
-          }
-          setWomenCategoryOpen(!womenCategoryOpen);
-        }}
-      >
-        <span>Mujeres</span>
+      <Button className="category-btn">
+        <span
+          onClick={() => {
+            if (!womenCategoryOpen) {
+              setSelectedCategory("Mujeres");
+              setSelectedSubcategory("");
+              setUbication("Mujeres");
+              navigate(`/products/mujeres`);
+            }
+            setWomenCategoryOpen(!womenCategoryOpen);
+          }}
+        >
+          Mujeres
+        </span>
         {womenCategoryOpen === false ? (
           <FontAwesomeIcon
             icon={faAngleDown}
@@ -99,28 +103,30 @@ const CategoriesFilter = () => {
               <div
                 className="women-subcategories"
                 key={index}
-                onClick={() => handleSubcategoryMujeres(subcategoria)}
                 style={{ cursor: "pointer" }}
               >
-                {subcategoria.subcategory}
+                <span onClick={() => handleSubcategoryMujeres(subcategoria)}>
+                  {subcategoria.subcategory}
+                </span>
               </div>
             )
         )}
       </Collapse>
 
-      <Button
-        className="category-btn"
-        onClick={() => {
-          if (!menCategoryOpen) {
-            setSelectedCategory("Hombres");
-            setSelectedSubcategory("");
-            setUbication("Hombres");
-            navigate(`/products/hombres`);
-          }
-          setMenCategoryOpen(!menCategoryOpen);
-        }}
-      >
-        <span>Hombres</span>
+      <Button className="category-btn">
+        <span
+          onClick={() => {
+            if (!menCategoryOpen) {
+              setSelectedCategory("Hombres");
+              setSelectedSubcategory("");
+              setUbication("Hombres");
+              navigate(`/products/hombres`);
+            }
+            setMenCategoryOpen(!menCategoryOpen);
+          }}
+        >
+          Hombres
+        </span>
         {menCategoryOpen === false ? (
           <FontAwesomeIcon
             icon={faAngleDown}
@@ -141,10 +147,11 @@ const CategoriesFilter = () => {
           <div
             className="men-subcategories"
             key={subcategories.indexOf(subcategoria)}
-            onClick={() => handleSubcategoryHombres(subcategoria)}
             style={{ cursor: "pointer" }}
           >
-            {subcategoria.subcategory}
+            <span onClick={() => handleSubcategoryHombres(subcategoria)}>
+              {subcategoria.subcategory}
+            </span>
           </div>
         ))}
       </Collapse>

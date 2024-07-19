@@ -13,7 +13,17 @@
     background: transparent;
 }
 
+.sort-btn{
+    margin-top: 1rem;
+}
+
 /*Responsive filter panel*/
+.filter-section{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 .filter-btn-menu {
     color: #ffffff;
     display: none;
@@ -36,7 +46,7 @@
     .filter-btn-menu {
         display: block;
         margin-top: 1rem;
-        margin-left: 3.2rem;
+        margin-right: 3.2rem;
         padding: 1rem;
     }
 
@@ -50,7 +60,7 @@
     .filter-btn-menu {
         display: block;
         margin-top: 1rem;
-        margin-left: 3.2rem;
+        margin-right: 3.2rem;
         padding: 1rem;
     }
 
