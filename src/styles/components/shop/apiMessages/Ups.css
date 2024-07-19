@@ -1,0 +1,12 @@
+.contenedor-msg{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: beige;
+}
+
+.sad{
+    color: beige;
+    margin-top: 1rem;
+}

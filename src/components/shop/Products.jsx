@@ -4,6 +4,7 @@ import ProductCard from "../shop/productsCard/ProductCard";
 import { useProducts } from "../../store/useProducts";
 import { useParams } from "react-router-dom";
 import Loader from "./apiMessages/Loader";
+import Ups from "./apiMessages/Ups";
 
 const categoriesOptions = [
   { id: 1, value: "mujeres", label: "Mujeres" },
@@ -129,9 +130,7 @@ const Products = ({
           ))}
         </div>
       ) : (
-        <p className="contenedorProductos api-msg">
-          No se encontraron productos para esta categoría.
-        </p>
+        <Ups />
       )}
     </div>
   );
