@@ -1,8 +1,9 @@
 import "../styles/ProductsScreen.css";
 import "../styles/components/shop/productsFilter/SortFilter.modules.css";
-import React from "react";
+import React, { useState } from "react";
 import ProductsSearch from "../components/shop/ProductsSearch.jsx";
 import FilterPanel from "../components/shop/FilterPanel.jsx";
+import FilterPanelResponsive from "../components/shop/FilterPanelResponsive.jsx";
 import SortFilter from "../components/shop/productsFilter/SortFilter.jsx";
 import NavbarMenu from "../components/general/NavbarMenu.jsx";
 
@@ -15,6 +16,7 @@ import { useSortFilter } from "../store/productsFilter/useSortFilter.js";
 import { useCategoriesFilter } from "../store/productsFilter/useCategoriesFilter.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHouse } from "@fortawesome/free-solid-svg-icons";
+import { faFilter } from "@fortawesome/free-solid-svg-icons";
 import Banner from "../components/home/Banner.jsx";
 
 const useQuery = () => {
@@ -38,6 +40,17 @@ const SearchScreen = () => {
     setSelectedCategory("");
     setUbication("Todos");
   };
+
+    //Para manejar el responsive
+    const [isMenuOpen, setMenuOpen] = useState(false);
+
+    const toggleMenu = () => {
+      setMenuOpen(!isMenuOpen);
+    };
+  
+    const closeMenu = () => {
+      setMenuOpen(false);
+    };
 
   return (
     <>
@@ -72,7 +85,19 @@ const SearchScreen = () => {
             </span>
           </div>
         </div>
-        <SortFilter />
+        <div className="filter-section">
+          <SortFilter className="sort-btn" />
+          {/* Botón para abrir el menú */}
+          <FontAwesomeIcon
+            icon={faFilter}
+            size="lg"
+            onClick={toggleMenu}
+            className="filter-btn-menu"
+          />
+        </div>
+
+        {/* Componente del menú overlay */}
+        <FilterPanelResponsive isOpen={isMenuOpen} onClose={closeMenu} />
       </nav>
 
       <section
