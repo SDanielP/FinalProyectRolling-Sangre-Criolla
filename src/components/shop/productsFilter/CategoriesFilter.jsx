@@ -66,20 +66,19 @@ const CategoriesFilter = () => {
         <Button className="category-btn">Todos</Button>
       </NavLink>
 
-      <Button className="category-btn">
-        <span
-          onClick={() => {
-            if (!womenCategoryOpen) {
-              setSelectedCategory("Mujeres");
-              setSelectedSubcategory("");
-              setUbication("Mujeres");
-              navigate(`/products/mujeres`);
-            }
-            setWomenCategoryOpen(!womenCategoryOpen);
-          }}
-        >
-          Mujeres
-        </span>
+      <Button
+        className="category-btn"
+        onClick={() => {
+          if (!womenCategoryOpen) {
+            setSelectedCategory("Mujeres");
+            setSelectedSubcategory("");
+            setUbication("Mujeres");
+            navigate(`/products/mujeres`);
+          }
+          setWomenCategoryOpen(!womenCategoryOpen);
+        }}
+      >
+        <span>Mujeres</span>
         {womenCategoryOpen === false ? (
           <FontAwesomeIcon
             icon={faAngleDown}
@@ -113,20 +112,19 @@ const CategoriesFilter = () => {
         )}
       </Collapse>
 
-      <Button className="category-btn">
-        <span
-          onClick={() => {
-            if (!menCategoryOpen) {
-              setSelectedCategory("Hombres");
-              setSelectedSubcategory("");
-              setUbication("Hombres");
-              navigate(`/products/hombres`);
-            }
-            setMenCategoryOpen(!menCategoryOpen);
-          }}
-        >
-          Hombres
-        </span>
+      <Button
+        className="category-btn"
+        onClick={() => {
+          if (!menCategoryOpen) {
+            setSelectedCategory("Hombres");
+            setSelectedSubcategory("");
+            setUbication("Hombres");
+            navigate(`/products/hombres`);
+          }
+          setMenCategoryOpen(!menCategoryOpen);
+        }}
+      >
+        <span>Hombres</span>
         {menCategoryOpen === false ? (
           <FontAwesomeIcon
             icon={faAngleDown}
