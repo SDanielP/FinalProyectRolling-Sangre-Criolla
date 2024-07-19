@@ -8,14 +8,14 @@ import ProductsScreen from "./pages/ProductsScreen";
 import Home from "./pages/Home.jsx";
 import FrequentQuestions from "./pages/FrequentQuestions.jsx";
 import Nosotros from "./pages/AboutUs.jsx";
-import PaymentForm from "./pages/payments.jsx";
+import PaymentForm from "./pages/Payments.jsx";
 import DProd from "./components/shop/productDetail/Dprod.jsx";
 import RecuperacionContra from "./pages/RecuperacionContra.jsx";
-import ErrorScreen from "./pages/ErrorScreen.jsx"
-import SearchScreen from "./pages/SearchScreen.jsx"
+import ErrorScreen from "./pages/ErrorScreen.jsx";
+import SearchScreen from "./pages/SearchScreen.jsx";
 import ContactUs from "./pages/ContactUs.jsx";
 import Admin from "./pages/admin.jsx";
-import NotFoundPage from "./pages/ErrorScreen.jsx"
+import NotFoundPage from "./pages/ErrorScreen.jsx";
 
 const url = "https://sangrecriolla-back-end.onrender.com"
 
