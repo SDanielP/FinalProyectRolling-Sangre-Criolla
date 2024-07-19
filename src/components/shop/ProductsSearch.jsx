@@ -2,17 +2,19 @@ import "../../styles/components/shop/Products.css";
 import React, { useEffect, useState, useCallback } from "react";
 import ProductCard from "./productsCard/ProductCard";
 import { useProducts } from "../../store/useProducts";
+import { useParams } from "react-router-dom";
+import Loader from "./apiMessages/Loader";
+import UpsSearch from "./apiMessages/UpsSearch.jsx";
 
 const categoriesOptions = [
   { id: 1, value: "mujeres", label: "Mujeres" },
   { id: 2, value: "hombres", label: "Hombres" },
 ];
+
 //***URL API
 const url = "https://sangrecriolla-back-end.onrender.com";
 
-const Products = ({
-  categoria,
-  subcategoria,
+const ProductsSearch = ({
   ordenar,
   precioMin,
   precioMax,
@@ -22,6 +24,7 @@ const Products = ({
 }) => {
   const { products, setProducts } = useProducts();
   const [productosStore, setProductosStore] = useState([]);
+  const { category, subcategory } = useParams();
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -50,17 +53,17 @@ const Products = ({
     const filterAndSortProducts = () => {
       let filteredProducts = [...products];
       
-      if (categoria) {
+      if (category) {
         filteredProducts = filteredProducts.filter(
           (producto) =>
-            producto.categoria.toLowerCase() === categoria.toLowerCase()
+            producto.categoria.toLowerCase() === category.toLowerCase()
         );
       }
 
-      if (subcategoria) {
+      if (subcategory) {
         filteredProducts = filteredProducts.filter(
           (producto) =>
-            producto.subcategoria.toLowerCase() === subcategoria.toLowerCase()
+            producto.subcategory.toLowerCase() === subcategory.toLowerCase()
         );
       }
 
@@ -114,8 +117,8 @@ const Products = ({
     filterAndSortProducts();
   }, [
     products,
-    categoria,
-    subcategoria,
+    category,
+    subcategory,
     ordenar,
     precioMin,
     precioMax,
@@ -123,11 +126,11 @@ const Products = ({
   ]);
 
   if (loading) {
-    return <p>Cargando...</p>;
+    return( <Loader />);
   }
 
   if (error) {
-    return <p>Error al cargar: {error.message}</p>;
+    return <p className="api-msg">Error al cargar: {error.message}</p>;
   }
 
   return (
@@ -139,12 +142,10 @@ const Products = ({
           ))}
         </div>
       ) : (
-        <p className="contenedorProductos">
-          No se encontraron productos para esta categoría.
-        </p>
+        <UpsSearch />
       )}
     </div>
   );
 };
 
-export default Products;
+export default ProductsSearch;

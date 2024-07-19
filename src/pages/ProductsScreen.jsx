@@ -165,8 +165,6 @@ const ProductsScreen = () => {
               precioMax={max}
             />
           )}
-          {/* </>
-          )} */}
         </div>
       </section>
       <Footer />

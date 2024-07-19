@@ -11,6 +11,7 @@ const categoriesOptions = [
   { id: 2, value: "hombres", label: "Hombres" },
 ];
 
+//***URL API
 const url = "https://sangrecriolla-back-end.onrender.com";
 
 const Products = ({
