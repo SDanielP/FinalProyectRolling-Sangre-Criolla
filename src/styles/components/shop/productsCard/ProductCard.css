@@ -49,12 +49,21 @@
 }
 
 /*=============== CARD ===============*/
+/*CON GRID*/
 .containerCard {
+    min-width: 10rem !important;
+    width: 11rem !important;
+    height: 22rem;
+    position: relative;
+}
+
+/*CON FLEXBOX*/
+/* .containerCard {
     min-width: 10rem !important;
     width: 13rem !important;
     height: 22rem;
     position: relative;
-}
+} */
 
 .card__container {
     background-color: rgb(255, 255, 255);
