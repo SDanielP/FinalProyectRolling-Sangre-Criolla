@@ -61,6 +61,20 @@
     .seccion-filtros {
         display: none;
     }
+
+    .contenedor-filtros-productos {
+        padding: 1rem 0rem 10rem 0rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(57, 61, 50);
+    }
+
+    .contenedor-productos{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
 }
 
 /* Media Queries para tablets */

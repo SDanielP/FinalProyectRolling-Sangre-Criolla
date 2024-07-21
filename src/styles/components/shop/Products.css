@@ -42,6 +42,7 @@
 @media (max-width: 767px) {
     .contenedorProductos {
       grid-template-columns: repeat(2, 1fr);
+      padding: 0;
     }
   }
   
