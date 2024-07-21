@@ -1,10 +1,15 @@
 import React from "react";
 import Accordion from "react-bootstrap/Accordion";
+import NavbarMenu from "../components/general/NavbarMenu";
+import Banner from "../components/home/Banner";
+import Footer from "../components/general/footer/Footer";
 
 function FrequentQuestions() {
   return (
     <>
-      <section className="container mt-3">
+      <Banner />
+      <NavbarMenu />
+      <section className="container mt-5 mb-5 pb-5">
         <h2>Preguntas Frecuentes</h2>
         <div className="row justify-content-center">
           <div className="col-12 col-md-10 col-lg-8">
@@ -79,6 +84,7 @@ function FrequentQuestions() {
           </div>
         </div>
       </section>
+      <Footer />
     </>
   );
 }
