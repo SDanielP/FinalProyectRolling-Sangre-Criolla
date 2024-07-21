@@ -8,7 +8,7 @@ import CompanyRights from "./CompanyRights.jsx";
 const Footer = () => {
   return (
     <footer className="container-fluid bg-white footer-block">
-      <section className="conteiner-links-columns">
+      <section className="container-links-columns">
         <RrhhSection />
       </section>
       <section>

@@ -6,19 +6,18 @@ import SocialContactSection from "./SocialContactSection";
 
 const RrhhSection = () => {
   return (
-    <footer >
-
+    <footer>
       {/* Section con contactos y formulario */}
       <section className="conteiner-links-columns">
         <article>
           <form className="ps-0 ps-lg-5">
-            <fieldset>
+            <NavLink to="/" className="logo fuenteLogo" onClick={window.scrollTo({ top: 0, behavior: "smooth" })}>
               <img
                 src={profileImage}
                 alt="logo sin el fondo"
                 className="w-10 "
               />
-            </fieldset>
+            </NavLink>
           </form>
         </article>
         <article>
@@ -28,6 +27,7 @@ const RrhhSection = () => {
               <NavLink
                 to="/page-not-found"
                 className="text-decoration-none text-black"
+                onClick={window.scrollTo({ top: 0, behavior: "smooth" })}
               >
                 ventas@sangrecriolla.com
               </NavLink>
@@ -37,12 +37,14 @@ const RrhhSection = () => {
               <NavLink
                 to="/page-not-found"
                 className="text-decoration-none text-black"
+                onClick={window.scrollTo({ top: 0, behavior: "smooth" })}
               >
                 3810000000
               </NavLink>
               <NavLink
                 to="/page-not-found"
                 className="text-decoration-none text-black"
+                onClick={window.scrollTo({ top: 0, behavior: "smooth" })}
               >
                 ayuda@sangrecriolla.com
               </NavLink>
@@ -52,6 +54,7 @@ const RrhhSection = () => {
               <NavLink
                 to="/page-not-found"
                 className="text-decoration-none text-black"
+                onClick={window.scrollTo({ top: 0, behavior: "smooth" })}
               >
                 rrhh@sangrecriolla.com
               </NavLink>
@@ -64,6 +67,7 @@ const RrhhSection = () => {
               <NavLink
                 to="/page-not-found"
                 className="text-decoration-none text-black"
+                onClick={window.scrollTo({ top: 0, behavior: "smooth" })}
               >
                 Cómo comprar
               </NavLink>
@@ -72,6 +76,7 @@ const RrhhSection = () => {
               <NavLink
                 to="/page-not-found"
                 className="text-decoration-none text-black"
+                onClick={window.scrollTo({ top: 0, behavior: "smooth" })}
               >
                 Cambios y devoluciones
               </NavLink>
@@ -80,6 +85,7 @@ const RrhhSection = () => {
               <NavLink
                 to="/page-not-found"
                 className="text-decoration-none text-black"
+                onClick={window.scrollTo({ top: 0, behavior: "smooth" })}
               >
                 Envíos
               </NavLink>
@@ -88,6 +94,7 @@ const RrhhSection = () => {
               <NavLink
                 to="/page-not-found"
                 className="text-decoration-none text-black"
+                onClick={window.scrollTo({ top: 0, behavior: "smooth" })}
               >
                 Pagos
               </NavLink>
@@ -96,6 +103,7 @@ const RrhhSection = () => {
               <NavLink
                 to="/frequent-questions"
                 className="text-decoration-none text-black"
+                onClick={window.scrollTo({ top: 0, behavior: "smooth" })}
               >
                 Preguntas frecuentes
               </NavLink>
