@@ -3,8 +3,12 @@ import * as Yup from 'yup';
 import '../styles/PaymentForm.css';
 import { useEffect, useState } from 'react';
 import NavbarMenu from "../components/general/NavbarMenu"
+import { useNavigate } from 'react-router-dom';
+
+
 
 const PaymentForm = () => {
+  const navigate = useNavigate();
   const [productos, setProductos] = useState([]);
 
   useEffect(() => {
@@ -230,7 +234,9 @@ const PaymentForm = () => {
     </div >
      <section >
       <button className="btn-paym" type="submit">PAGAR</button>
-      <button className="btn-paym" type="button" onClick={() => window.location.href = '/products/all'}>CANCELAR</button>
+      <button className="btn-paym" type="button" onClick={() => navigate('/products/all')}>
+      CANCELAR
+    </button>
       </section>
     </form>
     </>
