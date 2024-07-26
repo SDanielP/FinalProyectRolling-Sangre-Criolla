@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import '../styles/styleInicioSesion.css'
+import '../../styles/styleInicioSesion.css'
 import { useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 

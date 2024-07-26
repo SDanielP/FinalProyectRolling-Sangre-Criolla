@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import InicioSesion from './InicioSesion';
 import Registro from './Registro';
-import "../styles/styleModal.css"
+import '../../styles/styleModal.css';
 
 const ModalInicioSesion = () => {
   const [show, setShow] = useState(false);

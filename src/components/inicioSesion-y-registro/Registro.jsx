@@ -1,5 +1,5 @@
 import React,{ useState } from 'react';
-import "../styles/styleInicioSesion.css"
+import "../../styles/styleInicioSesion.css"
 import toast, {Toaster}  from 'react-hot-toast';
 import {useRef} from 'react';
 const url = "https://sangrecriolla-back-end.onrender.com";
@@ -12,7 +12,7 @@ const Registro = ({toggleComponent}) => {
         password: ''
     });
 
-    const form = useRef(null);
+    // const form = useRef(null);
 
     // Handler para el cambio de los campos del formulario
     const handleInputChange = (e) => {

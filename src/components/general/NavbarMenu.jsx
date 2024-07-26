@@ -5,7 +5,7 @@ import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { NavLink, Link } from "react-router-dom";
 import logo from '../../assets/img/homeIMG/perfil-negro-1v2-100x100.jpg';
 import Cart from "../shop/carts/cart";
-import ModalInicioSesion from '../Modal-InicioSesion';
+import ModalInicioSesion from '../inicioSesion-y-registro/Modal-InicioSesion';
 import { useCartModal } from '../../store/useCartModal';
 
 const Navbar = () => {
