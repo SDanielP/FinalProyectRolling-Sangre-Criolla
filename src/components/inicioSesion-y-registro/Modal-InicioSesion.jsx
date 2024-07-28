@@ -18,9 +18,9 @@ const ModalInicioSesion = () => {
   };
   return (
     <>
-      <button className='button' variant="dark" onClick={handleShow} >
+      <Button className='button mx-20' variant="dark" onClick={handleShow} >
         Iniciar Sesión
-      </button>
+      </Button>
 
       <Modal className='' show={show} onHide={handleClose} backdrop="static" keyboard={false}>
         <Modal.Header className='modal-InicioYRegistro' closeButton>

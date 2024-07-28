@@ -1,4 +1,4 @@
-import React,{ useState } from 'react';
+import React,{ useEffect, useState } from 'react';
 import "../../styles/styleInicioSesion.css"
 import toast, {Toaster}  from 'react-hot-toast';
 import {useRef} from 'react';
@@ -11,17 +11,12 @@ const Registro = ({toggleComponent}) => {
         email: '',
         password: ''
     });
-
-    // const form = useRef(null);
-
     // Handler para el cambio de los campos del formulario
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
     };
-
     // Handler para el envío del formulario de registro
-
     const handleRegisterSubmit = async (e) => {
         e.preventDefault();  
         try {
@@ -35,17 +30,18 @@ const Registro = ({toggleComponent}) => {
             if (response.ok) {
                 console.log('Usuario registrado con éxito.');
                 toast.success('Usuario registrado con éxito.');
-                // form.current.reset()
                 e.target.reset();
+                setFormData({ name: '', email: '', password: '' });
             } else {
                 console.error('Error al registrar el usuario:', response.statusText);
-                toast.error('Error al registrar el usuario:');
+                toast.error('Error al registrar el usuario');
             }
         } catch (error) {
             console.error('Error al registrar el usuario:', error);
-            toast('Error al registrar el usuario:');
+            toast('Error al registrar el usuario');
         }
     };
+
     return (
         <div className="componente-iniciarSesion">
             <h1 className="titulo-iniciarSesion transparente-iniciarSesion">Regístrate</h1>
@@ -59,11 +55,11 @@ const Registro = ({toggleComponent}) => {
 
                     {/* --- INPUT DE EMAIL --- */}
                     <label htmlFor="email">Correo electrónico</label>
-                    <input className="input-iniciarSesion transparente-iniciarSesion" type="email" autoComplete="off" name='email'id='email' value={formData.email} onChange={handleInputChange} />
+                    <input className="input-iniciarSesion transparente-iniciarSesion" type="email" autoComplete="off" name="email" id="email"value={formData.email} onChange={handleInputChange} />
 
                     {/* --- INPUT DE CONTRASEÑA --- */}
                     <label htmlFor="password">Contraseña</label>
-                    <input className="input-iniciarSesion transparente-iniciarSesion" type="password" autoComplete="off" id='password' name= 'password' value={formData.password} onChange={handleInputChange} required />
+                    <input className="input-iniciarSesion transparente-iniciarSesion" type="password" autoComplete="off" id="password" name= "password" value={formData.password} onChange={handleInputChange} required />
 
                     {/* --- INPUT DE CONFIRMAR CONTRASEÑA --- */}
                     {/* <input className="input-iniciarSesion transparente-iniciarSesion" type="password" autoComplete="off" id='confirmContraseña' name= 'confirmPassword' placeholder="Confirmar contraseña" required /><br /> */}
