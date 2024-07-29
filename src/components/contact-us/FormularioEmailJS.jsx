@@ -1,91 +1,152 @@
-import React, { useRef, useState } from 'react';
+// eslint-disable-next-line no-unused-vars
+import React, { useState } from 'react';
 import { Row, Col, Form, Button } from 'react-bootstrap';
-import emailjs from '@emailjs/browser';
 import ModalContacto from './ModalContacto';
 import '../../styles/ContactUs.css';
 
 const FormularioEmailJS = () => {
-  const form = useRef();
+  const [formValues, setFormValues] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
+  });
 
-  const sendEmail = (e) => {
-    e.preventDefault();
+  const [formErrors, setFormErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [show, setShow] = useState(false);
 
-    emailjs
-      .sendForm(
-        import.meta.env.VITE_VERSION_ID,
-        import.meta.env.VITE_TEMPLATE_ID,
-        e.target,
-        import.meta.env.VITE_PUBLIC_KEY
-      )
-      .then();
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormValues({
+      ...formValues,
+      [name]: value,
+    });
   };
 
-  const [show, setShow] = useState(false);
+  const validate = (values) => {
+    const errors = {};
+    if (!values.name) {
+      errors.name = 'Nombre requerido';
+    } else if (values.name.length > 30) {
+      errors.name = 'Debe tener 30 caracteres o menos';
+    }
+
+    if (!values.email) {
+      errors.email = 'Email requerido';
+    } else if (!/\S+@\S+\.\S+/.test(values.email)) {
+      errors.email = 'Dirección de correo inválida';
+    }
+
+    if (!values.subject) {
+      errors.subject = 'Asunto requerido';
+    } else if (values.subject.length > 40) {
+      errors.subject = 'Debe tener 40 caracteres o menos';
+    }
+
+    if (!values.message) {
+      errors.message = 'Mensaje requerido';
+    } else if (values.message.length > 300) {
+      errors.message = 'Debe tener 300 caracteres o menos';
+    }
+    return errors;
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const errors = validate(formValues);
+    setFormErrors(errors);
+    if (Object.keys(errors).length === 0) {
+      setShow(true);
+    }
+  };
 
   return (
     <>
-      <Form ref={form} onSubmit={sendEmail}>
+      <Form id="contactForm" onSubmit={handleSubmit}>
         {/* Nombre y Correo */}
         <Row>
           <Col sm={6}>
-            <Form.Group>
+            <Form.Group controlId="formName">
               <Form.Label></Form.Label>
               <Form.Control
                 type="text"
-                name="user_name"
+                name="name"
                 placeholder="Nombre y Apellido"
-                required
+                value={formValues.name}
+                onChange={handleChange}
+                isInvalid={!!formErrors.name}
               ></Form.Control>
+              <Form.Control.Feedback type="invalid">{formErrors.name}</Form.Control.Feedback>
             </Form.Group>
           </Col>
           <Col sm={6}>
-            <Form.Group>
+            <Form.Group controlId="formEmail">
               <Form.Label></Form.Label>
               <Form.Control
                 type="email"
-                name="user_email"
+                name="email"
                 placeholder="Email"
-                required
+                value={formValues.email}
+                onChange={handleChange}
+                isInvalid={!!formErrors.email}
               ></Form.Control>
+              <Form.Control.Feedback type="invalid">{formErrors.email}</Form.Control.Feedback>
             </Form.Group>
           </Col>
         </Row>
         {/* Asunto del correo */}
         <Row>
           <Col sm={12}>
-            <Form.Group>
+            <Form.Group controlId="formSubject">
               <Form.Label></Form.Label>
-              <Form.Control type="text" name="subject" placeholder="Asunto" required></Form.Control>
+              <Form.Control
+                type="text"
+                name="subject"
+                placeholder="Asunto"
+                value={formValues.subject}
+                onChange={handleChange}
+                isInvalid={!!formErrors.subject}
+              ></Form.Control>
+              <Form.Control.Feedback type="invalid">{formErrors.subject}</Form.Control.Feedback>
             </Form.Group>
           </Col>
         </Row>
         {/* Mensaje del correo */}
         <Row>
           <Col sm={12} className="mb-3">
-            <Form.Group>
+            <Form.Group controlId="formMessage">
               <Form.Label></Form.Label>
               <Form.Control
                 as="textarea"
                 rows={3}
                 name="message"
                 placeholder="Escriba su Mensaje, por favor"
+                value={formValues.message}
+                onChange={handleChange}
+                isInvalid={!!formErrors.message}
               ></Form.Control>
+              <Form.Control.Feedback type="invalid">{formErrors.message}</Form.Control.Feedback>
             </Form.Group>
           </Col>
         </Row>
         {/* Boton de enviar */}
         <Row>
           <Col sm={12} className="d-flex justify-content-center">
-            <Button
-              type="submit"
-              value="Enviar"
-              className="colorBoton"
-              onClick={() => setShow(true)}
-            >
+            <Button type="submit" value="Enviar" className="colorBoton">
               Enviar
               <i className="bi bi-send btn iconoEnviar" />
             </Button>
-            {show && <ModalContacto show={show} onHide={() => setShow(false)} />}
+            {show && (
+              <ModalContacto
+                show={show}
+                onHide={() => setShow(false)}
+                formValues={formValues}
+                setShow={setShow}
+                setIsSubmitting={setIsSubmitting}
+                setFormValues={setFormValues}
+              />
+            )}
           </Col>
         </Row>
       </Form>
